@@ -7,12 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        window.targetGlobalSettings = {
-            cookieDomain: 'mohit6699.github.io'
-        };
-    </script>
-
     <!-- styles -->
     <style>
         * {
@@ -60,21 +54,14 @@
         }
     </style>
     <!-- /styles -->
-    <!--Data Layer to enable rich data collection and targeting-->
+
     <script>
-        var digitalData = {
-            "page": {
-                "pageInfo": {
-                    "pageName": "Home"
-                }
-            }
+        window.targetGlobalSettings = {
+            cookieDomain: 'mohit6699.github.io'
         };
     </script>
-    <!--/Data Layer-->
-    <!--jQuery or other helper libraries-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--/jQuery-->
-    <!-- <script>
+    
+    <script>
         //prehiding snippet for Adobe Target with asynchronous tags deployment
         ; (function (win, doc, style, timeout) {
             var STYLE_ID = 'at-body-style';
@@ -105,13 +92,25 @@
                 removeStyle(getParent(), STYLE_ID);
             }, timeout);
         }(window, document, "body {opacity: 0 !important}", 3000));
-    </script> -->
+    </script>
 
     <!--Launch Header Embed Code: REPLACE THE NEXT LINE WITH THE EMBED CODE FROM YOUR OWN DEVELOPMENT ENVIRONMENT-->
     <script src="https://assets.adobedtm.com/6268dc4b6b26/3687404ba15d/launch-6d737dfee008-development.min.js"
         async></script>
     <!-- <script src="//assets.adobedtm.com/launch-EN93497c30fdf0424eb678d5f4ffac66dc.min.js" async></script> -->
     <!--/Launch Header Embed Code-->
+
+    <!--Data Layer to enable rich data collection and targeting-->
+    <script>
+        var digitalData = {
+            "page": {
+                "pageInfo": {
+                    "pageName": "Home"
+                }
+            }
+        };
+    </script>
+    <!--/Data Layer-->
 </head>
 
 <body>
