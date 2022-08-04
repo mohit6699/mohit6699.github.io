@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>MT Capstone</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+        <header>
+            <h1>DEMO</h1>
+            <nav class="tabs">
+                <a id="home" class="active" onclick="tabSwitch(id)">HOME</a>
+                <a id="styleDemo" onclick="tabSwitch(id)" href="index.html">STYLE DEMO</a>
+                <a id="fullWidth" onclick="tabSwitch(id)">FULL WIDTH</a>
+                <a>DROPDOWN</a>
+                <a>PORTFOLIO</a>
+                <a>GALLERY</a>
+            </nav>
+        </header>
+        <div id="main">
+            <article>Article</article>
+        </div>
+        <footer>Footer</footer>
+
+</body>
+
+<script>
+    function tabSwitch(id) {
+        let activeEle = document.getElementById(id);
+        let oldEle = document.getElementsByClassName("active");
+        oldEle[0].classList.remove("active"); 
+        activeEle.classList.add("active");
+    }
+</script>
+
+</html>

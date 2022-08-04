@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    padding: 1em 6em;
+    background-color: #290000;
+    color: #fff;
+    border-top: 0.3em solid #6ba87a;
+}
+
+.tabs {
+    padding: 2em 0em;
+    margin: auto;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tabs > a {
+    margin: 0 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.active {
+    background-color: #6ba87a;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+}
