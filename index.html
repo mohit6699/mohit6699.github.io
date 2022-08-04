@@ -10,16 +10,20 @@
 
     <!--Data Layer to enable rich data collection and targeting-->
     <script>
+        let memberTypeList = ['', 'silver', 'gold'];
         var digitalData = {
             "page": {
                 "pageInfo": {
                     "pageName": "Home"
                 }
-            }
+            },
+            "profile": {
+                memberType: memberTypeList[Math.floor((Math.random() * 3))]
+            },
         };
     </script>
     <!--/Data Layer-->
-    
+
     <script>
         window.targetGlobalSettings = {
             cookieDomain: 'mohit6699.github.io'
