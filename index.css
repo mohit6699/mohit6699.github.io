@@ -50,8 +50,5 @@
 
     article>button {
         padding: 1.5em 2em;
-        border-radius: 10px;
-        background-color: yellowgreen;
-        color: white;
-        border: none;
+        cursor: pointer;
     }
