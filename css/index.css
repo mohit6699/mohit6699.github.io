@@ -42,7 +42,7 @@
         padding: 1em;
     }
 
-    article {
+    article, nav {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -51,4 +51,10 @@
     article>button {
         padding: 1.5em 2em;
         cursor: pointer;
+    }
+
+    nav>a {
+        text-decoration: none;
+        cursor: pointer;
+        color: cornflowerblue
     }
