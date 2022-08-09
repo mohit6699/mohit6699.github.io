@@ -62,8 +62,14 @@
         color: cornflowerblue
     }
 
-    #loginButton{
+    #loginButton, #logoutButton{
         height: 30px;
         width: 60px;
+        cursor: pointer;
+    }
+
+    .userIcon {
+        width: 30px;
+        height: 30px;
         cursor: pointer;
     }

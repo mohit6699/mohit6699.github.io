@@ -11,7 +11,6 @@
     <!--Data Layer to enable rich data collection and targeting-->
     <script>
         let memberTypeList = ['', 'silver', 'gold'];
-        let authState = false;
         var digitalData = {
             "page": {
                 "pageInfo": {
@@ -20,18 +19,11 @@
             },
             "profile": {
                 "memberType": memberTypeList[Math.floor((Math.random() * 3))],
-                "loggedIn": authState
+                "loggedIn": false
             },
         };
-        localStorage.setItem("memberType", digitalData.profile.memberType);
-        localStorage.setItem("authState", digitalData.profile.loggedIn);
 
-        function changeAuthState() {
-            if (!authState) {
-                authState = true;
-                localStorage.setItem("authState", authState);
-            }
-        }
+        localStorage.setItem("memberType", digitalData.profile.memberType);        
     </script>
     <!--/Data Layer-->
 
@@ -53,7 +45,9 @@
 <body>
     <header>
         <h2>Header</h2>
-        <button id="loginButton" onclick="changeAuthState()">Login</button>
+        <img class="userIcon" src="../images/user.png" />
+        <button id="loginButton" onclick="login()">Login</button>
+        <button id="logoutButton" onclick="logout()">Logout</button>
     </header>
     <div id="main">
         <article><button>Click</button></article>
@@ -63,6 +57,20 @@
         <aside>Aside</aside>
     </div>
     <footer>Footer</footer>
+
+    <script>
+        function login() {
+            document.getElementById("logoutButton").style.display = "none";
+            localStorage.setItem("authState", true);
+            location.reload();
+        }
+
+        function logout() {
+            document.getElementById("loginButton").style.display = "none";
+            localStorage.setItem("authState", false);
+            location.reload();
+        }
+    </script>
 </body>
 
 </html>
