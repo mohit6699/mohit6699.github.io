@@ -10,6 +10,7 @@
 
     <!--Data Layer to enable rich data collection and targeting-->
     <script>
+        console.log("Post launch => ln:13 ", localStorage.getItem("authState"));
         let memberTypeList = ['', 'silver', 'gold'];
         var digitalData = {
             "page": {
@@ -37,7 +38,9 @@
 
     <!--Launch Header Embed Code-->
     <script src="https://assets.adobedtm.com/6268dc4b6b26/3687404ba15d/launch-6d737dfee008-development.min.js"
-        async></script>
+        async>
+        console.log("Post launch => ln:41 ", localStorage.getItem("authState"));
+    </script>
     <!--/Launch Header Embed Code-->
 
 </head>
@@ -62,14 +65,18 @@
         function login() {
             document.getElementById("logoutButton").style.display = "none";
             localStorage.setItem("authState", true);
-            location.reload();
+            window.location.reload();
+            console.log(localStorage.getItem("authState"));
         }
 
         function logout() {
             document.getElementById("loginButton").style.display = "none";
             localStorage.setItem("authState", false);
-            location.reload();
+            window.location.reload();
+            console.log(localStorage.getItem("authState"));
         }
+
+        console.log("Post launch => ln:78 ", localStorage.getItem("authState"));
     </script>
 </body>
 
