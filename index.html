@@ -11,6 +11,7 @@
     <!--Data Layer to enable rich data collection and targeting-->
     <script>
         let memberTypeList = ['', 'silver', 'gold'];
+        let authState = false;
         var digitalData = {
             "page": {
                 "pageInfo": {
@@ -18,10 +19,19 @@
                 }
             },
             "profile": {
-                "memberType": memberTypeList[Math.floor((Math.random() * 3))]
+                "memberType": memberTypeList[Math.floor((Math.random() * 3))],
+                "loggedIn": authState
             },
         };
         localStorage.setItem("memberType", digitalData.profile.memberType);
+        localStorage.setItem("authState", digitalData.profile.loggedIn);
+
+        function changeAuthState() {
+            if (!authState) {
+                authState = true;
+                localStorage.setItem("authState", authState);
+            }
+        }
     </script>
     <!--/Data Layer-->
 
@@ -43,6 +53,7 @@
 <body>
     <header>
         <h2>Header</h2>
+        <button id="loginButton" onclick="changeAuthState()">Login</button>
     </header>
     <div id="main">
         <article><button>Click</button></article>
