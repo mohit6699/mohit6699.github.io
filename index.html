@@ -11,6 +11,7 @@
     <!--Data Layer to enable rich data collection and targeting-->
     <script>
         console.log("Post launch => ln:13 ", localStorage.getItem("authState"));
+        let authState = false;
         let memberTypeList = ['', 'silver', 'gold'];
         var digitalData = {
             "page": {
@@ -20,9 +21,25 @@
             },
             "profile": {
                 "memberType": memberTypeList[Math.floor((Math.random() * 3))],
-                "loggedIn": false
+                "loggedIn": authState
             },
         };
+
+        function login() {
+            document.getElementById("logoutButton").style.display = "none";
+            //localStorage.setItem("authState", true);
+            window.location.reload();
+            digitalData.profile.loggedIn = true;
+            //console.log(localStorage.getItem("authState"));
+        }
+
+        function logout() {
+            document.getElementById("loginButton").style.display = "none";
+            // localStorage.setItem("authState", false);
+            window.location.reload();
+            digitalData.profile.loggedIn = false;
+            //console.log(localStorage.getItem("authState"));
+        }
 
         localStorage.setItem("memberType", digitalData.profile.memberType);        
     </script>
@@ -89,23 +106,6 @@
     </div>
     <footer>Footer</footer>
 
-    <script>
-        function login() {
-            document.getElementById("logoutButton").style.display = "none";
-            localStorage.setItem("authState", true);
-            window.location.reload();
-            console.log(localStorage.getItem("authState"));
-        }
-
-        function logout() {
-            document.getElementById("loginButton").style.display = "none";
-            localStorage.setItem("authState", false);
-            window.location.reload();
-            console.log(localStorage.getItem("authState"));
-        }
-
-        console.log("Post launch => ln:78 ", localStorage.getItem("authState"));
-    </script>
 </body>
 
 </html>
