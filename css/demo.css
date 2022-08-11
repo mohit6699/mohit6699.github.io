@@ -98,13 +98,14 @@ header {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin: 0em 4em;
 }
 
 .u-tile {
     height: 360px;
     width: 240px;
     background-color: #fff;
-    margin: 1em 0;
+    margin: 0.5em 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +143,7 @@ header {
 
 .d-tile {
     height: 240px;
-    width: 360px;
+    width: 320px;
     background-color: #353535;
     margin: 1em 0;
     border: 10px solid #fff;
@@ -272,4 +273,8 @@ footer .footer-section h3 {
     color: #ffffff;
     font-weight: lighter;
     font-size: 13px;
+}
+
+.low-text{
+    color: gray;
 }
