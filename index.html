@@ -21,22 +21,25 @@
             },
             "profile": {
                 "memberType": memberTypeList[Math.floor((Math.random() * 3))],
-                "loggedIn": authState
+                "loggedIn": true
             },
         };
 
         function login() {
-            document.getElementById("logoutButton").style.display = "none";
+            document.getElementById("loginButton").style.display = "none";
             //localStorage.setItem("authState", true);
-            window.location.reload();
-            digitalData.profile.loggedIn = true;
+            let update = setTimeout(() => {
+                digitalData.profile.loggedIn = true;
+            }, 0);
+            window.location.reload(update);
+            
             //console.log(localStorage.getItem("authState"));
         }
 
         function logout() {
-            document.getElementById("loginButton").style.display = "none";
             // localStorage.setItem("authState", false);
             window.location.reload();
+            document.getElementById("logoutButton").style.display = "none";
             digitalData.profile.loggedIn = false;
             //console.log(localStorage.getItem("authState"));
         }

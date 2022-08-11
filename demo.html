@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +19,7 @@
             <h1>DEMO</h1>
 
             <nav class="tabs">
-                <a id="home" class="active" onclick="tabSwitch(id)">HOME</a>
+                <a id="home" class="active-tab" onclick="tabSwitch(id)">HOME</a>
                 <a id="styleDemo" onclick="tabSwitch(id)">STYLE DEMO</a>
                 <a id="fullWidth" onclick="tabSwitch(id)">FULL WIDTH</a>
                 <a>DROPDOWN</a>
@@ -25,22 +28,253 @@
             </nav>
         </div>
         <div class="head-carousel">
-            
+            <div class="container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <a class="left" href="#myCarousel" data-slide="prev">
+                        <img src="images/left-arrow.png" />
+                    </a>
+                    <div class="carousel-inner">
+
+                        <div class="item active">
+                            <div class="inner-item">
+                                <div class="text-content">
+                                    <label class="carousel-header">
+                                        Cursus penati saccum nulla.
+                                    </label>
+                                    <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.
+                                        Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo
+                                        nulla et feugiat adipiscinia pellentum leo.</p>
+                                    <button class="read-more-btn">Read More Here ></button>
+                                </div>
+                                <img class="carousel-image" src="images/banner.png" alt="Los Angeles">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="inner-item">
+                                <div class="text-content">
+                                    <label class="carousel-header">
+                                        Cursus penati saccum nulla.
+                                    </label>
+                                    <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.
+                                        Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo
+                                        nulla et feugiat adipiscinia pellentum leo.</p>
+                                    <button class="read-more-btn">Read More Here ></button>
+                                </div>
+                                <img class="carousel-image" src="images/banner.png" alt="Chicago">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="inner-item">
+                                <div class="text-content">
+                                    <label class="carousel-header">
+                                        Cursus penati saccum nulla.
+                                    </label>
+                                    <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.
+                                        Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo
+                                        nulla et feugiat adipiscinia pellentum leo.</p>
+                                    <button class="read-more-btn">Read More Here ></button>
+                                </div>
+                                <img class="carousel-image" src="images/banner.png" alt="New York">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+
+                    <a class="right" href="#myCarousel" data-slide="next">
+                        <img src="images/right-arrow.png" />
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
     <div id="main">
-        <article>Article</article>
+        <article>
+            <div class="up-tiles">
+                <div class="u-tile">
+                    <div class="u-u-part">
+                        120 x 120px
+                    </div>
+                    <div class="u-m-part">
+                        SERVICE
+                    </div>
+                    <div class="u-m-part">
+                        TITLE
+                    </div>
+                    <div class="u-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+
+                <div class="u-tile">
+                    <div class="u-u-part">
+                        120 x 120px
+                    </div>
+                    <div class="u-m-part">
+                        SERVICE
+                    </div>
+                    <div class="u-m-part">
+                        TITLE
+                    </div>
+                    <div class="u-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+
+                <div class="u-tile">
+                    <div class="u-u-part">
+                        120 x 120px
+                    </div>
+                    <div class="u-m-part">
+                        SERVICE
+                    </div>
+                    <div class="u-m-part">
+                        TITLE
+                    </div>
+                    <div class="u-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+
+                <div class="u-tile">
+                    <div class="u-u-part">
+                        120 x 120px
+                    </div>
+                    <div class="u-m-part">
+                        SERVICE
+                    </div>
+                    <div class="u-m-part">
+                        TITLE
+                    </div>
+                    <div class="u-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mid-head">
+                <label>
+                    LATEST WORK
+                </label>
+            </div>
+
+            <div class="down-tiles">
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+                <div class="d-tile">
+                    <div class="d-u-part">
+                        290 x 190px
+                    </div>
+                    <div class="d-d-part">
+                        LOREM IPSUM DOLOR
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-    <footer>Footer</footer>
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-section">
+                <h3>From The Blog</h3>
+                <p class="high-col">Post Title</p>
+                <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede
+                    estibulum nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna
+                    neque sed quis orci nulla. aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed
+                    quis orci nulla.</p>
+                <p class="high-col">Read More</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="bl-links">
+                    <li><img src='images/d-arrow.png' /> Lorem ipsum dolor sit</li>
+                    <li> <img src='images/d-arrow.png' /> Amet consectetur</li>
+                    <li><img src='images/d-arrow.png' /> Praesent vel sem id</li>
+                    <li><img src='images/d-arrow.png' /> Curabitur hendrerit est</li>
+                    <li><img src='images/d-arrow.png' /> Aliquam eget erat nec sapien</li>
+                    <li><img src='images/d-arrow.png' /> Sed a nulla urna</li>
+                    <li><img src='images/d-arrow.png' /> Curabitur hendrerit est</li>
+
+
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Latest Tweets</h3>
+                <p><span class="high-col">@namehere</span> Justoid nonummy laoreet phasellent penatoque in antesque
+                    pellus elis eget tincidunt. Nequatdui laorem justo a non tellus laoremut vitae doloreet 1 day ago
+                </p>
+
+                <p> <span class="high-col">@namehere</span> Justoid nonummy laoreet phasellent penatoque in antesque
+                    pellus elis eget tincidunt. Nequatdui laorem justo a non tellus laoremut vitae doloreet 1 day ago
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <form>
+                    <input placeholder="full name">
+                    <input placeholder="email address">
+                    <input placeholder="subject">
+                    <textarea placeholder="message"></textarea>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <section class="footer-bottom">
+        <p>Copyright © 2013 Domain Name - All Rights Reserved</p>
+    </section>
 
 </body>
 
 <script>
     function tabSwitch(id) {
         let activeEle = document.getElementById(id);
-        let oldEle = document.getElementsByClassName("active");
-        oldEle[0].classList.remove("active");
-        activeEle.classList.add("active");
+        let oldEle = document.getElementsByClassName("active-tab");
+        oldEle[0].classList.remove("active-tab");
+        activeEle.classList.add("active-tab");
     }
 </script>
 
