@@ -1,0 +1,810 @@
+<style>
+  .black-underline-text {
+      color: #000;
+      text-decoration: underline;
+  }
+
+  .newTimerModule {
+      width: 100%;
+      padding: 20px 0;
+      border-top: #e1e1e1 solid 1px;
+      border-bottom: #e1e1e1 solid 1px;
+  }
+
+  .timerFlex {
+      width: 100%;
+      max-width: 1404px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 20px 32px;
+  }
+
+  .timer-ring {
+      height: 200px;
+      order: -1;
+  }
+
+  .timer-ring-svg {
+      height: 200px;
+      width: 100%;
+  }
+
+  .timer-message {
+      flex-grow: 1;
+      padding: 0 50px;
+  }
+
+  .timer-message h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: 400;
+  }
+
+  .timer-message p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+  }
+
+  .deleted {
+      text-decoration: line-through;
+  }
+
+  .green-bold-text {
+      color: #00a546;
+      font-weight: 600;
+  }
+
+  .base-timer {
+      position: relative;
+      width: 200px;
+      height: 200px;
+  }
+
+  .avail-text {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+  }
+
+  .base-timer__svg {
+      transform: scaleX(-1);
+  }
+
+  .base-timer__circle {
+      fill: none;
+      stroke: none;
+  }
+
+  .base-timer__path-elapsed {
+      stroke-width: 10px;
+      stroke: #cde3fb;
+  }
+
+  .base-timer__path-remaining {
+      stroke-width: 10px;
+      stroke-linecap: round;
+      transform: rotate(90deg);
+      transform-origin: center;
+      transition: 1s linear all;
+      fill-rule: nonzero;
+      stroke: currentColor;
+      stroke: url(#MyGradient);
+  }
+
+  .base-timer__label {
+      width: 100%;
+      top: 0;
+      font-size: 160px;
+      display: flex;
+      justify-content: center;
+      font-weight: 600;
+      margin: 5px 0 10px 0;
+  }
+
+  .timer-contents {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 30px;
+  }
+
+  .timerTitles {
+      width: 100%;
+      display: flex;
+      margin-top: 10px;
+      padding: 0 2px;
+      justify-content: space-between;
+  }
+
+  .timerTitles>span {
+      font-weight: 600;
+  }
+
+  .clockMessage {
+      padding: 0 20px;
+      text-align: center;
+      font-weight: 400;
+  }
+
+  .clockBg,
+  .colon {
+      font-size: 16px;
+      line-height: 30px;
+      min-width: 17px;
+      text-align: center;
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      margin: 0 2px;
+      padding: 0 3px;
+      font-weight: 500;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+  }
+
+  span.colon {
+      font-size: 22px;
+      background: none;
+      color: #333;
+      min-width: 10px;
+      line-height: 25px;
+      font-weight: 700;
+  }
+
+  .smallScreen {
+      display: none;
+  }
+
+  .persistentTimerParent {
+      display: none;
+  }
+
+  @media (max-width:1000px) {
+
+      .timerFlex .c-button.rounded-button,
+      .rounded-button.c-button-small {
+          padding: 16px 25px;
+      }
+
+      .NewATHTML .timer-message {
+          padding: 0 20px;
+      }
+  }
+
+  @media (max-width:700px) {
+      .smallScreen.avail-text {
+          text-align: center;
+      }
+
+      .timer-message {
+          padding: 0
+      }
+
+      .persistentTimerParent {
+          display: block;
+      }
+
+      .NewATHTML .timer-message {
+          padding: 0 20px;
+      }
+
+      .timerFlex {
+          flex-direction: column;
+      }
+
+      .timerFlex .timer-ring {
+          order: 0;
+      }
+
+      .timer-ring {
+          margin: 10px 0;
+      }
+
+      .NewATHTML .timer-message {
+          padding: 0px;
+          text-align: center;
+      }
+
+      .timerFlex .c-button.rounded-button,
+      .rounded-button.c-button-small {
+          padding: 16px 35px;
+      }
+
+      .largeScreen {
+          display: none;
+      }
+
+      .smallScreen {
+          display: block;
+      }
+
+      .timer-message h3 {
+          text-align: center;
+      }
+
+      .timer-message p {
+          text-align: center;
+      }
+
+      .newTimerModule {
+          padding: 7px !important;
+          margin-top: 5px;
+          background: linear-gradient(to top, #0162c6, #17a44b);
+      }
+
+      .timerFlex {
+          background: #fff;
+          border-radius: 5px;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+      }
+  }
+
+  .persistentTimer {
+      background-color: #0473EA;
+      width: 100%;
+      padding: 10px 50px 10px 10px;
+      position: relative;
+  }
+
+  .arrowTimer {
+      width: 30px;
+      position: absolute;
+      right: 10px;
+      top: 20px;
+      color: #0473EA;
+  }
+
+  .arrowSVG {
+      width: 25px;
+      padding: 5px;
+      background: #fff;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+  }
+
+  .timerContentsBar {
+      width: 100%;
+      text-align: center;
+  }
+
+  .timerTexts {
+      width: 100%;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.4;
+  }
+
+  .timerTexts a {
+      color: inherit;
+      text-decoration: underline;
+      font-size: inherit
+  }
+
+  .timerJSContent {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #fff;
+      line-height: 1.4;
+  }
+
+  .timerJSContent b {
+      font-weight: 600;
+  }
+
+  .svgParent.ie {
+      width: 200px;
+      height: 200px;
+      transform: rotate(-90deg);
+  }
+
+  a.green-underline-text {
+      color: #00a546;
+      text-decoration: underline;
+      font-weight: bold;
+      cursor: pointer;
+  }
+
+  span.bold-text {
+      font-weight: bold;
+  }
+
+  #sc-lb-module-fee-and-rate-content-1 a.footer {
+      cursor: pointer;
+  }
+
+  /**/
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(3),
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(4),
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(5) {
+      visibility: hidden;
+      height: 0px;
+  }
+
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel.cls-adbe:nth-child(3),
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel.cls-adbe:nth-child(4),
+  #sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel.cls-adbe:nth-child(5) {
+      display: none;
+  }
+
+  #sc-lb-module-fee-and-rate-content-1 a.footer,
+  #sc-lb-module-fee-and-rate-content-1 a.footer .additional-info {
+      cursor: pointer;
+  }
+</style>
+<script>
+  var offerExpiry = '${profile.activityViewedTPL}' || 'NA';
+  var currentTime = '${user.currentTime}';
+
+  console.log(offerExpiry, currentTime, (offerExpiry >= currentTime));
+
+  if (offerExpiry === 'NA') {
+      offerExpiry = (new Date().getTime() + (12 * 60 * 60 * 1000));
+      adobe.target.trackEvent({
+          "mbox": "mboxClickTrack",
+          "params": {
+              "profile.activityViewedTPL": offerExpiry
+          }
+      });
+  }
+
+  const timeNow = new Date().getTime();
+  const TIME_LIMIT = Math.floor((offerExpiry - timeNow) / 1000);
+
+  if (TIME_LIMIT > 0) {
+      var lhrefNO = "";
+      try {
+          var existingURLparameter = window.location.href;
+          var subChannel = 'IB03';
+          var aggregrateCode = 'IB03';
+          if (existingURLparameter.split(/subChanCode=/gi)[1] != undefined) {
+              subChannel = existingURLparameter.split(/subChanCode=/gi)[1].split("&")[0];
+              subChannel = subChannel.split("#")[0];
+              aggregrateCode = subChannel;
+          }
+
+          if (existingURLparameter.split(/aggregator_code=/gi)[1] != undefined) {
+              var aggregrateCode = existingURLparameter.split(/aggregator_code=/gi)[1].split("&")[0];
+          }
+
+          lhrefNO = "https://origination.sc.com/onboarding/sg/apply.html?product=302&campaign=5611&aggregator_code=" + aggregrateCode + "&B&aggregator_type=IBAT-Exp1&aggregator_instance=ATSCTBO20";
+      } catch (e) { console.log(e); }
+
+      Flickerlessly = window.Flickerlessly || {};
+      !function (A) {
+          "use strict";
+          var init = function (id, sel, callback, persist) {
+              var animationName = 'atNodeInserted' + id;
+              var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+              cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+              var head = document.getElementsByTagName("head")[0];
+              if (head) {
+                  var style = document.createElement("style");
+                  style.setAttribute("type", "text/css");
+                  if (style.styleSheet)
+                      style.styleSheet.cssText = cssStr;
+                  else
+                      style.appendChild(document.createTextNode(cssStr));
+                  head.insertBefore(style, head.firstChild)
+              };
+              var _insertListener = function (event) {
+                  if (event.animationName === animationName && typeof event.target === 'object') {
+                      var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                      if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                      if (typeof callback === 'function' && isExecute) {
+                          callback(event.target);
+                          event.target.setAttribute('data-flk-success', animationName);
+                      }
+                      event.target.style.visibility = 'visible';
+                  }
+              };
+              ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                  document.addEventListener(item, _insertListener, false);
+              });
+          };
+          A.onReady = function () {
+              for (var i = 0; i < arguments.length; i++) {
+                  var obj = arguments[i];
+                  var selector = obj.selector;
+                  var success = obj.success || null;
+                  var persist = obj.persist || false;
+                  var rand = Math.floor((Math.random() * 100) + 1);
+                  init(rand, selector, success, persist);
+              };
+          };
+      }(Flickerlessly);
+
+      Flickerlessly.onReady(
+          /*{
+              selector: "#sc-lb-module-fee-and-rate",
+              persist: false,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-fee-and-rate").classList.contains("adbe-cls")) {
+                      try {
+                          document.querySelector("#sc-lb-module-fee-and-rate").outerHTML = '<div class="m-tables adbe-cls" id="sc-lb-module-fee-and-rate" data-post-status="publish-status" data-post-status-label="Published"> <div class="content-wrapper"> <div class="header"> <h3 class="title">CashOne Personal Loan cashback promotion: Get additional S$300 + up to S$2,400 cashback</h3> </div> <div class="content" id="sc-lb-module-fee-and-rate-content-1"> <div class="table-wrapper"> <table><thead> <tr> <th> <div class="th-wrapper">Approved Loan Amount</div> </th> <th> <div class="th-wrapper">Tenure (Years)</div> </th> <th> <div class="th-wrapper">New Client Cashback</div> </th> <th> <div class="th-wrapper">Existing Client Cashback</div> </th> </tr> </thead><tbody> <tr> <td>S$1,000 to S$9,999</td> <td>3,4 or 5</td> <td>S$88 + S$300 </td> <td>S$88 + S$300 </td> </tr> <tr> <td>S$10,000 to S$20,000</td> <td>3, 4 or 5</td> <td>S$288 + S$300 </td> <td>S$188 + S$300 </td> </tr> <tr> <td>S$20,001 to S$50,000</td> <td>3, 4 or 5</td> <td>S$388 + S$300 </td> <td>S$288 + S$300 </td> </tr> <tr> <td>S$50,001 to S$100,000</td> <td>3, 4 or 5</td> <td>S$688 + S$300 </td> <td>S$588 + S$300 </td> </tr> <tr> <td>S$100,001 to S$250,000</td> <td>3, 4 or 5</td> <td>S$2,400 + S$300 </td> <td>S$1,688 + S$300 </td> </tr> </tbody></table> <a title="Terms and Conditions apply." href="#null" class="footer"> <span class="additional-info no-pointer">Terms and Conditions apply.</span> </a> </div> </div> </div> </div>';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-fee-and-rate").classList.add("adbe-cls");
+                  }
+              }
+          },*/
+          {
+              selector: "#sc-lb-module-product-description",
+              persist: false,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-product-description").classList.contains("adbe-cls")) {
+                      try {
+                          document.querySelector("#sc-lb-module-product-description").insertAdjacentHTML('beforebegin', '<div class="newTimerModule" id="newTimerModule"> <div class="timerFlex"> <div class="timer-message">  <p>  Get additional <span class="green-bold-text"><span style="font-size: x-large;">S$20</span></span> cashback on top of the current promotion of up to S$300 cashback. <a href="https://av.sc.com/sg/content/docs/Additional_Cashback_Time_Offer_April_2022.pdf" target="_blank" class="black-underline-text">Find out more</a> </p> <div class="largeScreen"><p>This additional S$20 cashback is only available if you apply on this page before the time runs out. This promotion may or may not be available if you refresh the page or revisit our website, depending on your browser settings.</p><p><a class="green-underline-text">APPLY NOW</a>&nbsp;  before the time runs out.</p> </div> </div> <div class="timer-ring"> <div class="timer-ring-svg" id="timer-ring-svg"></div> <div class="timer-clock" data-text="Hrs,Mins,Sec,"></div> </div> <div class="smallScreen avail-text"> <p>This additional S$20 cashback is only available if you apply on this page before the time runs out. This promotion may or may not be available if you refresh the page or revisit our website, depending on your browser settings.</p> <p>&nbsp;</p><p><a class="green-underline-text">APPLY NOW</a>&nbsp; </p> <p> before the time runs out.</p> </div> </div> </div>');
+                          // var timerTime = '00:10:00'; // HH:MM:SS Format
+                          var gradientStartColor = '#09246f', gradientEndColor = '#1e4da9';
+
+                          var persistentHTML = '<a href="https://origination.sc.com/onboarding/sg/apply.html?product=302&campaign=5611&aggregator_code=IB03&B&aggregator_type=IBAT-Exp1&aggregator_instance=ATSCTBO20"><div class="persistentTimer"><div class="timerContentsBar"><div class="timerJSContent" id="persistentTimer"></div><div class="timerTexts"><p><a href="#newTimerModule">Apply and get an additional S$20 cashback</a></p></div></div><a href="#newTimerModule" class="arrowTimer"><svg viewBox="0 0 200 200" class="arrowSVG"><path d="M60 20 L140 100 L60 180" fill="none" stroke="#0473EA" stroke-width="20"></path></svg></a></div></a>';
+                          var newDiv = document.createElement('div');
+                          newDiv.classList.add('persistentTimerParent');
+                          var referenceNode = document.querySelector('.sc-nav');
+
+                          if (referenceNode != null) {
+                              newDiv.innerHTML = persistentHTML;
+                              referenceNode.parentNode.insertBefore(newDiv, referenceNode.nextSibling);
+                          }
+
+                          const FULL_DASH_ARRAY = 283;
+                          // var timeArray = timerTime.split(':');
+                          // const TIME_LIMIT = parseFloat(timeArray[0]) * 3600 + parseFloat(timeArray[1]) * 60 + parseFloat(timeArray[2]);
+                          let timePassed = 5;
+                          let timeLeft = TIME_LIMIT;
+                          let timerInterval = null;
+
+                          var clockAttributes = document.querySelector('.timer-clock').getAttribute('data-text').split(',');
+
+                          document.getElementById("timer-ring-svg").innerHTML = '<div class="base-timer"><div class="svgParent"><svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <g class="base-timer__circle"> <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle> <path id="base-timer-path-remaining" stroke-dasharray="283" class="base-timer__path-remaining" d=" M 50, 50 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0 " ></path> </g> <defs> <linearGradient id="MyGradient"> <stop offset="5%" stop-color="' + gradientStartColor + '"></stop> <stop offset="95%" stop-color="' + gradientEndColor + '"></stop> </linearGradient> </defs> </svg></div><div class="timer-contents"><div class="timerTitles"> <span>' + clockAttributes[0] + '</span> <span>' + clockAttributes[1] + '</span> <span>' + clockAttributes[2] + '</span></div> <span id="base-timer-label" class="base-timer__label">' + formatTime(timeLeft) + '</span><div class="clockMessage">' + clockAttributes[3] + '</div></div></div>';
+                          startTimer();
+
+                          function startTimerIf() {
+                              var timerBottomOffset = document.querySelector('.base-timer').offsetTop + document.querySelector('.base-timer').offsetHeight;
+                              var windowscrolledBottom = window.scrollY + window.innerHeight;
+                              if (timerBottomOffset < windowscrolledBottom) {
+                                  setCircleDasharray();
+                              }
+                          }
+                          function onTimesUp() {
+                              clearInterval(timerInterval);
+                          }
+
+                          function startTimer() {
+                              var ua = window.navigator.userAgent;
+                              var old_ie = ua.indexOf('MSIE ');
+                              var new_ie = ua.indexOf('Trident/');
+                              if ((old_ie > -1) || (new_ie > -1)) {
+                                  document.querySelector('.svgParent').classList.add('ie')
+                              }
+                              timerInterval = setInterval(function () {
+                                  timePassed = timePassed += 1;
+                                  timeLeft = TIME_LIMIT - timePassed;
+                                  document.getElementById("base-timer-label").innerHTML = formatTime(
+                                      timeLeft
+                                  );
+                                  document.getElementById("persistentTimer").innerHTML = formatTimePersistent(
+                                      timeLeft
+                                  );
+                                  var timerBottomOffset = document.querySelector('.base-timer').offsetTop + document.querySelector('.base-timer').offsetHeight;
+                                  var windowscrolledBottom = window.scrollY + window.innerHeight;
+                                  if (timerBottomOffset < windowscrolledBottom) {
+                                      setCircleDasharray();
+                                  }
+
+                                  if ((old_ie > -1) || (new_ie > -1)) {
+                                      setCircleDasharray();
+                                  }
+
+                                  if (timeLeft === 0) {
+                                      onTimesUp();
+                                  }
+                              }, 1000);
+                          }
+                          function formatTimePersistent(time) {
+                              let hours = Math.floor(time / 3600);
+                              let minutes = Math.floor((time - (hours * 3600)) / 60);
+                              let seconds = time % 60;
+
+                              if (hours < 10) {
+                                  hours = '0' + hours;
+                              }
+                              if (seconds < 10) {
+                                  seconds = '0' + seconds;
+                              }
+                              if (minutes < 10) {
+                                  minutes = '0' + minutes;
+                              }
+                              return '<b>' + hours + '</b> HRS : <b>' + minutes + '</b> MINS : <b>' + seconds + '</b> SECS Left';
+                          }
+                          function formatTime(time) {
+                              let hours = Math.floor(time / 3600);
+                              let minutes = Math.floor((time - (hours * 3600)) / 60);
+                              let seconds = time % 60;
+
+                              if (hours < 10) {
+                                  hours = '0' + hours;
+                              }
+                              if (seconds < 10) {
+                                  seconds = '0' + seconds;
+                              }
+                              if (minutes < 10) {
+                                  minutes = '0' + minutes;
+                              }
+
+                              return clockBG(hours) + ' <span class="colon">:</span>  ' + clockBG(minutes) + ' <span class="colon">:</span>  ' + clockBG(seconds);
+                          }
+
+                          function clockBG(words) {
+                              var wordsArray = words.toString().split('');
+                              var fullHtml = '';
+                              for (var i = 0; i < wordsArray.length; i++) {
+                                  fullHtml += '<span class="clockBg">' + wordsArray[i] + '</span>';
+                              }
+                              return fullHtml;
+                          }
+
+                          function calculateTimeFraction() {
+                              const rawTimeFraction = timeLeft / TIME_LIMIT;
+                              var rawTimeReturn = rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+                              if (rawTimeReturn > .8)
+                                  rawTimeReturn = .8;
+                              return rawTimeReturn;
+                          }
+
+                          function setCircleDasharray() {
+                              const circleDasharray = (calculateTimeFraction() * FULL_DASH_ARRAY).toFixed(0) + ' 283';
+                              document
+                                  .getElementById("base-timer-path-remaining")
+                                  .setAttribute("stroke-dasharray", circleDasharray);
+                          }
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-product-description").classList.add("adbe-cls");
+                  }
+              }
+          },
+          {
+              selector: "body > div.sc-bnr.web-three-one ul > li > a[title*='Apply']",
+              persist: true,
+              success: function (el1) {
+                  if (!el1.classList.contains("clkTrackUC01")) {
+                      try {
+                          el1.addEventListener("click", function (event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              adobe.target.trackEvent({
+                                  "mbox": "mboxClickTrack",
+                                  "params": {
+                                      "clicked": "PLpageApplyNow-banner"
+                                  }
+                              });
+                              window.open(lhrefNO);
+                          });
+                      } catch (e) { }
+                      el1.classList.add("clkTrackUC01");
+                  }
+              }
+          },
+          /*{
+              selector: "body > div.sc-bnr.web-three-one ul > li > a[title*='Apply']",
+              persist: true,
+              success: function (el2) {
+                  if (!el2.classList.contains("clkTrackUC01")) {
+                      try {
+                          el2.addEventListener("click", function (event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              adobe.target.trackEvent({
+                                  "mbox": "mboxClickTrack",
+                                  "params": {
+                                      "clicked": "PLpageApplyNow-calculator"
+                                  }
+                              });
+                              window.open(lhrefNO);
+                          });
+                      } catch (e) { }
+                      el2.classList.add("clkTrackUC01");
+                  }
+              }
+          },*/
+          {
+              selector: "#sc-lb-module-persistent-bar-new ul > li > a[title*='Apply']",
+              persist: true,
+              success: function (el3) {
+                  if (!el3.classList.contains("clkTrackUC01")) {
+                      try {
+                          el3.addEventListener("click", function (event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              adobe.target.trackEvent({
+                                  "mbox": "mboxClickTrack",
+                                  "params": {
+                                      "clicked": "PLpageApplyNow-persistent"
+                                  }
+                              });
+                              window.open(lhrefNO);
+                          });
+                      } catch (e) { }
+                      el3.classList.add("clkTrackUC01");
+                  }
+              }
+          },
+          {
+              selector: "body > div.sc-bnr.web-three-one > div.sc-bnr__wrapper > div > div > p",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("body > div.sc-bnr.web-three-one > div.sc-bnr__wrapper > div > div > p").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("body > div.sc-bnr.web-three-one > div.sc-bnr__wrapper > div > div > p").innerText = 'Get up to S$300 + S$20 cashback and 3 months of Disney+ subscription when you spend S$350. T&Cs apply';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("body > div.sc-bnr.web-three-one > div.sc-bnr__wrapper > div > div > p").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-product-benefits ul > li:nth-child(4) div.value",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-product-benefits ul > li:nth-child(4) div.value").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-product-benefits ul > li:nth-child(4) div.value").innerText = 'S$300 + S$20 cashback';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-product-benefits ul > li:nth-child(4) div.value").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-persistent-bar-new label > span.desktop",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-persistent-bar-new label > span.desktop").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-persistent-bar-new label > span.desktop").innerText = 'Get additional S$20 cashback';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-persistent-bar-new label > span.desktop").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-persistent-bar-new label > span.mobile",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-persistent-bar-new label > span.mobile").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-persistent-bar-new label > span.mobile").innerText = 'Get additional S$20 cashback';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-persistent-bar-new label > span.mobile").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-fee-and-rate-content-1 a.footer",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-fee-and-rate-content-1 a.footer").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-fee-and-rate-content-1 a.footer").addEventListener("click", function () {
+                              if (document.querySelector("#accordian-terms-conditions").checked == false) {
+                                  document.querySelector("#accordian-terms-conditions").checked = true;
+                              }
+                              if (document.querySelector("#term-and-condition-variant-tc-S500CB").checked == false) {
+                                  document.querySelector("#term-and-condition-variant-tc-S500CB").checked = true;
+                              }
+                              setTimeout(function () {
+                                  window.location.href = "#accordian-terms-conditions";
+                              }, 20);
+                          });
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-fee-and-rate-content-1 a.footer").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#newTimerModule .largeScreen p > a.green-underline-text",
+              persist: true,
+              success: function (el4) {
+                  if (!document.querySelector("#newTimerModule .largeScreen p > a.green-underline-text").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#newTimerModule .largeScreen p > a.green-underline-text").addEventListener("click", function (event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              adobe.target.trackEvent({
+                                  "mbox": "mboxClickTrack",
+                                  "params": {
+                                      "clicked": "PLpageApplyNow-new"
+                                  }
+                              });
+                              window.open(lhrefNO);
+                          });
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#newTimerModule .largeScreen p > a.green-underline-text").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#newTimerModule .smallScreen p > a.green-underline-text",
+              persist: true,
+              success: function (el5) {
+                  if (!document.querySelector("#newTimerModule .smallScreen p > a.green-underline-text").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#newTimerModule .smallScreen p > a.green-underline-text").addEventListener("click", function (event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              adobe.target.trackEvent({
+                                  "mbox": "mboxClickTrack",
+                                  "params": {
+                                      "clicked": "PLpageApplyNow-new"
+                                  }
+                              });
+                              window.open(lhrefNO);
+                          });
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#newTimerModule .smallScreen p > a.green-underline-text").classList.add("cls-adbe");
+                  }
+              }
+          },
+          /*{
+              selector: "#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(5)",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(5)").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(5)").innerHTML = '';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(3)").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(6)",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(6)").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(6)").innerHTML = '';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(6)").classList.add("cls-adbe");
+                  }
+              }
+          },
+          {
+              selector: "#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(7)",
+              persist: true,
+              success: function (el) {
+                  if (!document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(7)").classList.contains("cls-adbe")) {
+                      try {
+                          document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(7)").innerHTML = '';
+                      } catch (e) { console.log(e); }
+                      document.querySelector("#sc-lb-module-accordian div.m-terms-and-conditions-variant div.collapsible-panel:nth-child(7)").classList.add("cls-adbe");
+                  }
+              }
+          }*/
+      );
+
+      (function () {
+          var cnt = 7000;
+          function init() {
+              if (document.querySelector("#sc-lb-module-accordian > div:nth-child(6) > div.accordion-content > div.m-terms-and-conditions-variant") != null) {
+                  document.querySelector("#sc-lb-module-accordian > div:nth-child(6) > div.accordion-content > div.m-terms-and-conditions-variant").insertAdjacentHTML('afterbegin', '<div class="collapsible-panel"> <input type="checkbox" id="term-and-condition-variant-tc-S500CB" class="item-open-state"> <label class="header" for="term-and-condition-variant-tc-S500CB"> Standard Chartered Smart Credit Card S$20 Additional Cashback Promotion Terms and Conditions</label> <div class="content">Click <a href="https://av.sc.com/sg/content/docs/Additional_Cashback_Time_Offer_April_2022.pdf" target="_blank" rel="noopener">here</a> for full terms and conditions. </div> </div>');
+              } else if (cnt > 0) {
+                  cnt = cnt - 500;
+                  setTimeout(init, 500);
+              } else {
+              }
+          }
+          init();
+      })();
+
+  }
+</script>
