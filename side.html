@@ -1,26 +1,63 @@
-<div class="newTimerModule" id="newTimerModule">
-    <div class="timerFlex">
-        <div class="timer-message">
-            <p> Get <span class="green-bold-text"><span style="font-size: x-large;">S$300</span></span> cashback with
-                <span class="green-bold-text"><span style="font-size: x-large;">No Minimum Spend</span></span>required
-                when you activate your Smart Credit Card. Promotion valid for new credit cardholders only. T&Cs apply.
-            </p>
-            <div class="largeScreen">
-                <p><a href="https://origination.sc.com/onboarding/sg/apply.html?product=302&campaign=5611&aggregator_code=IB03&aggregator_type=IBAT&aggregator_instance=ATSCCcountdown"
-                        class="green-underline-text">APPLY NOW</a>&nbsp; before the time runs out.</p>
-            </div>
-        </div>
-        <div class="timer-ring">
-            <div class="timer-ring-svg" id="timer-ring-svg"></div>
-            <div class="timer-clock" data-text="Days,Hrs,Mins,Sec,"></div>
-        </div>
-        <div class="smallScreen avail-text">
-            <p>This additional S$20 cashback is only available if you apply on this page before the time runs out. This
-                promotion may or may not be available if you refresh the page or revisit our website, depending on your
-                browser settings.</p>
-            <p>&nbsp;</p>
-            <p><a class="green-underline-text">APPLY NOW</a>&nbsp; </p>
-            <p> before the time runs out.</p>
-        </div>
-    </div>
-</div>
+<script>
+
+
+</script>
+
+
+<script>
+    Flickerlessly = window.Flickerlessly || {};
+    !function (A) {
+        "use strict";
+        var init = function (id, sel, callback, persist) {
+            var animationName = 'atNodeInserted' + id;
+            var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+            cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+            var head = document.getElementsByTagName("head")[0];
+            if (head) {
+                var style = document.createElement("style");
+                style.setAttribute("type", "text/css");
+                if (style.styleSheet)
+                    style.styleSheet.cssText = cssStr;
+                else
+                    style.appendChild(document.createTextNode(cssStr));
+                head.insertBefore(style, head.firstChild)
+            };
+            var _insertListener = function (event) {
+                if (event.animationName === animationName && typeof event.target === 'object') {
+                    var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                    if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                    if (typeof callback === 'function' && isExecute) {
+                        callback(event.target);
+                        event.target.setAttribute('data-flk-success', animationName);
+                    }
+                    event.target.style.visibility = 'visible';
+                }
+            };
+            ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                document.addEventListener(item, _insertListener, false);
+            });
+        };
+        A.onReady = function () {
+            for (var i = 0; i < arguments.length; i++) {
+                var obj = arguments[i];
+                var selector = obj.selector;
+                var success = obj.success || null;
+                var persist = obj.persist || false;
+                var rand = Math.floor((Math.random() * 100) + 1);
+                init(rand, selector, success, persist);
+            };
+        };
+    }(Flickerlessly);
+    Flickerlessly.onReady(
+
+        {
+            selector: ".changi-wrapper",
+            persist: true,
+            success: function (el) {
+
+                el.remove();
+            }
+        },
+
+    );
+</script>
