@@ -1,5 +1,3 @@
-
-<script>
 if ((page.url.indexOf("https://www.sc.com/sg/save/savings-accounts/esaver/") >= 0) ||(page.url.indexOf("https://www.sc.com/sg/save/current-accounts/wealth-saver/") >= 0) || (page.url.indexOf("https://www.sc.com/sg/save/current-accounts/bonussaver/") >= 0) || (page.url.indexOf("https://www.sc.com/sg/credit-cards/smart-credit-card/") >= 0) || (page.url.indexOf("https://www.sc.com/sg/wealth/") >= 0) || (page.url.indexOf("https://www.sc.com/sg/borrow/loans/balance-transfer/") >= 0) || (page.url.indexOf("https://www.sc.com/sg/borrow/loans/cashone/") >= 0)) {
     if ((page.url.indexOf("https://www.sc.com/sg/save/savings-accounts/esaver") >= 0))
         return "ESAVER";
@@ -25,7 +23,3 @@ else {
         }
     }
 }
-</script>
-
-https://www.sc.com/sg/save/savings-accounts/esaver/?subChanCode=IBSC&referID=IBAT&instance=IBATBS
-https://www.sc.com/sg/save/current-accounts/wealth-saver/?subChanCode=IBSC&referID=IBAT&instance=IBATBS
