@@ -1,0 +1,396 @@
+<style>
+    #sc-lb-module-sc-slider-banner {
+        opacity: 0 !important;
+        height: 1px !important;
+    }
+</style>
+<script>
+    /*Start of text editing section*/
+    // The banner content for individual offers can be updated below - 
+
+    //PL Content
+    var HPofferPL_adbe = {
+        "title": "Receive up to S$3,100 cashback upon approval",
+        "bannerContent": "Interest from 3.48% p.a. (EIR from 6.95% p.a.).",
+        "ctaText": "APPLY FOR CASHONE PERSONAL LOAN",
+        "desktopImage": "https://av.sc.com/sg/content/images/1600x490_PuzzleKV_homepage.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/PuzzleKV_768x350-norm-1.jpg",
+        "ctaLink": "https://www.sc.com/sg/borrow/loans/cashone/?subChanCode=IBSC",
+        "category": "PL" //category is pre-definded
+    };
+
+    //CCFT Content
+    var HPofferBT_adbe = {
+        "title": "Need extra cash?",
+        "bannerContent": "Get it at 0% interest with no processing fee exclusively for the 3 months tenure with Credit Card Funds Transfer",
+        "ctaText": "Learn more",
+        "desktopImage": "https://av.sc.com/sg/content/images/CCFT-New-masthead_new.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/1200x300-CCFT_Mobile_banner.jpg",
+        "ctaLink": "https://www.sc.com/sg/borrow/loans/balance-transfer/?referId=Ibhpretargeting",
+        "category": "BT" //category is pre-definded
+    };
+
+    //CC Content
+    var HPofferCC_adbe = {
+        "title": "Exclusive Promotion for Smart Credit Card",
+        "bannerContent": "Get S$300 cashback and 3 months of Disney+ subscription when you activate your Smart Credit Card. No minimum spend required. T&Cs apply.",
+        "ctaText": "Find out more",
+        "desktopImage": "https://av.sc.com/sg/content/images/Smart_CC_Website_Masthead_1600x490.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/sg-smart-card.jpg",
+        "ctaLink": "https://www.sc.com/sg/credit-cards/smart-credit-card/?subchancode=IBSC",
+        "category": "CC" //category is pre-definded
+    };
+
+    //CASA Content
+    var HPofferCASA_adbe = {
+        "title": "Get 1% p.a. sign up bonus when you sign up for Bonus$aver",
+        "bannerContent": "Plus, earn up to 2.38% p.a. when you save, invest and transact with Bonus$aver",
+        "ctaText": "FIND OUT MORE",
+        "desktopImage": "https://av.sc.com/sg/content/images/SCBK22007-Bonusaver-Mar-May2022-Campaign_Web-banners_Ice-Cream_1600x490px.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/1200x300-Bonusaver-ice-cream-mobile-banner.jpg",
+        "ctaLink": "https://www.sc.com/sg/save/current-accounts/bonussaver/?subChanCode=IBSC&referID=IBAT&instance=IBATBS",
+        "category": "CASA" //category is pre-definded
+    };
+
+    //Wealth Content
+    var HPofferWealth_adbe = {
+        "title": "Online Unit Trusts",
+        "bannerContent": "Invest in over 300 funds with our Online Unit Trust Platform, anytime and anywhere. Affordable investments starting from S$100 with a monthly Regular Savings Plan.",
+        "ctaText": "Apply Now",
+        "desktopImage": "https://av.sc.com/sg/content/images/UT_220324_1600x490.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/UT_220324_1200x300.jpg",
+        "ctaLink": "https://www.sc.com/sg/wealth/investment/unit-trusts/",
+        "category": "Wealth" //category is pre-definded
+    };
+
+    //Retargeting offers -
+
+    //Wealth RT
+    var HPofferWealth_adbe_RT = {
+        "title": "Digital Wealth Solutions",
+        "bannerContent": "Supercharged convenience with digital wealth solutions for every lifestyle",
+        "ctaText": "Find Out More",
+        "desktopImage": "https://av.sc.com/sg/content/images/211001-WM-Retargeting-1600-x-490-Web-masthead.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/211001-WM-Retargeting-1200-x-300-Web-masthead.jpg",
+        "ctaLink": "https://www.sc.com/sg/wealth/investment/digitalwealth/", //CTA link without any tracking codes such as aggregator or sub channel codes
+        "ctaTrackingCode": "IBRM", //subChanCode or Aggregator Code
+        "ctaReferID": "", //referID or Aggregator Type
+        "ctaTrackingInstance": "", //instances or Aggregator Instance
+        "category": "Wealth" //category is pre-definded
+    };
+
+    //SCC RT
+    //CC Content for Retargeting (Users who browse Smart CC landing page in their previous visit)
+    var HPofferSCC_adbe_RT = {
+        "title": "Exclusive Promotion for Smart Credit Card",
+        "bannerContent": "Get a LG 43” Smart TV (worth S$899) or S$220 cashback when you apply for Smart Credit Card. T&Cs apply.",
+        "ctaText": "Find out more",
+        "desktopImage": "https://av.sc.com/sg/content/images/Karaoke-1600x490-2.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/Smart-card-1200x300_v3.jpg",
+        "ctaLink": "https://origination.sc.com/onboarding/sg/apply.html?product=302&campaign=5611", //CTA link without any tracking codes such as aggregator or sub channel codes
+        "ctaTrackingCode": "IB03", //subChanCode or Aggregator Code
+        "ctaReferID": "IBAT", //referID or Aggregator Type
+        "ctaTrackingInstance": "SMARTRT1", //instances or Aggregator Instance
+        "category": "CC" //category is pre-definded
+    };
+
+    //CashOne RT
+    var HPofferCashOne_adbe_RT = {
+        "title": "Receive up to S$2,400 cashback upon approval",
+        "bannerContent": "Interest from 3.48% p.a. (EIR from 6.95% p.a.).",
+        "ctaText": "APPLY FOR CASHONE PERSONAL LOAN",
+        "desktopImage": "https://av.sc.com/sg/content/images/sg-mankv-alignright-1600x490-1.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/sg-mankv-alignright-1600x490-1-768x235.jpg",
+        "ctaLink": "https://origination.sc.com/onboarding/sg/apply.html?product=280&campaign=9999", //CTA link without any tracking codes such as aggregator or sub channel codes
+        "ctaTrackingCode": "IB03", //subChanCode or Aggregator Code
+        "ctaReferID": "Ibatmini2", //referID or Aggregator Type
+        "ctaTrackingInstance": "", //instances or Aggregator Instance
+        "category": "PL" //category is pre-definded
+    };
+
+    //CCFT RT
+    var HPofferBT_adbe_RT = {
+        "title": "Need extra cash?",
+        "bannerContent": "Get it at 0% interest with no processing fee exclusively for the 3 months tenure with Credit Card Funds Transfer",
+        "ctaText": "Learn more",
+        "desktopImage": "https://av.sc.com/sg/content/images/CCFT-New-masthead_new.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/CCFT-New-masthead_new.jpg",
+        "ctaLink": "https://www.sc.com/sg/borrow/loans/balance-transfer/", //CTA link without any tracking codes such as aggregator or sub channel codes
+        "ctaTrackingCode": "IB03", //subChanCode or Aggregator Code
+        "ctaReferID": "Ibhpretargeting", //referID or Aggregator Type
+        "ctaTrackingInstance": "", //instances or Aggregator Instance
+        "category": "BT" //category is pre-definded
+    };
+
+    //Bonus Saver RT
+    var HPofferBonus_adbe_RT = {
+        "title": "Get an Apple Airpods Pro (worth S$379) when you sign up for Bonus$aver",
+        "bannerContent": "Plus, earn up to 2.38% p.a. when you save, invest and transact with Bonus$aver",
+        "ctaText": "FIND OUT MORE",
+        "desktopImage": "https://av.sc.com/sg/content/images/sg-bonusaver-campaign-banner-1600x490px.jpg",
+        "mobileImage": "https://av.sc.com/sg/content/images/SCBK22007-Bonusaver-Mar-May2022-Campaign_Web-banners_768x350px.jpg",
+        "ctaLink": "https://www.sc.com/sg/save/current-accounts/bonussaver/", //CTA link without any tracking codes such as aggregator or sub channel codes
+        "ctaTrackingCode": "IBSC1", //subChanCode or Aggregator Code
+        "ctaReferID": "IBAT", //referID or Aggregator Type
+        "ctaTrackingInstance": "IBATBS", //instances or Aggregator Instance
+        "category": "CASA" //category is pre-definded
+    };
+
+    /// Order of the banners can be updated below - 
+    /*
+        Wealth - HPofferWealth_adbe,
+        CC - HPofferCC_adbe,
+        CASA - HPofferCASA_adbe,
+        PL - HPofferPL_adbe,
+        BT - HPofferBT_adbe
+    */
+
+    var bannerOffers_order_adbe = [
+        HPofferPL_adbe,
+        HPofferCC_adbe,
+        HPofferBT_adbe,
+        HPofferCASA_adbe
+    ];
+
+    var bannerOffers_weightage_adbe = [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+    ];
+
+    /*End of text editing section*/
+
+    var finalBannerOffers_order_adbe = [];
+    var remarketingLastViewed = '${user.RemarketingLastViewedProduct}' || '';
+    // var remarketingLastViewed = 'SCC';
+
+    function ctaLinkGenerator(item) {
+        try {
+            var existingURLparameter = window.location.href;
+            var ctaTrackingCode = item.ctaTrackingCode;
+            var ctaReferID = item.ctaReferID;
+            var ctaTrackingInstance = item.ctaTrackingInstance;
+            var ctaLink = item.ctaLink;
+
+            if (existingURLparameter.split(/subChanCode=/gi)[1] != undefined) {
+                aggregrateCode = existingURLparameter.split(/subChanCode=/gi)[1].split("&")[0];
+            }
+
+            if (existingURLparameter.split(/referID=/gi)[1] != undefined) {
+                aggregatorType = existingURLparameter.split(/referID=/gi)[1].split("&")[0];
+            }
+
+            if (existingURLparameter.split(/instance=/gi)[1] != undefined) {
+                aggregatorInstance = existingURLparameter.split(/instance=/gi)[1].split("&")[0];
+            }
+
+            if (ctaLink.indexOf("?") >= 0) {
+                applyNowURL = ctaLink + "&aggregator_code=" + ctaTrackingCode + "&aggregator_type=" + ctaReferID + "&aggregator_instance=" + ctaTrackingInstance;
+            }
+            else {
+                applyNowURL = ctaLink + "?subChanCode=" + ctaTrackingCode + "&referID=" + ctaReferID + "&instance=" + ctaTrackingInstance;
+            }
+
+            return applyNowURL;
+
+        } catch (e) { console.log(e); }
+    }
+
+    if (remarketingLastViewed != '') {
+        if (remarketingLastViewed == 'Bonus') {
+            // finalBannerOffers_order_adbe[0] = HPofferBonus_adbe_RT;
+            // finalBannerOffers_order_adbe[0].ctaLink = ctaLinkGenerator(HPofferBonus_adbe_RT);
+            // var index_adbe = 1;
+            var index_adbe = 0;
+            bannerOffers_order_adbe.forEach(function (item) {
+                if (!(item.category == 'CASA')) {
+                    finalBannerOffers_order_adbe[index_adbe] = item;
+                    index_adbe++;
+                }
+            });
+        }
+        if (remarketingLastViewed == 'SCC') {
+            // finalBannerOffers_order_adbe[0] = HPofferSCC_adbe_RT;
+            // finalBannerOffers_order_adbe[0].ctaLink = ctaLinkGenerator(HPofferSCC_adbe_RT);
+            // var index_adbe = 1;
+            var index_adbe = 0;
+            bannerOffers_order_adbe.forEach(function (item) {
+                console.log(!(item.category == 'CC'));
+                if (!(item.category == 'CC')) {
+                    finalBannerOffers_order_adbe[index_adbe] = item;
+                    index_adbe++;
+                }
+            });
+        }
+        if (remarketingLastViewed == 'Wealth') {
+            // finalBannerOffers_order_adbe[0] = HPofferWealth_adbe_RT;
+            // finalBannerOffers_order_adbe[0].ctaLink = ctaLinkGenerator(HPofferWealth_adbe_RT);
+            // var index_adbe = 1;
+            var index_adbe = 0;
+            bannerOffers_order_adbe.forEach(function (item) {
+                if (!(item.category == 'Wealth')) {
+                    finalBannerOffers_order_adbe[index_adbe] = item;
+                    index_adbe++;
+                }
+            });
+        }
+        if (remarketingLastViewed == 'BT') {
+            // finalBannerOffers_order_adbe[0] = HPofferBT_adbe_RT;
+            // finalBannerOffers_order_adbe[0].ctaLink = ctaLinkGenerator(HPofferBT_adbe_RT);
+            // var index_adbe = 1;
+            var index_adbe = 0;
+            bannerOffers_order_adbe.forEach(function (item) {
+                if (!(item.category == 'BT')) {
+                    finalBannerOffers_order_adbe[index_adbe] = item;
+                    index_adbe++;
+                }
+            });
+        }
+        if (remarketingLastViewed == 'CashOne') {
+            // finalBannerOffers_order_adbe[0] = HPofferCashOne_adbe_RT;
+            // finalBannerOffers_order_adbe[0].ctaLink = ctaLinkGenerator(HPofferCashOne_adbe_RT);
+            // var index_adbe = 1;
+            var index_adbe = 0;
+            bannerOffers_order_adbe.forEach(function (item) {
+                if (!(item.category == 'PL')) {
+                    finalBannerOffers_order_adbe[index_adbe] = item;
+                    index_adbe++;
+                }
+            });
+        }
+
+        var bannerOffers_adbe = {
+            "banner_1": finalBannerOffers_order_adbe[0],
+            "banner_2": finalBannerOffers_order_adbe[1],
+            "banner_3": finalBannerOffers_order_adbe[2],
+            "banner_4": finalBannerOffers_order_adbe[3]
+        };
+    }
+
+    if (finalBannerOffers_order_adbe.length == 0) {
+        function weightedBannerRand(banner_adbe) {
+            var i, sum = 0, r = Math.random();
+            for (i in banner_adbe) {
+                sum += banner_adbe[i];
+                if (r <= sum) return i;
+            }
+        }
+        var rand_adbe = weightedBannerRand({ 0: bannerOffers_weightage_adbe[0], 1: bannerOffers_weightage_adbe[1], 2: bannerOffers_weightage_adbe[2], 3: bannerOffers_weightage_adbe[3] });
+        if (rand_adbe == 0) {
+            var bannerOffers_adbe = { "banner_1": bannerOffers_order_adbe[0], "banner_2": bannerOffers_order_adbe[1], "banner_3": bannerOffers_order_adbe[2], "banner_4": bannerOffers_order_adbe[3] };
+        }
+        if (rand_adbe == 1) {
+            var bannerOffers_adbe = { "banner_1": bannerOffers_order_adbe[1], "banner_2": bannerOffers_order_adbe[2], "banner_3": bannerOffers_order_adbe[3], "banner_4": bannerOffers_order_adbe[0] };
+        }
+        if (rand_adbe == 2) {
+            var bannerOffers_adbe = { "banner_1": bannerOffers_order_adbe[2], "banner_2": bannerOffers_order_adbe[3], "banner_3": bannerOffers_order_adbe[0], "banner_4": bannerOffers_order_adbe[1] };
+        }
+        if (rand_adbe == 3) {
+            var bannerOffers_adbe = { "banner_1": bannerOffers_order_adbe[3], "banner_2": bannerOffers_order_adbe[0], "banner_3": bannerOffers_order_adbe[1], "banner_4": bannerOffers_order_adbe[2] };
+        }
+    }
+
+    if (typeof bannerOffers_adbe['banner_4'] === 'undefined') {
+        var bannerHTML_adbe = '<div class="sc-bnr-slider splide" data-splide=\'{"arrows":false,"trimSpace":"move","pagination":true,"type":"loop","perPage":"1","perMove":"1","autoHeight":false,"autoplay":true,"direction":"ltr"}\' id="sc-lb-module-sc-slider-banner-adbe" data-post-status="edit-pending-status" data-post-status-label="Edit Pending"> <div class="splide__track"> <div class="splide__list"> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_1.ctaText + '" href="' + bannerOffers_adbe.banner_1.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_1.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_1.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_1.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_1.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_1.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_1.ctaText + '" href="' + bannerOffers_adbe.banner_1.ctaLink + '" title="' + bannerOffers_adbe.banner_1.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_1.ctaLink + '" title="' + bannerOffers_adbe.banner_1.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_1.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_1.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_2.ctaText + '" href="' + bannerOffers_adbe.banner_2.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_2.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_2.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_2.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_2.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_2.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_2.ctaText + '" href="' + bannerOffers_adbe.banner_2.ctaLink + '" title="' + bannerOffers_adbe.banner_2.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_2.ctaLink + '" title="' + bannerOffers_adbe.banner_2.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_2.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_2.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_3.ctaText + '" href="' + bannerOffers_adbe.banner_3.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_3.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_3.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_3.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_3.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_3.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_3.ctaText + '" href="' + bannerOffers_adbe.banner_3.ctaLink + '" title="' + bannerOffers_adbe.banner_3.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_3.ctaLink + '" title="' + bannerOffers_adbe.banner_3.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_3.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_3.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div>';
+    } else if (typeof bannerOffers_adbe['banner_4'] !== 'undefined') {
+        var bannerHTML_adbe = '<div class="sc-bnr-slider splide" data-splide=\'{"arrows":false,"trimSpace":"move","pagination":true,"type":"loop","perPage":"1","perMove":"1","autoHeight":false,"autoplay":true,"direction":"ltr"}\' id="sc-lb-module-sc-slider-banner-adbe" data-post-status="edit-pending-status" data-post-status-label="Edit Pending"> <div class="splide__track"> <div class="splide__list"> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_1.ctaText + '" href="' + bannerOffers_adbe.banner_1.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_1.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_1.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_1.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_1.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_1.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_1.ctaText + '" href="' + bannerOffers_adbe.banner_1.ctaLink + '" title="' + bannerOffers_adbe.banner_1.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_1.ctaLink + '" title="' + bannerOffers_adbe.banner_1.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_1.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_1.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_2.ctaText + '" href="' + bannerOffers_adbe.banner_2.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_2.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_2.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_2.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_2.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_2.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_2.ctaText + '" href="' + bannerOffers_adbe.banner_2.ctaLink + '" title="' + bannerOffers_adbe.banner_2.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_2.ctaLink + '" title="' + bannerOffers_adbe.banner_2.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_2.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_2.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_3.ctaText + '" href="' + bannerOffers_adbe.banner_3.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_3.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_3.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_3.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_3.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_3.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_3.ctaText + '" href="' + bannerOffers_adbe.banner_3.ctaLink + '" title="' + bannerOffers_adbe.banner_3.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_3.ctaLink + '" title="' + bannerOffers_adbe.banner_3.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_3.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_3.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> <div class="splide__slide"> <div class="sc-bnr web-three-one"> <a aria-label="' + bannerOffers_adbe.banner_4.ctaText + '" href="' + bannerOffers_adbe.banner_4.ctaLink + '" target="_blank"> <div class="sc-bnr__bg-wrapper"> <picture> <source srcset="' + bannerOffers_adbe.banner_4.desktopImage + '" media="(min-width: 768px)"> <source srcset="' + bannerOffers_adbe.banner_4.mobileImage + '" media="(max-width: 767px)"> <img src="' + bannerOffers_adbe.banner_4.desktopImage + '" class="sc-bnr-image sc-bnr-image--common"loading="lazy" alt="Text" /> </picture> </div> </a> <div class="sc-bnr__wrapper"> <div class="sc-bnr__content"> <h1 class="sc-bnr-title">' + bannerOffers_adbe.banner_4.title + '</h1> <p class="sc-bnr-desc">' + bannerOffers_adbe.banner_4.bannerContent + '</p> <a class="sc-bnr__fullclick" aria-label="' + bannerOffers_adbe.banner_4.ctaText + '" href="' + bannerOffers_adbe.banner_4.ctaLink + '" title="' + bannerOffers_adbe.banner_4.ctaText + '" target="_blank"></a> <ul class="sc-bnr-buttons"> <li> <a href="' + bannerOffers_adbe.banner_4.ctaLink + '" title="' + bannerOffers_adbe.banner_4.ctaText + '" class="c-button sc-btn" target="_blank"> <span class="only-desktop">' + bannerOffers_adbe.banner_4.ctaText + '</span> <span class="only-mobile">' + bannerOffers_adbe.banner_4.ctaText + '</span> </a> </li> </ul> </div> </div> </div> </div> </div> </div> </div>';
+    }
+
+    Flickerlessly = window.Flickerlessly || {};
+    !function (A) {
+        "use strict";
+        var init = function (id, sel, callback, persist) {
+            var animationName = 'atNodeInserted' + id;
+            var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+            cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+            var head = document.getElementsByTagName("head")[0];
+            if (head) {
+                var style = document.createElement("style");
+                style.setAttribute("type", "text/css");
+                if (style.styleSheet)
+                    style.styleSheet.cssText = cssStr;
+                else
+                    style.appendChild(document.createTextNode(cssStr));
+                head.insertBefore(style, head.firstChild)
+            };
+            var _insertListener = function (event) {
+                if (event.animationName === animationName && typeof event.target === 'object') {
+                    var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                    // if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                    if (typeof callback === 'function' && isExecute) {
+                        callback(event.target);
+                        event.target.setAttribute('data-flk-success', animationName);
+                    }
+                    event.target.style.visibility = 'visible';
+                }
+            };
+            ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                document.addEventListener(item, _insertListener, false);
+            });
+        };
+        A.onReady = function () {
+            for (var i = 0; i < arguments.length; i++) {
+                var obj = arguments[i];
+                var selector = obj.selector;
+                var success = obj.success || null;
+                var persist = obj.persist || false;
+                var rand = Math.floor((Math.random() * 100) + 1);
+                init(rand, selector, success, persist);
+            };
+        };
+    }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: "#sc-lb-module-sc-slider-banner",
+            persist: true,
+            success: function (el) {
+                if (!document.querySelector("#sc-lb-module-sc-slider-banner").classList.contains("offer-adbe")) {
+                    try {
+                        document.querySelector("#sc-lb-module-sc-slider-banner").outerHTML = bannerHTML_adbe;
+
+                        (function () {
+                            var cnt = 7000;
+                            function init() {
+                                if (typeof (Splide) != 'undefined') {
+                                    // console.log("qualified");
+
+                                    var splide = new Splide('#sc-lb-module-sc-slider-banner-adbe', { "direction": "ltr", "type": "loop", "perPage": 1, "arrows": false, "perMove": 1, "autoHeight": false, "autoplay": true });
+                                    splide.mount();
+
+                                    document.querySelector("#sc-lb-module-sc-slider-banner-adbe").style.opacity = 1;
+
+                                } else if (cnt > 0) {
+                                    cnt = cnt - 500;
+                                    setTimeout(init, 500);
+                                } else {
+                                }
+                            }
+                            init();
+                        })();
+
+                    } catch (e) { console.log(e); }
+                }
+            }
+        },
+        {
+            selector: "#sc-lb-module-sc-slider-banner-adbe a",
+            persist: true,
+            success: function (el2) {
+                if (!el2.classList.contains("offer-adbe")) {
+                    try {
+                        el2.addEventListener("mousedown", function (event) {
+                            adobe.target.trackEvent({
+                                "mbox": "mboxClickTrack",
+                                "params": {
+                                    "clicked": "applyNowHP"
+                                }
+                            });
+                        });
+                        el2.classList.add("offer-adbe");
+                    } catch (e) { console.log(e); }
+                }
+            }
+        }
+    );
+</script>
