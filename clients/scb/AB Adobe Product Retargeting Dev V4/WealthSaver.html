@@ -99,6 +99,8 @@
                 selector: "#sc-lb-module-sc-slider-banner",
                 persist: true,
                 success: function (el) {
+                    el.style.opacity = "0 !important";
+                    el.style.height = "0px";
                     if (!el.classList.contains("updatedCode")) {
                         try {
                             document.querySelector("#sc-lb-module-sc-slider-banner").outerHTML = '<div class="m-hero is-left-align is-homepage" id="adbe-cls"> <div class="only-desktop"> <div class="background"> <img class="img-bg" src="' + img + '" alt="NTC" loading="eager"> </div> </div> <div class="only-mobile"> <div class="background"> <img class="img-bg" src="' + img_mobile + '" alt="NTC" loading="eager"> </div> </div> <div class="content"> <div class="outer-wrapper"> <div class="hero-header"> <div class="wrapper"> <a href="' + applyNowURL + '" target="_self" class="slide-anchor-bg" aria-label="' + heading + '"></a> <h1 class="title">' + heading + '</h1> <p class="description">' + cont + '</p> <ul class="buttons"> <li> <a href="' + applyNowURL + '" title="Apply Now" data-context="Masthead-Masthead CTA title" class="c-button is-theme-solid-green-hollow-white rounded-button" target="_self"> <span class="only-desktop">' + btntxt + '</span> <span class="only-mobile">Apply Now</span> </a> </li> </ul> </div> </div> </div> </div> </div>';
