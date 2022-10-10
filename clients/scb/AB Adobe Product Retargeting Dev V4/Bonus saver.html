@@ -6,6 +6,8 @@
     if (offerExpirationTime) {
         if (Number(offerExpirationTime) > timeNow.getTime()) {
             localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getTime() + 1 * 60000));
+            // uncomment the line below and comment line above to enable 7 days expiration logic
+            //localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getDate() + 7));
             display = true;
             console.log("if", new Date(Number(localStorage.getItem("offerExpirationTime"))));
         } else {
@@ -14,6 +16,8 @@
         }
     } else {
         localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getTime() + 1 * 60000));
+            // uncomment the line below and comment line above to enable 7 days expiration logic
+            //localStorage.setItem("offerExpirationTime", new Date().setTime(new Date().getDate() + 7));
         display = true;
         console.log("(offerExpirationTime)", new Date(Number(localStorage.getItem("offerExpirationTime"))))
     }
