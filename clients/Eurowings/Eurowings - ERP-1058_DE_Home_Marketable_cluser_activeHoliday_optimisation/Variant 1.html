@@ -1,0 +1,78 @@
+<script>
+    var headlineTitle = "Deutschland entdecken";
+    var imageSrc = "/content/dam/eurowings/mood-destination/BER-Berlin-1-2560x1120.jpg";
+    
+  Flickerlessly = window.Flickerlessly || {};
+  !(function (A) {
+    "use strict";
+    var init = function (id, sel, callback, persist) {
+      var animationName = "atNodeInserted" + id;
+      var cssStr =
+        "@keyframes " +
+        animationName +
+        " {from {opacity:0.99} to {opacity:1} }\n";
+      cssStr +=
+        sel +
+        "{animation-duration:0.001s;animation-name:" +
+        animationName +
+        ";visibility:hidden}";
+      var head = document.getElementsByTagName("head")[0];
+      if (head) {
+        var style = document.createElement("style");
+        style.setAttribute("type", "text/css");
+        if (style.styleSheet) style.styleSheet.cssText = cssStr;
+        else style.appendChild(document.createTextNode(cssStr));
+        head.insertBefore(style, head.firstChild);
+      }
+      var _insertListener = function (event) {
+        if (
+          event.animationName === animationName &&
+          typeof event.target === "object"
+        ) {
+          var isExecute =
+            persist === true ||
+            (persist === false &&
+              event.target.getAttribute("data-flk-success") === null)
+              ? true
+              : false;
+          if (console && console.info)
+            console.info(
+              "Node " + sel + " ready! Execute: " + isExecute,
+              event.target
+            );
+          if (typeof callback === "function" && isExecute) {
+            callback(event.target);
+            event.target.setAttribute("data-flk-success", animationName);
+          }
+          event.target.style.visibility = "visible";
+        }
+      };
+      ["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(
+        function (item, index) {
+          document.addEventListener(item, _insertListener, false);
+        }
+      );
+    };
+    A.onReady = function () {
+      for (var i = 0; i < arguments.length; i++) {
+        var obj = arguments[i];
+        var selector = obj.selector;
+        var success = obj.success || null;
+        var persist = obj.persist || false;
+        var rand = Math.floor(Math.random() * 100 + 1);
+        init(rand, selector, success, persist);
+      }
+    };
+  })(Flickerlessly);
+
+  Flickerlessly.onReady({
+    selector: "#site > main > div.site__inner > div:nth-child(8) > div > div:nth-child(2)",
+    persist: true,
+    success: function (el) {
+            document.querySelector("#site > main > div.site__inner > div:nth-child(8) > div > div:nth-child(2) > div.headline > h4").innerHTML = "Deutschland entdecken";
+      }
+    },
+  );
+</script>
+
+<img alt="" data-srcset="/content/dam/eurowings/mood-destination/BER-Berlin-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xl1440/r32-9.jpeg" class="a-image__item lazyloaded" srcset="/content/dam/eurowings/mood-destination/BER-Berlin-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xl1440/r32-9.jpeg">
