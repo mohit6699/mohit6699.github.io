@@ -28,8 +28,8 @@
           ) {
             var isExecute =
               persist === true ||
-                (persist === false &&
-                  event.target.getAttribute("data-flk-success") === null)
+              (persist === false &&
+                event.target.getAttribute("data-flk-success") === null)
                 ? true
                 : false;
             if (console && console.info)
@@ -63,57 +63,60 @@
     })(Flickerlessly);
   
     Flickerlessly.onReady({
-      selector: "#site > main > div.site__inner div.o-grid.t-component-space--small",
+      selector:
+        "#site > main > div.site__inner div.o-grid.t-component-space--small",
       persist: true,
       success: function (el) {
-        document.querySelector("#site > main > div.site__inner div.o-grid.t-component-space--small > div:nth-child(2)").outerHTML = `
-        <div class="o-grid__item o-grid__item--6-6 o-grid__item--m-6-12 o-grid__item--l-3-12" id="adbe-cls">
+        document.querySelector(
+          "#site > main > div.site__inner div.o-grid.t-component-space--small > div:nth-child(4)"
+        ).outerHTML = `
+          <div class="o-grid__item o-grid__item--6-6 o-grid__item--m-6-12 o-grid__item--l-3-12" id="adbe-cls2">
             <div class="headline">
-                <h4 class="a-headline a-headline--h4">Reiseziel des Monats</h4>
+                <h4 class="a-headline a-headline--h4">Schnäppchen-Atmung</h4>
             </div>
             <div class="dynamicteaserdestination dynamicteaser">
                 <div class="o-dyn-teaser">
                     <picture
                         class="a-image a-image--ratio-xl-21x7 a-image--ratio-l-21x7 a-image--ratio-m-21x7 a-image--ratio-s-21x7 a-image--ratio-21x7 a-image--loaded">
                         <source
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xl1440/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xl1440/r21-7.jpeg 1x"
                             media="(min-width: 1440px)"
                             srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xl1440/r21-7.jpeg 1x" />
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xl1440/r21-7.jpeg 1x" />
                         <source
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/l1024/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/l1024/r21-7.jpeg 1x"
                             media="(min-width: 1024px)"
                             srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/l1024/r21-7.jpeg 1x" />
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/l1024/r21-7.jpeg 1x" />
                         <source
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/m768/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/m768/r21-7.jpeg 1x"
                             media="(min-width: 768px)"
                             srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/m768/r21-7.jpeg 1x" />
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/m768/r21-7.jpeg 1x" />
                         <source
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/s480/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/s480/r21-7.jpeg 1x"
                             media="(min-width: 480px)"
                             srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/s480/r21-7.jpeg 1x" />
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/s480/r21-7.jpeg 1x" />
                         <source
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x"
                             srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x" />
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x" />
                         <img alt=""
-                            data-srcset="/content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x"
+                            data-srcset="/content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x"
                             class="a-image__item lazyloaded" srcset="
-                    /content/dam/eurowings/mood-destination/FNC-Funchal-1-2560x1120.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x
+                    /content/dam/eurowings/mood-destination/default.jpg.resize.jpeg/ew/imgdata/-/xs320/r21-7.jpeg 1x
                   " />
                     </picture>
                     <div class="o-box o-box--vertical-spacing-3 o-box--horizontal-spacing-3">
-                        <a href="/de/buchen/angebote/fluege-ab/DE/nach/PT/FNC.html" target="_self"
-                            data-gwtracking='{"linkname":"main_click","mapping":[{"linkTrackVars":"eVar9"},{"eVar9":"DE|Main||Dynamicteaserdestination|FNC_89,99 €*|Dynamic|Default"}]}'
-                            data-a11y-title="Madeira (Portugal) ab 89,99 EUR *" class="o-dyn-teaser__link o-dyn-teaser__link--main"><span
-                                class="a-headline a-headline--h4 t-spacing--0">Madeira (Portugal)</span>
+                        <a href="/de/entdecken/angebote/fluege-unter-35-euro.html" target="_self"
+                            data-gwtracking='{"linkname":"main_click","mapping":[{"linkTrackVars":"eVar9"},{"eVar9":"DE|Main||Dynamicteaserdestination|Rom/Wien_29,99 €*|Dynamic|Default"}]}'
+                            data-a11y-title="Rom/Wien ab 29,99 EUR *" class="o-dyn-teaser__link o-dyn-teaser__link--main"><span
+                                class="a-headline a-headline--h4 t-spacing--0">Rom/Wien</span>
                             <div class="o-dyn-teaser__link__price">
                                 <span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer"
                                     class="a-price a-price--large"><span class="prefix">ab</span>
-                                    <span itemprop="price" content="89.99"> 89,99 </span>
+                                    <span itemprop="price" content="29.99"> 29,99 </span>
                                     <span itemprop="priceCurrency" content="EUR"> € </span> *
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"
@@ -132,7 +135,7 @@
             </div>
             <div class="link">
                 <div class="t-component-space--small m-link">
-                    <a role="button" href="/de/entdecken/reiseziele/reiseziel-des-monats-guenstige-angebote.html "
+                    <a role="button" href="/de/entdecken/angebote/fluege-unter-35-euro.html"
                         class="a-cta-prio3 a-cta"><span class="t-block"></span>
                         <span class="a-cta__container"><span class="a-cta__icon"><svg xmlns="http://www.w3.org/2000/svg"
                                     focusable="false" aria-hidden="true"
@@ -140,16 +143,16 @@
                                     <use xlink:href="/etc/ew/icon-sets/icons-cms.svg#a_ico-cms_102_myew_wandern"></use>
                                 </svg>
                             </span>
-                            <span class="a-cta__text">Alle Reiseziele des Monats</span>
+                            <span class="a-cta__text">Weitere Flüge unter 35 €</span>
                             <span class="a-cta__icon"><svg xmlns="http://www.w3.org/2000/svg" focusable="false"
                                     aria-hidden="true" class="a-icon a-icon--ui">
                                     <use xlink:href="/etc/ew/icon-sets/icons-ui.svg#a_ico-ui_35_action-right"></use>
                                 </svg></span></span></a>
                 </div>
             </div>
-        </div>
+          </div>
         `;
-      }
-    },
-    );
+      },
+    });
   </script>
+  

@@ -1,0 +1,96 @@
+<script>
+
+    //var ctaText = "Mehr Angebote für Aktivurlaub"
+  
+    Flickerlessly = window.Flickerlessly || {};
+    !(function (A) {
+      "use strict";
+      var init = function (id, sel, callback, persist) {
+        var animationName = "atNodeInserted" + id;
+        var cssStr =
+          "@keyframes " +
+          animationName +
+          " {from {opacity:0.99} to {opacity:1} }\n";
+        cssStr +=
+          sel +
+          "{animation-duration:0.001s;animation-name:" +
+          animationName +
+          ";visibility:hidden}";
+        var head = document.getElementsByTagName("head")[0];
+        if (head) {
+          var style = document.createElement("style");
+          style.setAttribute("type", "text/css");
+          if (style.styleSheet) style.styleSheet.cssText = cssStr;
+          else style.appendChild(document.createTextNode(cssStr));
+          head.insertBefore(style, head.firstChild);
+        }
+        var _insertListener = function (event) {
+          if (
+            event.animationName === animationName &&
+            typeof event.target === "object"
+          ) {
+            var isExecute =
+              persist === true ||
+                (persist === false &&
+                  event.target.getAttribute("data-flk-success") === null)
+                ? true
+                : false;
+            if (console && console.info)
+              console.info(
+                "Node " + sel + " ready! Execute: " + isExecute,
+                event.target
+              );
+            if (typeof callback === "function" && isExecute) {
+              callback(event.target);
+              event.target.setAttribute("data-flk-success", animationName);
+            }
+            event.target.style.visibility = "visible";
+          }
+        };
+        ["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(
+          function (item, index) {
+            document.addEventListener(item, _insertListener, false);
+          }
+        );
+      };
+      A.onReady = function () {
+        for (var i = 0; i < arguments.length; i++) {
+          var obj = arguments[i];
+          var selector = obj.selector;
+          var success = obj.success || null;
+          var persist = obj.persist || false;
+          var rand = Math.floor(Math.random() * 100 + 1);
+          init(rand, selector, success, persist);
+        }
+      };
+    })(Flickerlessly);
+  
+    Flickerlessly.onReady({
+      selector: "#site > main > div.site__inner > div:nth-child(8) > div > div:nth-child(2)",
+      persist: true,
+      success: function (el) {
+        var headlineTitle = "Deutschland entdecken";
+        var imageSrc = "/content/dam/eurowings/mood-destination/BER-Berlin-1-2560x1120.jpg";
+        var destination = "Berlin";
+        var destinationCode = "BER";
+        var clickUrl = "/de/entdecken/angebote/guenstige-fluege-deutschland.html";
+        var priceDetails = ["39,99", "€"];
+        
+        el.innerHTML = '<div class="headline"><h4 class="a-headline a-headline--h4">' +
+          headlineTitle + '</h4></div><div class="dynamicteaserdestination dynamicteaser"><div class="o-dyn-teaser"><picture class="a-image a-image--ratio-xl-21x7 a-image--ratio-l-21x7 a-image--ratio-m-21x7 a-image--ratio-s-21x7 a-image--ratio-21x7"><source data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xl1440/r32-9.jpeg 1x" media="(min-width: 1440px)" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xl1440/r32-9.jpeg 1x" /><source data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/l1024/r32-9.jpeg 1x" media="(min-width: 1024px)" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/l1024/r32-9.jpeg 1x" /><source data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/m768/r32-9.jpeg 1x" media="(min-width: 768px)" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/m768/r32-9.jpeg 1x" /><source data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/s480/r32-9.jpeg 1x" media="(min-width: 480px)" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/s480/r32-9.jpeg 1x" /><source data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xs320/r32-9.jpeg 1x" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xs320/r32-9.jpeg 1x" /><img alt="" data-srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xs320/r32-9.jpeg 1x" srcset="' +
+          imageSrc + '.resize.jpeg/ew/imgdata/-/xs320/r32-9.jpeg 1x" class="a-image__item lazyloading" /></picture><div class="o-box o-box--vertical-spacing-3 o-box--horizontal-spacing-3"><a href="/de/entdecken/angebote/guenstige-fluege-deutschland.html" target="_self" data-gwtracking='{"linkname":"main_click","mapping":[{"linkTrackVars":"eVar9"},{"eVar9":"DE|Main||Dynamicteaserdestination|BER_39,99 €*|Dynamic|Default"}]}' data-a11y-title="Berlin ab 39,99 EUR *" class="o-dyn-teaser__link o-dyn-teaser__link--main"><span class="a-headline a-headline--h4 t-spacing--0">Berlin</span><div class="o-dyn-teaser__link__price"><span itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="a-price a-price--large"><span class="prefix">ab</span><span itemprop="price" content="39.99">39,99</span><span itemprop="priceCurrency" content="EUR">€</span>*</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="a-icon a-icon--ui"><use xlink:href="/etc/ew/icon-sets/icons-ui.svg#a_ico-ui_67_action-right-large"></use></svg></div></a></div></div></div><div class="distancekeeper"><div><div class="a-distance-keeper a-distance-keeper--space-medium"></div></div></div><div class="link"><div class="t-component-space--small m-link"><a role="button" href="/de/entdecken/angebote/guenstige-fluege-deutschland.html" class="a-cta-prio3 a-cta"><span class="t-block"></span><span class="a-cta__container"><span class="a-cta__icon"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="a-icon a-icon--cms a-icon--medium a-icon--adaptive"><use xlink:href="/etc/ew/icon-sets/icons-cms.svg#a_ico-cms_102_myew_wandern"></use></svg></span><span class="a-cta__text">Weitere deutsche Ziele</span><span class="a-cta__icon"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="a-icon a-icon--ui"><use xlink:href="/etc/ew/icon-sets/icons-ui.svg#a_ico-ui_35_action-right"></use></svg></span></span></a></div></div>'
+      }
+    },
+    );
+  </script>
