@@ -1,6 +1,6 @@
 <script>
-    var product_arr_account_overview_adbe = '${profile.account_overview_EtCASA_wo_CC_2}' || "CC,PL,BT,WS,NEW"; //Order of the products
-    var expReferIDValue = 'EtCASA_wo_CC_2'; //Experience specific refer ID
+    var product_arr_account_overview_adbe = '${profile.account_overview_aff_ATO}' || "CASA,PL,BT,WS,NEW"; //Order of the products "CASA,PL,BT"
+    var expReferIDValue = 'aff_ATO'; //Experience specific refer ID
 </script>
 <style>
     #adobe-account-overview-div-1 #adobe-account-overview-child-1 {
@@ -138,7 +138,7 @@
         adobe.target.trackEvent({
             "mbox": "mboxClickTrack",
             "params": {
-                "profile.account_overview_EtCASA_wo_CC_2": product_arr_account_overview_adbe.toString()
+                "profile.account_overview_aff_ATO": product_arr_account_overview_adbe.toString()
             }
         });
 
