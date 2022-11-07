@@ -1,0 +1,611 @@
+<script>
+    var UC07productOrder_adbe = ["Wealth", "P6"]; //Order of the products
+    var expReferIDValue = 'all_prod'; //Experience specific refer ID
+   // var skipTimerValue = 2000; // 2 sec
+    var skipNumber = 3; //consecutive skip button clicks for exclusion
+
+    var interstitialOffer_content_adbe = {
+        "CC": {
+            "NtC": { //NtC
+                "imageBanner": "https://av.sc.com/sg/content/images/SM-Prelogin-Update_750x1536_255cash_v1.jpg",
+                "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/credit-cards/smart-credit-card/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.NtCSkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "NtC",
+            },
+            "EtC": { //EtC
+                "imageBanner": "https://av.sc.com/sg/content/images/SC_Mobile_MGM_Pre-login-Banner_828x1500_June.jpg",
+                "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/promotions/smart-member-get-member/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.EtCSkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "EtC",
+            },
+            "bannerItem": "",
+            "isProductUser": ("${profile.CC_users}" || false) //'${profile.CC_users}' - Target Profile value from AT activity or set false if no exclusion
+        },
+        "PL": {
+            "PL1": { //If NtC => PL1
+                "imageBanner": "https://av.sc.com/sg/content/images/SCMobile_Interstitial_Banner_Puzzle_828x1700.jpg",
+                "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/borrow/loans/cashone/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.PL1Skip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "PL1",
+            },
+            "PL2": { //If EtC => PL2
+                "imageBanner": "https://av.sc.com/sg/content/images/SCMobile_Interstitial_Banner_Puzzle_828x1700_ETC.jpg",
+                "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/borrow/loans/cashone/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.PL2Skip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "PL2",
+            },
+            "bannerItem": "",
+            "isProductUser": "false" //'${profile.PL_users}' - Target Profile value from AT activity or set false if no exclusion
+        },
+        "BT": {
+            "imageBanner": "https://av.sc.com/sg/content/images/CCFT_InterstitialBanner_750x1536.jpg",
+            "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+            "offerTitleFontColor": "", //font-color of offer title
+            "primaryCTAtitle": "Learn more",
+            "primaryCTAType": "website", //deeplink or website
+            "primaryCTAlink": 'https://www.sc.com/sg/borrow/loans/balance-transfer/?subchancode=IBIB&referID=' + expReferIDValue,
+            "skipValue": ("${profile.BTSkip}" || 0), //Target Profile value - auto populated and no changes required
+            "skipName": "BT",
+            "bannerItem": "",
+            "isProductUser": "false" //'${profile.BT_users}' - Target Profile value from AT activity or set false if no exclusion
+        },
+        "CASA": {
+            "NtCASA": { //NtCASA
+                "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for e$aver", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/save/savings-accounts/esaver/?subchancode=IBIB&referID=' + expReferIDValue,
+
+                /* "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for Bonus$aver", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://sc.com/sg/save/current-accounts/bonussaver/?subchancode=IBIB&referID=' + expReferIDValue, */
+                "skipValue": ("${profile.NtCASASkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "NtCASA",
+            },
+            "eSaver": { //EtCASA - eSaver => CASA2
+                "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for Bonus$aver", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://sc.com/sg/save/current-accounts/bonussaver/?subchancode=IBIB&referID=' + expReferIDValue,
+
+              /*   "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for e$aver", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/save/savings-accounts/esaver/?subchancode=IBIB&referID=' + expReferIDValue, */
+                "skipValue": ("${profile.eSaverSkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "eSaver",
+            },
+           /*  "jumpstart": { //EtCASA - jumpstart => CASA3
+                "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for jumpstart", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://www.sc.com/sg/save/savings-accounts/jumpstart/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.jumpstartSkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "jumpstart",
+            },
+            "BonusSaver": { //EtCASA => BonusSaver
+                "imageBanner": "https://av.sc.com/sg/content/images/CASA_SCBK22007-Bonusaver-Mar-May2022-Campaign_AirPods-banners_750x1536px.jpg",
+                "offerTitle": "Get an Apple Airpods Pro (worth S$379) when you sign up for Bonus$aver", //Add the offer title only if the banner image doesn't have any content
+                "offerTitleFontColor": "white", //font-color of offer title
+                "primaryCTAtitle": "Learn more",
+                "primaryCTAType": "website", //deeplink or website
+                "primaryCTAlink": 'https://sc.com/sg/save/current-accounts/bonussaver/?subchancode=IBIB&referID=' + expReferIDValue,
+                "skipValue": ("${profile.BonusSaverSkip}" || 0), //Target Profile value - auto populated and no changes required
+                "skipName": "BonusSaver",
+            }, */
+            "bannerItem": "",
+            "isProductUser": ("${profile.CASA_users}" || false) //'${profile.CASA_users}' - Target Profile value from AT activity or set false if no exclusion
+        },
+        "P6": {
+            "imageBanner":  "https://av.sc.com/sg/content/images/pre-login-deactivatelogin-15aug.png" ,// "https://av.sc.com/sg/content/images/Pre-LoginBanner-750x1536_insurance_30052022.jpg",
+            "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+            "offerTitleFontColor": "", //font-color of offer title
+            "primaryCTAtitle": "Learn more",
+            "primaryCTAType": "website", //deeplink or website
+            "primaryCTAlink": 'https://www.sc.com/sg/cybersecurity/suspension-of-digital-services/?subchancode=IBIB&referID=' + expReferIDValue,
+            "skipValue": ("${profile.P6Skip}" || 0), //Target Profile value - auto populated and no changes required
+            "skipName": "P6",
+            "bannerItem": "",
+            "isProductUser": "false" //Target Profile value from AT activity or set false if no exclusion
+        },
+        "Priority": {
+            "imageBanner": "https://av.sc.com/sg/content/images/Pre-LoginBanner-750x1536_eaver_24062022.jpg",
+            "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+            "offerTitleFontColor": "", //font-color of offer title
+            "primaryCTAtitle": "Learn more", //Leave it empty if no primary CTA
+            "primaryCTAType": "website", //deeplink or website
+            "primaryCTAlink": "https://www.sc.com/sg/save/savings-accounts/esaver/", //Leave it empty if no primary CTA
+            "skipValue": ("${profile.PrioritySkip}" || 0), //Target Profile value - auto populated and no changes required
+            "skipName": "Priority",
+            "bannerItem": "",
+            "isProductUser": "false" //Target Profile value from AT activity or set false if no exclusion
+        },
+        "Wealth": {
+            "imageBanner": "https://av.sc.com/sg/content/images/prelogin_invest.jpg",
+            "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+            "offerTitleFontColor": "", //font-color of offer title
+            "primaryCTAtitle": "",
+            "primaryCTAType": "", //deeplink or website
+            "primaryCTAlink": "",
+            "skipValue": ("${profile.W1Skip}" || 0), //Target Profile value - auto populated and no changes required
+            "skipName": "W1",
+            "bannerItem": "",
+            "isProductUser": "${profile.wealth_users}" //'${profile.wealth_users}' - Target Profile value from AT activity or set false if no exclusion
+        },
+        "Default": {
+            "imageBanner": "https://av.sc.com/sg/content/images/Pre-LoginBanner-750x1536-1.jpg", //For Default, the banner alone is modified
+            "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+            "offerTitleFontColor": "white", //font-color of offer title
+            "primaryCTAtitle": "Learn More", //Leave it empty if no primary CTA
+            "primaryCTAType": "", //deeplink or website
+            "primaryCTAlink": "sc.com/sg/cybersecurity/?subchancode=ibib&referID="+ expReferIDValue, //Leave it empty if no primary CTA
+            "skipValue": ("${profile.DefaultSkip}" || 0), //Target Profile value - auto populated and no changes required
+            "skipName": "Default",
+            "bannerItem": "",
+            "isProductUser": "false" //Target Profile value from AT activity or set false if no exclusion
+        }
+    };
+</script>
+<style>
+    #Adobe_Security_Warning_Button_ADBE {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    div#Adobe_Security_Warning_Button_ADBE a.adbeBanner_Cls {
+        display: block;
+        color: white;
+        margin: 12px;
+    }
+
+    div#Adobe_Security_Warning a {
+        -webkit-text-size-adjust: 100%;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        font: inherit;
+        overflow: visible;
+        margin: 0;
+        font-family: "SC Sans Web", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        width: 100%;
+        min-width: 100px;
+        min-height: 44px;
+        line-height: 44px;
+        padding: 0 25px;
+        border-radius: 0;
+        border: 2px solid #00a546 !important;
+        text-align: center;
+        text-shadow: none;
+        box-shadow: none;
+        outline: 0;
+        -webkit-appearance: none;
+        color: #00a546;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        -webkit-box-flex: 1;
+        flex: 1 1 auto;
+    }
+
+    div#Adobe_Security_Warning a.applyNowCTA-adbe {
+        border: 2px solid #00a546 !important;
+        color: #00a546;
+        background: #fff;
+    }
+
+    div#Adobe_Security_Warning a.proceedCTA-adbe {
+        border: 2px solid #00a546 !important;
+        color: #fff;
+        background: #00a546;
+    }
+
+    #Adobe_Security_Warning .scroll-content {
+        position: relative;
+        height: 100%;
+        min-height: 100%;
+        overflow-y: hidden;
+        background-color: #fff;
+    }
+
+    #Adobe_Security_Warning .rdc-view___footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #Adobe_Security_Warning .offer-title-adbe {
+        position: absolute;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #Adobe_Security_Warning {
+        background: #fff;
+    }
+
+    .is-ios #Adobe_Security_Warning .rdc-view___footer {
+        margin-bottom: 10px;
+    }
+
+    #Adobe_Security_Warning .view-security-warning.adbe-cls {
+        display: block !important;
+    }
+</style>
+<script>
+    try {
+        function closeInterstitialPopup() {
+            try {
+                console.log("closeInterstitialPopup()");
+                var cntt = 7000;
+                function initt() {
+                    if (typeof (jQuery) != 'undefined' && jQuery('.rdc-modal-popup').length > 0) {
+                        jQuery(".rdc-modal-popup").css("display", "none");
+                        jQuery(".rdc-modal-popup").remove();
+                        setTimeout(function () {
+                            jQuery(".rdc-modal-popup").css("display", "none");
+                            jQuery(".rdc-modal-popup").remove();
+                        }, 50);
+                    } else if (cntt > 0) {
+                        cntt = cntt - 50;
+                        setTimeout(initt, 50);
+                    } else {
+                    }
+                }
+                initt();
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        function okCTAClick() {
+            try {
+                console.log("okCTAClick()");
+                var cntt = 7000;
+                function initt() {
+                    if (typeof (jQuery) != 'undefined' && jQuery('#Adobe_Security_Warning_Button').length > 0) {
+                        document.querySelector("#Adobe_Security_Warning_Button").click();
+                    } else if (cntt > 0) {
+                        cntt = cntt - 50;
+                        setTimeout(initt, 50);
+                    } else {
+                    }
+                }
+                initt();
+            } catch (e) {
+                closeInterstitialPopup();
+            }
+        }
+
+        var product_arr_interstitial_adbe_init = '${profile.v3interstitialOffer_adbe}' || UC07productOrder_adbe;
+
+        if (typeof (product_arr_interstitial_adbe_init) == 'string') {
+            product_arr_interstitial_adbe_init = product_arr_interstitial_adbe_init.split(",");
+        }
+
+        //Filter products that aren't in the order defined & Add products from order that aren't in the profile
+        product_arr_interstitial_adbe_init = product_arr_interstitial_adbe_init.concat(UC07productOrder_adbe);
+        product_arr_interstitial_adbe = [];
+        product_arr_interstitial_adbe_init.forEach(function (product) {
+            // console.log("product --", product, "product_arr_interstitial_adbe --", product_arr_interstitial_adbe, "--", ((product_arr_interstitial_adbe.indexOf(product) < 0) && (UC07productOrder_adbe.indexOf(product) >= 0)));
+            if ((product_arr_interstitial_adbe.indexOf(product) < 0) && (UC07productOrder_adbe.indexOf(product) >= 0)) {
+                product_arr_interstitial_adbe.push(product);
+            }
+        });
+
+        //Based on the profile values - removing the product from the rotation logic
+        var exclude_products_interstitial_adbe = [];
+
+        //CC Banner
+        interstitialOffer_content_adbe['CC'].bannerItem = ((interstitialOffer_content_adbe['CC'].isProductUser == 'true') ? interstitialOffer_content_adbe['CC'].EtC : interstitialOffer_content_adbe['CC'].NtC);
+        //PL Banner
+        interstitialOffer_content_adbe['PL'].bannerItem = ((interstitialOffer_content_adbe['CC'].isProductUser == 'true') ? interstitialOffer_content_adbe['PL'].PL2 : interstitialOffer_content_adbe['PL'].PL1);
+
+        //CASA Banner
+        interstitialOffer_content_adbe['CASA'].bannerItem = ((interstitialOffer_content_adbe['CASA'].isProductUser == 'true') ? interstitialOffer_content_adbe['CASA'].CASA2 : interstitialOffer_content_adbe['CASA'].NtCASA);
+
+        if (interstitialOffer_content_adbe["CASA"].isProductUser == 'eSaver') {
+            interstitialOffer_content_adbe["CASA"].bannerItem = interstitialOffer_content_adbe["CASA"].eSaver;
+        } else if (interstitialOffer_content_adbe["CASA"].isProductUser == 'BonusSaver') {
+            interstitialOffer_content_adbe["CASA"].bannerItem = interstitialOffer_content_adbe["CASA"].BonusSaver;
+        } else if (interstitialOffer_content_adbe["CASA"].isProductUser == 'jumpstart') {
+            interstitialOffer_content_adbe["CASA"].bannerItem = interstitialOffer_content_adbe["CASA"].jumpstart;
+        } else if (interstitialOffer_content_adbe["CASA"].isProductUser == 'true') {
+            exclude_products_interstitial_adbe.push("CASA");
+            console.log("Excluding --> CASA");
+        }
+
+        ["BT", "P6", "Default", "Priority", "Wealth"].forEach(function (product) {
+            // console.log(interstitialOffer_content_adbe[product]);
+            interstitialOffer_content_adbe[product].bannerItem = interstitialOffer_content_adbe[product];
+        });
+
+        console.log("Updated the relevant banner");
+
+        var allProducts_interstitial_adbe = ["CC", "CASA", "PL", "BT", "P6", "Default", "Wealth", "Priority"];
+
+        allProducts_interstitial_adbe.forEach(function (product) {
+            console.log(product);
+            if (interstitialOffer_content_adbe[product].bannerItem != undefined) {
+                if (((new Date(interstitialOffer_content_adbe[product].bannerItem.skipValue)) != 'Invalid Date')) {
+                    if ((new Date(interstitialOffer_content_adbe[product].bannerItem.skipValue).valueOf()) <= (new Date().valueOf())) {
+                        if ((UC07productOrder_adbe.indexOf(product) > -1) && (product_arr_interstitial_adbe.indexOf(product) <= -1)) {
+                            product_arr_interstitial_adbe.push(product);
+                            console.log("Including --> ", product);
+                        }
+                    } else {
+                        exclude_products_interstitial_adbe.push(product);
+                        console.log("Excluding --> ", product);
+                    }
+                }
+            } else {
+                exclude_products_interstitial_adbe.push(product);
+                console.log("Excluding --> ", product);
+            }
+        });
+
+        console.log("Updated the exclusion categories");
+
+        product_arr_interstitial_adbe = product_arr_interstitial_adbe.filter(function (product) {
+            if (exclude_products_interstitial_adbe.indexOf(product) < 0) {
+                console.log("Including --> ", product);
+            } else {
+                console.log("Excluding --> ", product);
+            }
+            return (exclude_products_interstitial_adbe.indexOf(product) < 0);
+        });
+
+        console.log("After filter --> ", product_arr_interstitial_adbe);
+
+        if (typeof (product_arr_interstitial_adbe) == 'string') {
+            product_arr_interstitial_adbe = product_arr_interstitial_adbe.split(",");
+        }
+
+        //Checking the offer view count and rotating the offer array if the visit is odd number
+        var interstitialMBofferViewCountProfile = '${profile.interstitialMBofferViewCount}' || 1;
+        if (interstitialMBofferViewCountProfile % 2 == 1 && interstitialMBofferViewCountProfile != 1) {
+            product_arr_interstitial_adbe.splice(product_arr_interstitial_adbe.length, 0, product_arr_interstitial_adbe[0]);
+            product_arr_interstitial_adbe.splice(0, 1);
+        }
+
+        //If no products then default product to be displayed
+        if (product_arr_interstitial_adbe.length == 0) {
+            if (((new Date(interstitialOffer_content_adbe["Default"].skipValue)) != 'Invalid Date') && (interstitialOffer_content_adbe["Default"].isProductUser != 'true')) {
+                if ((new Date(interstitialOffer_content_adbe["Default"].skipValue).valueOf()) <= (new Date().valueOf())) {
+                    product_arr_interstitial_adbe.push("Default");
+                    adobe.target.trackEvent({
+                        "mbox": "mboxClickTrack",
+                        "params": {
+                            "profile.v3interstitialOffer_adbe": "Default"
+                        }
+                    });
+                }
+            }
+        }
+
+        var skipProfileValue = ''; //Value of the skip number of the product
+        var skipProfileName = ''; //Name of the skip number of the product
+
+        var interstitialBannerToBeDisplayed_adbe = '';
+
+        Flickerlessly = window.Flickerlessly || {};
+        !function (A) {
+            "use strict";
+            var init = function (id, sel, callback, persist) {
+                var animationName = 'atNodeInserted' + id;
+                var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+                cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+                var head = document.getElementsByTagName("head")[0];
+                if (head) {
+                    var style = document.createElement("style");
+                    style.setAttribute("type", "text/css");
+                    if (style.styleSheet)
+                        style.styleSheet.cssText = cssStr;
+                    else
+                        style.appendChild(document.createTextNode(cssStr));
+                    head.insertBefore(style, head.firstChild)
+                };
+                var _insertListener = function (event) {
+                    if (event.animationName === animationName && typeof event.target === 'object') {
+                        var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                        if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                        if (typeof callback === 'function' && isExecute) {
+                            callback(event.target);
+                            event.target.setAttribute('data-flk-success', animationName);
+                        }
+                        event.target.style.visibility = 'visible';
+                    }
+                };
+                ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                    document.addEventListener(item, _insertListener, false);
+                });
+            };
+            A.onReady = function () {
+                for (var i = 0; i < arguments.length; i++) {
+                    var obj = arguments[i];
+                    var selector = obj.selector;
+                    var success = obj.success || null;
+                    var persist = obj.persist || false;
+                    var rand = Math.floor((Math.random() * 100) + 1);
+                    init(rand, selector, success, persist);
+                };
+            };
+        }(Flickerlessly);
+
+        Flickerlessly.onReady(
+            {
+                selector: "#Adobe_Security_Warning",
+                persist: false,
+                success: function (el) {
+                    console.log("product_arr_interstitial_adbe --> ", product_arr_interstitial_adbe);
+                    if (product_arr_interstitial_adbe.length == 0 || '${profile.staffExclusion}' == 'true') {
+                        try {
+                            try {
+                                ; (function (win, doc, style, timeout) { var STYLE_ID = 'at-interstitial-style'; function getParent() { return doc.getElementsByTagName('head')[0]; } function addStyle(parent, id, def) { if (!parent) { return; } var style = doc.createElement('style'); style.id = id; style.innerHTML = def; parent.appendChild(style); } function removeStyle(parent, id) { if (!parent) { return; } var style = doc.getElementById(id); if (!style) { return; } parent.removeChild(style); } addStyle(getParent(), STYLE_ID, style); setTimeout(function () { removeStyle(getParent(), STYLE_ID); }, timeout); }(window, document, "#Adobe_Security_Warning {opacity: 0 !important}", 3000));
+                            } catch (e) { }
+                            okCTAClick();
+                        } catch (err) {
+                            console.log(err);
+                            closeInterstitialPopup();
+                        }
+                    } else {
+                        try {
+                            interstitialBannerToBeDisplayed_adbe = interstitialOffer_content_adbe[product_arr_interstitial_adbe[0]].bannerItem;
+                            console.log("interstitialBannerToBeDisplayed_adbe --> ", interstitialBannerToBeDisplayed_adbe);
+                            skipProfileValue = interstitialBannerToBeDisplayed_adbe.skipValue;
+                            skipProfileName = interstitialBannerToBeDisplayed_adbe.skipName;
+                            console.log("skipProfileName --> ", skipProfileName);
+                            console.log("skipProfileValue --> ", skipProfileValue);
+
+                            if (!(interstitialBannerToBeDisplayed_adbe.primaryCTAtitle == "" || interstitialBannerToBeDisplayed_adbe.primaryCTAlink == "")) {
+                                if (document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls") == null) {
+                                    document.querySelector("#Adobe_Security_Warning").insertAdjacentHTML("afterbegin", '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <div class="offer-title-adbe" style="color:' + interstitialBannerToBeDisplayed_adbe.offerTitleFontColor + ';">' + interstitialBannerToBeDisplayed_adbe.offerTitle + '</div> <img src="' + interstitialBannerToBeDisplayed_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a class="applyNowCTA-adbe rdc-button rdc-button---primary" href="javascript:void(0);">' + interstitialBannerToBeDisplayed_adbe.primaryCTAtitle + '</a><a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>');
+                                } else {
+                                    document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls").outerHTML = '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <div class="offer-title-adbe" style="color:' + interstitialBannerToBeDisplayed_adbe.offerTitleFontColor + ';">' + interstitialBannerToBeDisplayed_adbe.offerTitle + '</div> <img src="' + interstitialBannerToBeDisplayed_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a class="applyNowCTA-adbe rdc-button rdc-button---primary" href="javascript:void(0);">' + interstitialBannerToBeDisplayed_adbe.primaryCTAtitle + '</a><a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>';
+                                }
+
+                                document.querySelector("#Adobe_Security_Warning").style = "display: block!important";
+
+                                document.querySelector('#Adobe_Security_Warning a.applyNowCTA-adbe').addEventListener("click", function () {
+                                    if (interstitialBannerToBeDisplayed_adbe.primaryCTAType == 'deeplink') {
+                                        window.top.deepLinkOpen(interstitialBannerToBeDisplayed_adbe.primaryCTAlink);
+                                    }
+
+                                    if (interstitialBannerToBeDisplayed_adbe.primaryCTAType == 'website') {
+                                        window.top.open(interstitialBannerToBeDisplayed_adbe.primaryCTAlink);
+                                    }
+
+                                    adobe.target.trackEvent({
+                                        "mbox": "mboxClickTrack",
+                                        "params": {
+                                            "clicked": "IPCTAclicks-" + product_arr_interstitial_adbe[0]
+                                        }
+                                    });
+
+                                    okCTAClick();
+                                });
+                            } else {
+                                if (document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls") == null) {
+                                    document.querySelector("#Adobe_Security_Warning").insertAdjacentHTML("afterbegin", '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <img src="' + interstitialBannerToBeDisplayed_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>');
+                                }
+                                else {
+                                    document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls").outerHTML = '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <img src="' + interstitialBannerToBeDisplayed_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>';
+                                }
+                            }
+
+                            document.querySelector("#Adobe_Security_Warning").style = "visibility: visible!important";
+
+                            document.querySelector("#Adobe_Security_Warning").insertAdjacentHTML("beforeend", '<style>body #Adobe_Security_Warning .view-security-warning {display: none !important;}</style>');
+                            setTimeout(function () {
+                                if (document.querySelector("#at-interstitial-style") != null) {
+                                    document.querySelector("#at-interstitial-style").remove();
+                                }
+                            }, 100);
+
+                           /* var skipTimerPassed = false;
+                            if (product_arr_interstitial_adbe[0] != "Default") {
+                                setTimeout(function () {
+                                    setTimeout(function () {
+                                        skipTimerPassed = true;
+                                    }, 150);
+                                }, skipTimerValue);
+                            }*/
+
+                            jQuery('#Adobe_Security_Warning_Button_ADBE').click(function () {
+                                document.querySelector("#Adobe_Security_Warning_Button").click();
+
+                                var skipProfile = "profile." + skipProfileName + 'Skip';
+                                var params = { "clicked": "skipClicks-" + skipProfileName };
+
+                                if ((skipTimerPassed == false) && (skipProfileValue == 0 || skipProfileValue == 1 || skipProfileValue == 2)) {
+                                    skipProfileValue++;
+                                    params[skipProfile] = skipProfileValue;
+                                    adobe.target.trackEvent({
+                                        "mbox": "mboxClickTrack",
+                                        "params": params
+                                    });
+                                } else if ((skipTimerPassed == true) && (skipProfileValue == 0 || skipProfileValue == 1 || skipProfileValue == 2)) {
+                                    params[skipProfile] = 0;
+                                    adobe.target.trackEvent({
+                                        "mbox": "mboxClickTrack",
+                                        "params": params
+                                    });
+                                }
+
+                                if (skipProfileValue >= skipNumber) {
+                                    var current_date = new Date();
+
+                                    // Values in milliseconds
+                                    var current_dateInMs = current_date.valueOf();
+                                    var ThirtyDays_InMs = 1000 * 60 * 60 * 24 * 30;
+
+                                    var calculated_date = new Date(current_dateInMs + ThirtyDays_InMs);
+
+                                    console.log(current_date);
+                                    console.log(calculated_date);
+
+                                    params[skipProfile] = calculated_date.toString();
+                                    adobe.target.trackEvent({
+                                        "mbox": "mboxClickTrack",
+                                        "params": params
+                                    });
+                                }
+                            });
+
+                            //Increase the offer view count and storing in the profile along with offer array
+                            interstitialMBofferViewCountProfile++;
+                            adobe.target.trackEvent({
+                                "mbox": "mboxClickTrack",
+                                "params": {
+                                    "profile.v3interstitialOffer_adbe": product_arr_interstitial_adbe.toString(),
+                                    "profile.interstitialMBofferViewCount": interstitialMBofferViewCountProfile
+                                }
+                            });
+
+                        } catch (e) {
+                            okCTAClick();
+                        }
+                    }
+                }
+            }
+        );
+    } catch (e) {
+        console.log(e);
+        okCTAClick();
+    }
+</script>
