@@ -1,19 +1,93 @@
+<style>
+    .promo-code-adb {
+        padding-bottom: 10px;
+    }
+
+    .promo-code-adb:hover {
+        padding-bottom: 10px;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .notify-bubble {
+        padding: 0.1rem;
+        background-color: black;
+        color: white;
+        font-size: 12px;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        top: -2rem;
+    }
+</style>
+
 <script>
-    $('document').ready(function(){
-    
-        Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
-        Flickerlessly.onReady(
-            {
-                //#root > div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div.aem-container.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div:nth-child(3) > div.aem-container.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div:nth-child(5)
-                selector: "div.child-component-container",
-                persist: true,
-                success: function (el) {
-                        let lowerBanner = document.querySelector("div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div > div:nth-child(3) > div > div:nth-child(4)");
-                        lowerBanner.outerHTML = `<div class=" aem-GridColumn aem-GridColumn--default--12" style="display:none;"></div>`
-                }
-    
-            },
-    
-        )
-    })();
-    </script>
+    function hideBubble() {
+        document.querySelector(".notify-bubble").style.display = "none";
+    }
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: "#uc36-4_campaign_first-time-perk-banner",
+            persist: true,
+            success: function (el) {
+                (function () {
+                    try {
+                        var counter = 0;
+                        var waitForjQuery = function () {
+                            let bannerSelector = document.querySelector("#uc36-4_campaign_first-time-perk-banner");
+                            if (bannerSelector != null) {
+                                let promoBanner = '';
+                                let placeHolder = bannerSelector;
+                                if (window.screen.availWidth >= 768) {
+                                    promoBanner = '<div class=" aem-GridColumn aem-GridColumn--default--12"><div class="mx-auto relative text-center image-container relative"><div class="react-reveal" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-239720080646059-1;"></div><div class="react-reveal" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-239720080646059-1;"><section id="banner-adb" style="padding-bottom: 20px;"><div><a rel="noopener noreferrer" href="" class="inline-block" target="_blank" style="pointer-events: none; cursor: default;"><img class="inline-block ms-image-width" alt="" src="/content/dam/cagishop/campaigns/2022/2211-happy-haulidays/xmas30/en_d_1920x280_2211_xmasnew-nt_sitewide_subhero_campaign_promo.jpg"></a></div></section></div></div><div></div></div>';
+                                } else {
+                                    promoBanner = '<div class=" aem-GridColumn aem-GridColumn--default--12"><div class="mx-auto relative text-center image-container relative"><div class="react-reveal" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-239720080646059-1;"><section id="banner-adb" style="padding-bottom: 10px;"><a rel="noopener noreferrer" href="" class="inline-block" target="_blank" style="pointer-events: none; cursor: default;"><img class="inline-block" alt="" src="/content/dam/cagishop/campaigns/2022/2211-happy-haulidays/xmas30/en_m_750x300_2211_xmasnew-nt_sitewide_subhero_campaign_promo.jpg"></a></section></div><div class="react-reveal" style="animation-fill-mode: both; animation-duration: 1000ms; animation-delay: 0ms; animation-iteration-count: 1; opacity: 1; animation-name: react-reveal-239720080646059-1;"></div></div><div></div></div>';
+                                }
+                                placeHolder.insertAdjacentHTML("afterbegin", promoBanner);
+
+                                let banner = placeHolder;
+                                let bannerClassList = ["promo-code-adb", "changi-container"];
+                                let copiedBubble = '<span class="notify-bubble">Copied!</span>';
+                                let bubbleSection = document.querySelector("#banner-adb"); 
+                                bubbleSection.insertAdjacentHTML("afterbegin", copiedBubble);
+                                banner.classList.add(...bannerClassList);
+
+                                banner.addEventListener('click', function () {
+                                    var name = 'en_d_1920x280_2211_xmasnew-nt_sitewide_subhero_campaign_promo.jpg';
+                                    var name1 = 'en_m_750x300_2211_xmasnew-nt_sitewide_subhero_campaign_promo.jpg';
+                                    if (window.s_gi) {
+                                        var s = s_gi('changairport-prod-new');
+                                        s.linkTrackVars = "eVar125,eVar126,event143";
+                                        s.eVar125 = name;
+                                        s.eVar126 = name1;
+                                        s.event143 = "XMAS-Promo";
+                                        s.events = "event143";
+                                        s.linkTrackEvents = "event143";
+                                        s.tl(true, "o", name1);
+                                    }
+                                    navigator.clipboard.writeText("XMASNEW");
+                                    document.querySelector(".notify-bubble").style.display = "block";
+                                    setTimeout(() => {
+                                        hideBubble();
+                                    }, 3000)
+                                })
+                            } else {
+                                ++counter;
+                                counter < 150 && setTimeout(function () { waitForjQuery(); }, 100)
+                            }
+                        }
+                        waitForjQuery();
+                    } catch (error) {
+                        console.log(error)
+                    }
+                })();
+
+
+            }
+        },
+    )
+</script>
