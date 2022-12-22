@@ -1,0 +1,80 @@
+<style>
+    .promo-code-adb {
+        display: flex;
+        justify-content: center;
+    }
+
+    .promo-code-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .tnc-link {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .notify-bubble {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 0.65rem;
+        width: 2.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+    }
+</style>
+
+<script>
+    function hideBubble() {
+        document.querySelector(".notify-bubble").style.display = "none";
+    }
+    function copyPromoCode() {
+        navigator.clipboard.writeText("XMASNEW");
+        document.querySelector(".notify-bubble").style.display = "block";
+        setTimeout(() => {
+            hideBubble();
+        }, 3000)
+    }
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: ".sidebar",
+            persist: true,
+            success: function (el) {
+                let element = document.querySelector(".sidebar > div.bg-white");
+                let promoBanner = '<div class="promo-code-adb"><span class="notify-bubble">Copied!</span><img id="adb-promo-cart" src="https://changiairport.scene7.com/is/image/changiairport/en_dm_750x282_2211_xmasnew_sitewide_subhero_cart_promo_" alt="XMASNEW promo" /></div>';
+                element.insertAdjacentHTML("afterbegin", promoBanner);
+
+                let clickBanner = document.querySelector("#adb-promo-cart");
+                clickBanner.addEventListener('click', function () {
+                    var name = 'en_m_750x300_2211_xmasnew-nt_cartpage_subhero_campaign_promo_exp_c.jpg';
+                    if (window.s_gi) {
+                        var s = s_gi('changairport-prod-new');
+                        s.linkTrackVars = "eVar126,event143";
+                        s.eVar126 = name;
+                        s.event143 = "XMAS-Promo";
+                        s.events = "event143";
+                        s.linkTrackEvents = "event143";
+                        s.tl(true, "o", name);
+                    }
+                    navigator.clipboard.writeText("XMASNEW");
+                    document.querySelector(".notify-bubble").style.display = "block";
+                    setTimeout(() => {
+                        hideBubble();
+                    }, 3000)
+                })
+            }
+
+        },
+
+    )
+</script>
