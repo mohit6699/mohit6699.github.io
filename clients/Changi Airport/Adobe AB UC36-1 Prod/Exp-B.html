@@ -1,0 +1,50 @@
+<script>
+    //prehiding snippet for Adobe Target with asynchronous tags deployment
+    ; (function (win, doc, style, timeout) {
+        var STYLE_ID = 'at-body-style';
+        function getParent() {
+            return doc.getElementsByTagName('head')[0];
+        }
+        function addStyle(parent, id, def) {
+            if (!parent) {
+                return;
+            }
+            var style = doc.createElement('style');
+            style.id = id;
+            style.innerHTML = def;
+            parent.appendChild(style);
+        }
+        function removeStyle(parent, id) {
+            if (!parent) {
+                return;
+            }
+            var style = doc.getElementById(id);
+            if (!style) {
+                return;
+            }
+            parent.removeChild(style);
+        }
+        addStyle(getParent(), STYLE_ID, style);
+        setTimeout(function () {
+            removeStyle(getParent(), STYLE_ID);
+        }, timeout);
+    }(window, document, "body {opacity: 0 !important}", 3000));
+</script>
+
+<script>
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+
+            selector: "div.slick-list > div > div:nth-child(1) > div > div > a > div > img",
+            persist: true,
+            success: function (el) {
+                if (window.screen.availWidth >= 443) {
+                    el.src = "https://changiairport.scene7.com/is/image/changiairport/en_d_1300x430_2301_CNY2023-iscnew20-hero_home_promo?$zoom$";
+                } else {
+                    el.src = "https://changiairport.scene7.com/is/image/changiairport/en_m_750x600_2301_CNY2023-iscnew20-hero_home_promo";
+                }
+            }
+        },
+    )
+</script>

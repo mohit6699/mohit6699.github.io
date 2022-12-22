@@ -1,0 +1,276 @@
+<script>
+    var skipTimerValue = 2000; // 2 sec
+    var interstitialOffer_content_adbe = {
+        "imageBanner": "https://av.sc.com/sg/content/images/Digibank-CSJ-Pre-login-Banner_828x1700-revised.jpg", //For Default, the banner alone is modified
+        "offerTitle": "", //Add the offer title only if the banner image doesn't have any content
+        "offerTitleFontColor": "", //font-color of offer title
+        "primaryCTAtitle": "CHECK AVAILABILITY",
+        "primaryCTAType": "deeplink", //deeplink or website
+        "primaryCTAlink": 'https://m.sc.com/sg/scmob?route=login.reservation'
+    };
+</script>
+<style>
+    #Adobe_Security_Warning_Button_ADBE {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    div#Adobe_Security_Warning_Button_ADBE a.adbeBanner_Cls {
+        display: block;
+        color: white;
+        margin: 12px;
+    }
+
+    div#Adobe_Security_Warning a {
+        -webkit-text-size-adjust: 100%;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        font: inherit;
+        overflow: visible;
+        margin: 0;
+        font-family: "SC Sans Web", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        width: 100%;
+        min-width: 100px;
+        min-height: 44px;
+        line-height: 44px;
+        padding: 0 25px;
+        border-radius: 0;
+        border: 2px solid #00a546 !important;
+        text-align: center;
+        text-shadow: none;
+        box-shadow: none;
+        outline: 0;
+        -webkit-appearance: none;
+        color: #00a546;
+        background: #fff;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        -webkit-box-flex: 1;
+        flex: 1 1 auto;
+    }
+
+    div#Adobe_Security_Warning a.applyNowCTA-adbe {
+        border: 2px solid #00a546 !important;
+        color: #00a546;
+        background: #fff;
+    }
+
+    div#Adobe_Security_Warning a.proceedCTA-adbe {
+        border: 2px solid #00a546 !important;
+        color: #fff;
+        background: #00a546;
+    }
+
+    #Adobe_Security_Warning .scroll-content {
+        position: relative;
+        height: 100%;
+        min-height: 100%;
+        overflow-y: hidden;
+        background-color: #fff;
+    }
+
+    #Adobe_Security_Warning .rdc-view___footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #Adobe_Security_Warning .offer-title-adbe {
+        position: absolute;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #Adobe_Security_Warning {
+        background: #fff;
+    }
+
+    .is-ios #Adobe_Security_Warning .rdc-view___footer {
+        margin-bottom: 10px;
+    }
+
+    #Adobe_Security_Warning .view-security-warning.adbe-cls {
+        display: block !important;
+    }
+</style>
+<script>
+    try {
+        function closeInterstitialPopup() {
+            try {
+                var cntt = 7000;
+                function initt() {
+                    if (typeof (jQuery) != 'undefined' && jQuery('.rdc-modal-popup').length > 0) {
+                        jQuery(".rdc-modal-popup").css("display", "none");
+                        jQuery(".rdc-modal-popup").remove();
+                        setTimeout(function () {
+                            jQuery(".rdc-modal-popup").css("display", "none");
+                            jQuery(".rdc-modal-popup").remove();
+                        }, 50);
+                    } else if (cntt > 0) {
+                        cntt = cntt - 50;
+                        setTimeout(initt, 50);
+                    } else {
+                    }
+                }
+                initt();
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        function okCTAClick() {
+            try {
+                var cntt = 7000;
+                function initt() {
+                    if (typeof (jQuery) != 'undefined' && jQuery('#Adobe_Security_Warning_Button').length > 0) {
+                        document.querySelector("#Adobe_Security_Warning_Button").click();
+                    } else if (cntt > 0) {
+                        cntt = cntt - 50;
+                        setTimeout(initt, 50);
+                    } else {
+                    }
+                }
+                initt();
+            } catch (e) {
+                closeInterstitialPopup();
+            }
+        }
+
+        Flickerlessly = window.Flickerlessly || {};
+        !function (A) {
+            "use strict";
+            var init = function (id, sel, callback, persist) {
+                var animationName = 'atNodeInserted' + id;
+                var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+                cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+                var head = document.getElementsByTagName("head")[0];
+                if (head) {
+                    var style = document.createElement("style");
+                    style.setAttribute("type", "text/css");
+                    if (style.styleSheet)
+                        style.styleSheet.cssText = cssStr;
+                    else
+                        style.appendChild(document.createTextNode(cssStr));
+                    head.insertBefore(style, head.firstChild)
+                };
+                var _insertListener = function (event) {
+                    if (event.animationName === animationName && typeof event.target === 'object') {
+                        var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                        if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                        if (typeof callback === 'function' && isExecute) {
+                            callback(event.target);
+                            event.target.setAttribute('data-flk-success', animationName);
+                        }
+                        event.target.style.visibility = 'visible';
+                    }
+                };
+                ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                    document.addEventListener(item, _insertListener, false);
+                });
+            };
+            A.onReady = function () {
+                for (var i = 0; i < arguments.length; i++) {
+                    var obj = arguments[i];
+                    var selector = obj.selector;
+                    var success = obj.success || null;
+                    var persist = obj.persist || false;
+                    var rand = Math.floor((Math.random() * 100) + 1);
+                    init(rand, selector, success, persist);
+                };
+            };
+        }(Flickerlessly);
+
+        Flickerlessly.onReady(
+            {
+                selector: "#Adobe_Security_Warning",
+                persist: false,
+                success: function (el) {
+                    // if (product_arr_interstitial_adbe.length == 0 || '${profile.staffExclusion}' == 'true') {
+                        try {
+                            try {
+                                ; (function (win, doc, style, timeout) { var STYLE_ID = 'at-interstitial-style'; function getParent() { return doc.getElementsByTagName('head')[0]; } function addStyle(parent, id, def) { if (!parent) { return; } var style = doc.createElement('style'); style.id = id; style.innerHTML = def; parent.appendChild(style); } function removeStyle(parent, id) { if (!parent) { return; } var style = doc.getElementById(id); if (!style) { return; } parent.removeChild(style); } addStyle(getParent(), STYLE_ID, style); setTimeout(function () { removeStyle(getParent(), STYLE_ID); }, timeout); }(window, document, "#Adobe_Security_Warning {opacity: 0 !important}", 3000));
+                            } catch (e) { }
+                            okCTAClick();
+                        } catch (err) {
+                            console.log(err);
+                            closeInterstitialPopup();
+                        }
+                    // } else {
+                    try {
+                        if (document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls") == null) {
+                            document.querySelector("#Adobe_Security_Warning").insertAdjacentHTML("afterbegin", '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <div class="offer-title-adbe" style="color:' + interstitialOffer_content_adbe.offerTitleFontColor + ';">' + interstitialOffer_content_adbe.offerTitle + '</div> <img src="' + interstitialOffer_content_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a class="applyNowCTA-adbe rdc-button rdc-button---primary" href="javascript:void(0);">' + interstitialOffer_content_adbe.primaryCTAtitle + '</a><a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>');
+                        } else {
+                            document.querySelector("#Adobe_Security_Warning .view-security-warning.adbe-cls").outerHTML = '<div class="rdc-view-wrapper rdc-view view-security-warning adbe-cls" style="display: block !important;"><div class="scroll-content"> <div class="offer-title-adbe" style="color:' + interstitialOffer_content_adbe.offerTitleFontColor + ';">' + interstitialOffer_content_adbe.offerTitle + '</div> <img src="' + interstitialOffer_content_adbe.imageBanner + '"> </div> <div class="rdc-view___footer adbe-cls"> <a class="applyNowCTA-adbe rdc-button rdc-button---primary" href="javascript:void(0);">' + interstitialOffer_content_adbe.primaryCTAtitle + '</a><a id="Adobe_Security_Warning_Button_ADBE" name="Adobe_Security_Warning_Button_ADBE" class="proceedCTA-adbe">SKIP</a></div></div>';
+                        }
+
+                        document.querySelector("#Adobe_Security_Warning").style = "display: block!important";
+
+                        document.querySelector('#Adobe_Security_Warning a.applyNowCTA-adbe').addEventListener("click", function () {
+                            if (interstitialOffer_content_adbe.primaryCTAType == 'deeplink') {
+                                window.top.deepLinkOpen(interstitialOffer_content_adbe.primaryCTAlink);
+                            }
+
+                            if (interstitialOffer_content_adbe.primaryCTAType == 'website') {
+                                window.top.open(interstitialOffer_content_adbe.primaryCTAlink);
+                            }
+
+                            adobe.target.trackEvent({
+                                "mbox": "mboxClickTrack",
+                                "params": {
+                                    "clicked": "IPCTAclicks-" + interstitialOffer_content_adbe
+                                }
+                            });
+
+                            okCTAClick();
+                        });
+
+                        document.querySelector("#Adobe_Security_Warning").style = "visibility: visible!important";
+
+                        document.querySelector("#Adobe_Security_Warning").insertAdjacentHTML("beforeend", '<style>body #Adobe_Security_Warning .view-security-warning {display: none !important;}</style>');
+                        setTimeout(function () {
+                            if (document.querySelector("#at-interstitial-style") != null) {
+                                document.querySelector("#at-interstitial-style").remove();
+                            }
+                        }, 100);
+
+                        //var skipTimerPassed = false;
+                        //if (product_arr_interstitial_adbe[0] != "Default") {
+                        // setTimeout(function () {
+                        //     setTimeout(function () {
+                        //         skipTimerPassed = true;
+                        //     }, 150);
+                        // }, skipTimerValue);
+                        //}
+
+                        jQuery('#Adobe_Security_Warning_Button_ADBE').click(function () {
+                            document.querySelector("#Adobe_Security_Warning_Button").click();
+                            adobe.target.trackEvent({
+                                "mbox": "mboxClickTrack",
+                                "params": {
+                                    "clicked": "skipClicks-CNY"
+                                }
+                            });
+                        });
+
+                    } catch (e) {
+                        okCTAClick();
+                    }
+                    //}
+                }
+            }
+        );
+    } catch (e) {
+        // console.log(e);
+        okCTAClick();
+    }
+</script>
