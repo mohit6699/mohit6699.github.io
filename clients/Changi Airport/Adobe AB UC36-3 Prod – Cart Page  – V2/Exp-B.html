@@ -55,15 +55,15 @@
                 let element = document.querySelector("div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div > div:nth-child(3) > div > div:nth-child(1) > div.bg-brown-100 > div > div.mt-5 > div > div > :nth-child(1)");
                 let promoBanner = '';
                 if (window.screen.availWidth >= 443) {
-                    promoBanner = '<div class="promo-code-adb"><span class="notify-bubble">Copied!</span><img id="adb-promo-cart" src="https://changiairport.scene7.com/is/image/changiairport/en_d_1920x250_2301_CNY2023-iscnew20-subhero_campaign_promo" alt="ISCNEW20 promo" /></div>';
+                    promoBanner = '<div class="promo-code-adb"><span class="notify-bubble">Copied!</span><img id="adb-promo-cart" src="https://changiairport.scene7.com/is/image/changiairport/en_d_1920x250_2301_CNY2023-iscnew20-subhero_campaign_promo?wid=1920" alt="ISCNEW20 promo" /></div>';
                 } else {
-                    promoBanner = '<div class="promo-code-adb"><span class="notify-bubble">Copied!</span><img id="adb-promo-cart" src="https://changiairport.scene7.com/is/image/changiairport/en_m_750x300_2301_CNY2023-iscnew20-subhero_campaign_promo" alt="ISCNEW20 promo" /></div>';
+                    promoBanner = '<div class="promo-code-adb"><span class="notify-bubble">Copied!</span><img id="adb-promo-cart" src="https://changiairport.scene7.com/is/image/changiairport/en_m_750x300_2301_CNY2023-iscnew20-subhero_campaign_promo?wid=750" alt="ISCNEW20 promo" /></div>';
                 }
                 element.insertAdjacentHTML("afterend", promoBanner);
 
                 let clickBanner = document.querySelector("#adb-promo-cart");
                 clickBanner.addEventListener('click', function () {
-                    var name = 'en_m_750x300_2211_iscnew20-nt_cartpage_subhero_campaign_promo_exp_d.jpg';
+                    var name = 'en_m_750x300_2211_iscnew20-nt_cartpage_subhero_promo_exp_b.jpg';
                     if (window.s_gi) {
                         var s = s_gi('changairport-prod-new');
                         s.linkTrackVars = "eVar126,event143";
