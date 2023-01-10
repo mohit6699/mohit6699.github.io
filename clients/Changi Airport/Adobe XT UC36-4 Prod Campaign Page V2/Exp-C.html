@@ -1,10 +1,25 @@
 <style>
     .promo-code-adb {
-        padding: 0px 0px 10px 0px;
+        position: relative;
+        animation: appear 2s;
+        animation-iteration-count: 1;
+    }
+
+    @keyframes appear {
+        0% {
+            background: red;
+            top: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            background: red;
+            top: 0px;
+            opacity: 1;
+        }
     }
 
     .promo-code-adb:hover {
-        padding: 0px 0px 10px 0px;
         opacity: 0.8;
         cursor: pointer;
     }
@@ -19,6 +34,7 @@
         border-radius: 10%;
         display: none;
         position: absolute;
+        text-align: center;
     }
 </style>
 
@@ -50,11 +66,11 @@
 
                                 let banner = placeHolder;
                                 let copiedBubble = '<span class="notify-bubble">Copied!</span>';
-                                let bubbleSection = document.querySelector("#banner-adb"); 
+                                let bubbleSection = document.querySelector("#banner-adb");
                                 bubbleSection.insertAdjacentHTML("afterbegin", copiedBubble);
 
                                 banner.addEventListener('click', function () {
-                                    var name = 'en_iscnew20-nt_home_banner_campaign_promo_exp_c';
+                                    var name = 'en_iscnew20-nt_sitewide_subhero_campaign_promo_exp_c';
                                     if (window.s_gi) {
                                         var s = s_gi('changairport-prod-new');
                                         s.linkTrackVars = "eVar126,event143";

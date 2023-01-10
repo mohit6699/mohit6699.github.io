@@ -2,7 +2,7 @@
     .promo-code-adb {
         display: flex;
         justify-content: center;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
 
     .promo-code-adb:hover {
@@ -35,9 +35,9 @@
             let bannerSelector = document.querySelector("div.slick-list > div > div:nth-child(1) > div > div > a > div > img");
             if (bannerSelector != null) {
                 if (window.screen.availWidth > 767) {
-                    bannerSelector.outerHTML = `<span class="notify-bubble">Copied!</span><img class="promo-code-adb" src="https://changiairport.scene7.com/is/image/changiairport/en_d_1300x430_2301_CNY2023-iscnew20-hero_home_promo?wid=1300&amp;hei=430">`;
+                    bannerSelector.outerHTML = `<span class="notify-bubble">Copied!</span><img class="promo-code-adb" src="https://changiairport.scene7.com/is/image/changiairport/en_d_1300x430_2301_CNY2023_iscnew20v2-hero_home_promo?wid=1300&amp;hei=430">`;
                 } else {
-                    bannerSelector.outerHTML = `<span class="notify-bubble">Copied!</span><img class="promo-code-adb" src="https://changiairport.scene7.com/is/image/changiairport/en_m_750x600_2301_CNY2023-iscnew20-hero_home_promo?wid=750&hei=600">`;
+                    bannerSelector.outerHTML = `<span class="notify-bubble">Copied!</span><img class="promo-code-adb" src="https://changiairport.scene7.com/is/image/changiairport/en_m_750x600_2301_CNY2023_iscnew20v2-hero_home_promo?wid=750&hei=600">`;
                 }
 
                 let banner = document.querySelector("div.slick-list > div > div:nth-child(1) > div > div > a");
