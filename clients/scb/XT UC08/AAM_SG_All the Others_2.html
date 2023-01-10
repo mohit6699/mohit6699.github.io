@@ -1,5 +1,5 @@
 <script>
-    var product_arr_account_overview_adbe = '${profile.account_overview_ATO_2}' || "PL,CC,BT,WS,NEW"; //Order of the products
+    var product_arr_account_overview_adbe = '${profile.account_overview_ATO_2}' || "PL,CC,BT,P5,P6"; //Order of the products
     var expReferIDValue = 'ATO_2'; //Experience specific refer ID
 </script>
 <style>
@@ -18,7 +18,7 @@
                 "CTAlink": 'https://www.sc.com/sg/credit-cards/smart-credit-card/?subchancode=IBF2&referID=' + expReferIDValue
             },
             "CASA": {
-                "imageBanner": "https://av.sc.com/sg/content/images/728x90_CASA-Banner-IceCreamKV-1.gif",
+                "imageBanner": "https://av.sc.com/sg/content/images/728x90_CASA-Banner-Asset-1.gif",
                 "CTAlink": 'https://www.sc.com/sg/save/current-accounts/bonussaver/?subchancode=IBF2&referID=' + expReferIDValue
             },
             "PL": {
@@ -29,13 +29,13 @@
                 "imageBanner": "https://av.sc.com/sg/content/images/728x90_CCFT-1.gif",
                 "CTAlink": 'https://www.sc.com/sg/borrow/loans/balance-transfer/?subchancode=IBF2&referID=' + expReferIDValue
             },
-            "WS": {
-                "imageBanner": "", // to be updated later
+            "P5": {
+                "imageBanner": "https://av.sc.com/sg/content/images/728x90_WealthSaver-1_oct.gif", // to be updated later
                 "CTAlink": 'https://www.sc.com/sg/save/current-accounts/wealth-saver/?subchancode=IBF2&referID=' + expReferIDValue
             },
-            "NEW": {
-                "imageBanner": "", // to be updated later
-                "CTAlink": '' + expReferIDValue
+            "P6": {
+                "imageBanner": "https://av.sc.com/sg/content/images/728x90_CC_Desktop-Banner-Asset-1.jpg", // to be updated later
+                "CTAlink": 'https://www.sc.com/sg/credit-cards/unlimited-cashback-credit-card/?subchancode=IBF2&referID=' + expReferIDValue
             }
         };
 
@@ -48,8 +48,8 @@
         var CC_users_adbe = '${profile.CC_users}' || 'false';
         var PL_users_adbe = '${profile.PL_users}' || 'false';
         var CASA_users_adbe = '${profile.CASA_users}' || 'false';
-        var WS_users_adbe = '${profile.WS_users}' || 'false';
-        var NEW_users_adbe = '${profile.NEW_users}' || 'false';
+        var P5_users_adbe = 'true' || 'false';
+        var P6_users_adbe = 'true' || 'false';
 
         //Based on the profile, removing the product from the rotation logic
         if (CC_users_adbe == 'true') {
@@ -100,11 +100,11 @@
             product_arr_account_overview_adbe = product_arr_account_overview_adbe_temp;
         }
 
-        if (CASA_users_adbe == 'true') {
+        if (P5_users_adbe == 'true') {
             var product_arr_account_overview_adbe_temp = []
             var index_adbe = 0;
             product_arr_account_overview_adbe.forEach(function (item) {
-                if (!(item == 'WS')) {
+                if (!(item == 'P5')) {
                     product_arr_account_overview_adbe_temp[index_adbe] = item;
                     index_adbe++;
                 }
@@ -112,11 +112,11 @@
             product_arr_account_overview_adbe = product_arr_account_overview_adbe_temp;
         }
 
-        if (CASA_users_adbe == 'true') {
+        if (P6_users_adbe == 'true') {
             var product_arr_account_overview_adbe_temp = []
             var index_adbe = 0;
             product_arr_account_overview_adbe.forEach(function (item) {
-                if (!(item == 'NEW')) {
+                if (!(item == 'P6')) {
                     product_arr_account_overview_adbe_temp[index_adbe] = item;
                     index_adbe++;
                 }
