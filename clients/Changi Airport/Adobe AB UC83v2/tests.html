@@ -1,0 +1,153 @@
+<style>
+    .targetDiscount {
+        text-transform: uppercase;
+        text-align: center;
+        color: orangered;
+        font-size: 0.8rem;
+    }
+
+    .posRelative {
+        position: relative;
+    }
+</style>
+<script>
+
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+
+    Flickerlessly.onReady({
+        selector: 'a .line-through',
+        persist: true,
+        success: function (element) {
+            //         //let discountClass = document.querySelector(".targetDiscount");
+            //         // let selectorList = document.querySelectorAll("a .line-through");
+
+            //         // let elem;
+            //         // for (let i = 0; i < selectorList.length; i++) {
+
+            //         //     const lastSomeElement = selectorList[i].querySelectorAll("span.text-gray-600");
+            //         //     const ele = [...new Set(lastSomeElement)]
+            //         //     if (ele.length === 0) {
+            //         //         elem = selectorList[i];
+            //         //     }
+            //         //     else {
+            //         //         elem = ele.pop();
+            //         //     }
+            //         //     console.log(elem);
+
+            //         //     let MRP = elem.innerText?.split('S$')[1];
+            //         //     let DP = selectorList[i].previousSibling?.innerText?.split('S$')[1];
+
+            //         //     console.log('Icon test', MRP + '..' + DP);
+
+            //         //     let discValue = (Number(MRP) - Number(DP)).toFixed(2);
+            //         //     let discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+            //         //     let discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+
+            //         //     //promoParent.addClass('posRelative');
+            //         //     let discountHTML = '<span class="targetDiscount">' + discText + '<br>off</span>';
+            //         //     if (discText != "S$NaN") {
+            //         //         selectorList[i].insertAdjacentHTML("afterend", discountHTML ? discountHTML : '');
+            //         //     }
+
+
+            //         // }
+
+            //         //let selectorList = document.querySelectorAll("a .line-through");
+
+
+            //         // const lastSomeElement = selectorList[i].querySelectorAll("span.text-gray-600");
+            //         // const ele = [...new Set(lastSomeElement)]
+            //         // if (ele.length === 0) {
+            //         //     elem = selectorList[i];
+            //         // }
+            //         // else {
+            //         //     elem = ele.pop();
+            //         // }
+            //         // console.log(elem);
+
+            try {
+                // element.style.backgroundColor = "orangered";
+                // console.log(element?.innerText);
+                // let sel1 = element.innerText;
+                // let sel2 = element.querySelector("span.text-gray-600").innerText;
+                // console.log(sel1, sel2);
+                // if (sel1 !== "" || sel1 !== undefined || sel2 !== "" || sel2 !== undefined) {
+                    let MRP = element.innerText?.split('S$')[1];
+                    let DP = element.previousSibling?.innerText?.split('S$')[1];
+
+                    console.log('Icon test', (element?.innerText), "----------", (element?.querySelector("span.text-gray-600")?.innerText));
+                    console.log('Icon test', MRP + '..' + DP);
+
+                    let discValue = (Number(MRP) - Number(DP)).toFixed(2);
+                    let discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+                    let discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+
+                    //promoParent.addClass('posRelative');
+                    let discountHTML = '<span class="targetDiscount">' + discText + '<br>off</span>';
+                    if (discText != "S$NaN") {
+                        element.insertAdjacentHTML("afterend", discountHTML ? discountHTML : '');
+                    }
+                //}
+
+            } catch (error) {
+                console.log("Check here Mohit => ", error)
+            }
+
+
+
+
+
+
+        }
+
+
+    })
+
+    // (function () {
+    //     var counter = 0;
+    //     var waitForElement = function () {
+    //         let bannerSelector = document.querySelector("a .line-through");
+    //         if (bannerSelector != null) {
+    //             let selectorList = document.querySelectorAll("a .line-through");
+
+
+    //             let elem;
+    //             for (let i = 0; i < selectorList.length; i++) {
+
+    //                 const lastSomeElement = selectorList[i].querySelectorAll("span.text-gray-600");
+    //                 const ele = [...new Set(lastSomeElement)]
+    //                 if (ele.length === 0) {
+    //                     elem = selectorList[i];
+    //                 }
+    //                 else {
+    //                     elem = ele.pop();
+    //                 }
+    //                 console.log(elem);
+
+    //                 let MRP = elem.innerText?.split('S$')[1];
+    //                 let DP = selectorList[i].previousSibling?.innerText?.split('S$')[1];
+
+    //                 console.log('Icon test', MRP + '..' + DP);
+
+    //                 let discValue = (Number(MRP) - Number(DP)).toFixed(2);
+    //                 let discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+    //                 let discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+
+    //                 //promoParent.addClass('posRelative');
+    //                 let discountHTML = '<span class="targetDiscount">' + discText + '<br>off</span>';
+    //                 if (discText != "S$NaN") {
+    //                     selectorList[i].insertAdjacentHTML("afterend", discountHTML ? discountHTML : '');
+    //                 }
+
+
+    //             }
+    //         } else {
+    //             ++counter;
+    //             counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+    //         }
+    //     }
+    //     waitForElement();
+    // })();
+
+</script>

@@ -1,0 +1,127 @@
+<style>
+    .targetdisc {
+        position: absolute;
+        text-transform: uppercase;
+        top: 0px;
+        right: 0px;
+        background-image: linear-gradient(90deg, #d31e4b, #6b2369);
+        border-radius: .5rem;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        font-size: .66rem;
+        padding: .25rem 1rem;
+        text-align: center;
+        color: white;
+        font-weight: bolder;
+    }
+
+    .posRelative {
+        position: relative;
+    }
+
+    .promohide {
+        display: none;
+    }
+
+    @media screen and (max-width: 420px) {
+        .targetdisc {
+            padding: 0.25rem 0.7rem;
+            font-size: 0.6rem;
+        }
+    }
+</style>
+<script>
+    function addOfferIcons(delayCounter) {
+        window.setTimeout(function () {
+            document.querySelectorAll('div[data-test-item-type="product"]').forEach(function (el) {
+                $(el).find('.targetdisc').remove();
+                console.log('qa', $(el).find('span.line-through').text());
+                if ($(el).find('span.line-through').text().length > 0) {
+                    try {
+                        console.log($(el).text().length);
+                        var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
+                        // var promoParent=$(el);
+                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
+                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        console.log('Icon test', MRP + '..' + DP);
+                        var discValue = (MRP - DP).toFixed(2);
+                        var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+                        var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+                        promoParent.addClass('posRelative');
+                        if (discPercent != NaN) {
+                            promoParent.append('<span class="targetdisc">' + discText + '<br>off</span>');
+                            promoParent.find('.promotag').addClass('promohide');
+                        }
+                    }
+                    catch (err) {
+
+                    }
+
+                }
+
+            })
+        }, delayCounter);
+    }
+    (function () {
+
+        Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+
+        Flickerlessly.onReady({
+            selector: 'a span.line-through',
+            persist: true,
+            success: function (el) {
+                if ($(el).text().length > 0) {
+                    try {
+                        console.log($(el).text().length);
+                        var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
+                        // var promoParent=$(el);
+                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
+                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        console.log('Icon test', MRP + '..' + DP);
+                        var discValue = (MRP - DP).toFixed(2);
+                        var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+                        var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+                        promoParent.addClass('posRelative');
+                        if (discPercent != NaN) {
+                            promoParent.append('<span class="targetdisc">' + discText + '<br>off</span>');
+                            promoParent.find('.promotag').addClass('promohide');
+                        }
+                    }
+                    catch (err) {
+
+                    }
+
+                }
+            }
+
+
+        },
+            {
+                selector: 'aside[data-test-id="filters"] .cursor-pointer',
+                persist: true,
+                success: function (el) {
+
+                    $(el).click(function () {
+                        addOfferIcons(1000);
+
+                    })
+                }
+
+            },
+            {
+                selector: '#accordion__panel-Price',
+                persist: true,
+                success: function (el) {
+                    $('.ant-input-number').keyup(function () { addOfferIcons(2000) })
+                    $('aside #accordion__panel-Price .ant-slider').click(function () { addOfferIcons(1000) })
+                    $('button[data-test-id="clear-filters-button"]').click(function () { addOfferIcons(1000) })
+                    $('div[data-test-id*="sortBy:"]').click(function () { addOfferIcons(1000) })
+
+                }
+            }
+
+        );
+    })();
+
+
+</script>
