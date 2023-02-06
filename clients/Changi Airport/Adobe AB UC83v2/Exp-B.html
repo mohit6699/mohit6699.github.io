@@ -3,8 +3,16 @@
         position: absolute;
         left: 50%;
         text-transform: uppercase;
-        font-size: .8rem;
-        color: orangered;
+        font-size: .88rem;
+        color: #F5831E;
+        font-weight: 700;
+    }
+
+    .targetdisc-2 {
+        text-transform: uppercase;
+        font-size: .88rem;
+        color: #F5831E;
+        font-weight: 700;
     }
 
     .inner-targetDisc {
@@ -22,8 +30,13 @@
 
     @media screen and (max-width: 420px) {
         .targetdisc {
-            padding: 0.25rem 0.7rem;
-            font-size: 0.6rem;
+            font-size: 0.87rem;
+            font-weight: 700;
+        }
+
+        .targetdisc-2 {
+            font-size: 0.87rem;
+            font-weight: 700;
         }
     }
 </style>
@@ -31,22 +44,20 @@
     function addOfferIcons(delayCounter) {
         window.setTimeout(function () {
             document.querySelectorAll('div[data-test-item-type="product"]').forEach(function (el) {
-                $(el).find('.targetdisc').remove();
-                console.log('qa', $(el).find('span.line-through').text());
+                $(el).find('.targetdisc, .targetdisc-2').remove();
                 if ($(el).find('span.line-through').text().length > 0) {
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        // var promoParent=$(el);
                         var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
                         var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
-                        //promoParent.addClass('posRelative');
                         if (discPercent != NaN) {
                             promoParent.find('p.text-14.mt-2.mb-6').append('<span class="targetdisc"><span class="inner-targetDisc">' + discText + ' off</span></span>');
+                            promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<span class="targetdisc-2">' + discText + ' off</span>');
                             promoParent.find('.promotag').addClass('promohide');
                         }
                     }
@@ -71,16 +82,15 @@
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        // var promoParent=$(el);
                         var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
                         var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
-                        //promoParent.addClass('posRelative');
                         if (discPercent != NaN) {
                             promoParent.find('p.text-14.mt-2.mb-6').append('<span class="targetdisc"><span class="inner-targetDisc">' + discText + ' off</span></span>');
+                            promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<span class="targetdisc-2">' + discText + ' off</span>');
                             promoParent.find('.promotag').addClass('promohide');
                         }
                     }
