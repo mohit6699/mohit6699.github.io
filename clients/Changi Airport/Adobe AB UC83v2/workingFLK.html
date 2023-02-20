@@ -5,6 +5,25 @@
         color: orangered;
         font-size: 0.8rem;
     }
+
+    .targetdisc {
+        position: absolute;
+        left: 50%;
+        text-transform: uppercase;
+        font-size: .8rem;
+        color: orangered;
+    }
+
+    .targetdisc-2 {
+        text-transform: uppercase;
+        font-size: .8rem;
+        color: orangered;
+    }
+
+    .inner-targetDisc {
+        position: relative;
+        left: -50%;
+    }
 </style>
 <script>
 
@@ -12,20 +31,42 @@
     Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
 
     Flickerlessly.onReady({
-        selector: 'a .line-through, aside[data-test-id="filters"] .cursor-pointer',
+        selector: 'a .line-through',
         persist: true,
         success: function (element) {
             try {
-                let MRP = element.innerText?.split('S$')[1];
-                let DP = element.previousSibling?.innerText?.split('S$')[1];
-                let discountValue = (Number(MRP) - Number(DP)).toFixed(2);
-                let discountPercentage = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
-                let discountText = discountPercentage >= 10 ? discountPercentage + '%' : 'S$' + discountValue;
+                //element.style.backgroundColor = "red";
+                //if ($(el).text().length > 0) {
+                if (element.innerText.length > 0) {
+                    // let MRP = element.innerText?.split('S$')[1];
+                    // let DP = element.previousSibling?.innerText?.split('S$')[1];
+                    // console.log("MRP", MRP, " : DP", DP);
 
-                let discountHTML = '<span class="targetDiscount">' + discountText + '<br>off</span>';
-                if (discountText != "S$NaN") {
-                    element.insertAdjacentHTML("afterend", discountHTML ? discountHTML : '');
+                    // let discountValue = (Number(MRP) - Number(DP)).toFixed(2);
+                    // let discountPercentage = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+                    // let discountText = discountPercentage >= 10 ? discountPercentage + '%' : 'S$' + discountValue;
+                    // let discountHTML = '<span class="targetDiscount">' + discountText + '<br>off</span>';
+                    // if (discountText != "S$NaN") {
+                    //     element.insertAdjacentHTML("afterend", discountHTML ? discountHTML : '');
+                    // }
+                    // console.log("discountText", discountText);
+                    var promoParent = $(element).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
+                    // var promoParent=$(el);
+                    var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
+                    var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                    console.log('Icon test', MRP + '..' + DP);
+                    var discValue = (MRP - DP).toFixed(2);
+                    var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
+                    var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+                    //promoParent.addClass('posRelative');
+                    if (discPercent != NaN) {
+                        promoParent.find('p.text-14.mt-2.mb-6').append('<span class="targetdisc"><span class="inner-targetDisc">' + discText + ' off</span></span>');
+                        promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<span class="targetdisc-2">' + discText + ' off</span>');
+                        promoParent.find('.promotag').addClass('promohide');
+                    }
                 }
+
+
             } catch (error) {
                 console.log("Check here => ", error)
             }

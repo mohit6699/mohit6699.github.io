@@ -49,13 +49,13 @@
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
-                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
+                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
-                        if (discPercent != NaN) {
+                        if (discPercent != NaN && discText != "S$NaN") {
                             promoParent.find('p.text-14.mt-2.mb-6').append('<span class="targetdisc"><span class="inner-targetDisc">' + discText + ' off</span></span>');
                             promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<span class="targetdisc-2">' + discText + ' off</span>');
                             promoParent.find('.promotag').addClass('promohide');
@@ -82,13 +82,13 @@
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
-                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
+                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
-                        if (discPercent != NaN) {
+                        if (discPercent != NaN && discText != "S$NaN") {
                             promoParent.find('p.text-14.mt-2.mb-6').append('<span class="targetdisc"><span class="inner-targetDisc">' + discText + ' off</span></span>');
                             promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<span class="targetdisc-2">' + discText + ' off</span>');
                             promoParent.find('.promotag').addClass('promohide');

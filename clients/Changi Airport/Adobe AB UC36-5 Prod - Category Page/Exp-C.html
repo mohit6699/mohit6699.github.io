@@ -1,0 +1,170 @@
+<style>
+    .adbe-promo-container {
+        height: 150px;
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        bottom: 70px;
+        right: 0;
+        z-index: 50;
+    }
+
+    .note {
+        background: black;
+        color: white;
+        transform: rotate(270deg);
+        height: 30px;
+        width: 150px;
+        margin: auto -60px;
+        font-size: 0.88rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+        cursor: pointer;
+    }
+
+    .alert {
+        background: #F5831E;
+        color: white;
+        width: 0px;
+    }
+
+    .alert:active {
+        opacity: 0.8;
+    }
+
+    .adbe-promo-container .alert {
+        transition: width 0.2s, opacity 0.2s;
+        width: 0px;
+        opacity: 0;
+    }
+
+    .adbe-promo-container.alert-is-shown .alert {
+        transition: width 0.6s, opacity 0.8s;
+        width: 300px;
+        padding: 20px 10px;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    .alert-content {
+        font-size: 0.88rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .alert-content-short {
+        font-size: 0.66rem;
+    }
+
+    .text-underline {
+        text-decoration: underline;
+    }
+
+    .notify-bubble {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: black;
+        color: white;
+        font-size: 12px;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        text-align: center;
+        z-index: 60;
+    }
+</style>
+<script>
+    (function () {
+        try {
+            var counter = 0;
+            function hideBubble() {
+                document.querySelector(".notify-bubble").style.display = "none";
+            }
+
+            var waitForElement = function () {
+            let bannerSelector = document.querySelector("div.w-14");
+                if (bannerSelector != null) {
+                    let placeHolder = document.querySelector("div.w-14");
+                    let promocode = `<div class="adbe-promo-container">
+                    <span class="notify-bubble">Copied!</span>
+
+        <div class="note">
+            
+        </div>
+        <div class="alert">
+            <p class="alert-content">
+                Take <span class="bold-text">S$20 OFF*</span> on your first purchase with code <span class="bold-text">ISCNEW20</span>
+            </p>
+            <p class="alert-content alert-content-short text-underline">
+                Tap to copy code.
+            </p>
+            <p class="alert-content alert-content-short">
+                *Valid with S$79 spend. T&Cs apply.
+            </p>
+        </div>
+    </div>`;
+                    placeHolder.insertAdjacentHTML("afterend", promocode);
+                    const toggleBar = document.querySelector(".note");
+                    const promoArea = document.querySelector(".alert");
+                    const promoWrapper = document.querySelector(".adbe-promo-container");
+                    let eventName = '';
+                    toggleBar.innerHTML = "GET S$20 OFF";
+
+                    toggleBar.addEventListener('click', function (event) {
+                        event.stopPropagation();
+                        if (toggleBar.innerHTML === "GET S$20 OFF") {
+                            eventName = 'en_iscnew20-nt_banner_categorypage_promo_exp_c_open';
+                            toggleBar.innerHTML = "CLOSE";
+                        } else {
+                            eventName = 'en_iscnew20-nt_banner_categorypage_promo_exp_c_close';
+                            toggleBar.innerHTML = "GET S$20 OFF";
+                        }
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = eventName;
+                            s.event143 = "ISCNEW-Promo";
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", eventName);
+                        }
+                        promoWrapper.classList.toggle("alert-is-shown");
+                    });
+
+                    promoArea.addEventListener('click', function () {
+                        const name = 'en_iscnew20-nt_banner_categorypage_promo_exp_c_copied';
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = name;
+                            s.event143 = "ISCNEW-Promo";
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", name);
+                        }
+                        navigator.clipboard.writeText("ISCNEW20");
+                        document.querySelector(".notify-bubble").style.display = "block";
+                        setTimeout(() => {
+                            hideBubble();
+                        }, 3000);
+                    });
+                } else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        } catch (error) {
+            console.log(error)
+        }
+    })();
+</script>

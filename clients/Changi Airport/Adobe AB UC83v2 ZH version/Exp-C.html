@@ -45,8 +45,9 @@
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
-                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        promoParent.find('p > span.font-noto-sans-sc').remove();                           
+                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
+                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
@@ -77,8 +78,9 @@
                     try {
                         console.log($(el).text().length);
                         var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
-                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        promoParent.find('p > span.font-noto-sans-sc').remove();                           
+                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
+                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         console.log('Icon test', MRP + '..' + DP);
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
