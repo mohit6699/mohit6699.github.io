@@ -15,6 +15,10 @@
         font-weight: bolder;
     }
 
+    .font-noto-sans-sc {
+        font-size: 0.88rem;
+    }
+
     .inner-targetDisc {
         position: relative;
         left: -50%;
@@ -43,17 +47,29 @@
                 console.log('qa', $(el).find('span.line-through').text());
                 if ($(el).find('span.line-through').text().length > 0) {
                     try {
-                        console.log($(el).text().length);
+                        // console.log($(el).text().length);
                         var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        promoParent.find('p > span.font-noto-sans-sc').remove();                           
-                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
-                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
-                        console.log('Icon test', MRP + '..' + DP);
+                        let rmbValue = promoParent.find('p > span.font-noto-sans-sc').text();
+                        promoParent.find('p > span.font-noto-sans-sc').detach();
+                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
+                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        if (DP.includes("~ 约")) {
+                            DP = promoParent.find('.text-gray-900').text().split('S$')[1].split('~ 约')[0].replaceAll(',', '');
+                            console.log('DP', promoParent.find('.text-gray-900').text().split('S$')[1].split('~ 约')[0]);
+                        }
+                        // console.log('Icon test', MRP + '..' + DP + '--type--' + typeof DP);
+                        // console.log('DP', promoParent.find('.text-gray-900').text().split('S$'));
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+                        // console.log('Discount val', discValue + ' Discount percentage', discPercent);
+                        // console.log('Discount', discText);
                         if (discPercent != NaN && discText != "S$NaN") {
-                            promoParent.append('<span class="targetdisc">' + discText + ' off</span>');                      
+                            // console.log('Discount val', discValue + ' Discount percentage', discPercent);
+                            // console.log('Discount', discText);
+                            promoParent.append('<span class="targetdisc">' + discText + ' 折扣</span>');
+                            promoParent.find('p.text-14.mt-2.mb-6, p.text-14.mb-5px.zh.h-5').append('<p class="text-gray-900 pr-1 font-noto-sans-sc">' + rmbValue + '</p>');
+                            promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<p class="text-gray-900 pr-1 font-noto-sans-sc">' + rmbValue + '</p>');
                             promoParent.find('.promotag').addClass('promohide');
                         }
                     }
@@ -76,17 +92,29 @@
             success: function (el) {
                 if ($(el).text().length > 0) {
                     try {
-                        console.log($(el).text().length);
+                        // console.log($(el).text().length);
                         var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
-                        promoParent.find('p > span.font-noto-sans-sc').remove();                           
-                        var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
-                        var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
-                        console.log('Icon test', MRP + '..' + DP);
+                        let rmbValue = promoParent.find('p > span.font-noto-sans-sc').text();
+                        promoParent.find('p > span.font-noto-sans-sc').detach();
+                        var MRP = promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', '');
+                        var DP = promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', '');
+                        if (DP.includes("~ 约")) {
+                            DP = promoParent.find('.text-gray-900').text().split('S$')[1].split('~ 约')[0].replaceAll(',', '');
+                            console.log('DP', promoParent.find('.text-gray-900').text().split('S$')[1].split('~ 约')[0]);
+                        }
+                        // console.log('Icon test', MRP + '..' + DP + '--type--' + typeof DP);
+                        // console.log('DP', promoParent.find('.text-gray-900').text().split('S$'));
                         var discValue = (MRP - DP).toFixed(2);
                         var discPercent = Math.floor((((MRP - DP) * 100) / MRP).toFixed(2));
                         var discText = discPercent >= 10 ? discPercent + '%' : 'S$' + discValue;
+                        // console.log('Discount val', discValue + ' Discount percentage', discPercent);
+                        // console.log('Discount', discText);
                         if (discPercent != NaN && discText != "S$NaN") {
-                            promoParent.append('<span class="targetdisc">' + discText + ' off</span>');
+                            // console.log('Discount val', discValue + ' Discount percentage', discPercent);
+                            // console.log('Discount', discText);
+                            promoParent.append('<span class="targetdisc">' + discText + ' 折扣</span>');
+                            promoParent.find('p.text-14.mt-2.mb-6, p.text-14.mb-5px.zh.h-5').append('<p class="text-gray-900 pr-1 font-noto-sans-sc">' + rmbValue + '</p>');
+                            promoParent.find('p.flex.flex-wrap.justify-center.items-center.mt-2px').after('<p class="text-gray-900 pr-1 font-noto-sans-sc">' + rmbValue + '</p>');
                             promoParent.find('.promotag').addClass('promohide');
                         }
                     }

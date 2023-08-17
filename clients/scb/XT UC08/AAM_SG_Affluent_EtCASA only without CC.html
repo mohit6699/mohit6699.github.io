@@ -48,8 +48,8 @@
         var CC_users_adbe = '${profile.CC_users}' || 'false';
         var PL_users_adbe = '${profile.PL_users}' || 'false';
         var CASA_users_adbe = '${profile.CASA_users}' || 'false';
-        var P5_users_adbe = 'true' || 'false';
-        var P6_users_adbe = 'true' || 'false';
+        var P5_users_adbe = '';
+        var P6_users_adbe = '';
 
         //Based on the profile, removing the product from the rotation logic
         if (CC_users_adbe == 'true') {
@@ -86,6 +86,14 @@
                 }
             });
             product_arr_account_overview_adbe = product_arr_account_overview_adbe_temp;
+
+            //Including P5 and P6 slots after complete rotation Order of the products "CC,PL,BT"
+            P5_users_adbe = 'false';
+            P6_users_adbe = 'false';
+            BT_users_adbe = 'true';
+            CC_users_adbe = 'true';
+            PL_users_adbe = '';
+            CASA_users_adbe = '';
         }
 
         if (CASA_users_adbe == 'true') {

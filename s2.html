@@ -1,0 +1,302 @@
+<style>
+    #ucb-promotion-module.ttGrid {
+        background: #fafafa !important;
+    }
+
+    #ucb-promotion-module.ttGrid h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 400;
+        max-width: 100%;
+        margin: 30px 10px;
+    }
+
+    #ucb-promotion-module.ttGrid h2 span {
+        font-weight: 300;
+        display: block;
+        font-size: 18px;
+    }
+
+    #ucb-promotion-module .title {
+        min-height: 30px;
+    }
+
+    #ucb-promotion-module .botpadding {
+        padding-bottom: 5px;
+    }
+
+    #ucb-promotion-module .description {
+        font-weight: 600;
+    }
+
+    #ucb-promotion-module .description span {
+        font-weight: 300;
+    }
+
+    #ucb-promotion-module .ttCTA {
+        text-align: center;
+        margin: 15px 15px 35px;
+        padding: 16px 50px;
+        /*margin: 0 auto 70px;
+		display: block;
+		max-width: 250px;*/
+    }
+
+    /*#ucb-promotion-module .flickity-viewport,
+	#ucb-promotion-module.m-hero.has-tiles.vertical-tiles .tiles-container .list .item-wrapper>.item{
+		cursor: inherit;
+	}*/
+    #ucb-promotion-module.m-hero.has-tiles.vertical-tiles .tiles-container .list .item-wrapper>.item .read-more {
+        opacity: 1;
+        font-weight: 800;
+        text-decoration: underline;
+        position: static;
+        margin: 15px 0 0 0;
+        display: inline-block;
+    }
+
+    #ucb-promotion-module.m-hero.has-tiles.vertical-tiles .tiles-container .list .item-wrapper>.item .read-more:hover {
+        text-decoration: none;
+    }
+
+    #ucb-promotion-module .flickity-page-dots {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+
+    (function () {
+
+        var injMbox = injMbox || {
+            timeout: 30000,
+            timer: 20,
+
+            //Modifying the Dom
+            init: function () {
+                injMbox.domManipulation();
+
+            },
+
+            domManipulation: function () {
+
+                var applyNowLhrefParam = "";
+                try {
+                    var existingURLparameter = window.location.href;
+                    var aggregrateCode = 'ib03';
+                    var aggregatorType = 'IBAT';
+                    var aggregatorInstance = 'ATVisapromo&pageid=preibnk';
+                    var aggregatorINS = 'ATVisapromo';
+
+                    if (existingURLparameter.split(/subChanCode=/gi)[1] != undefined) {
+                        aggregrateCode = existingURLparameter.split(/subChanCode=/gi)[1].split("&")[0];
+                    }
+
+                    if (existingURLparameter.split(/referID=/gi)[1] != undefined) {
+                        aggregatorType = existingURLparameter.split(/referID=/gi)[1].split("&")[0];
+                    }
+
+                    if (existingURLparameter.split(/instance=/gi)[1] != undefined) {
+                        aggregatorInstance = existingURLparameter.split(/instance=/gi)[1].split("&")[0];
+                    }
+                    //UPDATING THE URLs
+
+                    yesURL = "https://ob.sc.com/sg/ibank.html?&product=885&campaign=5886&aggregator_code=" + aggregrateCode + "&aggregator_type=" + aggregatorType + "&aggregator_instance=" + aggregatorInstance;
+
+                    applyNowURL="https://ob.sc.com/sg/apply.html?&product=885&campaign=5886&aggregator_code="+ aggregrateCode + "&aggregator_type=" + aggregatorType + "&aggregator_instance=" + aggregatorINS;
+
+                } catch (e) { console.log(e); }
+
+                var gridContent = '<div class="m-hero has-tiles vertical-tiles is-middle-banner ttGrid" id="ucb-promotion-module"><div class="content"><div class="outer-wrapper"><div class="hero-header"><h2 class="title">Popular promotions for your Visa Infinite Credit Card<span>The Good Life Privileges</span></h2></div><div class="tiles-container activated botpadding"><div class="content-wrapper"><div class="list ttList" role="list"><div class="item-wrapper" role="listitem" data-banner-id="patina" id="patina-1" data-disallow-personalization="on"><a title="Patina" data-context="Patina" href="https://www.sc.com/sg/promotions/the-good-life-privileges/#739782-sg/?instance=ATSMpromo2" class="item"><div class="cover"><img class="img-bg" src="https://av.sc.com/sg/content/images/400x400PATINA_MALDIVES.jpg" loading="lazy"></div><div class="info"><h3 class="title">Patina Maldives, Fari Islands</h3><p class="description">Up to 30% off room rate<br><span>Valid till 31 Dec 2023</span></p></div></a></div><div class="item-wrapper" role="listitem" data-banner-id="caltex" id="caltex-1" data-disallow-personalization="on"><a title="Caltex" data-context="Caltex" href="https://www.sc.com/sg/promotions/the-good-life-privileges/#91kX82Q7-sg/?instance=ATSMpromo2" class="item"><div class="cover"><img class="img-bg" src="https://av.sc.com/sg/content/images/10387_VMLYR_CaltexJurong_3157z-400.jpg" loading="lazy"></div><div class="info"><h3 class="title">Caltex</h3><p class="description">Up to 20.7% savings<br><span>Valid till 31 Dec 2023</span></p></div></a></div><div class="item-wrapper" role="listitem" data-banner-id="tangs" id="tangs-1" data-disallow-personalization="on"><a title="TANGS" data-context="TANGS" href="https://www.sc.com/sg/promotions/the-good-life-privileges/#74091-sg/?instance=ATSMpromo2" class="item"><div class="cover"><img class="img-bg" src="https://av.sc.com/sg/content/images/TG23-JAN-IG-30Jan-400x400-1.png" loading="lazy"></div><div class="info"><h3 class="title">TANGS</h3><p class="description">S$20 TANGS.com promo code with min spend of $280<br><span>Valid till 31 Dec 2023</span></p></div></a></div><div class="item-wrapper" role="listitem" data-banner-id="Qatar" id="Qatar-1" data-disallow-personalization="on"><a title="Qatar" data-context="Qatar" href="https://www.sc.com/sg/promotions/the-good-life-privileges/#731500-sg/?instance=ATSMpromo2" class="item"><div class="cover"><img class="img-bg" src="https://av.sc.com/sg/content/images/Qatar_Crew_female_HIA-400x400-1.jpg" loading="lazy"></div><div class="info"><h3 class="title">Qatar Airways</h3><p class="description">Enjoy up to 10% off fares<br><span>Valid till 30 Jun 2023</span></p></div></a></div><div class="item-wrapper" role="listitem" data-banner-id="capella-hotel-singapore" id="capella-hotel-singapore-1" data-disallow-personalization="on"><a title="Capella Hotel Singapore" data-context="Capella Hotel Singapore" href="https://www.sc.com/sg/promotions/the-good-life-privileges/#732876-sg/?instance=ATSMpromo2" class="item"><div class="cover"><img class="img-bg" src="https://av.sc.com/sg/content/images/tgl-Capella-Singapore.jpg" loading="lazy"></div><div class="info"><h3 class="title">Capella Hotel Singapore</h3><p class="description">Get up to 10% off Accommodation and more<br><span>Valid till 31 Dec 2023</span></p></div></a></div></div></div></div><div style="text-align:center"><a href="' + applyNowURL + '" title="Apply Now TGL" class="c-button is-theme-solid-green-hollow-white rounded-button ttCTA" data-context="UCB Promotions CTA" data-analytics-event="click" data-a-category="~sg : ^UCB Promotions" data-a-label="Apply Now - Banner"><span class="only-desktop">Apply Now</span><span class="only-mobile">Apply Now</span></a><a href="https://www.sc.com/sg/promotions/the-good-life-privileges/?instance=ATSMpromo2" title="View All Promotions" class="c-button rounded-button ttCTA" data-context="Visa Infinite Credit Card Promotions CTA" data-analytics-event="click" data-a-category="~sg : ^Visa Infinite Credit Card Promotions" data-a-label="View All Promotions"><span class="only-desktop">View All Promotions</span><span class="only-mobile">View All Promotions</span></a></div></div></div></div>';
+
+
+                // if (document.querySelector("ul.sc-bnr-buttons li a")) {
+                //     document.querySelector("ul.sc-bnr-buttons li a").setAttribute("href", "https://ob.sc.com/sg/apply.html?product=164&campaign=2507");
+                // };
+
+                // if (document.querySelector(".column.apply-now ul.buttons li a")) {
+                //     document.querySelector(".column.apply-now ul.buttons li a").setAttribute("href", "https://ob.sc.com/sg/apply.html?product=164&campaign=2507");
+                // };
+
+                if (jQuery(".ttGrid").length == 0) {
+                    jQuery(gridContent).insertBefore(jQuery("#sc-lb-module-product-features"));
+                    (function () {
+                        var cnt = 7000;
+                        function init() {
+                            if (jQuery(".ttList").flickity != undefined && jQuery(".ttList").length > 0) {
+                                // console.log("qualified");
+                                jQuery(".ttList").flickity({
+                                    "cellAlign": "left",
+                                    "accessibility": true,
+                                    "contain": true,
+                                    "prevNextButtons": true,
+                                    "pageDots": false,
+                                    "wrapAround": false,
+                                    "draggable": true,
+                                    "groupCells": true
+                                });
+                            } else if (cnt > 0) {
+                                cnt = cnt - 500;
+                                setTimeout(init, 500);
+                            } else {
+                            }
+                        }
+                        init();
+                    })();
+                }
+
+                // Click Tracking
+                jQuery("#ucb-promotion-module a[title*='Apply Now'i]").on("mousedown", function () {
+                    adobe.target.trackEvent({
+                        "mbox": "mboxClickTrack",
+                        "params": {
+                            "clicked": "applyNowTGL"
+                        }
+                    });
+                });
+
+                Flickerlessly = window.Flickerlessly || {};
+                !function (A) {
+                    "use strict";
+                    var init = function (id, sel, callback, persist) {
+                        var animationName = 'atNodeInserted' + id;
+                        var cssStr = '@keyframes ' + animationName + ' {from {opacity:0.99} to {opacity:1} }\n';
+                        cssStr += sel + '{animation-duration:0.001s;animation-name:' + animationName + ';visibility:hidden}';
+                        var head = document.getElementsByTagName("head")[0];
+                        if (head) {
+                            var style = document.createElement("style");
+                            style.setAttribute("type", "text/css");
+                            if (style.styleSheet)
+                                style.styleSheet.cssText = cssStr;
+                            else
+                                style.appendChild(document.createTextNode(cssStr));
+                            head.insertBefore(style, head.firstChild)
+                        };
+                        var _insertListener = function (event) {
+                            if (event.animationName === animationName && typeof event.target === 'object') {
+                                var isExecute = ((persist === true) || (persist === false && event.target.getAttribute('data-flk-success') === null)) ? true : false;
+                                // if (console && console.info) console.info("Node " + sel + " ready! Execute: " + isExecute, event.target);
+                                if (typeof callback === 'function' && isExecute) {
+                                    callback(event.target);
+                                    event.target.setAttribute('data-flk-success', animationName);
+                                }
+                                event.target.style.visibility = 'visible';
+                            }
+                        };
+                        ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'].forEach(function (item, index) {
+                            document.addEventListener(item, _insertListener, false);
+                        });
+                    };
+                    A.onReady = function () {
+                        for (var i = 0; i < arguments.length; i++) {
+                            var obj = arguments[i];
+                            var selector = obj.selector;
+                            var success = obj.success || null;
+                            var persist = obj.persist || false;
+                            var rand = Math.floor((Math.random() * 100) + 1);
+                            init(rand, selector, success, persist);
+                        };
+                    };
+                }(Flickerlessly);
+                Flickerlessly.onReady(
+                   /* {
+                        selector: "#sc-lb-module-masthead-bonussaver ul > li > a[title='Apply Now'i]",
+                        persist: true,
+                        success: function (el) {
+                            if (!el.classList.contains("offer-adbe")) {
+                                try {
+                                    el.addEventListener("mousedown", function (event) {
+                                        adobe.target.trackEvent({
+                                            "mbox": "mboxClickTrack",
+                                            "params": {
+                                                "clicked": "CCpageApplyNow"
+                                            }
+                                        });
+                                    });
+                                } catch (e) { }
+                                el.classList.add("offer-adbe");
+                            }
+                        }
+                    },*/
+                    {
+                        selector: "ul li a[title='No'i]",
+                        persist: true,
+                        success: function (el5) {
+
+                            if (!el5.classList.contains("offer-adbe")) {
+                                try {
+                                    el5.href = applyNowURL;
+                                    el5.addEventListener("click", function (event) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        adobe.target.trackEvent({
+                                            "mbox": "mboxClickTrack",
+                                            "params": {
+                                                "clicked": "SCCpageApplyNow"
+                                            }
+                                        });
+                                        window.open(applyNowURL);
+                                    });
+                                } catch (e) {
+                                    console.log("error", e);
+                                }
+                                el5.classList.add("offer-adbe");
+                            }
+                        }
+                    },
+                    {
+                        selector: "ul li a[title='Yes'i]",
+                        persist: true,
+                        success: function (el5) {
+
+                            if (!el5.classList.contains("offer-adbe")) {
+                                try {
+                                    el5.href = yesURL;
+                                    el5.addEventListener("click", function (event) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        adobe.target.trackEvent({
+                                            "mbox": "mboxClickTrack",
+                                            "params": {
+                                                "clicked": "SCCpageApplyNow"
+                                            }
+                                        });
+                                        window.open(yesURL);
+                                    });
+                                } catch (e) {
+                                    console.log("error", e);
+                                }
+                                el5.classList.add("offer-adbe");
+                            }
+                        }
+                    },
+                );
+            },
+
+            //check for element to exist on the page before doing any manipulation
+            check: function () {
+                if (jQuery("#sc-lb-module-product-features").length > 0) {
+                    injMbox.init();
+                }
+                else {
+                    injMbox.timeout -= injMbox.timer;
+                    if (injMbox.timeout > injMbox.timer) {
+                        setTimeout(injMbox.check, injMbox.timer);
+                    }
+                }
+            }
+        };
+
+        //Can also check for jQuery or dom Ready events
+        var checkJQuery = function () {
+            if ('undefined' === typeof window.jQuery) {
+                if (injMbox.timeout > injMbox.timer) {
+                    setTimeout(checkJQuery, injMbox.timer);
+                }
+                injMbox.timeout -= injMbox.timer;
+                return;
+            }
+            injMbox.check();
+        };
+        checkJQuery();
+    })();
+</script>

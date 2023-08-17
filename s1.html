@@ -1,0 +1,427 @@
+<div>
+    <link rel="stylesheet" href="https://ishopchangi.com/content/dam/cagishop/target_css_js/swiper.min.css" />
+    <style>
+      .six-item-slider .swiper-container {
+        overflow: visible
+      }
+  
+      .six-item-slider .swiper-wrapper {
+        margin-top: 20px;
+        padding-bottom: 30px
+      }
+  
+      .six-item-slider .swiper-container-horizontal>.swiper-scrollbar {
+        width: 50%;
+        position: relative;
+        left: 0;
+        margin: 0 auto 30px;
+        height: 3px
+      }
+  
+      .six-item-slider .swiper-scrollbar {
+        background: rgba(222, 222, 222, .6)
+      }
+  
+      .six-item-slider .swiper-scrollbar-drag {
+        background: #c1b4ab
+      }
+  
+      .six-item-slider .swiper-slide {
+        height: auto
+      }
+  
+      .six-item-slider .swiper-slide:hover {
+        box-shadow: 0 2px 2px 1px rgba(0, 0, 0, .1);
+        border-radius: .5rem
+      }
+  
+      .six-item-slider .swiper-button-disabled {
+        opacity: 0
+      }
+  
+      .six-item-slider .swiper-button-next:after,
+      .six-item-slider .swiper-button-prev:after {
+        opacity: 0
+      }
+  
+      .six-item-slider .tile-product-name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: #222;
+        line-height: 1.34
+      }
+  
+      .transparent-left,
+      .transparent-right {
+        width: 100%;
+        opacity: .6;
+        z-index: 2
+      }
+  
+      .transparent-left {
+        left: -100%
+      }
+  
+      .transparent-right {
+        right: -100%
+      }
+  
+      .six-item-slider .swiper-button-next button,
+      .six-item-slider .swiper-button-prev button {
+        box-shadow: 0 3px 11px 0 rgba(0, 0, 0, .3)
+      }
+  
+      .six-item-slider:hover .swiper-button-next,
+      .six-item-slider:hover .swiper-button-prev {
+        display: flex
+      }
+  
+      .six-item-slider .swiper-button-next,
+      .six-item-slider .swiper-button-prev {
+        top: calc(50%);
+        height: 44px;
+        display: none
+      }
+  
+      .six-item-slider .swiper-button-prev {
+        left: -3px
+      }
+  
+      .six-item-slider .swiper-button-next {
+        right: -3px
+      }
+  
+      @media screen and (max-width:768px) {
+        .six-item-slider .tile-product-name {
+          -webkit-line-clamp: 3
+        }
+  
+        .six-item-slider .hidden {
+          display: none
+        }
+  
+        .six-item-slider:hover .swiper-button-next,
+        .six-item-slider:hover .swiper-button-prev {
+          display: none
+        }
+      }
+  
+      @media screen and (min-width:1024px) {
+        .changi-container .six-item-slider {
+          overflow: visible
+        }
+      }
+    </style>
+    <!--SLIDER TEMPLATE BEGINS-->
+    <div>
+      <div class="tnt\${campaign.id} six-item-slider bg-brown-100 pb-0 relative overflow-hidden" id="at-template-recs">
+        <div class="container mx-auto relative">
+          <div class="transparent-left absolute h-full bg-brown-100"></div>
+          <div class="transparent-right absolute h-full bg-brown-100"></div>
+          <h5
+            class="header-text text-20 lg:text-30 font-utopia-display font-semibold text-center text-gray-900 lg:text-left pt-5 md:pt-8">
+            $criteria.title</h5>
+          <div class="at-table swiper-container swiper-container-horizontal">
+            <div class="at-table-row swiper-wrapper">
+              #set($count=1)
+              #foreach($e in $entities)
+              #if($e.id != "" && $count < $entities.size() && $count <=11) <div class="swiper-slide">
+                <a href="/en$!e.pageUrl#referer=recommendation" class="at-table-column">
+                  <div class="h-full bg-white text-center p-2 rounded-lg overflow-hidden relative">
+                    <span class="absolute left-0 top-0 ml-2">
+                      #if ( $e.changiFirst == true )
+                      <img src="https://changiairport.scene7.com/is/image/changiairport/ChangiFirst-Gold" alt="gold"
+                        class="w-6" />
+                      #elseif ($e.loveSg == true && $e.changiFirst == false)
+                      <img src="https://changiairport.scene7.com/is/image/changiairportstage/LoveSG" alt="{silver}"
+                        class="w-6" />
+                      #end
+                    </span>
+                    <p class="h-3 mt-1 flex justify-center items-center">
+                      #if ( $e.newProduct == true)
+                      <span class="new-icon"></span>
+                      #end
+                      #if ( $e.newProduct == false && $e.arrivalGstAbsorbed == true )
+                      <span class="flex gst-absorbed-icon arrival hidden"></span>
+                      #end
+                      #if ( $e.newProduct == false && $e.sgTravellerGstAbsorbed == true )
+                      <span class="flex gst-absorbed-icon traveller hidden"></span>
+                      #end
+                      #if ($e.newProduct == false && $e.homeDeliveryNonTravellerGstAbsorbed == true)
+                      <span class="flex gst-absorbed-icon nontraveller hidden"></span>
+                      #end
+                    </p>
+                    #if ( !$e.thumbnailUrl && $e.id )
+                    <img src="https://changiairport.scene7.com/is/image/changiairportstage/isc_noimage" alt="pdp=demo"
+                      class="m-auto h-32 pt-1 pb-1 mb-1" />
+                    #else
+                    <img src="$!e.thumbnailUrl" alt="pdp=demo" class="m-auto h-32 pt-1 pb-1 mb-1" />
+                    #end
+                    <p class="mb-3 h-5">
+                      #if ( $e.changiExclusive == true || $e.travelExclusive == true)
+                      <button class="py-1 exclusive-icon"></button>
+                      #end
+                    </p>
+                    <div class="flex justify-between flex-col">
+                      <span class="text-pink-500 text-2xs py-1 font-bold uppercase"> $!e.brand </span>
+                      <p class="text-12 lg:text-14 h-12 lg:h-9 tile-product-name"> $!e.name</p>
+                      <p class="text-14 mt-2 mb-6">
+                        <span class="font-bold text-gray-900 pr-1">
+                          #if ( !$e.margin || $e.margin eq "0.00" ) S$$!e.value
+                          #else
+                          S$$!e.margin
+                          #end
+                        </span>
+                        #if ( $e.margin ne "" && $e.margin ne "0.00" && $e.margin)
+                        <span class="line-through text-gray-600 pl-1"> S$$!e.value </span>
+                        #end
+                      </p>
+                    </div>
+                    <div class="absolute left-0 bottom-0">
+                      #if ( $e.promotion == true )
+                      <span class="promotag">PROMO</span>
+                      #end
+                    </div>
+                    <div class="absolute right-0 bottom-0 pr-2 pb-1">
+                      <span class="text-gray-600 text-2xs">
+                        #if ( $e.showMoreOptions == true )
+                        More Options
+                        #end
+                      </span>
+                    </div>
+                  </div>
+                </a>
+            </div>
+            #set($count = $count + 1)
+            #end
+            #end
+          </div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <div class="absolute h-full top-0 right-0 z-10 hidden lg:block swiper-button-prev">
+          <div class="ml-1 sm:-ml-3 h-full"> <button type="button"
+              class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md"> <svg
+                class="fill-current w-5 h-5 text-gray-900 hover:text-pink-500" fill="" viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M36.55 7.003l-18.426 18.64 18.184 18.395L34.328 46 14 25.643 34.61 5z" fill-rule="evenodd">
+                </path>
+              </svg> </button></div>
+        </div>
+        <div class="absolute h-full top-0 right-0 z-10 hidden lg:block swiper-button-next">
+          <div class="mr-1 sm:-mr-3 h-full"> <button type="button"
+              class="h-10 w-10 flex items-center justify-center bg-white rounded-full shadow-md"> <svg
+                class="fill-current w-5 h-5 text-gray-900 hover:text-pink-500" fill="" viewBox="0 0 50 50"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <polygon id="path-1-66ad58d0-62c4-11ea-88b3-bf6d2dcdfa72"
+                    points="22 1.954 4.024 20.14 21.763 38.086 19.832 40 0 20.14 20.108 0"></polygon>
+                </defs>
+                <g fill-rule="evenodd">
+                  <g transform="translate(14 5)">
+                    <mask id="mask-2-66ad58d0-62c4-11ea-88b3-bf6d2dcdfa72">
+                      <use xlink:href="#path-1-66ad58d0-62c4-11ea-88b3-bf6d2dcdfa72"></use>
+                    </mask>
+                    <use transform="matrix(-1 0 0 1 22 0)" xlink:href="#path-1-66ad58d0-62c4-11ea-88b3-bf6d2dcdfa72">
+                    </use>
+                  </g>
+                </g>
+              </svg> </button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SLIDER TEMPLATE ENDS-->
+  <script>
+    function initializeSixItemPromoSwiper() {
+      var swiperMainContainer = document.getElementsByClassName("six-item-slider");
+      for (var i = 0; i < swiperMainContainer.length; i++) {
+        var uniqueClass = "six-item-slider-number-" + i;
+        var uniqueContainerClass = "six-item-slider-container-" + i;
+        swiperMainContainer[i].classList.add(uniqueClass);
+        var swiperContainer = swiperMainContainer[i].getElementsByClassName("swiper-container")[0];
+        swiperContainer.classList.add(uniqueContainerClass);
+        swiperContainer = swiperMainContainer[i].getElementsByClassName(uniqueContainerClass)[0];
+        var scrollBar = swiperMainContainer[i].getElementsByClassName("swiper-scrollbar")[0];
+        var nextEl = swiperMainContainer[i].getElementsByClassName("swiper-button-next")[0];
+        var prevEl = swiperMainContainer[i].getElementsByClassName("swiper-button-prev")[0];
+        var mySwiper = new Swiper(swiperContainer, {
+          slidesPerView: 2.2,
+          spaceBetween: 10,
+          slidesOffsetBefore: 10,
+          slidesOffsetAfter: 10,
+          scrollbar: {
+            enabled: true,
+            hide: false,
+            draggable: true,
+            el: scrollBar
+          },
+          grabCursor: true,
+          navigation: {
+            nextEl: nextEl,
+            prevEl: prevEl
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 6,
+              spaceBetween: 15,
+              slidesOffsetBefore: 0,
+              slidesOffsetAfter: 0,
+              scrollbar: {
+                enabled: true,
+                hide: false,
+                draggable: true
+              }
+            }
+          }
+        });
+      }
+    }
+    function loadScript(src, callback) {
+      let script = document.createElement("script");
+      script.src = src;
+      script.onload = function () {
+        callback(script);
+      };
+      document.head.appendChild(script);
+    }
+    if (window.loadedScripts && window.loadedScripts.includes("swiper")) {
+      initializeSixItemPromoSwiper();
+    } else {
+      loadScript("https://ishopchangi.com/content/dam/cagishop/target_css_js/swiper.min.js", function (script) {
+        initializeSixItemPromoSwiper();
+        //window.loadedScripts.push("swiper");
+      });
+    }
+    //render template
+    if ($('#at-template-recs').length > 0) {
+      console.log('swiper');
+    }
+    var mboxElements = document.getElementsByClassName("mbox-class");
+    for (var i = 0; i < mboxElements.length; i++) {
+      if (
+        mboxElements[i] &&
+        mboxElements[i].parentElement.getElementsByClassName(
+          "swiper-container"
+        )[0]
+      ) {
+        if (window.location.href.indexOf("/product/") > 0) {
+          var extraClasses = mboxElements[i].getAttribute("data-class");
+          if (extraClasses) {
+            var arrClasses = extraClasses.split(" ");
+            arrClasses.forEach(function (strClass) {
+              mboxElements[i].parentElement
+                .getElementsByClassName("header-text")[0]
+                .classList.add(strClass);
+            })
+          }
+        }
+      }
+    }
+  
+    var newIcon = '<span class="flex justify-center"><svg width="23" height="7" fill="url(#linearGradient)" viewBox="0 0 23 7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="0%" y1="48.261%" x2="100%" y2="51.513%" id="a"><stop stop-color="#D31E4B" offset="0%"></stop><stop stop-color="#6B2369" offset="100%"></stop></linearGradient></defs><path d="M33.14 2h1.593v6.408h-1.251l-2.907-3.636v3.636H29V2h1.233l2.907 3.618V2zm3.254 6.408V2h4.572v1.296h-2.925v1.206h2.736v1.296h-2.736v1.314h2.925v1.296h-4.572zM50.313 2h1.602L49.62 8.408h-1.341l-1.341-3.807-1.368 3.807h-1.341L41.943 2h1.719l1.314 4.041L46.407 2h1.152l1.377 4.113L50.313 2z" transform="translate(-29 -2)" fill="url(#a)" fill-rule="nonzero"></path></svg></span>'
+    var exclusiveIcon = '<svg viewBox="0 0 112 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="fill-current inline-block" width="112" height="20"><g fill="#635145" fill-rule="nonzero"><path d="M9.7 18.5s-.5.7-1.3 1c-.8.3-1.6 0-1.6 0s.5-.7 1.3-1c.8-.3 1.6 0 1.6 0zM9 17.2s.8 0 1.5.5c.6.5.9 1.3.9 1.3s-.8 0-1.5-.5c-.52-.433-.815-1.092-.884-1.26zm-1.7.7s-.6.6-1.5.6c-.8.1-1.5-.4-1.5-.4s.6-.6 1.5-.6c.8-.1 1.5.4 1.5.4zM6.5 16s.8.1 1.4.7c.6.6.7 1.4.7 1.4s-.8-.1-1.4-.7c-.6-.6-.7-1.4-.7-1.4zm-1.9-1.6s.8.5 1.1 1.2c.4.8.2 1.6.2 1.6s-.8-.4-1.1-1.2c-.4-.8-.2-1.6-.2-1.6zM4 16c.8.2 1.3.9 1.3.9s-.8.3-1.6.1c-.8-.2-1.3-.9-1.3-.9s.8-.3 1.6-.1zm-.6-3.2s.6.5.8 1.4c.1.8-.2 1.6-.2 1.6s-.6-.6-.8-1.4c-.2-.8.2-1.6.2-1.6zm-2.7.1s.8 0 1.5.5.9 1.3.9 1.3l-.036-.001A2.868 2.868 0 011.6 14.2c-.7-.5-.9-1.3-.9-1.3zm2.5-2.7s.3.9 0 1.7c-.2.8-.9 1.4-.9 1.4s-.3-.9 0-1.7c.2-.8.9-1.4.9-1.4zM.4 9.3s.8.3 1.2 1.1c.5.7.4 1.6.4 1.6s-.8-.3-1.2-1.1C.4 10.2.4 9.3.4 9.3zm3.2-1.7s.1.8-.5 1.5c-.5.7-1.3.9-1.3.9l.001-.04c.007-.18.062-.935.499-1.46.5-.7 1.3-.9 1.3-.9zM2 5.4l.024.031c.1.134.476.689.476 1.469 0 .9-.5 1.6-.5 1.6s-.5-.7-.5-1.5c0-.9.5-1.6.5-1.6zm3.3-.1s-.4.8-1.1 1.2c-.7.4-1.6.3-1.6.3S3 6 3.7 5.6c.7-.4 1.6-.3 1.6-.3zM4.1 2.8s.3.8 0 1.6-1 1.3-1 1.3-.3-.8 0-1.6 1-1.3 1-1.3zM7.3 4s-.6.6-1.4.7c-.9.2-1.6-.3-1.6-.3s.6-.6 1.4-.7c.8-.1 1.6.3 1.6.3zM9 2.8c.8.1 1.5.6 1.5.6s-.7.4-1.6.4c-.8-.1-1.5-.6-1.5-.6s.7-.5 1.6-.4zM7.1 1.2s0 .8-.5 1.5-1.3.9-1.3.9l.001-.04c.007-.18.061-.935.499-1.46.5-.7 1.3-.9 1.3-.9zM11 .6s-.2.8-.9 1.3c-.6.5-1.5.6-1.5.6s.2-.8.8-1.4C10.1.6 11 .6 11 .6zM28.3 8.5c0-.5-.1-.5-.7-.5v-.4h5.1v1.8h-.4c-.3-.9-.5-1.3-1.4-1.3h-.6c-.3 0-.3.1-.3.3v2.1h.8c.6 0 .7-.2.9-.9h.3v2.3h-.4c-.1-.7-.3-.9-.9-.9h-.8v2c0 .6 0 .7 1.1.7s1.3-.6 1.6-1.5h.4l-.1 2h-5.3v-.4c.6 0 .7-.1.7-.6V8.5zM34.4 14.1v-.4c.6 0 .7-.1 1-.5.4-.6 1-1.4 1.5-2.2-.6-1-1-1.8-1.6-2.7-.2-.2-.3-.3-.8-.3v-.4h3.1V8h-.4c-.2 0-.2.1-.1.3.2.4.6 1.2.8 1.5.4-.6.8-1.1 1-1.5.1-.2 0-.3-.1-.3h-.4v-.4h2.2V8c-.5 0-.6.1-.9.4-.4.5-.9 1.2-1.4 1.9.6 1 1.1 1.9 1.8 2.9.3.5.4.5 1 .6v.4h-3.4v-.4l.5-.1c.2 0 .2-.2.1-.3-.3-.5-.7-1.3-1-1.8-.5.8-.8 1.4-1 1.8-.1.2 0 .3.1.3h.5v.4h-2.5zM47.8 12l-.1 1.9c-.6.4-1.6.5-2.2.5-2.5 0-3.4-1.4-3.4-3.3 0-1 .2-1.8.8-2.5.6-.6 1.5-1 2.8-1 .4 0 1.5.1 2 .4v1.7h-.4C47 8.9 46.8 8 45.5 8c-1.7 0-1.7 2.3-1.7 2.9 0 1.1.2 3.1 1.8 3.1 1 0 1.4-.8 1.8-1.9h.4V12zM51.8 13c0 .6.2.7 1 .7 1.1 0 1.1-.6 1.5-1.5h.4l-.1 1.9h-5.1v-.4c.6 0 .7-.1.7-.6V8.4c0-.5-.1-.5-.7-.5v-.4h3.2V8c-.8 0-.8.1-.8.5V13h-.1zM62.7 7.6V8c-.6 0-.7.1-.7.5v3.6c0 .5-.1.9-.3 1.3-.4.7-1.2 1-2.4 1s-2-.2-2.4-.8c-.2-.4-.4-.8-.4-1.4V8.7c0-.5-.1-.5-.7-.5v-.4h3V8c-.6 0-.7.1-.7.5v3.7c0 1.1.4 1.6 1.1 1.6.8 0 1.1-.5 1.1-1.6V8.5c0-.5-.1-.5-.7-.5v-.4h3.1zM68.3 9.4c-.3-1.1-.9-1.5-1.5-1.5s-.9.4-.9 1c0 .7.7 1 1.4 1.3.8.4 1.7.8 1.7 2 0 1-.6 2.1-2.5 2.1-.6 0-1.5-.1-2-.6l-.1-1.7h.4c.4 1.2 1 1.8 1.8 1.8.6 0 1-.3 1-1 0-.6-.3-.9-1.2-1.3-1.1-.5-1.9-1-1.9-2.1s.7-2 2.4-2c.6 0 1.3.1 1.8.4v1.6h-.4zM73 13.2c0 .5.1.5.7.6v.4h-3.1v-.4c.6 0 .7-.1.7-.6V8.5c0-.5-.1-.5-.7-.5v-.4h3.1V8c-.7 0-.7.1-.7.5v4.7zM78 7.6V8h-.4c-.2 0-.2.1-.2.3.5 1.5 1.1 3.3 1.4 4.3.5-1.3 1.2-3.8 1.3-4.3 0-.2 0-.3-.2-.3h-.4v-.4h2.1V8c-.5 0-.6.1-.8.6-.6 1.7-1.3 3.8-1.9 5.6h-1.3c-.7-2-1.5-4.5-2-5.7-.1-.4-.1-.5-.6-.5v-.4h3zM83.5 8.5c0-.5-.1-.5-.7-.5v-.4h5.1v1.8h-.4c-.3-.9-.5-1.3-1.4-1.3h-.6c-.3 0-.3.1-.3.3v2.1h.8c.6 0 .7-.2.9-.9h.4v2.3h-.4c-.1-.7-.3-.9-.9-.9h-.8v2c0 .6 0 .7 1.1.7s1.3-.6 1.6-1.5h.4l-.1 2h-5.3v-.4c.7 0 .7-.1.7-.6V8.5h-.1z"></path><path d="M103.7.6H12.1c0 .3-.2.5-.3 1h92c4 0 7.2 3.8 7.2 8.5s-3.2 8.5-7.2 8.5H13.3c-.5.4-1.1.7-1.7 1h92.1c4.5 0 8.2-4.3 8.2-9.5S108.2.6 103.7.6z"></path></g></svg>';
+    var gstAbsorbedIcon = '<svg class="hidden sr-only inline-block w-auto h-2" viewBox="0 0 86 8" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="0%" y1="50%" x2="123.85317%" y2="50%" id="a"><stop stop-color="#F5831E" offset="0%"/><stop stop-color="#D31E4B" offset="100%"/></linearGradient></defs><path d="M74.011 18a8.25332 8.25332 0 001.0409-.06575c.34515-.04384.67576-.1096.99185-.19726.31608-.08767.60128-.19361.8556-.31781v-3.82466h-3.06274v1.19452h1.52592v1.72603l-.1647.04323-.27673.0554c-.27975.04749-.55769.07123-.8338.07123-.79203 0-1.38242-.22466-1.77117-.67397-.38874-.44932-.58312-1.12329-.58312-2.02192 0-.87671.18711-1.53425.56132-1.9726.37422-.43836.93554-.65754 1.68397-.65754.39965 0 .76841.05845 1.1063.17535.33788.1169.69211.30685 1.0627.56986l.54496-1.2274c-.31245-.27762-.7121-.49315-1.19894-.64657C75.00648 10.0767 74.48694 10 73.9347 10c-.7993 0-1.49322.16073-2.0818.4822-.58856.32145-1.04452.78173-1.36787 1.38081-.32335.5991-.48503 1.30777-.48503 2.12603 0 .83288.16168 1.54886.48503 2.14795.32335.59908.78476 1.05936 1.38423 1.38082.59947.32146 1.31338.48219 2.14174.48219zm7.05195 0c.67576 0 1.25343-.0968 1.73301-.29041.47958-.1936.84652-.46758 1.10085-.82192.25432-.35434.38148-.77625.38148-1.26575 0-.30685-.0545-.579-.1635-.81644-.10899-.23744-.27793-.44566-.50682-.62466-.22889-.179-.52136-.3379-.8774-.47671-.35605-.13881-.7775-.25936-1.26434-.36164-.41418-.09498-.73935-.18813-.9755-.27946-.23616-.09132-.4051-.19543-.50683-.31233-.10173-.11689-.1526-.25936-.1526-.4274.00001-.30684.1308-.54976.39239-.72876.26159-.179.614-.2685 1.05725-.2685.39238 0 .7775.06576 1.15534.19727.37785.1315.74116.33242 1.08994.60274l.54498-1.2274c-.20346-.18995-.45415-.35068-.75207-.4822-.29791-.1315-.62308-.23378-.9755-.30684-.35241-.07306-.71391-.10959-1.0845-.10959-.61763 0-1.15715.10594-1.61856.3178-.46141.21188-.8211.5023-1.07905.87124-.25795.36895-.38693.78356-.38693 1.24384 0 .32146.05087.60456.1526.84931.10172.24475.2634.45845.48502.6411.22162.18265.51046.34338.8665.48219.35606.13881.78477.25936 1.28614.36164.39965.08767.71937.17535.95915.26302.2398.08767.41418.18995.52318.30685.109.1169.16349.25936.16349.4274 0 .28493-.13261.50776-.39783.66849-.26522.16073-.64488.2411-1.139.2411-.45777 0-.89375-.06576-1.30793-.19727-.41418-.1315-.81382-.33242-1.19894-.60274l-.55587 1.2274c.23979.18995.52317.35251.85016.48767.32698.13516.67758.23744 1.0518.30685.37421.0694.7575.10411 1.14989.10411zm7.95987-.09863v-6.41096h2.43058v-1.39178h-6.58327v1.39178h2.43058v6.41096h1.72212zm7.21327 0l.74369-1.7315h3.61862l.73864 1.7315h1.68941l-3.56412-7.80274H98.089l-3.56412 7.80274h1.71121zm3.80644-3.03562h-2.50234l1.25617-2.9242 1.24617 2.9242zm7.32736 3.03562c.84289 0 1.50594-.19178 1.98915-.57534.4832-.38356.72481-.90411.72481-1.56165 0-.5041-.13624-.9242-.40873-1.26027-.27248-.33607-.65942-.56256-1.16079-.67945l.14603.03927.03192-.01076c.28695-.10847.5257-.26633.71625-.47358l.10855-.13027c.23979-.31781.35968-.69224.35968-1.1233 0-.6283-.23615-1.12328-.70846-1.48492-.47231-.36165-1.10811-.54247-1.9074-.54247h-3.57503v7.80274h3.68402zm-.39238-4.62466h-1.62402V11.4137h1.62402c.43598 0 .75933.07488.97005.22466.21072.14977.31608.38538.31608.70685 0 .31415-.10354.54794-.31063.70137-.2071.15342-.53226.23013-.9755.23013zm.19619 3.3096h-1.82021v-1.99453h1.8202c.45779 0 .79022.0822.9973.24658.2071.16438.31064.41826.31064.76164 0 .35068-.10354.60274-.31063.75616-.2071.15343-.53953.23014-.9973.23014zM113.98259 18c.67576 0 1.25344-.0968 1.73301-.29041.47958-.1936.84653-.46758 1.10085-.82192.25432-.35434.38148-.77625.38148-1.26575 0-.30685-.0545-.579-.1635-.81644-.10899-.23744-.27793-.44566-.50682-.62466-.22889-.179-.52136-.3379-.8774-.47671-.35605-.13881-.7775-.25936-1.26434-.36164-.41418-.09498-.73935-.18813-.9755-.27946-.23616-.09132-.4051-.19543-.50683-.31233-.10173-.11689-.15259-.25936-.15259-.4274 0-.30684.1308-.54976.39238-.72876.26159-.179.614-.2685 1.05725-.2685.39238 0 .7775.06576 1.15534.19727.37785.1315.74116.33242 1.08995.60274l.54497-1.2274c-.20346-.18995-.45415-.35068-.75206-.4822-.29792-.1315-.62309-.23378-.9755-.30684-.35242-.07306-.71392-.10959-1.0845-.10959-.61764 0-1.15716.10594-1.61857.3178-.46141.21188-.8211.5023-1.07905.87124-.25795.36895-.38693.78356-.38693 1.24384 0 .32146.05087.60456.1526.84931.10172.24475.2634.45845.48502.6411.22162.18265.51046.34338.8665.48219.35606.13881.78477.25936 1.28614.36164.39965.08767.71937.17535.95916.26302.23978.08767.41418.18995.52317.30685.109.1169.1635.25936.1635.4274 0 .28493-.13262.50776-.39784.66849-.26522.16073-.64488.2411-1.139.2411-.45777 0-.89375-.06576-1.30793-.19727-.41418-.1315-.81382-.33242-1.19894-.60274l-.55587 1.2274c.23979.18995.52318.35251.85016.48767.32698.13516.67758.23744 1.0518.30685.37421.0694.7575.10411 1.14989.10411zm8.01437 0c.7775 0 1.44781-.16438 2.01095-.49315.56314-.32877.9973-.7927 1.30249-1.39178.30518-.59909.45777-1.30776.45777-2.12603 0-.81096-.15259-1.51598-.45777-2.11507-.30519-.59908-.73935-1.06118-1.30249-1.3863-.56314-.32511-1.23345-.48767-2.01095-.48767-.7775 0-1.44962.16256-2.0164.48767-.56677.32512-1.00456.78722-1.31338 1.3863-.30882.59909-.46323 1.30411-.46323 2.11507 0 .81827.15441 1.52694.46323 2.12603.30882.59909.74661 1.06301 1.31338 1.39178.56678.32877 1.2389.49315 2.0164.49315zm0-1.32603c-.6467 0-1.15534-.22648-1.52592-.67945-.37058-.45297-.55587-1.12146-.55587-2.00548 0-.87671.18529-1.53972.55587-1.98904.37058-.44932.87922-.67397 1.52592-.67397.63944 0 1.14626.22465 1.52048.67397.37421.44932.56132 1.11233.56132 1.98904 0 .87671-.1871 1.54338-.56132 2-.37422.45662-.88104.68493-1.52048.68493zm6.78056 1.2274v-3.1452h1.10084c.22526 0 .42508.03835.59947.11506.1744.07672.30155.221.38148.43288l.99185 2.59726h1.79841l-.93735-2.42192c-.12353-.32877-.29247-.57351-.50682-.73424-.1429-.10716-.29792-.1786-.46505-.21431l-.00675-.0003.08766-.02767c.23684-.08332.4487-.19442.63559-.3333l.13548-.10936c.47957-.42009.71936-.97716.71936-1.67123 0-.7306-.23252-1.29498-.69756-1.69315-.46505-.39817-1.15171-.59726-2.06-.59726H127.099v7.80274h1.67852zm1.52592-4.44932h-1.53682V11.4137h1.53682c.49411 0 .85198.08219 1.0736.24657.22162.16439.33243.42192.33243.7726 0 .34339-.11263.5991-.33788.76713-.22526.16804-.5813.25205-1.06815.25205zm8.19312 4.44932c.8429 0 1.50594-.19178 1.98915-.57534.48321-.38356.72482-.90411.72482-1.56165 0-.5041-.13625-.9242-.40873-1.26027-.27249-.33607-.65942-.56256-1.1608-.67945l.14547.03927.03249-.01076c.28694-.10847.5257-.26633.71625-.47358l.10854-.13027c.2398-.31781.35969-.69224.35969-1.1233 0-.6283-.23616-1.12328-.70847-1.48492-.4723-.36165-1.1081-.54247-1.9074-.54247h-3.57502v7.80274h3.68401zm-.39238-4.62466h-1.62402V11.4137h1.62402c.43598 0 .75933.07488.97005.22466.21073.14977.31609.38538.31609.70685 0 .31415-.10355.54794-.31064.70137-.20709.15342-.53225.23013-.9755.23013zm.1962 3.3096h-1.82022v-1.99453h1.82021c.45778 0 .79021.0822.9973.24658.2071.16438.31064.41826.31064.76164 0 .35068-.10355.60274-.31064.75616-.20709.15343-.53952.23014-.9973.23014zm9.44655 1.31506v-1.32603h-3.68401v-1.9726h3.45512v-1.33699h-3.45512v-1.8411h3.68401v-1.32602h-5.35163v7.80274h5.35163zm4.18757 0c.85743 0 1.5895-.15525 2.19624-.46575.60674-.3105 1.06997-.75617 1.38968-1.33699.31972-.58082.47958-1.28402.47958-2.10959 0-.81826-.16168-1.5178-.48503-2.09863-.32335-.58082-.78839-1.02466-1.39513-1.3315-.60673-.30686-1.33518-.46028-2.18534-.46028h-3.00825v7.80274h3.00825zm-.11989-1.38082h-1.18804v-5.0411h1.18804c1.65672 0 2.48508.83653 2.48508 2.5096 0 .84748-.2071 1.48127-.62127 1.90136-.41418.4201-1.03545.63014-1.86381.63014z" transform="translate(-70 -10)" fill="url(#a)" fill-rule="nonzero"/></svg>';
+    var newElements = document.querySelectorAll(".new-icon:not(.icon-loaded)");
+    var exclusiveElements = document.querySelectorAll(".exclusive-icon:not(.icon-loaded)");
+    var gstAbsorbedIconContainers = document.querySelectorAll(".gst-absorbed-icon:not(.icon-loaded)");
+    for (var i = 0; i < newElements.length; i++) {
+      newElements[i].innerHTML = newIcon;
+      newElements[i].classList.add("icon-loaded");
+    }
+    for (var i = 0; i < exclusiveElements.length; i++) {
+      exclusiveElements[i].innerHTML = exclusiveIcon;
+      exclusiveElements[i].classList.add("icon-loaded");
+    }
+  
+    var travelType = null;
+    var deliveryType = null;
+  
+    if (document.cookie.split(';').some(function (item) {
+      return item.trim().indexOf('travelType=') == 0
+    })) {
+      travelType = document.cookie.split(';').find(row => row.trim().startsWith('travelType')).split('=')[1];
+    }
+  
+    if (document.cookie.split(';').some(function (item) {
+      return item.trim().indexOf('deliveryType=') == 0
+    })) {
+      deliveryType = document.cookie.split(';').find(row => row.trim().startsWith('deliveryType')).split('=')[1];
+    }
+  
+    for (var i = 0; i < gstAbsorbedIconContainers.length; i++) {
+      if (travelType
+        && travelType !== "DEPARTURE"
+        && !(travelType === "BOTH" && deliveryType === "BOTH")) {
+        var classlist = gstAbsorbedIconContainers[i].classList;
+        if ((deliveryType === "HOMENONTRAVELLER" && classlist.contains("nontraveller"))
+          || (deliveryType === "HOMETRAVELLER" && classlist.contains("traveller"))
+          || (travelType === "Arrival" && classlist.contains("arrival"))
+        ) {
+          gstAbsorbedIconContainers[i].innerHTML = gstAbsorbedIcon;
+          gstAbsorbedIconContainers[i].classList.add("icon-loaded");
+          gstAbsorbedIconContainers[i].classList.remove("hidden");
+        }
+      }
+    }
+  </script>
+  <script>
+    var count = 0;
+    function trackClicks() {
+      //TIME TO RESTOCK CLICK TRACKING
+       var currentCritRec = $('.tnt' + '\${campaign.id} .swiper-container')[0];
+  
+      var recsList1 = currentCritRec.querySelectorAll('a');
+      for (i = 0; i < recsList1.length; i++) {
+        recsList1[i].addEventListener('click', function () {
+          adobe.target.trackEvent({ 'mbox': 'clickedArticle' });
+          s_Obj.eVar151 = "\${campaign.name}" + "\${campaign.recipe.name}" + "$algorithm.name" + "$criteria.title";
+          s_Obj.linkTrackVars = "eVar151";
+          s_Obj.tl(true, "o", "\${campaign.name}" + "\${campaign.recipe.name}" + "$algorithm.name" + "$criteria.title");
+  
+          //success events
+          var s = s_gi('changairport-dev-new');
+          s.linkTrackVars = "events";
+          s.linkTrackEvents = "event500";
+          s.events = 'event500';
+          s.tl(this, 'o', "TimetoRestock");
+        })
+      }
+      // localStorage.setItem("recsCount", ++count);
+  
+    }
+    trackClicks();
+  
+    // $(document).ready(function () {
+    //   setTimeout(function () {
+    //     localStorage.removeItem("recsCount");
+    //   }, 1000);
+    // });
+    //# sourceURL=recsCT.js
+  
+    // IWD CLICK TRACK
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+      {
+        selector: '.IDSSkincare0',
+        persist: false,
+        success: function (el) {
+          var swiperContainer = el.querySelector('.swiper-container');
+          var swiperSlides = swiperContainer.querySelectorAll('.swiper-slide');
+          swiperSlides.forEach(function (swiper) {
+            swiper.addEventListener('click', function (event) {
+              adobe.target.trackEvent({ 'mbox': 'clickedArticle' });
+              var s = s_gi('changairport-dev-new');
+              s.linkTrackVars = "events";
+              s.linkTrackEvents = "event501";
+              s.events = 'event501';
+              s.tl(this, 'o', "IWD");
+            })
+          });
+        }
+      });
+  
+  </script>
+  </div>

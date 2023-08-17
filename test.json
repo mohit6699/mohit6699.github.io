@@ -1,0 +1,230 @@
+{
+    "templateType": "xf-web-variation",
+    "title": "Nudge 1 XF",
+    ":itemsOrder": [
+        "root"
+    ],
+    ":items": {
+        "root": {
+            "columnClassNames": {
+                "contentfragment_2140347480": "aem-GridColumn aem-GridColumn--default--12",
+                "contentfragment": "aem-GridColumn aem-GridColumn--default--12"
+            },
+            "gridClassNames": "aem-Grid aem-Grid--12 aem-Grid--default--12",
+            "columnCount": 12,
+            "allowedComponents": {
+                "components": [
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/accordion",
+                        "title": "Accordion"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/breadcrumb",
+                        "title": "Breadcrumb"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/button",
+                        "title": "Button"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/carousel",
+                        "title": "Carousel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/container",
+                        "title": "Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/contentfragment",
+                        "title": "Content Fragment"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/contentfragmentlist",
+                        "title": "Content Fragment List"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/download",
+                        "title": "Download"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/embed",
+                        "title": "Embed"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/experiencefragment",
+                        "title": "Experience Fragment"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/helloworld",
+                        "title": "Hello World Component"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/extended-core/image",
+                        "title": "Image"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/list",
+                        "title": "List"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/pdfviewer",
+                        "title": "PDF Viewer"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/progressbar",
+                        "title": "Progress Bar"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/separator",
+                        "title": "Separator"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/tableofcontents",
+                        "title": "Table of Contents"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/tabs",
+                        "title": "Tabs"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/teaser",
+                        "title": "Teaser"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/extended-core/text",
+                        "title": "Text"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/title",
+                        "title": "Title"
+                    }
+                ],
+                "applicable": false
+            },
+            ":itemsOrder": [
+                "contentfragment",
+                "contentfragment_2140347480"
+            ],
+            ":items": {
+                "contentfragment": {
+                    "id": "contentfragment-3e11d7c836",
+                    "description": "",
+                    "title": "Nudge 1",
+                    ":itemsOrder": [],
+                    ":items": {},
+                    "elements": {
+                        "message": {
+                            "dataType": "string",
+                            "title": "Message",
+                            "value": "Happy Nudging!!!",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "messageId": {
+                            "dataType": "string",
+                            "title": "Message ID",
+                            "value": "nudge-1",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "messageImage": {
+                            "dataType": "string",
+                            "title": "Message Image",
+                            "value": "/content/dam/techcombank/test/Banner.jpg",
+                            ":type": "string",
+                            "multiValue": false
+                        }
+                    },
+                    "elementsOrder": [
+                        "message",
+                        "messageId",
+                        "messageImage"
+                    ],
+                    ":type": "techcombank/components/proxy/contentfragment",
+                    "model": "techcombank/models/nudges-test",
+                    "dataLayer": {
+                        "contentfragment-3e11d7c836": {
+                            "@type": "techcombank/components/proxy/contentfragment",
+                            "repo:modifyDate": "2023-07-05T06:32:12Z",
+                            "dc:title": "Nudge 1",
+                            "elements": [
+                                {
+                                    "xdm:text": "Happy Nudging!!!",
+                                    "xdm:title": "Message"
+                                },
+                                {
+                                    "xdm:text": "nudge-1",
+                                    "xdm:title": "Message ID"
+                                },
+                                {
+                                    "xdm:text": "/content/dam/techcombank/test/Banner.jpg",
+                                    "xdm:title": "Message Image"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "contentfragment_2140347480": {
+                    "id": "contentfragment-2a870a0dc1",
+                    "description": "",
+                    "title": "Nudge 1",
+                    ":itemsOrder": [],
+                    ":items": {},
+                    "elements": {
+                        "message": {
+                            "dataType": "string",
+                            "title": "Message",
+                            "value": "Happy Nudging with Variations",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "messageId": {
+                            "dataType": "string",
+                            "title": "Message ID",
+                            "value": "nudge-1-variation-2",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "messageImage": {
+                            "dataType": "string",
+                            "title": "Message Image",
+                            "value": "/content/dam/techcombank/test/Banner.jpg",
+                            ":type": "string",
+                            "multiValue": false
+                        }
+                    },
+                    "elementsOrder": [
+                        "message",
+                        "messageId",
+                        "messageImage"
+                    ],
+                    ":type": "techcombank/components/proxy/contentfragment",
+                    "model": "techcombank/models/nudges-test",
+                    "dataLayer": {
+                        "contentfragment-2a870a0dc1": {
+                            "@type": "techcombank/components/proxy/contentfragment",
+                            "repo:modifyDate": "2023-07-05T06:32:43Z",
+                            "dc:title": "Nudge 1",
+                            "elements": [
+                                {
+                                    "xdm:text": "Happy Nudging with Variations",
+                                    "xdm:title": "Message"
+                                },
+                                {
+                                    "xdm:text": "nudge-1-variation-2",
+                                    "xdm:title": "Message ID"
+                                },
+                                {
+                                    "xdm:text": "/content/dam/techcombank/test/Banner.jpg",
+                                    "xdm:title": "Message Image"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            ":type": "techcombank/components/extended-core/sectioncontainer"
+        }
+    },
+    ":type": "techcombank/components/proxy/xfpage"
+}

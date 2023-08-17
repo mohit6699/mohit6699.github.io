@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        let targetUrl = 'https://adobe-acs-apac-biggest-losers.s3.us-east-1.amazonaws.com/nudge-1.json';
+
+        function getData() {
+            let jsonData = '';
+            fetch(targetUrl)
+                .then(res => res)
+                .then(data => {
+                    jsonData = data;
+                    console.log(jsonData);
+                    return jsonData;
+                });
+
+
+        }
+        getData();
+    </script>
+</body>
+
+</html>

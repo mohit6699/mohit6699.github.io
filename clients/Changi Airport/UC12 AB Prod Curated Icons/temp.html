@@ -1,0 +1,291 @@
+<!-- 3clicks-->
+<style>
+    .subscription-wrapper {
+        background-image: linear-gradient(90deg, #d31e4b -6.43%, #6b2369 103.92%);
+        position: fixed;
+        transform: translateY(15%) translateX(0);
+        color: #fff;
+        display: flex;
+        max-width: 290px;
+        padding: 10px 10px 0px 15px;
+        border-radius: 20px;
+        right: -20px;
+        animation-name: rightToLeft;
+        animation-duration: 1.2s;
+        animation-timing-function: linear;
+    }
+
+    .subscription-wrapper .content {
+        width: 90%;
+    }
+
+    .subscription-wrapper form {
+        margin-top: 10px;
+    }
+
+    .subscription-wrapper form input.placeholder-black {
+        color: rgba(34, 34, 34, var(--text-opacity));
+    }
+
+    .subscription-wrapper .close-icon {
+        position: absolute;
+        right: 6%;
+        font-size: 0.75em;
+        color: rgba(255, 255, 255, var(--text-opacity));
+        opacity: 0.85;
+        margin-right: 10px;
+    }
+
+    .subscription-wrapper .success-wrapper.content {
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        line-height: 22px;
+        color: #fff;
+        padding: 0px 20px 10px 0px;
+    }
+
+    .subscription-wrapper .success-wrapper.content span {
+        font-size: 12px;
+        display: block;
+    }
+
+    .subscription-wrapper .success-wrapper.content strong {
+        color: #ffbb33;
+    }
+
+    .subscription-wrapper .success-wrapper .notify-bubble {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: black;
+        color: white;
+        font-size: 0.75em;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        transform: translateY(-100%);
+    }
+
+    @media (min-width: 1365px) {
+        .subscription-wrapper {
+            max-width: 420px;
+            right: -30px;
+        }
+
+        .subscription-wrapper .close-icon {
+            right: 8%;
+        }
+    }
+
+    @keyframes rightToLeft {
+        0% {
+            transform: translateX(100%) translateY(15%);
+        }
+
+        100% {
+            transform: translateX(0%) translateY(15%);
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        try {
+            var counter = 0;
+            var waitForElement = function () {
+                let subscriptionSliderSelector = document.querySelector("#header-searchbar-container");
+                var headerContainer = subscriptionSliderSelector.parentNode;
+
+                if (subscriptionSliderSelector != null) {
+                    //PAGE VIEW COUNT CHECK
+                    var pathname;
+                    pathname = location.pathname;
+                    window.addEventListener("click", function () {
+                        if (location.pathname != pathname) {
+                            var visitValue;
+                            var isShown = localStorage.getItem('alreadyShow');
+                            if (isShown !== 'alreadyShown') {
+                                localStorage.setItem('alreadyShow', 'alreadyShown');
+                                pathname = location.pathname;
+                                visitValue = localStorage.getItem('pageVisit') || 0;
+                                visitValue = JSON.parse(visitValue) + 1;
+                                localStorage.setItem("pageVisit", visitValue)
+                            }
+                            else {
+                                pathname = location.pathname;
+                                visitValue = localStorage.getItem('pageVisit');
+                                visitValue = JSON.parse(visitValue) + 1;
+                                localStorage.setItem("pageVisit", visitValue);
+                                if (JSON.parse(localStorage.getItem("pageVisit") == 10)) { //4th page
+                                    console.log('Exp CCC');
+                                    renderSlider();
+                                }
+
+                            }
+
+                        }
+                    });
+
+                    //TEMPLATE 1
+                    function renderSlider() {
+                        var myForm, subscriptionBtn, email_field, closeBtn, codeButton;
+                        var wrapper = document.createElement("div");
+                        wrapper.className = "subscription-wrapper";
+                        wrapper.innerHTML = "<span class=close-icon><button class='close-banner' type='button'>✕</button></span><div class='content'><p class='text-14'><strong>Hey there,</strong><p class='text-12'>Subscribe for the latest news, deals and promotions from us, and unlock a <strong class='text-14'>special promotion code</strong>!<form id='myForm'><div class='mb-4 relative'><input name='email' value='' id='registerEmail' class='rounded-full bg-transparent border border-white h-10 pl-4 placeholder-black pr-10 w-full bg-white text-12' placeholder='Enter Your Email Address' /><button class='rounded-full absolute bg-white mr-1 mt-1 register-btn right-0 top-0'><svg class='cursor-pointer fill-current h-8 text-pink-500 w-8' fill=url(#linearGradient-c471f994-f64a-11ed-a298-97ec90d05ba8) viewBox='0 0 50 50' xmlns=http://www.w3.org/2000/svg><defs><linearGradient id=linearGradient-c471f994-f64a-11ed-a298-97ec90d05ba8 x1=0% x2=100% y1=0% y2=0%><stop offset=0% style=stop-color:#d31e4b;stop-opacity:1></stop><stop offset=100% style=stop-color:#6b2369;stop-opacity:1></stop></linearGradient></defs><path d='M25 0c13.807 0 25 11.193 25 25S38.807 50 25 50 0 38.807 0 25 11.193 0 25 0zm1.04 12l-1.29 1.282 11.199 10.905H10.688v1.875h25.449L24.911 36.994l1.317 1.256L39.75 25.217 26.04 12z' fill-rule=evenodd></path></svg></button></div></form></div>"
+                        subscriptionSliderSelector.appendChild(wrapper);
+
+                        myForm = document.querySelector('#myForm');
+                        subscriptionBtn = document.querySelector('.register-btn');
+                        email_field = document.querySelector('#registerEmail');
+                        closeBtn = document.querySelector('.close-banner');
+
+                        email_field.oninput = function () {
+                            email_field.setAttribute('value', email_field.value);
+                            if (document.querySelector('.unsubscribe-text') != null) {
+                                document.querySelector('.unsubscribe-text').remove();
+                            }
+                            if (document.querySelector('.subscribe-text') != null) {
+                                document.querySelector('.subscribe-text').remove();
+                            }
+                        };
+
+                        closeBtn.onclick = function () {
+                            if (window.s_gi) {
+                                const name = 'subscription banner|exp b|close';
+                                var s = s_gi('changairport-prod-new');
+                                s.linkTrackVars = "eVar126";
+                                s.eVar15 = name;
+                                s.tl(true, "o", name);
+                            }
+                            document.querySelector(".subscription-wrapper").style.display = "none";
+                            document.querySelector(".subscription-wrapper").remove();
+                        }
+
+                        function showThankyouBanner() {
+                            wrapper.innerHTML = "<span class='close-icon'><button class='close-banner' type='button'>✕</button></span><div class='content success-wrapper'><p>Thanks for subscribing!<p style='margin-bottom:10px;'>You've unlocked <strong>10% off*</strong>. Apply code <strong>ISCSUB10</strong> at checkout to enjoy.</p><span> <span class='notify-bubble' style='display:none;'>Copied!</span> <button class='code-button'>Tap to copy code</button>. Expires 31 July 2023. Discount Cap S$30. T&Cs apply.</span></div>";
+                            wrapper.style.maxWidth = '350px';
+                            closeBtn = document.querySelector('.close-banner');
+                            codeButton = document.querySelector('.code-button');
+                            closeBtn.onclick = function () {
+                                if (window.s_gi) {
+                                    const name = 'subscription banner|exp b|close';
+                                    var s = s_gi('changairport-prod-new');
+                                    s.linkTrackVars = "eVar126";
+                                    s.eVar15 = name;
+                                    s.tl(true, "o", name);
+                                }
+                                document.querySelector(".subscription-wrapper").style.display = "none";
+                                document.querySelector(".subscription-wrapper").remove();
+                            }
+                            codeButton.onclick = function () {
+                                navigator.clipboard.writeText("ISCSUB10");
+                                document.querySelector(".notify-bubble").style.display = "inline-block";
+                                setTimeout(() => {
+                                    hideBubble();
+                                }, 3000)
+                            }
+
+                        }
+                        function hideBubble() {
+                            document.querySelector(".notify-bubble").style.display = "none";
+                        }
+
+                        //FORM SUBMIT
+                        var timeStamp = new Date().getTime();
+                        myForm.addEventListener('submit', function (event) {
+                            event.preventDefault();
+                            let email_value = email_field.value;
+                            let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                            let validateEmail = emailRegex.test(String(email_value).toLowerCase());
+
+                            if (email_value != null && validateEmail == true) {
+                                fetch('https://www.ishopchangi.com/bin/cagcommerce/webservices/v2/cag/user/newsletter?timestamp=' + timeStamp, {
+                                    method: 'POST',
+                                    headers: { 'Content-type': 'application/json' },
+                                    body: JSON.stringify({
+                                        email: email_value,
+                                        languagePreference: "en"
+                                    })
+                                })
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        console.log('Success', data.httpStatusCode);
+                                        if (email_value != "" && data.httpStatusCode == 400) {
+                                            if (window.s_gi) {
+                                                const name = 'subscription_banner_exp_b:This email address is already registered';
+                                                var s = s_gi('changairport-prod-new');
+                                                s.linkTrackVars = "eVar173";
+                                                s.eVar173 = name;
+                                                s.tl(true, "o", name);
+                                            }
+                                            if (document.querySelector('.unsubscribe-text') != null) {
+                                                return;
+                                            }
+                                            else {
+                                                subscriptionBtn.insertAdjacentHTML("afterend", '<p class="text-white m-1 text-12 unsubscribe-text">This email address is already registered. To subscribe, please enter a new email address</p>');
+                                            }
+                                        }
+                                        else if (email_value != "" && data.httpStatusCode == 200) {
+                                            if (window.s_gi) {
+                                                const name = 'subscription_banner_exp_b:Thanks for subscribing!';
+                                                var s = s_gi('changairport-prod-new');
+                                                s.linkTrackVars = "event166, eVar173";
+                                                s.eVar173 = name;
+                                                s.event166 = "ISCSUB10-Promo";
+                                                s.events = "event166";
+                                                s.linkTrackEvents = "event166";
+                                                s.tl(true, "o", name);
+                                            }
+                                            showThankyouBanner();
+                                        }
+                                    }).catch(function (error) {
+                                        console.error('Error:', error);
+                                    });
+                                return true;
+                            }
+                            else {
+                                if (window.s_gi) {
+                                    const name = 'subscription_banner_exp_b:Please enter a valid email address';
+                                    var s = s_gi('changairport-prod-new');
+                                    s.linkTrackVars = "eVar173";
+                                    s.eVar173 = name;
+                                    s.tl(true, "o", name);
+                                }
+                                if (document.querySelector('.unsubscribe-text') != null) {
+                                    return;
+                                }
+                                else {
+                                    subscriptionBtn.insertAdjacentHTML("afterend", '<p class="text-white m-1 text-12 unsubscribe-text">Please enter a valid email address</p>');
+                                    if (document.querySelector('.subscribe-text') != null) {
+                                        document.querySelector('.subscribe-text').remove();
+                                    }
+                                    setTimeout(function () {
+                                        document.querySelector('.subscription-wrapper').style.display = 'none';
+                                        document.querySelector('.subscription-wrapper').remove();
+                                    }, 2000);
+
+                                }
+                            }
+                        });
+                    }
+
+                }
+
+                else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        }
+        catch (error) {
+            console.log(error)
+        }
+    })();
+</script>

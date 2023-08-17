@@ -1,0 +1,42 @@
+<body>
+    <div id></div>
+</body>
+<script>
+    (function () {
+        var counter = 0;
+        var waitForElement = function () {
+            let buttonSelector = document.querySelector("div.fixed-header-container");
+            if (buttonSelector != null) {
+                let buttonHtml = '<button id="adobe-test-sub" class="btn">Click</button>';
+                buttonSelector.insertAdjacentHTML("afterend", buttonHtml);
+
+                let subscriptionBtn = document.querySelector("#adobe-test-sub");
+                let timeStamp = new Date().getTime();
+
+                subscriptionBtn.addEventListener('click', function () {
+                    fetch('https://www.ishopchangi.com/bin/cagcommerce/webservices/v2/cag/user/newsletter?timestamp=' + timeStamp, {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            email: "mohittiwari@hotmail.com",
+                            languagePreference: "en",
+
+                        }),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        }
+                    })
+                        .then(function (response) {
+                            return response.json()
+                        })
+                        .then(function (data) {
+                            console.log(data)
+                        }).catch(error => console.error('Error:', error));
+                });
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+            }
+        }
+        waitForElement();
+    })();
+</script>

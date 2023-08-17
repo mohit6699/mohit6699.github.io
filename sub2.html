@@ -1,0 +1,170 @@
+<script type="text/javascript">
+    !(function (w, d) {
+        var logInfo = function (str) {
+            console.info(str);
+        };
+        if (!Element.prototype.matches) {
+            Element.prototype.matches =
+                Element.prototype.msMatchesSelector ||
+                Element.prototype.webkitMatchesSelector;
+        }
+
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function (s) {
+                var el = this;
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
+        var Flickerlessly = w.Flickerlessly || {};
+        !(function (t) {
+            "use strict";
+            var e = function (t, e, n, o) {
+                var a = "atNodeInserted" + t,
+                    i = [],
+                    s = ["", "-moz-", "-webkit-", "-ms-", "-o-"];
+                s.forEach(function (t, e) {
+                    i.push(
+                        "@" +
+                        t +
+                        "keyframes " +
+                        a +
+                        " {from {opacity:0.99} to {opacity:1}}"
+                    );
+                }),
+                    i.push(e + "{"),
+                    s.forEach(function (t, e) {
+                        i.push(
+                            t +
+                            "animation-duration:0.001s;" +
+                            t +
+                            "animation-name:" +
+                            a +
+                            ";"
+                        );
+                    }),
+                    i.push("}");
+                var r = d.getElementsByTagName("head")[0];
+                if (r) {
+                    var c = d.createElement("style");
+                    c.setAttribute("type", "text/css"),
+                        c.styleSheet
+                            ? (c.styleSheet.cssText = i.join("\n"))
+                            : c.appendChild(d.createTextNode(i.join("\n"))),
+                        r.insertBefore(c, r.firstChild);
+                }
+                var l = function (t) {
+                    if (t.animationName === a && "object" == typeof t.target) {
+                        var i =
+                            o === !0 ||
+                            (o === !1 &&
+                                null === t.target.getAttribute("data-flk-success"));
+                        w.console &&
+                            logInfo("('" + e + "') ready! Execute: " + i, t.target),
+                            "function" == typeof n && i
+                                ? (n(t.target), t.target.setAttribute("data-flk-success", a))
+                                : w.console && console.error("Cannot Callback", i, n);
+                    }
+                };
+                [
+                    "animationstart",
+                    "MSAnimationStart",
+                    "webkitAnimationStart",
+                ].forEach(function (t, e) {
+                    d.addEventListener(t, l, !1);
+                });
+            },
+                n = Math.floor(1e3 * Math.random() + 1);
+            t.onReady = function () {
+                for (var t = 0; t < arguments.length; t++) {
+                    var o = arguments[t],
+                        a = o.selector,
+                        i = o.success || null,
+                        s = o.persist || !1;
+                    e(n++, a, i, s);
+                }
+            };
+        })(Flickerlessly);
+
+        Flickerlessly.onReady({
+            selector:
+                "#collapse-sticky-insights-navbar > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > ul > li > div > span",
+            success: function (el) {
+                //add aa event
+
+                if (!document.querySelector("#add-aa-event")) {
+                    var script = document.createElement("script");
+                    script.setAttribute("id", "add-aa-event");
+                    script.type = "text/javascript";
+                    script.innerHTML = `
+                    var addAAEvent = function(name, evar, event){
+                      if(window.s_gi){
+                          var s=s_gi('dbssgprod');
+                          s.linkTrackVars = evar + ", events"; //"eVar6, events"
+                          s.linkTrackEvents = event; //"event119"
+                          s[evar] = name; //s.eVar6= "sg-dbs-pweb-bank-deposits-digibanking-btnlink-signup-target-b"
+                          s.events = event; //'event119'
+                          s.tl(this,'o', name);
+                      }
+                    }
+                  `;
+                    document.head.appendChild(script);
+                }
+
+                //VEC selected without classnames
+                //#collapse-sticky-insights-navbar > DIV:nth-of-type(1) > DIV:nth-of-type(1) > DIV:nth-of-type(1) > DIV:nth-of-type(1) > DIV:nth-of-type(2) > DIV:nth-of-type(1) > DIV:nth-of-type(2) > DIV:nth-of-type(2) > UL:nth-of-type(1) > LI:nth-of-type(1) > DIV:nth-of-type(1) > SPAN:nth-of-type(1) > DIV:nth-of-type(1)
+
+                //temp datatestid seen for sometime
+                //selector for High contrast
+                // "div[data-testid='CASA_Account_Details_Header__topbar'] > div:nth-child(2) > div:nth-child(1) > ul >li > div> div:nth-child(5):not(.at_variant)"
+
+                console.log("original :  el", el);
+                //nextElementSibling
+                var privacyMode = el;
+
+                function removeVariantClass() {
+                    if (el.classList.contains("at_variant")) {
+                        console.log("removing variant tag");
+                        el.classList.remove("at_variant");
+                    }
+                }
+
+                function privacyModeSectionListener() {
+                    console.log("privaccy mode parent listener activated");
+                    addAAEvent("sg-ibng-commons-privacy-mode-btn-target", "eVar6", "");
+                    removeVariantClass();
+                }
+
+                function highContrastSectionListener() {
+                    console.log("high contrast parent listener activated");
+                    addAAEvent("sg-ibng-commons-high-contrast-btn-target", "eVar6", "");
+                    removeVariantClass();
+                }
+
+                el.addEventListener("click", privacyModeSectionListener);
+
+                el.previousElementSibling.addEventListener(
+                    "click",
+                    highContrastSectionListener
+                );
+
+                console.log("privacy mode", el);
+
+                var highContrast = el.previousElementSibling;
+
+                if (!el.classList.contains("at_variant")) {
+                    privacyMode.insertAdjacentElement(
+                        "afterend",
+                        privacyMode.previousElementSibling
+                    );
+
+                    el.classList.add("at_variant");
+                }
+            },
+            persist: true,
+        });
+    })(window, document);
+</script>

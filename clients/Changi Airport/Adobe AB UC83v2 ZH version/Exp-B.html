@@ -50,8 +50,8 @@
                         console.log($(el).text().length);
                         var promoParent = $(el).find('span.line-through').parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
                         let rmbValue = promoParent.find('p > span.font-noto-sans-sc').text();
-                        //promoParent.find('p > span.font-noto-sans-sc').detach();
-                        promoParent.find('p > span.font-noto-sans-sc').remove();
+                        promoParent.find('p > span.font-noto-sans-sc').detach();
+                        //promoParent.find('p > span.font-noto-sans-sc').remove();
                         var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
                         var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         //console.log('Icon test', MRP + '..' + DP);
@@ -90,8 +90,8 @@
                         console.log($(el).text().length);
                         var promoParent = $(el).parentsUntil($('div[data-test-item-type="product"]'), 'a').parent();
                         let rmbValue = promoParent.find('p > span.font-noto-sans-sc').text();
-                        //promoParent.find('p > span.font-noto-sans-sc').detach();
-                        promoParent.find('p > span.font-noto-sans-sc').remove();
+                        promoParent.find('p > span.font-noto-sans-sc').detach();
+                        //promoParent.find('p > span.font-noto-sans-sc').remove();
                         var MRP = Number(promoParent.find('span.text-gray-600').text().split('S$')[1].replaceAll(',', '').replaceAll('More options', ''));
                         var DP = Number(promoParent.find('.text-gray-900').text().split('S$')[1].replaceAll(',', ''));
                         //console.log('Icon test', MRP + '..' + DP);

@@ -1,0 +1,52 @@
+<script>
+    if (window.digitalData.user.loggedInStatus === "loggedin") {
+        var counter = 0;
+
+        let waitForElement = function () {
+            let bannerSelector = document.querySelector(".promotion-inner.flex.homePage-promotion");
+
+            if (bannerSelector != null) {
+                bannerSelector.innerHTML = "";
+
+                let [category_1, category_2, category_3] = ["${user.CATEGORYNM_FREQ_1}", "${user.CATEGORYNM_FREQ_2}", "${user.CATEGORYNM_FREQ_3}"];
+
+                let userCategoryList = [category_1, category_2, category_3];
+                let defaultCategoryList = ["wine-and-spirits", "beauty", "electronics", "food-and-beverages", "health-and-wellness", "womens-fashion"];
+                let mergedList = [...userCategoryList, ...defaultCategoryList];
+                let uniqueList = [...new Set(mergedList)];
+                
+                //removing the first element if category values are empty string
+                if(uniqueList[0] === ""){
+                    uniqueList.shift();
+                }
+
+                for (let i = 0; i < 6; i++) {
+                    bannerSelector.innerHTML += '<div id="adbitm-' + Number(i + 1) + '" class="lg:justify-center flex-col text-center md:px-5 whitespace-no-wrap promotiongrid mx-4 md:mx-0 md:mt-1"><div class="hover:shadow-allsides overflow-hidden rounded-md lg:rounded-lg rounded-full lg:rounded-full"><span data-selenium-id="usp-' + uniqueList[i] + '" class="text-12 md:text-14 font-bold relative block pt-100 promo-img bg-gray-300"><a data-notrack="true" data-linkname="' + uniqueList[i] + '" href="https://www.ishopchangi.com/en/category/' + uniqueList[i] + '"><img src="https://changiairport.scene7.com/is/image/changiairport/icon-' + uniqueList[i] + '" class="image-grow sm:w-auto absolute top-0 w-full h-full" /></a></span></div></div>';
+                }
+
+                let allChildren = bannerSelector.querySelectorAll(":scope > div.promotiongrid");
+                allChildren.forEach((item) => item.classList.add("adbitm"));
+
+                let curatedIcons = document.querySelectorAll('.adbitm');
+                for (let i = 0; i < curatedIcons.length; i++) {
+                    curatedIcons[i].addEventListener('click', function () {
+                        var name = "en_crm-icons_pos" + Number(i + 1) + "_ntr_global_exp_b";
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = name;
+                            s.event143 = "crm-icons_pos" + Number(i + 1);
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", name);
+                        }
+                    });
+                }
+            } else {
+                ++counter;
+                counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+            }
+        }
+        waitForElement();
+    }
+</script>

@@ -1,0 +1,275 @@
+<script>
+    console.log("experience B");
+    var activityHandler = (event) => {
+      var handled = false;
+    
+      var contentData = [];
+    
+      const replaceImage = (image, url) => {
+        var oldElement = image;
+        var newElement = oldElement.cloneNode(true);
+        newElement.src = url;
+        newElement.srcset = url;
+        oldElement.parentNode.replaceChild(newElement, oldElement);
+      };
+    
+      const observeImageChange = (image, index) => {
+        const mutationObserved = (mutationList, observer) => {
+          replaceImage(image, contentData[index].imageUrl);
+          observer.disconnect();
+        };
+    
+        // Options for the observer (which mutations to observe)
+        const config = { attributes: true, childList: true, subtree: true };
+        const observer = new MutationObserver(mutationObserved);
+        observer.observe(image, config);
+    
+        const observerImg = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              replaceImage(image, contentData[index].imageUrl);
+              observerImg.disconnect();
+            }
+          });
+        });
+        observerImg.observe(image);
+      };
+    
+      const buildFeatureTemplate = (text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+    
+        return li;
+      };
+    
+      const handleActivity = (el) => {
+        console.log("Execute activity");
+    
+        if (handled) {
+          return;
+        }
+    
+        const executeActivity = (observer) => {
+          const container = el.querySelectorAll(".container");
+          if (container && container.length > 1) {
+            const style = document.createElement("style");
+            style.innerHTML = `
+                                    .experience-b-animation article span img {
+                                        transition: transform 0.3s ease-in-out;
+                                    }
+                                    .experience-b-animation:hover article span img {
+                                        transform: scale(1.1);
+                                        transition: transform 0.3s ease-in-out;
+                                    }`;
+            document.head.appendChild(style);
+    
+            const tiles = Array.from(container[1].children);
+            if (tiles && tiles.length) {
+              tiles.forEach((tile, index) => {
+                tile.classList.add("experience-b-animation");
+                tile.style.gridColumnEnd = "span 1";
+                tile.style.gridRowEnd = "span 1";
+                tile.style.height = "520px";
+                const image = tile.querySelector("img");
+                if (image) {
+                  // parent
+                  observeImageChange(image, index);
+                }
+    
+                const title = tile.querySelector("h3 p");
+                if (title) {
+                  title.textContent = contentData[index].title;
+                  title.style.color = contentData[index].textColor;
+                }
+    
+                const content = tile.querySelector("ul");
+                if (content) {
+                  content.textContent = "";
+                  content.style.color = contentData[index].textColor;
+    
+                  const data = contentData[index].features;
+                  data.forEach((text) => {
+                    content.appendChild(buildFeatureTemplate(text));
+                  });
+                }
+    
+                const detailLink = tile.querySelector(".title");
+                if (detailLink) {
+                  detailLink.style.color = contentData[index].textColor;
+                }
+    
+                tile.querySelector("a").addEventListener("click", function (event) {
+                  var data = { __adobe: { target: {} } };
+    
+                  var targetXDMObj = {
+                    eventType: "web.webInteraction.linkClicks",
+                    web: {
+                      webInteraction: {
+                        linkClicks: { value: 1 },
+                        name: "target",
+                        type: "other",
+                      },
+                      webReferrer: {
+                        URL: _satellite.getVar("PageViewName").__adobe.target
+                          .viewName,
+                      },
+                    },
+                  };
+    
+                  data.__adobe.target["requestClicked"] = "open_solution_detail";
+                  data.__adobe.target["details"] = contentData[index];
+    
+                  try {
+                    alloy("sendEvent", {
+                      renderDecisions: true,
+                      decisionScopes: ["__view__"],
+                      data: data,
+                      xdm: targetXDMObj,
+                    });
+                  } catch (err) {}
+                });
+              });
+              observer.disconnect();
+            }
+          }
+        };
+    
+        // Callback function to execute when mutations are observed
+        // Whenever content has rendered, we've replaced styles, we can disconnect the observer
+        const callback = (mutationList, observer) => {
+          for (const mutation of mutationList) {
+            if (mutation.type === "childList") {
+              executeActivity(observer);
+            }
+          }
+          executeActivity(observer);
+        };
+    
+        // Options for the observer (which mutations to observe)
+        const config = { attributes: true, childList: true, subtree: true };
+        const observer = new MutationObserver(callback);
+        observer.observe(el, config);
+    
+        window.removeEventListener("flickerlesslyready", activityHandler);
+        handled = true;
+      };
+    
+      Flickerlessly.onReady(
+        {
+          selector: "#section-1526", //container Article
+          success: function (el) {
+            contentData = [
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block1-6b56ea660b.png",
+                title: "Gói giải pháp hàng đầu BusinessOne",
+                features: [
+                  "Đáp ứng nhu cầu đa dạng",
+                  "Giao dịch thuận tiện",
+                  "An toàn và bảo mật",
+                ],
+                textColor: "#000000",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block2-09a5a1364b.png",
+                title: "Quản lý dòng tiền hiệu quả",
+                features: [
+                  "Gia tăng hiệu quả dòng tiền",
+                  "Tối ưu chi phí vốn",
+                  "Tinh giản vận hành",
+                ],
+                textColor: "#000000",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block3-63c8e80f80.png",
+                title: "Giải pháp tín dụng đáp ứng mọi nhu cầu",
+                features: [
+                  "Lãi suất cạnh tranh",
+                  "Loại hình phong phú",
+                  "Hỗ trợ tối đa",
+                ],
+                textColor: "#ffffff",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block4-c380dfc5c4.png",
+                title: "Giải pháp đầu tư an toàn linh hoạt",
+                features: [
+                  "Lãi suất vượt trội",
+                  "Vận hành đơn giản",
+                  "Thanh khoản linh hoạt",
+                ],
+                textColor: "#ffffff",
+              },
+            ];
+            handleActivity(el);
+          },
+    
+          persist: true,
+        },
+        {
+          selector: "#section-2235", //container Article
+          success: function (el) {
+            contentData = [
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block1-6b56ea660b.png",
+                title: "BusinessOne Solution Pack",
+                features: [
+                  "Variety of solution packages for a wide range of businesses",
+                  "Convenient transaction",
+                  "Safe and Secure",
+                ],
+                textColor: "#000000",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block2-09a5a1364b.png",
+                title: "Effective cash flow management",
+                features: ["Increase cash flow effectively", "Optimize costs"],
+                textColor: "#000000",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block3-63c8e80f80.png",
+                title: "Credit solutions to meet all needs",
+                features: [
+                  "Competitive interest rate",
+                  "Various types",
+                  "Utmost support",
+                ],
+                textColor: "#ffffff",
+              },
+              {
+                imageUrl:
+                  "https://media.techcombank.com/uploads/AT-W-BB-AB-1-Exp-B-Block4-c380dfc5c4.png",
+                title: "Safe & flexible investment solution",
+                features: [
+                  "Outstanding interest rate",
+                  "Safe investment",
+                  "Simple operation",
+                  "Flexible liquidity",
+                ],
+                textColor: "#ffffff",
+              },
+            ];
+            handleActivity(el);
+          },
+    
+          persist: true,
+        }
+      );
+    };
+    
+    var flickerlessly = window?.Flickerlessly;
+    
+    if (flickerlessly) {
+      activityHandler();
+    } else {
+      console.log("Waiting for flicker event");
+      window.addEventListener("flickerlesslyready", activityHandler);
+    }
+    
+    </script>

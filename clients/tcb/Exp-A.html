@@ -1,0 +1,111 @@
+<script>
+    console.log("experience A");
+    var activityHandler = (event) => {
+      var handled = false;
+  
+      var contentData = [];
+  
+      const handleActivity = (el) => {
+        console.log("Execute activity");
+  
+        if (handled) {
+          return;
+        }
+  
+        const executeActivity = (observer) => {
+          const container = el.querySelectorAll(".container");
+          if (container && container.length > 1) {
+            const tiles = Array.from(container[1].children);
+            if (tiles && tiles.length) {
+              tiles.forEach((tile, index) => {
+                tile.classList.add("experience-b-animation");
+  
+                tile
+                  .querySelector("a")
+                  .addEventListener("click", function (event) {
+                    var data = { __adobe: { target: {} } };
+  
+                    var targetXDMObj = {
+                      eventType: "web.webInteraction.linkClicks",
+                      web: {
+                        webInteraction: {
+                          linkClicks: { value: 1 },
+                          name: "target",
+                          type: "other",
+                        },
+                        webReferrer: {
+                          URL: _satellite.getVar("PageViewName").__adobe.target
+                            .viewName,
+                        },
+                      },
+                    };
+  
+                    data.__adobe.target["requestClicked"] =
+                      "open_solution_detail";
+                    data.__adobe.target["details"] = tile.textContent;
+  
+                    try {
+                      alloy("sendEvent", {
+                        renderDecisions: true,
+                        decisionScopes: ["__view__"],
+                        data: data,
+                        xdm: targetXDMObj,
+                      });
+                    } catch (err) {}
+                  });
+              });
+              observer.disconnect();
+            }
+          }
+        };
+  
+        // Callback function to execute when mutations are observed
+        // Whenever content has rendered, we've replaced styles, we can disconnect the observer
+        const callback = (mutationList, observer) => {
+          for (const mutation of mutationList) {
+            if (mutation.type === "childList") {
+              executeActivity(observer);
+            }
+          }
+          executeActivity(observer);
+        };
+  
+        // Options for the observer (which mutations to observe)
+        const config = { attributes: true, childList: true, subtree: true };
+        const observer = new MutationObserver(callback);
+        observer.observe(el, config);
+  
+        window.removeEventListener("flickerlesslyready", activityHandler);
+        handled = true;
+      };
+  
+      Flickerlessly.onReady(
+        {
+          selector: "#section-1526", //container Article
+          success: function (el) {
+            handleActivity(el);
+          },
+  
+          persist: true,
+        },
+        {
+          selector: "#section-2235", //container Article
+          success: function (el) {
+            handleActivity(el);
+          },
+  
+          persist: true,
+        }
+      );
+    };
+  
+    var flickerlessly = window?.Flickerlessly;
+  
+    if (flickerlessly) {
+      activityHandler();
+    } else {
+      console.log("Waiting for flicker event");
+      window.addEventListener("flickerlesslyready", activityHandler);
+    }
+  
+  </script>

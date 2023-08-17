@@ -1,0 +1,82 @@
+<style>
+    .promo-code-adb {
+        background-image: linear-gradient(orange, orangered);
+        line-height: 0.7;
+        padding: 0.75rem 2rem;
+        color: #fff;
+        font-size: 1.3rem;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .promo-code-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .alert-content-short {
+        font-size: 0.88rem;;
+    }
+
+    .text-underline {
+        text-decoration: underline;
+    }
+
+    .notify-bubble_1  {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 0.65rem;
+        width: 2.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+    }
+</style>
+
+<script>
+    function hideBubble(eleClass) {
+        document.querySelector(eleClass).style.display = "none";
+    }
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            //#root > div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div.aem-container.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div:nth-child(3) > div.aem-container.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div:nth-child(5)
+            selector: "div.child-component-container",
+            persist: true,
+            success: function (el) {
+                let element = document.querySelector("div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div > div:nth-child(3) > div > div:nth-child(1) > div.bg-brown-100 > div > div.mt-5 > div > div > :nth-child(1)");
+                let promoBanner = `<span class="notify-bubble_1">Copied!</span><div id="adb-promo-cart-1" class="promo-code-adb"><p>S$&nbsp;<span class="bold-text">20 off&nbsp;</span> with code <span class="bold-text">&nbsp;ISCNEW20&nbsp;</span></p><br><p class=" text-underline">Tap to copy code.</p><br><p class="alert-content alert-content-short">*Valid with S$79 spend. Product exclusions apply.</p></div>`;
+                element.insertAdjacentHTML("afterend", promoBanner);
+
+                let clickBanner = document.querySelector("#adb-promo-cart-1");
+                clickBanner.addEventListener('click', function () {
+                    var name = 'en_iscnew20-ntr_cart_promo_exp_b?';
+                    if (window.s_gi) {
+                        var s = s_gi('changairport-prod-new');
+                        s.linkTrackVars = "eVar126,event143";
+                        s.eVar126 = name;
+                        s.event143 = "ISCNEW20-cartPromo";
+                        s.events = "event143";
+                        s.linkTrackEvents = "event143";
+                        s.tl(true, "o", name);
+                    }
+                    navigator.clipboard.writeText("ISCNEW20");
+                    document.querySelector(".notify-bubble_1").style.display = "block";
+                    setTimeout(() => {
+                        hideBubble(".notify-bubble_1");
+                    }, 3000)
+                })
+            }
+
+        }
+    )
+</script>

@@ -1,0 +1,108 @@
+<style>
+    .promo-code-adb {
+        background-image: linear-gradient(#2a668d, #001243);
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 0.75rem;
+        color: #fff;
+        font-size: 0.75rem;
+        cursor: pointer;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+    }
+
+    .promo-code-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .tnc-link {
+        color: #fff;
+        font-size: 0.5rem;
+    }
+
+    .notify-bubble_2 {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 12px;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px;
+    }
+
+    @media screen and (max-width: 480px) {
+        .promo-code-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .promo-code-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        try {
+            var counter = 0;
+            let element_2 = document.querySelector(".pdp-price-container > div > div.pdp-fixed-bar");
+
+            function hideBubble(eleClass) {
+                document.querySelector(eleClass).style.display = "none";
+            }
+
+            var waitForElement = function () {
+                if (element_2 != null) {
+                    let promoBanner_2 = `<span class="notify-bubble_2">Copied!</span><div class="promo-code-adb-container"><span id="adb-promo-pdp-2" class="promo-code-adb"><p><span class="bold-text">30% off*&nbsp;</span> your first purchase with code <span class="bold-text">&nbsp;XMASNEW.&nbsp;</span><br/>Tap to copy code.<a class="tnc-link"> *S$50 discount cap. T&Cs apply.</a></p></span></div>`;
+                    let clickBanner_2 = document.querySelector("#adb-promo-pdp-2");
+                    
+                    if(clickBanner_2 == null){
+                        element_2.insertAdjacentHTML("afterend", promoBanner_2);
+                    }
+                    clickBanner_2.addEventListener('click', function () {
+                        let name = 'en_xmasnew-nt_pdp_banner_campaign_promo_exp_c';
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = name;
+                            s.event143 = "XMAS-Promo";
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", name);
+                        }
+                        navigator.clipboard.writeText("XMASNEW");
+                        document.querySelector(".notify-bubble_2").style.display = "block";
+                        setTimeout(() => {
+                            hideBubble(".notify-bubble_2");
+                        }, 3000)
+                    });
+                } else {
+                    ++counter;
+                    counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+                }
+            }
+            waitForElement();
+        } catch (error) {
+            console.log(error);
+        }
+
+    })();
+</script>
