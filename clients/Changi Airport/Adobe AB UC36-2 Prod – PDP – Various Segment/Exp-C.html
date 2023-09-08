@@ -1,0 +1,145 @@
+<style>
+    .promo-summer-adb {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 0.75rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+        background-image: none;
+    }
+
+    .summer-12 {
+        background-image: linear-gradient(lightpink, pink) !important;
+        color: #db3755 !important;
+    }
+
+    .summer-15 {
+        background-image: linear-gradient(#ebfaed, #8bfaec) !important;
+        color: #2e70a3 !important;
+    }
+
+    .promo-summer-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .tnc-link-12 {
+        font-size: 0.65rem;
+        color: #db3755 !important;
+    }
+
+    .tnc-link-15 {
+        font-size: 0.65rem;
+        color: #2e70a3 !important;
+    }
+
+    .notify-bubble_1,
+    .notify-bubble_2 {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 12px;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px;
+    }
+
+    @media screen and (max-width: 480px) {
+        .promo-summer-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .promo-summer-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+</style>
+
+<script>
+    var counter = 0;
+    var summerOfferContainer = document.querySelector(".pdp-price-container > div > div.pdp-fixed-bar");
+    var adobeSummerOffer = document.querySelector("#adb-SUMMER12-pdp, #adb-SUMMER15-pdp");
+
+    if (document.querySelector("#adb-nonShoppers-pdp")) {
+        document.querySelector("#adb-nonShoppers-pdp").remove();
+    }
+
+    function hideBubble(eleClass) {
+        document.querySelector(eleClass).style.display = "none";
+    }
+
+    if (adobeSummerOffer == undefined) {
+        var waitForElement = function () {
+            if (summerOfferContainer != null && digitalData.product[0].productInfo.globalExclusion != true) {
+                let priceSelector = document.querySelector(".product-price");
+                let productPrice = Number(priceSelector.innerText.split("S$")[1]);
+                if (productPrice > 0 && productPrice < 400) {
+                    let promoBanner_1 = `<span class="notify-bubble_1">Copied!</span><div class="promo-summer-adb-container"><span id="adb-SUMMER12-pdp" class="promo-summer-adb summer-12"><p>Take&nbsp;<span class="bold-text">12% off&nbsp;</span> with code <span class="bold-text">&nbsp;SUMMER12.&nbsp;</span><br/>Tap to copy code.<br/><a class="tnc-link-12"> *No min. spend, discount cap S$80. T&Cs apply.</a></p></span></div>`;
+                    summerOfferContainer.insertAdjacentHTML("afterend", promoBanner_1);
+                    let clickBanner1 = document.querySelector("#adb-SUMMER12-pdp");
+                    clickBanner1.addEventListener('click', function () {
+                        var name1 = 'en_celebsg-nt_pdp_banner_campaign_promo_exp_b?';
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = name1;
+                            s.event143 = "SUMMER-Promo";
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", name1);
+                        }
+                        navigator.clipboard.writeText("SUMMER12");
+                        document.querySelector(".notify-bubble_1").style.display = "block";
+                        setTimeout(() => {
+                            hideBubble(".notify-bubble_1");
+                        }, 3000)
+                    });
+                } else {
+                    let promoBanner_2 = `<span class="notify-bubble_2">Copied!</span><div class="promo-summer-adb-container"><span id="adb-SUMMER15-pdp" class="promo-summer-adb summer-15"><p>Take&nbsp;<span class="bold-text">15% off&nbsp;</span> with code <span class="bold-text">&nbsp;SUMMER15.&nbsp;</span><br/>Tap to copy code.<br/><a class="tnc-link-15"> *Valid with min. S$400 spend, discount cap S$150. T&Cs apply.</a></p></span></div>`;
+                    summerOfferContainer.insertAdjacentHTML("afterend", promoBanner_2);
+                    let clickBanner2 = document.querySelector("#adb-SUMMER15-pdp");
+                    clickBanner2.addEventListener('click', function () {
+                        var name2 = 'en_celebsg-nt_pdp_banner_campaign_promo_exp_b?';
+                        if (window.s_gi) {
+                            var s = s_gi('changairport-prod-new');
+                            s.linkTrackVars = "eVar126,event143";
+                            s.eVar126 = name2;
+                            s.event143 = "SUMMER-Promo";
+                            s.events = "event143";
+                            s.linkTrackEvents = "event143";
+                            s.tl(true, "o", name2);
+                        }
+                        navigator.clipboard.writeText("SUMMER15");
+                        document.querySelector(".notify-bubble_2").style.display = "block";
+                        setTimeout(() => {
+                            hideBubble(".notify-bubble_2");
+                        }, 3000)
+                    });
+                }
+            } else {
+                ++counter;
+                counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+            }
+        }
+        waitForElement();
+    }
+</script>

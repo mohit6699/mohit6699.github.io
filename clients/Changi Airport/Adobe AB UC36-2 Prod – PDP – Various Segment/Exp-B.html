@@ -1,0 +1,106 @@
+<style>
+    .promo-wow-adb {
+        background-image: linear-gradient(#F5831E, #F5831E);
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 0.75rem;
+        color: #fff;
+        font-size: 0.75rem;
+        cursor: pointer;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+    }
+
+    .promo-wow-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .tnc-link {
+        color: #fff;
+        font-size: 0.5rem;
+    }
+
+    .notify-bubble_2 {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 12px;
+        width: 3.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px;
+    }
+
+    @media screen and (max-width: 480px) {
+        .promo-wow-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .promo-wow-adb-container {
+            padding-bottom: 1.5rem;
+            background-color: #fff;
+        }
+    }
+</style>
+
+<script>
+    var counter = 0;
+    var element_2 = document.querySelector(".pdp-price-container > div > div.pdp-fixed-bar");
+    var adobeWowOffer = document.querySelector("#adb-wow20-pdp");
+
+    if (document.querySelector("#adb-nonShoppers-pdp")) {
+        document.querySelector("#adb-nonShoppers-pdp").remove();
+    }
+
+    function hideBubble(eleClass) {
+        document.querySelector(eleClass).style.display = "none";
+    }
+
+    if (adobeWowOffer == undefined) {
+        var waitForElement = function () {
+            if (element_2 != null && digitalData.product[0].productInfo.globalExclusion != true) {
+                let promoBanner_2 = `<span class="notify-bubble_2">Copied!</span><div class="promo-wow-adb-container"><span id="adb-wow20-pdp" class="promo-wow-adb"><p>Just for you:&nbsp;<span class="bold-text">20% off&nbsp;</span> with code <span class="bold-text">&nbsp;WOW20!.&nbsp;</span><br/>Tap to copy code.<br/><a class="tnc-link"> *Valid with S$79 spend, discount cap S$20. T&Cs apply.</a></p></span></div>`;
+                element_2.insertAdjacentHTML("afterend", promoBanner_2);
+
+                let clickBanner_2 = document.querySelector("#adb-wow20-pdp");
+                clickBanner_2.addEventListener('click', function () {
+                    let name = 'en_wow20-ntr_pdp_banner_campaign_promo_exp_b?';
+                    if (window.s_gi) {
+                        var s = s_gi('changairport-prod-new');
+                        s.linkTrackVars = "eVar126,event143";
+                        s.eVar126 = name;
+                        s.event143 = "WOW20-Promo";
+                        s.events = "event143";
+                        s.linkTrackEvents = "event143";
+                        s.tl(true, "o", name);
+                    }
+                    navigator.clipboard.writeText("WOW20");
+                    document.querySelector(".notify-bubble_2").style.display = "block";
+                    setTimeout(() => {
+                        hideBubble(".notify-bubble_2");
+                    }, 3000)
+                });
+            } else {
+                ++counter;
+                counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+            }
+        }
+        waitForElement();
+    }
+</script>
