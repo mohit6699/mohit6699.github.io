@@ -1,0 +1,223 @@
+<style>
+	.timer-wrapper {
+		position: relative;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	@media (max-width:767px) {
+		.timer-wrapper {
+			display: block;
+			margin: auto;
+			text-align: center;
+		}
+	}
+
+	.timer-message {
+		padding-right: 10px;
+		margin-left: auto;
+	}
+
+	@media (max-width:767px) {
+		.timer-message {
+			padding: 0;
+		}
+	}
+
+	.timer-message .icon-timer {
+		margin-right: 5px;
+		padding-top: 6px;
+	}
+
+	.timer-button {
+		position: relative;
+		padding-right: 10px;
+	}
+
+	@media (max-width:767px) {
+		.timer-button {
+			padding: 0;
+		}
+	}
+
+	.timer-close {
+		margin-left: auto;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	@media (max-width:767px) {
+		.timer-close {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.timer-tiny-wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		max-width: 250px;
+		border: 1px solid #d31e4b;
+		border-radius: .5rem;
+		padding: .5rem;
+	}
+
+	@media (max-width:767px) {
+		.timer-tiny-wrapper {
+			margin: auto;
+		}
+	}
+
+	.timer-tiny__text {
+		padding-right: 5px;
+	}
+
+	.timer-tiny__digit {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		background-image: -webkit-gradient(linear, left top, right top, from(#d31e4b), to(#6b2369));
+		background-image: linear-gradient(90deg, #d31e4b, #6b2369);
+		font-weight: 700;
+		--text-opacity: 1;
+		color: #fff;
+		color: rgba(255, 255, 255, var(--text-opacity));
+		padding: .15rem .75rem;
+		border-radius: .25rem;
+		width: 39px;
+	}
+
+	.timer-tiny__countdown,
+	.timer-tiny__digit {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.timer-tiny__label {
+		font-size: .63rem;
+		font-weight: 400;
+		margin-top: -5px;
+	}
+
+	.icon-timer {
+		display: inline-block;
+		width: 30px;
+		height: 25px;
+	}
+
+	.add-to-calendar {
+		min-width: 230px;
+		text-align: left;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		border-top-width: 0;
+	}
+
+	.timer-hidden {
+		display: none;
+	}
+
+	.icon {
+		display: inline-block;
+		height: 15px;
+		width: 15px;
+	}
+
+	.padding-top-3 {
+		padding-top: 3px;
+	}
+
+	.reminder-arrow {
+		width: 15px;
+		margin: auto;
+	}
+
+	.z-2 {
+		z-index: 2;
+	}
+
+	#js-timer-message {
+		white-space: nowrap;
+	}
+
+	#action_insert_16946204066173127 {
+		position: relative !important;
+	}
+</style>
+
+<script>
+	var counter = 0;
+	var currentURL = window.location.href;
+
+	if (document.querySelector("#action_insert_16946204066173127")) {
+		document.querySelector("#action_insert_16946204066173127").remove();
+	}
+	if(document.querySelector("#header-searchbar-container > div.bg-white.z-10 > div > div > div.flex.items-center > div > div > ul > li > div.absolute.pickUpArrow.outline-none.ms-popover-event-auto.-ml-2.toolbar-container > div.pickup-popup-shadow.rounded-lg.bg-white")){
+		document.querySelector("#header-searchbar-container > div.bg-white.z-10 > div > div > div.flex.items-center > div > div > ul > li > div.absolute.pickUpArrow.outline-none.ms-popover-event-auto.-ml-2.toolbar-container > div.pickup-popup-shadow.rounded-lg.bg-white").remove();					
+	} else if (document.querySelector("#header-searchbar-container > div.bg-white.z-10 > div > div > div.flex.items-center > div > div > ul > li > div > div.absolute.pickUpArrow.outline-none.ms-popover-event-auto.-ml-2.toolbar-container > div.pickup-popup-shadow.rounded-lg.bg-white")){
+		document.querySelector("#header-searchbar-container > div.bg-white.z-10 > div > div > div.flex.items-center > div > div > ul > li > div > div.absolute.pickUpArrow.outline-none.ms-popover-event-auto.-ml-2.toolbar-container > div.pickup-popup-shadow.rounded-lg.bg-white").remove();
+	}
+
+	var waitForElement = function () {
+		var elementSelector = document.querySelector("#header-searchbar-container");
+
+		if (elementSelector != null) {
+			let iPhonePromoBanner = `<div id="action_insert_16946204066173127"><div class="container font-semibold mx-auto px-2 text-b-500"id=timer-section><div class="clearfix md:px-0 px-6 py-2 timer-wrapper"><div class=timer-message><i class=icon-timer><svg viewBox="0 0 80.24 54.96"xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink id=Layer_1 style="enable-background:new 0 0 80.24 54.96"version=1.1 x=0px xml:space=preserve y=0px><style>.st0{fill:#d31e4c}.st1{fill:#fff}</style><g><g><path d="M56.47,13.47c-9.17,0-16.59,7.43-16.59,16.59c0,9.16,7.43,16.59,16.59,16.59s16.59-7.43,16.59-16.59
+							C73.06,20.9,65.63,13.47,56.47,13.47z M55.41,32.33V16.59h2.11v11.2l6.28-5.27l1.36,1.62L55.41,32.33z"class=st0></path><g><rect class=st0 height=5.62 width=1.88 x=55.4 y=3.19></rect></g><rect class=st0 height=2.05 width=5.98 x=53.35 y=2.11></rect><g><path d="M75.8,54.58L75.8,54.58c-0.92,0.66-2.21,0.45-2.87-0.47l-5.32-5.58l4.65-4.34l4.01,7.52
+								C76.93,52.63,76.72,53.92,75.8,54.58z"class=st0></path><path d="M37.13,54.58L37.13,54.58c0.92,0.66,2.21,0.45,2.87-0.47l5.32-5.58l-4.65-4.34l-4.01,7.52
+								C36,52.63,36.21,53.92,37.13,54.58z"class=st0></path></g><g><g><path d=M48.32,3.77c-2.43-3.76-7.45-4.84-11.21-2.41c-3.76,2.43-4.84,7.45-2.41,11.21L48.32,3.77z class=st0></path><rect class=st0 height=6.6 width=3.04 x=40.18 y=5.18 transform="matrix(0.8398 -0.5429 0.5429 0.8398 2.0792 24.0008)"></rect></g><path d="M34.87,10.83c-0.27-0.71-0.39-1.39-0.45-2.1c-0.05-0.7-0.01-1.41,0.14-2.09c0.15-0.68,0.37-1.34,0.71-1.94
+								c0.31-0.61,0.75-1.15,1.19-1.65c-0.39,0.55-0.76,1.12-1,1.74C35.2,5.4,35.05,6.05,34.98,6.7c-0.07,0.65-0.05,1.31,0.07,1.95
+								c0.11,0.63,0.31,1.28,0.58,1.81l0.01,0.03c0.11,0.21,0.02,0.46-0.19,0.57c-0.21,0.11-0.46,0.02-0.57-0.19
+								C34.88,10.86,34.87,10.84,34.87,10.83z"class=st1></path></g><g><g><path d=M78.11,12.31c2.32-3.83,1.09-8.82-2.74-11.14s-8.82-1.09-11.14,2.74L78.11,12.31z class=st0></path><rect class=st0 height=6.6 width=3.04 x=69.47 y=5.12 transform="matrix(0.8555 0.5179 -0.5179 0.8555 14.6204 -35.5438)"></rect></g><path d="M65.88,3.3c0.52-0.55,1.08-0.96,1.69-1.32c0.61-0.35,1.27-0.62,1.94-0.79c0.68-0.17,1.37-0.25,2.06-0.21
+								c0.69,0.01,1.36,0.17,2.01,0.35c-0.67-0.11-1.34-0.2-2.01-0.14c-0.67,0.03-1.32,0.18-1.94,0.4c-0.62,0.22-1.2,0.53-1.72,0.92
+								c-0.52,0.37-1.01,0.84-1.37,1.31l-0.02,0.02c-0.14,0.19-0.41,0.22-0.59,0.08c-0.19-0.14-0.22-0.41-0.08-0.59
+								C65.86,3.32,65.87,3.31,65.88,3.3z"class=st1></path></g></g><g><path d="M33.49,23.97c-0.03,0-0.06,0-0.09,0L0,27.3l32.71,3.26c0-0.17-0.01-0.33-0.01-0.5
+							C32.69,27.95,32.97,25.91,33.49,23.97z"class=st0></path><path d="M7.4,35.2l25.99,3.33c0.27,0.03,0.57,0.04,0.85,0c0,0,0.01,0,0.01,0c-0.79-2.07-1.3-4.28-1.48-6.58L7.4,35.2z
+							"class=st0></path><path d="M14.81,43.11l22.4,3.33c0.32,0.05,0.66,0.05,0.99,0c0.29-0.04,0.57-0.14,0.83-0.25
+							c-1.66-1.79-3.04-3.84-4.09-6.08L14.81,43.11z"class=st0></path></g><path d="M56.47,53.84c-13.11,0-23.77-10.67-23.77-23.77S43.36,6.29,56.47,6.29s23.77,10.67,23.77,23.77
+						S69.58,53.84,56.47,53.84z M56.47,9.25c-11.48,0-20.82,9.34-20.82,20.82c0,11.48,9.34,20.82,20.82,20.82s20.82-9.34,20.82-20.82
+						C77.28,18.58,67.95,9.25,56.47,9.25z"class=st0></path></g></svg> </i>The new iPhone 15 is launching in <span class=text-purple-500 data-datetime="22-09-2023 08:00:00"id=js-timer-message>DD HH:MM:SS</span></div><div class=timer-button><a class="btn btn-primary-color"href=https://www.addevent.com/event/GV18410432 target=_blank>Set alert now</a></div><div class="text-gray-400 timer-close"id=js-close><svg viewBox="0 0 50 50"xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink class="cursor-pointer fill-current h-5 md:w-5 w-4"fill=""><defs><path d="M36 32h22v4H36v22h-4V36H10v-4h22V10h4v22z"id=path-1-69cd06e0-e830-11ea-a5b9-f3d422d6060e></path></defs><g fill-rule=evenodd><g transform="translate(-9 -9)"><mask id=mask-2-69cd06e0-e830-11ea-a5b9-f3d422d6060e><use xlink:href=path-1-69cd06e0-e830-11ea-a5b9-f3d422d6060e></use></mask><use xlink:href=#path-1-69cd06e0-e830-11ea-a5b9-f3d422d6060e id=Mask-69cd06e0-e830-11ea-a5b9-f3d422d6060e transform="rotate(45 34 34)"></use></g></g></svg></div></div></div></div>`;
+			elementSelector.insertAdjacentHTML("afterend", iPhonePromoBanner);
+
+			let iPhoneClickButton = document.querySelector(".timer-button > a");
+			iPhoneClickButton.addEventListener('click', function () {
+				let name = 'custom link|categorypage:set alert now|';
+				if (window.s_gi) {
+					var s = s_gi('changairport-prod-new');
+					s.linkTrackVars = "eVar15,event4";
+					s.eVar15 = name;
+					s.event4 = "WOW20-Promo";
+					s.events = "event4";
+					s.linkTrackEvents = "event4";
+					s.tl(true, "o", name);
+				}
+				setTimeout(() => {
+					window.location.reload();
+				}, 500)
+			});
+		} else {
+			++counter;
+			counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+		}
+	}
+	waitForElement();
+</script>
+<script>
+	!function (e) { var t = {}; function n(i) { if (t[i]) return t[i].exports; var o = t[i] = { i: i, l: !1, exports: {} }; return e[i].call(o.exports, o, o.exports, n), o.l = !0, o.exports } n.m = e, n.c = t, n.d = function (e, t, i) { n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: i }) }, n.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, n.t = function (e, t) { if (1 & t && (e = n(e)), 8 & t) return e; if (4 & t && "object" == typeof e && e && e.__esModule) return e; var i = Object.create(null); if (n.r(i), Object.defineProperty(i, "default", { enumerable: !0, value: e }), 2 & t && "string" != typeof e) for (var o in e) n.d(i, o, function (t) { return e[t] }.bind(null, o)); return i }, n.n = function (e) { var t = e && e.__esModule ? function () { return e.default } : function () { return e }; return n.d(t, "a", t), t }, n.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t) }, n.p = "", n(n.s = 226) }({ 226: function (e, t, n) { e.exports = n(227) }, 227: function (e, t, n) { "use strict"; window.timer = document.querySelector("#js-timer-message"), window.timer_tiny = document.querySelector("#js-timer-tiny"), window.timer_msg, window.timer_tiny_block, window.btn_reminder = document.querySelector(".js-set-reminder"), window.btn_cal_item = document.querySelectorAll(".js-cal-item"), window.end_date = window.timer.dataset.cookie, "undefined" != window.timer.dataset.lang && "cn" == window.timer.dataset.lang && (window.end_date += "_cn"), window.timer_message = function () { var e = (new Date).getTime(), t = window.timer.dataset.lang, n = window.timer.dataset.datetime.split(/\-|\s/), i = new Date(n.slice(0, 3).reverse().join("/") + " " + n[3]) - e, o = ("0" + Math.floor(i / 864e5)).slice(-2), r = ("0" + Math.floor(i % 864e5 / 36e5)).slice(-2), d = ("0" + Math.floor(i % 36e5 / 6e4)).slice(-2), c = ("0" + Math.floor(i % 6e4 / 1e3)).slice(-2), l = "days", m = "hrs", a = "min", s = "sec"; "undefined" != t && "cn" == t && (l = "天", m = "时", a = "分", s = "秒"), window.timer.innerHTML = o > 0 ? o + l + " : " + r + m + " : " + d + a + " : " + c + s : r + m + " : " + d + a + " : " + c + s, i < 0 && (clearInterval(window.timer_msg), document.getElementById("timer-section").remove()) }, window.timer_tiny_block = function () { var e = (new Date).getTime(), t = window.timer_tiny.dataset.datetime.split(/\-|\s/), n = new Date(t.slice(0, 3).reverse().join("/") + " " + t[3]) - e, i = ("0" + Math.floor(n / 864e5)).slice(-2), o = ("0" + Math.floor(n % 864e5 / 36e5)).slice(-2), r = ("0" + Math.floor(n % 36e5 / 6e4)).slice(-2), d = ("0" + Math.floor(n % 6e4 / 1e3)).slice(-2); i > 0 ? document.querySelector("#timer-tiny-days").innerHTML = i : void 0 !== document.querySelector("#timer-tiny-days-box") && null != document.querySelector("#timer-tiny-days-box") && (document.querySelector("#timer-tiny-days-box").remove(), document.querySelector("#timer-tiny-days-colon").remove()), document.querySelector("#timer-tiny-hours").innerHTML = o, document.querySelector("#timer-tiny-mins").innerHTML = r, document.querySelector("#timer-tiny-sec").innerHTML = d, n < 0 && (clearInterval(window.timer_tiny_block), window.timer_tiny.remove()) }, window.get_cookie = function (e) { for (var t = e + "_" + window.end_date + "=", n = document.cookie.split(";"), i = 0; i < n.length; i++) { for (var o = n[i]; " " == o.charAt(0);)o = o.substring(1); if (0 == o.indexOf(t)) return o.substring(t.length, o.length) } return "" }, window.check_cookie = function () { "true" == window.get_cookie("timer_closed") && document.getElementById("timer-section").remove() }, void 0 !== window.timer && null != window.timer && (window.timer_msg = setInterval(window.timer_message, 1e3), document.getElementById("js-close").addEventListener("click", function () { document.cookie = "timer_closed_" + window.end_date + "=true", document.getElementById("timer-section").remove() })), void 0 !== window.timer_tiny && null != window.timer_tiny && (window.timer_tiny_block = setInterval(window.timer_tiny_block, 1e3)), window.reminder_toggle = function () { var e = document.querySelector(".add-to-calendar-menu"), t = document.getElementById("reminder-btn-arrow"); e.classList.contains("timer-hidden") ? (e.classList.remove("timer-hidden"), t.classList.add("rotate-180")) : (e.classList.add("timer-hidden"), t.classList.remove("rotate-180")) }, void 0 !== window.btn_reminder && null != window.btn_reminder && window.btn_reminder.addEventListener("click", function () { window.reminder_toggle() }), void 0 !== window.btn_cal_item && null != window.btn_cal_item && window.btn_cal_item.forEach(function (e, t) { e.addEventListener("click", function () { window.reminder_toggle() }) }), window.check_cookie() } });
+</script>

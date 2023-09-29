@@ -1,0 +1,175 @@
+<style>
+    .adb-celebsCart-wrapper {
+        display: flex;
+    }
+
+    .cartPromo-12 {
+        margin-right: 2.5px;
+        width: 50%;
+    }
+
+    .cartPromo-15 {
+        margin-left: 2.5px;
+        width: 50%;
+    }
+
+    .promo-celebs12-adb {
+        background-color: #ba0122;
+        line-height: 0.6;
+        padding: 0.75rem 1.5rem;
+        color: #fff;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 0.2rem;
+        line-height: 1.8;
+    }
+
+    .promo-celebs15-adb {
+        background-color: #160dad;
+        line-height: 0.6;
+        padding: 0.75rem 1.5rem;
+        color: #fff;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 0.2rem;
+        line-height: 1.8;
+    }
+
+    @media screen and (max-width:480px) {
+        .adb-celebsCart-wrapper {
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        .cartPromo-12 {
+            margin: 2.5px;
+            width: 100%;
+            padding-right: 5px;
+        }
+
+        .cartPromo-15 {
+            margin: 2.5px;
+            width: 100%;
+            padding-right: 5px;
+        }
+
+        .promo-celebs12-adb {
+            background-color: #ba0122;
+            line-height: 0.6;
+            padding: 0.75rem 1.5rem;
+            color: #fff;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 0.2rem;
+            line-height: 1.8;
+        }
+
+        .promo-celebs15-adb {
+            background-color: #160dad;
+            line-height: 0.6;
+            padding: 0.75rem 1.5rem;
+            color: #fff;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 0.2rem;
+            line-height: 1.8;
+        }
+    }
+
+    .promo-celebs12-adb:hover,
+    .promo-celebs15-adb:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    .alert-content-short {
+        font-size: 0.65rem;
+        line-height: 0.8;
+    }
+
+    .text-underline {
+        text-decoration: underline;
+    }
+
+    .notify-bubble_1,
+    .notify-bubble_2 {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        background-color: white;
+        color: black;
+        font-size: 0.65rem;
+        width: 2.5rem;
+        border: 1px solid grey;
+        border-radius: 10%;
+        display: none;
+        position: absolute;
+        z-index: 1;
+    }
+</style>
+
+<script>
+    function hideBubble(eleClass) {
+        document.querySelector(eleClass).style.display = "none";
+    }
+
+    var counter = 0;
+    var celebsOfferContainer = document.querySelector("#root > div.child-component-container > div:nth-child(3) > div.aem-page.root > div > div > div:nth-child(2) > div > div:nth-child(1) > div.bg-brown-100 > div > div.mt-5 > div > div > div");
+    
+    if (document.querySelector("#adb-nonShoppers-cart")) {
+        document.querySelector("#adb-nonShoppers-cart").remove();
+    }
+    
+    var waitForElement = function () {
+        if (celebsOfferContainer != null && digitalData.product[0].productInfo.globalExclusion != true) {
+
+            let promoBanner = `<div class="adb-celebsCart-wrapper"><div class="cartPromo-12"><span class="notify-bubble_1">Copied!</span><div id="adb-promo-cart-1" class="promo-celebs12-adb"><p><span class="bold-text">12% off*&nbsp;</span> with code <span class="bold-text">CELEBSG12</span></p><p>Tap to copy code.</p><p class="alert-content alert-content-short">*Valid with min. S$300 spend, cap S$50. T&Cs apply.</p></div></div><div class="cartPromo-15"><span class="notify-bubble_2">Copied!</span><div id="adb-promo-cart-2" class="promo-celebs15-adb"><p><span class="bold-text">15% off*&nbsp;</span> with code <span class="bold-text">CELEBSG15</span></p><p>Tap to copy code.</p><p class="alert-content alert-content-short">*Valid with min. S$500 spend, cap S$120. T&Cs apply.</p></div></div></div>`;
+            celebsOfferContainer.insertAdjacentHTML("afterend", promoBanner);
+
+            let clickBanner1 = document.querySelector("#adb-promo-cart-1");
+            clickBanner1.addEventListener('click', function () {
+                var name1 = 'en_celebsg12-nt_cart_banner_promo_exp_b?';
+                if (window.s_gi) {
+                    var s = s_gi('changairport-prod-new');
+                    s.linkTrackVars = "eVar126,event143";
+                    s.eVar126 = name1;
+                    s.event143 = "CELEBSG12-cartPromo";
+                    s.events = "event143";
+                    s.linkTrackEvents = "event143";
+                    s.tl(true, "o", name1);
+                }
+                navigator.clipboard.writeText("CELEBSG12");
+                document.querySelector(".notify-bubble_1").style.display = "block";
+                setTimeout(() => {
+                    hideBubble(".notify-bubble_1");
+                }, 3000)
+            });
+
+            let clickBanner2 = document.querySelector("#adb-promo-cart-2");
+            clickBanner2.addEventListener('click', function () {
+                var name2 = 'en_celebsg15-nt_cart_banner_promo_exp_b?';
+                if (window.s_gi) {
+                    var s = s_gi('changairport-prod-new');
+                    s.linkTrackVars = "eVar126,event143";
+                    s.eVar126 = name2;
+                    s.event143 = "CELEBSG15-cartPromo";
+                    s.events = "event143";
+                    s.linkTrackEvents = "event143";
+                    s.tl(true, "o", name2);
+                }
+                navigator.clipboard.writeText("CELEBSG15");
+                document.querySelector(".notify-bubble_2").style.display = "block";
+                setTimeout(() => {
+                    hideBubble(".notify-bubble_2");
+                }, 3000)
+            });
+        } else {
+            ++counter;
+            counter < 100 && setTimeout(function () { waitForElement(); }, 100);
+        }
+    }
+    waitForElement();
+</script>

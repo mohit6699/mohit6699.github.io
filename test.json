@@ -1,13 +1,12 @@
 {
     "templateType": "xf-web-variation",
-    "title": "Nudge 1 XF",
+    "title": "QA_EN_BANNER_BANCA",
     ":itemsOrder": [
         "root"
     ],
     ":items": {
         "root": {
             "columnClassNames": {
-                "contentfragment_2140347480": "aem-GridColumn aem-GridColumn--default--12",
                 "contentfragment": "aem-GridColumn aem-GridColumn--default--12"
             },
             "gridClassNames": "aem-Grid aem-Grid--12 aem-Grid--default--12",
@@ -15,215 +14,496 @@
             "allowedComponents": {
                 "components": [
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/accordion",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/atomic/columnContainer",
+                        "title": "Column Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/atomic/divider",
+                        "title": "Divider"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/sectioncontainer",
+                        "title": "Section Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/atomic/spacer",
+                        "title": "Spacer"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/accordion",
                         "title": "Accordion"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/breadcrumb",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/announcement",
+                        "title": "Announcement"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/articlecardcross",
+                        "title": "Article Card Cross"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/button",
+                        "title": "TCB Button"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/button",
+                        "title": "Form Button"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/cardinfo",
+                        "title": "Card Info"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/cardslidepanel",
+                        "title": "Card Slide Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/carouseltiles",
+                        "title": "Carousel Tiles"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/columnpanel",
+                        "title": "Column Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/comparepanel",
+                        "title": "Compare Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/complexpanel",
+                        "title": "Complex Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/creditrating",
+                        "title": "Credit Rating"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/currencyconvertor",
+                        "title": "Currency Convertor Tool"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/debttabspanel",
+                        "title": "Debt Tabs Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/devicelookstepscarousel",
+                        "title": "Device Look Steps Carousel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/downloadcontentblock",
+                        "title": "Download Content Block"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/exchangerate",
+                        "title": "Exchange Rate"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/faqpanel",
+                        "title": "FAQ Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/filterpanel",
+                        "title": "Filter Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/filterpanelcontainer",
+                        "title": "Filter Panel Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/fixingrate",
+                        "title": "Fixing Rate"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/footer",
+                        "title": "Footer"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/goldrate",
+                        "title": "Gold Rate"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/header",
+                        "title": "Header"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/hidden",
+                        "title": "TCB Form Hidden"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/homepageblock",
+                        "title": "Homepage block"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/imageCaurosel",
+                        "title": "Carousel Image"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/imagecardslide",
+                        "title": "Image Card Slide"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/insurancegain",
+                        "title": "Insurance gain component"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/linktext",
+                        "title": "Link Text"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/listeventtile",
+                        "title": "List Event Tile"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/listtiles",
+                        "title": "List Tiles"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/loancalculator",
+                        "title": "Loan calculator"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/managementteampanel",
+                        "title": "Management Team Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/mastheadextend",
+                        "title": "Masthead Extend"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/mastheadsimplebanner",
+                        "title": "Masthead Simple Banner"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/mastheadspecialbanner",
+                        "title": "Masthead Special Banner"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/mediacarousel",
+                        "title": "Media Carousel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/milestonepanel",
+                        "title": "Milestone Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/modal",
+                        "title": "Modal"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/navequalpanel",
+                        "title": "Nav Equal Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/nesteddropdown",
+                        "title": "Nested Dropdown component"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/networkgrid",
+                        "title": "Network grid"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/personnelpanel",
+                        "title": "Personnel Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/quickaccess",
+                        "title": "Quick Access"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/recaptcha",
+                        "title": "ReCaptcha"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/socialshare",
+                        "title": "Social Share"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/staticgridpanel",
+                        "title": "Static Grid Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/stepaccordion",
+                        "title": "Step Accordion"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/storylisting",
+                        "title": "Story Listing Card"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/surveypanel",
+                        "title": "Survey Panel"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/tabs",
+                        "title": "Tabs Control"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/tcbformcontainer",
+                        "title": "TCB Form Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/form/text",
+                        "title": "Form Text"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/accordion",
+                        "title": "Accordion"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/breadcrumb",
                         "title": "Breadcrumb"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/button",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/button",
                         "title": "Button"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/carousel",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/carousel",
                         "title": "Carousel"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/container",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/container",
                         "title": "Container"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/contentfragment",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/contentfragment",
                         "title": "Content Fragment"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/contentfragmentlist",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/contentfragmentlist",
                         "title": "Content Fragment List"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/download",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/download",
                         "title": "Download"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/embed",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/embed",
                         "title": "Embed"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/experiencefragment",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/experiencefragment",
                         "title": "Experience Fragment"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/helloworld",
-                        "title": "Hello World Component"
-                    },
-                    {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/extended-core/image",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/image",
                         "title": "Image"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/list",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/list",
                         "title": "List"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/pdfviewer",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/pdfviewer",
                         "title": "PDF Viewer"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/progressbar",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/progressbar",
                         "title": "Progress Bar"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/separator",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/separator",
                         "title": "Separator"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/tableofcontents",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/tableofcontents",
                         "title": "Table of Contents"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/tabs",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/tabs",
                         "title": "Tabs"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/teaser",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/teaser",
                         "title": "Teaser"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/extended-core/text",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/text",
                         "title": "Text"
                     },
                     {
-                        "path": "/content/experience-fragments/techcombank/rdb-app/vn/en/nudge-1-xf/master/jcr:content/root/techcombank/components/proxy/title",
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/extended-core/title",
                         "title": "Title"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/form/button",
+                        "title": "Form Button"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/form/container",
+                        "title": "Core Form Container"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/form/hidden",
+                        "title": "Form Hidden"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/form/options",
+                        "title": "Form Options"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/form/text",
+                        "title": "Form Text"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/languagenavigation",
+                        "title": "Language Navigation"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/navigation",
+                        "title": "Navigation"
+                    },
+                    {
+                        "path": "/content/experience-fragments/techcombank/web/vn/en/rdb_app/banners/qa_en_banner_banca/master/jcr:content/root/techcombank/components/proxy/search",
+                        "title": "Quick Search"
                     }
                 ],
                 "applicable": false
             },
             ":itemsOrder": [
-                "contentfragment",
-                "contentfragment_2140347480"
+                "contentfragment"
             ],
             ":items": {
                 "contentfragment": {
-                    "id": "contentfragment-3e11d7c836",
+                    "id": "contentfragment-9df6814ac8",
                     "description": "",
-                    "title": "Nudge 1",
+                    "title": "BANCA",
                     ":itemsOrder": [],
                     ":items": {},
                     "elements": {
-                        "message": {
+                        "id": {
                             "dataType": "string",
-                            "title": "Message",
-                            "value": "Happy Nudging!!!",
+                            "title": "ID",
+                            "value": "BANCA",
                             ":type": "string",
                             "multiValue": false
                         },
-                        "messageId": {
+                        "titleTextForCta": {
                             "dataType": "string",
-                            "title": "Message ID",
-                            "value": "nudge-1",
+                            "title": "Title Text For CTA",
+                            "value": "Find out more",
                             ":type": "string",
                             "multiValue": false
                         },
-                        "messageImage": {
+                        "description": {
                             "dataType": "string",
-                            "title": "Message Image",
-                            "value": "/content/dam/techcombank/test/Banner.jpg",
+                            "title": "Description",
+                            "value": "<p>Get up to 20% unlimited cashback on insurance premium</p>\n",
+                            ":type": "text/html",
+                            "multiValue": false
+                        },
+                        "iconImage": {
+                            "dataType": "string",
+                            "title": "Icon Image",
+                            "value": "/content/dam/techcombank/rdb-app/images/icons/pre-approved-card-v1_promotion_icon/ropo.png",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "backgroundImage": {
+                            "dataType": "string",
+                            "title": "Background Image",
+                            "value": "/content/dam/techcombank/rdb-app/images/backgrounds/pre-approved-card-v1_promotion_background/highlight-bg.png",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "ctaText": {
+                            "dataType": "string",
+                            "title": "CTA Text",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "ctaLink": {
+                            "dataType": "string",
+                            "title": "CTA Link",
+                            "value": "tcb://applink?targetPage=tcplus_productPage&destination=banca_product_page&source=dashboard",
+                            ":type": "string",
+                            "multiValue": false
+                        },
+                        "sequence": {
+                            "dataType": "double",
+                            "title": "Sequence",
+                            "value": 20,
+                            ":type": "double",
+                            "multiValue": false
+                        },
+                        "bannerCategory": {
+                            "dataType": "string",
+                            "title": "Banner Category",
+                            ":type": "string",
+                            "multiValue": true
+                        },
+                        "bannerType": {
+                            "dataType": "string",
+                            "title": "Banner Type",
+                            "value": "large",
                             ":type": "string",
                             "multiValue": false
                         }
                     },
                     "elementsOrder": [
-                        "message",
-                        "messageId",
-                        "messageImage"
+                        "id",
+                        "titleTextForCta",
+                        "description",
+                        "iconImage",
+                        "backgroundImage",
+                        "ctaText",
+                        "ctaLink",
+                        "sequence",
+                        "bannerCategory",
+                        "bannerType"
                     ],
                     ":type": "techcombank/components/proxy/contentfragment",
-                    "model": "techcombank/models/nudges-test",
+                    "model": "techcombank/mobile-app/models/banner-content-fragment",
                     "dataLayer": {
-                        "contentfragment-3e11d7c836": {
+                        "contentfragment-9df6814ac8": {
                             "@type": "techcombank/components/proxy/contentfragment",
-                            "repo:modifyDate": "2023-07-05T06:32:12Z",
-                            "dc:title": "Nudge 1",
+                            "repo:modifyDate": "2023-09-14T10:20:19Z",
+                            "dc:title": "BANCA",
                             "elements": [
                                 {
-                                    "xdm:text": "Happy Nudging!!!",
-                                    "xdm:title": "Message"
+                                    "xdm:text": "BANCA",
+                                    "xdm:title": "ID"
                                 },
                                 {
-                                    "xdm:text": "nudge-1",
-                                    "xdm:title": "Message ID"
+                                    "xdm:text": "Find out more",
+                                    "xdm:title": "Title Text For CTA"
                                 },
                                 {
-                                    "xdm:text": "/content/dam/techcombank/test/Banner.jpg",
-                                    "xdm:title": "Message Image"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "contentfragment_2140347480": {
-                    "id": "contentfragment-2a870a0dc1",
-                    "description": "",
-                    "title": "Nudge 1",
-                    ":itemsOrder": [],
-                    ":items": {},
-                    "elements": {
-                        "message": {
-                            "dataType": "string",
-                            "title": "Message",
-                            "value": "Happy Nudging with Variations",
-                            ":type": "string",
-                            "multiValue": false
-                        },
-                        "messageId": {
-                            "dataType": "string",
-                            "title": "Message ID",
-                            "value": "nudge-1-variation-2",
-                            ":type": "string",
-                            "multiValue": false
-                        },
-                        "messageImage": {
-                            "dataType": "string",
-                            "title": "Message Image",
-                            "value": "/content/dam/techcombank/test/Banner.jpg",
-                            ":type": "string",
-                            "multiValue": false
-                        }
-                    },
-                    "elementsOrder": [
-                        "message",
-                        "messageId",
-                        "messageImage"
-                    ],
-                    ":type": "techcombank/components/proxy/contentfragment",
-                    "model": "techcombank/models/nudges-test",
-                    "dataLayer": {
-                        "contentfragment-2a870a0dc1": {
-                            "@type": "techcombank/components/proxy/contentfragment",
-                            "repo:modifyDate": "2023-07-05T06:32:43Z",
-                            "dc:title": "Nudge 1",
-                            "elements": [
-                                {
-                                    "xdm:text": "Happy Nudging with Variations",
-                                    "xdm:title": "Message"
+                                    "xdm:text": "<p>Get up to 20% unlimited cashback on insurance premium</p>\n",
+                                    "xdm:title": "Description"
                                 },
                                 {
-                                    "xdm:text": "nudge-1-variation-2",
-                                    "xdm:title": "Message ID"
+                                    "xdm:text": "/content/dam/techcombank/rdb-app/images/icons/pre-approved-card-v1_promotion_icon/ropo.png",
+                                    "xdm:title": "Icon Image"
                                 },
                                 {
-                                    "xdm:text": "/content/dam/techcombank/test/Banner.jpg",
-                                    "xdm:title": "Message Image"
+                                    "xdm:text": "/content/dam/techcombank/rdb-app/images/backgrounds/pre-approved-card-v1_promotion_background/highlight-bg.png",
+                                    "xdm:title": "Background Image"
+                                },
+                                {
+                                    "xdm:title": "CTA Text"
+                                },
+                                {
+                                    "xdm:text": "tcb://applink?targetPage=tcplus_productPage&destination=banca_product_page&source=dashboard",
+                                    "xdm:title": "CTA Link"
+                                },
+                                {
+                                    "xdm:text": "20.0",
+                                    "xdm:title": "Sequence"
+                                },
+                                {
+                                    "xdm:title": "Banner Category"
+                                },
+                                {
+                                    "xdm:text": "large",
+                                    "xdm:title": "Banner Type"
                                 }
                             ]
                         }
                     }
                 }
             },
-            ":type": "techcombank/components/extended-core/sectioncontainer"
+            ":type": "techcombank/components/proxy/container"
         }
     },
     ":type": "techcombank/components/proxy/xfpage"
