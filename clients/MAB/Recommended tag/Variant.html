@@ -1,0 +1,61 @@
+<script>
+    window.addEventListener("click", function (event) {
+        if (event.target.closest(".flight-card-button-desktop-view")) {
+            var getParentElement = event.target.parentElement.closest(".upsell-premium-row-pres-container");
+            getParentElement.querySelector(".recommended-tag").remove();
+            getParentElement.querySelectorAll(".price-card-selected")?.forEach(element => {
+                element.classList.remove("price-card-selected");
+            });
+            getParentElement.querySelectorAll(".select-btn-selected")?.forEach(element => {
+                element.classList.remove("select-btn-selected");
+            });
+
+            getParentElement.querySelector(".flight-fares .carousel").querySelectorAll("li mat-card")[1].classList.add("price-card-selected");
+            getParentElement.querySelector(".flight-fares .carousel").querySelectorAll("li mat-card button")[1].classList.add("select-btn-selected");
+            getParentElement.querySelector(".flight-fares .carousel").querySelectorAll("li mat-card")[1].querySelector("label > div > div").insertAdjacentHTML("afterend", '<span class="recommended-tag ng-star-inserted">Recommended</span>');
+        }
+    });
+</script>
+
+<script>
+    targetPageParams = function () {
+        return {
+            "mbox3rdPartyId": "Decrypted customer ID",
+            // "mbox3rdPartyId": {
+            //     "customerID": ""
+            // }
+        };
+    };
+
+
+    function fetchAndApplyTargetOffers() {
+        return new Promise((resolve, reject) => {
+            const decisionScopes = [
+                {
+                    name: "decisionScope1",
+                    xdm: xdmObject1
+                }, {
+                    name: "decisionScope2",
+                    xdm: xdmObject2
+                }];
+            AEPOptimize.updatePropositions(decisionScopes)
+                .then((propositions) => {
+                    // Apply the offers                propositions.forEach((proposition) => {
+                    // Apply the proposition content to the relevant elementsconst content = proposition.content;
+                    const elementId = proposition.scope;
+                    document.getElementById(elementId).innerHTML = content;
+                });
+            resolve(propositions);
+        })
+            .catch((error) => {
+                console.log('Error fetching Target offer: ', error);
+                reject(error);
+            });
+    };
+
+</script>
+
+<script>
+    Flickerlessly.................
+    var jsonData 
+</script>

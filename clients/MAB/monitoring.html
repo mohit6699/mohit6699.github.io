@@ -1,0 +1,16 @@
+<script>
+    var data = { __adobe: { target: {} } };
+    var screenWidth = window.screen.availWidth;
+
+    data.__adobe.target["screenWidth"] = screenWidth;
+    try {
+        alloy("sendEvent", {
+            renderDecisions: false,
+            decisionScopes: ["__view__"],
+            data: data,
+
+        });
+
+    } catch (err) { }
+
+</script>

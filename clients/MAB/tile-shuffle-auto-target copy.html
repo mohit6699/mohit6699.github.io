@@ -1,0 +1,79 @@
+<script>
+
+  Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+
+
+
+  /*persist: false won't execute success function again if the selector show/hide again */
+
+  Flickerlessly.onReady(
+
+      {
+          selector: '.DestinationWindow',
+          persist: true,
+          success: function (el) {
+              //Swapping 3 and 5
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML = html;
+              //Swapping 4 and 5
+              html = document.querySelectorAll('.DestinationWindow [aria-label="4 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="4 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML = html;
+              //Swapping 6 and 5
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML = html;
+              //Swapping 6 and 7
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML = html;
+              //Swapping 7 and 8
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML = html;
+              //Swapping 8 and 9
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="9 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="9 / 9"]')[0].innerHTML = html;
+            //Swapping 7 and 5
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML = html;
+             //Swapping 1 and 4
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="1 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="1 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="4 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="4 / 9"]')[0].innerHTML = html;
+              //Swapping 2 and 5
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="2 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="2 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="5 / 9"]')[0].innerHTML = html;
+              //Swapping 6 and 3
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="6 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML = html;
+            //Swapping 1 and 3
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="1 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="1 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="3 / 9"]')[0].innerHTML = html;
+            //Swapping 8 and 9
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="9 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="9 / 9"]')[0].innerHTML = html;
+            //Swapping 7 and 8
+              var html = document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="7 / 9"]')[0].innerHTML = document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML;
+              document.querySelectorAll('.DestinationWindow [aria-label="8 / 9"]')[0].innerHTML = html;
+          }
+
+
+
+      }
+
+
+
+  );
+
+
+
+</script>

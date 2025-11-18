@@ -1,0 +1,37 @@
+<script>
+
+    if (window.location.href.includes('AT=PropBanner')) {
+
+
+        (function () {
+            var counter = 0;
+            var waitForElement = function () {
+                let imageSelector = document.querySelector(".cmp-heroBannerCarousel");
+
+                if (imageSelector != null) {
+
+
+                    if (window.screen.availWidth > 767) {
+                        imageSelector.style.backgroundImage = 'url("https://publish-p99611-e919024.adobeaemcloud.com/content/dam/adobe-target/buy-online---travel/Health-AO-GHA-webbanner_1440x440-3.jpg")'; // for desktop
+                    } else {
+                        imageSelector.style.backgroundImage = 'url("https://publish-p99611-e919024.adobeaemcloud.com//content/dam/adobe-target/buy-online---travel/Health-AO-GHA-mobilebanner_390x560-3.jpg")'; // for mobile
+                    }
+                    document.querySelector("div.cmp-heroBannerCarousel__body-container > p > span").textContent = "Extend best-in-class health protection to your family and enjoy 15% premium reduction when you enroll at least 3 of your family members under the same plan."
+
+                } else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        })();
+
+    }
+    else {
+        const url = new URL(window.location)
+        url.searchParams.set("AT", "PropBanner")
+        history.pushState(null, '', url);
+        window.location.href = window.location.href;
+    }
+
+</script>

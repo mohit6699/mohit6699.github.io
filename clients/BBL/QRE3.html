@@ -1,0 +1,55 @@
+// QRE3
+<script>
+    Flickerlessly.onReady({
+        selector: '#smb_10, #smb_11, #smb_12, #smb_13',
+        persist: true,
+        success: function(el) {
+ 
+        // Debug Print
+        console.log("Detected element", el);
+ 
+        let bannerContainers = {
+          'smb_10': '<a href="https://www.bangkokbank.com/th-TH/Personal/Save-And-Invest/Mutual-Funds" data-track-click="smb_10_clicked"><img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/QRE_Product/ProductBanner_DeepDiveProduct04.png"></a>',
+          'smb_11': '<a href="https://www.bangkokbank.com/th-TH/Personal/Save-And-Invest/Save/Deposit-Campaign" data-track-click="smb_11_clicked"><img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/QRE_Product/ProductBanner_DeepDiveProduct05.png"></a>',
+          'smb_12': '<a href="https://www.bblam.co.th/bualuang-insights/investment-insights/bf-knowledge-tip-26" data-track-click="smb_12_clicked"><img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/QRE_Tips/TipsBanner_DeepDiveTip05.png"></a>',
+          'smb_13': '<a href="https://soundcloud.com/user-406138964/know63" data-track-click="smb_13_clicked"><img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/QRE_Tips/TipsBanner_DeepDiveTip04.png"></a>'
+        };
+        el.innerHTML = bannerContainers[el.getAttribute('id')];
+        let banner = el.querySelector('a');
+ 
+        // Debug Print
+        console.log("Replaced content", banner);
+ 
+        banner.addEventListener('click',
+        function(e) {
+          var data = {
+            "__adobe": {
+              "target": {}
+            }
+          };
+          data.__adobe.target[banner.getAttribute('data-track-click')] = "true";
+          try {
+            alloy("sendEvent", {
+              xdm: {
+                "_experience": {
+                  "decisioning": {
+                    "propositions": [{
+                      "scope": "__view__"
+                    }],
+                    "propositionEventType": {
+                      "display": 1
+                    }
+                  }
+                },
+                "eventType": "decisioning.propositionDisplay"
+              },
+              renderDecisions: false,
+              data: data
+            });
+          } catch(err) {
+            console.log("Error", err);
+          }
+        });
+      }
+    });
+</script>

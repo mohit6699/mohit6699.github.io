@@ -1,0 +1,41 @@
+<script>
+
+    if (window.location.href.includes('AT=TestimonialPlacement')) {
+
+
+        (function () {
+            var counter = 0;
+            var waitForElement = function () {
+                let imageSelector = document.querySelector(".cmp-heroBannerCarousel");
+
+                if (imageSelector != null) {
+
+                    document.querySelector(".cmp-product-service-def-banner").remove();
+                    document.querySelector(".cmp-buyOnlineCards").remove();
+                    
+                    let productServicesAndCards = `<div class="  aem-GridColumn aem-GridColumn--default--12"><div id="" class="cmp-product-service-def-banner 
+      custom-container-spacing"><div class="cmp-product-service-def-banner__details"><span class="display-3">Access your plan's premium healthcare benefits.</span></div><div class="cmp-product-service-def-banner__icons"><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Extensive%20medical%20coverage%20worldwide.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Extensive Medical Coverage Worldwide</h2><div class="icon-body">You’re covered up to ₱175 million for inpatient as well as outpatient treatment, with the option for coverage in the US.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Choose%20your%20own%20doctor.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Choose Your Own Doctor</h2><div class="icon-body">You have the freedom to consult with your chosen specialist even if they are outside AXA’s network.
+
+*Subject to reasonable and customary charges</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Cashless%20transactions.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Cashless Transactions</h2><div class="icon-body">You don't have to worry about paying the provider for your treatment. We'll settle the expenses directly for you, so you can focus on getting better. For a list of international providers, check the "Find an accredited provider" section below.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Get%20access%20to%20value-added%20services.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">24/7 Teleconsultation</h2><div class="icon-body">Get expert advice from medical practitioners anytime, anywhere at your convenience via MyPocketDoctor.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHAMentalHealth.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Mental Health Counseling</h2><div class="icon-body">Avail mental health counseling services from licensed psychologists through our partner, Mind You.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Waiver%20Premium.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Enjoy Premium Reduction for Family Plan</h2><div class="icon-body">Enroll at least three&nbsp;family members with the same plan and get 15% reduction from your premium.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_International%20emergency%20medical%20assistance.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">International Emergency Medical Assistance</h2><div class="icon-body">Receive global emergency assistance, including evacuation and repatriation services, when you need it outside your home country.</div></div></div><div class="cmp-product-service-def-banner__icons--wrapper"><img class="icon" src="/content/dam/final-assets-batch-1/webpage-icons/gha-page-icon/GHA%20page%20Icon_Global%20coverage%20excluding%20the%20USA.svg" alt="icon"><div class="icon-desc-wrapper"><h2 class="icon-title">Global Concierge</h2><div class="icon-body">Access 24/7 concierge services for travel-related assistance such as flight and travel arrangements for your treatments and transfers to and from hospitals.</div></div></div></div></div><div></div></div> <div class="  aem-GridColumn aem-GridColumn--default--12"><div class="cmp-buyOnlineCards" id=""><div class="cmp-buyOnlineCards__innerContainer"><div class="row cmp-BuyOnlineCards__cardContainerRow mx-0"><div class="row cmp-buyOnlineCards_headingsContainerRow mx-0"><h3 class="cmp-buyOnlineCards__subTitle px-0"> </h3><span class="cmp-buyOnlineCards__title display-6 px-0">Global Health Access safeguards you from high healthcare costs of major conditions.</span></div><div class="cmp-buyOnlineCards__desktopContainer"><div class="card cmp-BuyOnlineCards__card card_shadow"><div class="img-hover-zoom cmp-BuyOnlineCards_imageContainer"><img src="/content/dam/batch-2-assets/health-and-critical-illness/gha/Buy-Online-Cards_Heart-Attack.jpg" class="card-img-top" alt="alt_image"><div class="cmp-BuyOnlineCards_cardTitle"><p>Heart Attack</p></div></div><div class="card-body"><p class="card-text">It is the country's leading cause of death, and 1 in 5 patients face a second heart attack within l5 years. Treatment costs range from ₱500k to ₱1M.</p><a href="" target="_self" rel="noopener" aria-label="link_accessibility_temp" class="card-link btn btn-link-primary text-nowrap cmp-BuyOnlineCards__cardLink"></a></div></div><div class="card cmp-BuyOnlineCards__card card_shadow"><div class="img-hover-zoom cmp-BuyOnlineCards_imageContainer"><img src="/content/dam/batch-2-assets/health-and-critical-illness/gha/Buy-Online-Cards_Stroke.jpg" class="card-img-top" alt="alt_image"><div class="cmp-BuyOnlineCards_cardTitle"><p>Stroke</p></div></div><div class="card-body"><p class="card-text">Stroke is the second leading cause of death among Filipinos, with a 23% chance of recurrence. Treatment costs up to ₱1.2 million, while each rehabilitation session is priced at ₱1,200.</p><a href="" target="_self" rel="noopener" aria-label="link_accessibility_temp" class="card-link btn btn-link-primary text-nowrap cmp-BuyOnlineCards__cardLink"></a></div></div><div class="card cmp-BuyOnlineCards__card card_shadow"><div class="img-hover-zoom cmp-BuyOnlineCards_imageContainer"><img src="/content/dam/batch-2-assets/health-and-critical-illness/gha/Buy-Online-Cards_Breast-Cancer.jpg" class="card-img-top" alt="alt_image"><div class="cmp-BuyOnlineCards_cardTitle"><p>Breast Cancer</p></div></div><div class="card-body"><p class="card-text">The Philippines ranks first among 197 countries in breast cancer incidence, with chemotherapy sessions costing ₱120k each.</p><a href="" target="_self" rel="noopener" aria-label="link_accessibility_temp" class="card-link btn btn-link-primary text-nowrap cmp-BuyOnlineCards__cardLink"></a></div></div></div></div></div></div><div></div></div>`;
+
+let testimonialContainer = document.querySelector(".custom-container-spacing__testimonial--banner").parentElement;
+testimonialContainer.insertAdjacentHTML('afterend', productServicesAndCards);
+                    
+
+                } else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        })();
+
+    }
+    else {
+        const url = new URL(window.location)
+        url.searchParams.set("AT", "TestimonialPlacement")
+        history.pushState(null, '', url);
+        window.location.href = window.location.href;
+    }
+
+</script>

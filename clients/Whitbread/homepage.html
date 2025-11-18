@@ -1,0 +1,269 @@
+<script>
+  (() => {
+    "use strict";
+
+    function e(e) {
+      return document.querySelector(e)
+    }
+
+    function t(e) {
+      return new URL(window.location.href).searchParams.get(e)
+    }
+    let a = () => {
+      var a, i = Number(new URL(window.location.href).searchParams.get("NIGHTS")),
+        r = 0,
+        n = (new Date).toISOString().split("T")[0],
+        l = new Date;
+      l.setFullYear(l.getFullYear() + 1), l.setDate(l.getDate() - 1);
+      var o = window.location.href.indexOf("/de/") > -1,
+        d = t("ARRyyyy") + "-" + t("ARRmm") + "-" + t("ARRdd"),
+        c = ["intcmp", "ARRdd", "ARRmm", "ARRyyyy", "NIGHTS", "ADULT1", "ADULT2", "ADULT3", "ADULT4", "ADULT5",
+          "ADULT6", "ADULT7", "ADULT8", "ADULT9", "CHILD1", "CHILD2", "CHILD3", "CHILD4", "CHILD5", "CHILD6",
+          "CHILD7", "CHILD8", "CHILD9", "ROOMS", "COT1", "COT2", "COT3", "COT4", "COT5", "COT6", "COT7", "COT8",
+          "COT9", "INTTYP1", "INTTYP2", "INTTYP3", "INTTYP4", "INTTYP5", "INTTYP6", "INTTYP7", "INTTYP8", "INTTYP9"
+        ];
+      const p =
+        "<a class='hdpLink'><div class=\"priceDay\"><div class='priceDay_date'></div><div class='priceDay_price'></div></div></a>",
+        h = async (e, t) => {
+          const a = new Headers;
+          a.append("Content-Type", "application/json"), a.append("x-api-key", "da2-idsjfaxepza2zfvupxywqv3inu"), a
+            .append("Cookie",
+              "ak_bmsc=1475FE0D8840DDA5E32213C0B638BF14~000000000000000000000000000000~YAAQU2vcF9WYUYyVAQAA8yz9lBsSIQtKYwiOzwZ2d/s8qpmJjqkvUvU4DKT9RjBMqskP9PkeOPX+IQO8QlZCjBz6gA2w2VTsPoxmTBQIJo3rBaVTjTSWGk58jRtLV0YdxBBm2L5IJP9k3uYGar3Te+taDzJUD1iRUuxdGyIzw7pkrTnRTNtoa0Uibe9dJ25ubRjN5CV03EiqX/2ukuAOBGa+SGUFB2PoHifhKhmrtnrPWq/Fe62qeCRB+0Dy79VGK3Xo/79s/rKiZLz3hHTFsHyZjM4FyPjiw6ocpiT9lLsxoeBOnjKbFISn5Hsp7rygONPWrR+lkvWH4/6beb2eGDm+RUf0A8Z9gI0eEeDsCLontrqGc/w=; bm_sv=A4265A47C4959E31B6567267AA7AD413~YAAQU2vcFyNnU4yVAQAA/XoGlRtq1Sw2IENeHGQmdUlXb6s725C2ntTRl+ZoNvm/NnC6/JlR5d7jQ0edCUC/nh/gbwwJODTI9n+e5hIOg9WZlKkhp58tRlDzTgbvZ2hJAtmwUXVrRvC7pUTKr6SyM/tc4siJJbRuwhdsfTTOB6iHqBSLDilsw8mIqDSHu3Xu5gn3GXebTqrp58TqKlAof7AqoWn3cqf0vuIAlCp8E+eLo2NC1D57Y9Yk+oK6Xo6YjyBCGg9sUkatusWI~1"
+            );
+          const i = {
+            method: "POST",
+            headers: a,
+            body: JSON.stringify({
+              query: "query getLowestRatesByHotel($hotelCodes: [String]!, $arrival: String!, $country: String, $language: String){ getLowestRatesByHotel(hotelCodes: $hotelCodes, arrival: $arrival,country: $country,language: $language) {priceFinderOperaHotelAvailabilitiesDtoList {hotelCode, availabilities {availableDate, currency, minimumRate}} }}",
+              variables: {
+                hotelCodes: t,
+                arrival: e,
+                country: "gb",
+                language: "en"
+              }
+            }),
+            redirect: "follow"
+          };
+          try {
+            const e = await fetch("https://api.premierinn.com/graphql", i);
+            return await e.json()
+          } catch (e) {
+            return console.error(e), null
+          }
+        }, m = async e => {
+          let t = (await h(e, analyticsData.analyticsDataSearchResult.searchResultsDisplayed[0].hotelCode
+            .toUpperCase())).data.getLowestRatesByHotel.priceFinderOperaHotelAvailabilitiesDtoList[0]
+            .availabilities;
+          t = t.filter((e => !a.some((t => t.availableDate === e.availableDate)))), a.push(...t), a = a.sort(((
+            e, t) => new Date(e.availableDate) - new Date(t.availableDate))), a = Array.from(new Map(a.map((
+              e => [e.availableDate, e]))).values())
+        };
+      let w = (t, r) => {
+        let s = "EUR" == a[0].currency ? "&#8364;" : "&#163;",
+          p = 0 == r.minimumRate || new Date(r.availableDate) > l || r.hasMlosRestriction;
+        var h, m;
+        if (t.querySelector(".priceDay_date").innerText = (h = r.availableDate, new Date(h).toLocaleDateString(o ?
+          "de-DE" : "en-UK", {
+          day: "numeric",
+          weekday: "short",
+          month: "short"
+        }).replace(",", "").replaceAll(".", "")).replace(",", ""), i > 1) {
+          let e = 0,
+            n = a.findIndex((e => e.availableDate === r.availableDate));
+          for (let t = 0; t < i; t++) e += a[n + t].minimumRate;
+          e = (m = e) % 1 == 0 ? m : m.toFixed(2), t.querySelector(".priceDay_price").innerHTML = p ? "-" : o ?
+            e + s : s + e;
+          let l = document.createElement("div");
+          l.classList.add("forNightText"), l.innerHTML = i + (o ? " N&#228;chte" : " nights"), t.appendChild(l)
+        } else t.querySelector(".priceDay_price").innerHTML = p ? "-" : o ? r.minimumRate + s : s + r.minimumRate,
+          t.style.paddingBottom = "12px";
+        if (new Date(r.availableDate) < l) {
+          let e = new URL(window.location.href);
+          e.searchParams.set("ARRdd", r.availableDate.split("-")[2]), e.searchParams.set("ARRmm", r.availableDate
+            .split("-")[1]), e.searchParams.set("ARRyyyy", r.availableDate.split("-")[0]);
+          let a = [];
+          for (let t of e.searchParams.keys()) c.includes(t) || a.push(t);
+          for (let t of a) e.searchParams.delete(t);
+          d && d == r.availableDate && t.classList.add("selectedDay"), e.searchParams.set("intcmp",
+            "hdp_rate_grid"), t.setAttribute("href", e.href)
+        } else t.classList.add("hidden");
+        r.availableDate == n && e("#priceLeftArrow").classList.add("hiddenArrow"), r.availableDate == l
+          .toISOString().split("T")[0] && e("#priceRightArrow").classList.add("hiddenArrow")
+      };
+      const D = window.innerWidth < 700 ? 3 : 7;
+      let u =
+        '<div id="priceFinderContainer"><div class="priceArrow" id="priceLeftArrow">&#8592</div><div id="weekDates"><div id=\'pricesSlider\'>' +
+        "<a class='hdpLink'><div class='priceDay'><div class='priceDay_date'></div><div class='priceDay_price'></div></div></a>"
+          .repeat(D) + '</div></div><div class="priceArrow" id="priceRightArrow">&#8594</div></div>',
+        y = ["berlin", "leipzig", "darmstadt", "dusseldorf", "dresden", "frankfurt", "freiburg", "hamburg",
+          "hannover", "koln", "cologne", "mannheim", "wuppertal", "wiesbaden"
+        ];
+      ! function () {
+        const e = document.createElement("style");
+        e.innerHTML =
+          "#priceFinderContainer{width:100%;height:fit-content;display:flex;flex-direction:row;margin-bottom:40px}.priceArrow.disabled{pointer-events:none;opacity:.5}#pricesSlider{display:flex;flex-direction:row;width:100%;height:fit-content}.priceArrow{text-align:center;align-content:center;background-color:#00798e;user-select:none;cursor:pointer;color:#fff;margin-left:5px;margin-right:5px;border-radius:10px;flex-grow:1}#weekDates{display:flex;flex-direction:row;width:90%;height:fit-content;overflow:hidden}.forNightText{font-size:13px;font-weight:400;text-align:center;padding-bottom:12px}.hdpLink{height:fit-content;border:1px solid #00798e;border-radius:10px;margin-left:5px;margin-right:5px;flex:0 0 auto}@media (max-width:700px){.hdpLink{width:calc(100% / 3 - 10px)}.priceArrow{width:10%;font-size:18px}}@media (min-width:700px){.hdpLink{width:calc(100% / 7 - 10px)}.priceArrow{width:4%;font-size:26px;max-width:4%;}}.hdpLink:hover{background-color:#eee}.priceDay{width:100%;display:flex;flex-direction:column;text-align:center;padding-top:12px;cursor:pointer;height:fit-content}.priceDay_price{font-size:18px;text-align:center;font-weight:700}.priceDay_date{font-size:12px}.selectedDay{background-color:#00798e!important;color:#fff;border-radius:10px}.hiddenArrow{opacity:0;cursor:default;pointer-events:none;}.hidden{display:none!important;}",
+          document.querySelector("body").appendChild(e)
+      }(),
+        function (t, a, i = document.body) {
+          if (e(t)) return void a(t);
+          const r = new MutationObserver((() => {
+            e(t) && (r.disconnect(), a(t))
+          }));
+          r.observe(i, {
+            childList: !0,
+            subtree: !0
+          })
+        }('[data-testid="breadcrumbs-hdp"]', (() => {
+          setTimeout((() => {
+            let t;
+            (async () => {
+              let l = analyticsData.analyticsDataSearchResult.searchResultsDisplayed[0].hotelCode
+                .toUpperCase(),
+                d = analyticsData.analyticsDataSearchResult.searchCheckInDate.split("/").reverse().join(
+                  "-");
+              t = (new Date).toISOString().split("T")[0];
+              let c = await h(d, l);
+              e("#rate-cards-list").insertAdjacentHTML("afterbegin", u), setTimeout((() => {
+                const t = window.location.href.toLowerCase();
+                if (y.some((e => t.includes(e)))) {
+                  let e = o ?
+                    '<p id="cityTaxWarning" style="margin-bottom: 20px;margin-top: -15px;">Die oben aufgeführten Preise enthalten keine lokalen Steuern. Lokale Steuern werden unten bei der Zimmerauswahl hinzugefügt.</p>' :
+                    '<p id="cityTaxWarning" style="margin-bottom: 20px;margin-top: -15px;">The prices above are exclusive of city taxes. City taxes will be added at the room selection stage below.</p>';
+                  document.querySelector("#priceFinderContainer").insertAdjacentHTML("afterend",
+                    e)
+                }
+                e("#priceFinderContainer").style.maxWidth = e("#priceFinderContainer")
+                  .clientWidth + "px"
+              }), 0), setTimeout((() => {
+                let l = (a = (a = c.data.getLowestRatesByHotel
+                  .priceFinderOperaHotelAvailabilitiesDtoList[0].availabilities).sort(((e,
+                    t) => new Date(e.availableDate) - new Date(t.availableDate)))).findIndex((e =>
+                      e.availableDate === new Date(analyticsData.analyticsDataSearchResult
+                        .searchCheckInDate.split("/").reverse().join("-")).toISOString().split(
+                          "T")[0]));
+                l > (D - 3) / 2 && (l -= Math.floor((D - 1) / 2)), (i => {
+                  e(".selectedDay") && e(".selectedDay").classList.remove("selectedDay"), r =
+                    i, document.querySelectorAll(".hdpLink").forEach(((e, t) => {
+                      w(e, a[i + t])
+                    })), e('[date="' + t + '"]') && e("#priceLeftArrow").classList.add(
+                      "hiddenArrow")
+                })(l);
+                let o = e("#priceLeftArrow"),
+                  d = e("#priceRightArrow");
+                o.addEventListener("click", (async () => {
+                  o.classList.contains("disabled") || o.classList.contains(
+                    "hiddenArrow") || (o.classList.add("disabled"), (async t => {
+                      let i = document.getElementById("pricesSlider"),
+                        l = a.findIndex((e => e.availableDate === n));
+                      if (r <= 6 && -1 == l) {
+                        let e = a[r].availableDate,
+                          t = new Date(a[0].availableDate);
+                        t.setDate(t.getDate() - 15), t < new Date && (t = new Date),
+                          t = t.toISOString().split("T")[0], await m(t), s.tl(
+                            void 0, "o",
+                            "HDP Rate Grid | Made API call to fetch earlier dates"),
+                          r = a.findIndex((t => t.availableDate === e))
+                      }
+                      r - t < 0 ? (t = r, r = 0) : r -= t;
+                      for (let e = t - 1; e >= 0; e--) {
+                        let t = document.createElement("div");
+                        t.innerHTML = p;
+                        let n = t.firstElementChild;
+                        w(n, a[r + e]), i.insertBefore(n, i.firstChild)
+                      }
+                      i.style.transform = "translateX(-" + (7 !== t ? 14.285 * t :
+                        100) + "%)", setTimeout((() => {
+                          let a = window.innerWidth < 700 ? "0.25s" : "0.5s";
+                          i.style.transition = a + " ease-in-out", i.style
+                            .transform = "translateX(0%)", setTimeout((() => {
+                              Array.from(document.querySelectorAll(
+                                ".hdpLink")).slice(-t).forEach((e => {
+                                  e.remove()
+                                })), i.style.transition = "none", e(
+                                  "#priceRightArrow").classList.contains(
+                                    "hiddenArrow") && e("#priceRightArrow")
+                                      .classList.remove("hiddenArrow")
+                            }), "0.25s" == a ? 250 : 500)
+                        }), 100)
+                    })(D), setTimeout((() => o.classList.remove("disabled")), 650))
+                })), d.addEventListener("click", (async () => {
+                  d.classList.contains("disabled") || d.classList.contains(
+                    "hiddenArrow") || (d.classList.add("disabled"), (async t => {
+                      let n = document.getElementById("pricesSlider");
+                      if (r >= a.length - 12 - i) {
+                        let e = new Date(a[a.length - 1].availableDate);
+                        e.setDate(e.getDate() + 15), e = e.toISOString().split("T")[
+                          0], await m(e), s.tl(void 0, "o",
+                            "HDP Rate Grid | Made API call to fetch later dates")
+                      }
+                      r += t;
+                      for (let e = 0; e < t; e++) {
+                        let t = document.createElement("div");
+                        t.innerHTML = p;
+                        let i = t.firstElementChild;
+                        w(i, a[r + e]), n.appendChild(i)
+                      }
+                      setTimeout((() => {
+                        let a = window.innerWidth < 700 ? "0.25s" : "0.5s";
+                        n.style.transition = a + " ease-in-out", n.style
+                          .transform = "translateX(-100%)", setTimeout((
+                            () => {
+                              let a = [];
+                              document.querySelectorAll(".hdpLink").forEach(
+                                ((e, i) => {
+                                  i < t && a.push(e)
+                                })), a.forEach((e => {
+                                  e.remove()
+                                })), n.style.transition = "none", n.style
+                                  .transform = "translateX(0%)", e(
+                                    "#priceLeftArrow").classList.contains(
+                                      "hiddenArrow") && e("#priceLeftArrow")
+                                        .classList.remove("hiddenArrow")
+                            }), "0.25s" == a ? 250 : 500)
+                      }), 100)
+                    })(D), setTimeout((() => d.classList.remove("disabled")), 650))
+                }))
+              }), 0)
+            })()
+          }), 0), e('[data-testid="hdp_rateSelectorTitle"]').remove(), e(
+            '[data-testid="hdp_rateSelectorDescription"]').remove(), e(
+              '[data-testid="hdp_ratesExplainedLink-Alert"]').parentElement.remove()
+        }))
+    };
+    try {
+      a()
+    } catch (e) {
+      setTimeout((() => {
+        s.tl(void 0, "o", "HDP Rate Grid | Error: " + e)
+      }), 3500)
+    }
+    var i;
+    i = a, window.addEventListener("popstate", (() => {
+      window.location.href.indexOf("/hotels/") > -1 && i()
+    }))
+  })();
+
+
+
+
+
+
+
+
+
+  var now = new Date();
+
+  var bangkokOffset = 7 * 60; // minutes
+  var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  var bangkok = new Date(utc + (bangkokOffset * 60000));
+
+  var m = bangkok.getMonth() + 1; // month (1–12)
+  var d = bangkok.getDate();
+
+  // Example check
+  if (m === 1 && d === 1) {
+    return "newyear";
+  }
+
+
+</script>

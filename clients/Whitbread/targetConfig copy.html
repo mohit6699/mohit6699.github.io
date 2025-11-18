@@ -1,0 +1,63 @@
+<script>
+
+    try {
+        // Check if personalization is allowed
+        if (
+            typeof _satellite.getVar("permissionExperience") !== "undefined" &&
+            _satellite.getVar("permissionExperience") !== "false"
+        ) {
+            if (typeof alloy === "function") {
+                // Prepare values
+                var bookingId = _satellite.getVar("bookingIDUpper");
+                var orderTotal = _satellite.getVar("total revenue");
+                var hotelCode = _satellite.getVar("hotel code");
+                var pageName = _satellite.getVar("pageName");
+                var companyID = _satellite.getVar("companyID");
+                var tripPurpose = analyticsDataCartConfirmation?.typeOfTrip || "";
+
+                // Send personalization + purchase event
+                alloy("sendEvent", {
+                    renderDecisions: true, // auto-render personalization
+                    decisionScopes: ["Confirmation-Page"], // confirmation page scope
+                    xdm: {
+                        eventType: "commerce.purchases", // purchase event type
+                        commerce: {
+                            order: {
+                                purchaseID: bookingId,
+                                currencyCode: _satellite.getVar("currencyCode"),
+                                priceTotal: orderTotal
+                            }
+                        },
+                        productListItems: [{
+                            SKU: hotelCode,
+                            priceTotal: orderTotal,
+                            quantity: 1
+                        }],
+                        web: {
+                            webPageDetails: {
+                                name: pageName
+                            }
+                        }
+                    },
+                    data: {
+                        pageName: pageName,
+                        companyID: companyID,
+                        hotelCode: hotelCode,
+                        tripPurpose: tripPurpose
+                    }
+                }).then(function (result) {
+                    console.log("✔ Personalization + purchase tracking completed", result);
+                }).catch(function (err) {
+                    _satellite.logger.info("Confirmation Target Alloy Error: " + err.message);
+                });
+            }
+        }
+    } catch (err) {
+        _satellite.logger.info("Confirmation Target Mbox Error: " + err.message);
+        if (typeof s !== "undefined") {
+            s.linkTrackVars = "eVar24";
+            s.eVar24 = "Confirmation Target Mbox Error";
+        }
+    }
+
+</script>

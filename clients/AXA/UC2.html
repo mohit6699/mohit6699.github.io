@@ -1,0 +1,28 @@
+<script>
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: '.cmp-heroBannerCarousel',
+            persist: false,
+            success: function (el) {
+                let imageSelector = document.querySelector(".cmp-heroBannerCarousel");
+
+                if (window.location.href == 'https://www.axa.com.ph/products/travel-insurance?utm_source=facebook&utm_medium=paid_social&utm_campaign=AT-travel-fb-webcon-2025&utm_content=conv-static-rtg-travel-2025-omnibus&AT=change-banner-layout' || window.location.href == 'https://www.axa.com.ph/products/travel-insurance?utm_source=facebook&utm_medium=paid_social&utm_campaign=AT-travel-fb-webcon-2025&utm_content=conv-dynamic-rtg-travel-2025-omnibus&AT=change-banner-layout' || window.location.href == 'https://www.axa.com.ph/products/travel-insurance?utm_source=facebook&utm_medium=paid_social&utm_campaign=AT-travel-fb-webcon-2025&utm_content=conv-static-core-travel-2025-omnibus&AT=change-banner-layout' || window.location.href == 'https://www.axa.com.ph/products/travel-insurance?utm_source=facebook&utm_medium=paid_social&utm_campaign=AT-travel-fb-webcon-2025&utm_content=conv-dynamic-core-travel-2025-omnibus&AT=change-banner-layout') {
+
+                    if (window.screen.availWidth > 767) {
+                        imageSelector.style.backgroundImage = 'url("https://www.axa.com.ph/content/dam/adobe-target/buy-online---travel/smart-traveller-at-desktop-v2.jpg")'; // for desktop
+                    } else {
+                        imageSelector.style.backgroundImage = 'url("https://www.axa.com.ph/content/dam/adobe-target/buy-online---travel/smart-traveller-at-mobile-v2.jpg")'; // for mobile
+                    }
+                    document.querySelector(".cmp-heroBannerCarousel__title-container > span > p > span").innerHTML = "Travelling in a group?";
+                    document.querySelector(".cmp-heroBannerCarousel__title-container > span > p:nth-child(2)").remove();
+                    document.querySelector(".cmp-heroBannerCarousel__body-container > p > span").innerHTML = "Save on travel insurance with lower rates for your entire group";
+                    document.querySelector(".cmp-heroBannerCarousel__body-container > p:nth-child(2)").remove()
+                }
+                else {
+                    window.location.href = window.location.href + '&AT=change-banner-layout';
+                }
+
+            }
+        });
+</script>

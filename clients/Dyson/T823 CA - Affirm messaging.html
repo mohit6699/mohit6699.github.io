@@ -1,0 +1,144 @@
+<script>
+
+    /***********************
+* 1. Load Affirm SDK
+***********************/
+    var _affirm_config = {
+        public_api_key: "LK50OIPP2BXX9IQW", // PUBLIC SANDBOX KEY = 92SFG8WIVAKE9MKX /// PUBLIC PROD KEY = LK50OIPP2BXX9IQW/* Affirm Public API Key */
+        script: "https://cdn1-sandbox.affirm.ca/js/v2/affirm.js",
+        locale: "en_CA",
+        country_code: "CAN",
+    };
+
+    (function (l, g, m, e, a, f, b) { var d, c = l[m] || {}, h = document.createElement(f), n = document.getElementsByTagName(f)[0], k = function (a, b, c) { return function () { a[b]._.push([c, arguments]) } }; c[e] = k(c, e, "set"); d = c[e]; c[a] = {}; c[a]._ = []; d._ = []; c[a][b] = k(c, a, b); a = 0; for (b = "set add save post open empty reset on off trigger ready setProduct".split(" "); a < b.length; a++)d[b[a]] = k(c, e, b[a]); a = 0; for (b = ["get", "token", "url", "items"]; a < b.length; a++)d[b[a]] = function () { }; h.async = !0; h.src = g[f]; n.parentNode.insertBefore(h, n); delete g[f]; d(g); l[m] = c })(window, _affirm_config, "affirm", "checkout", "ui", "script", "ready");
+    // END AFFIRM.JS EMBED CODE
+
+
+    /*************************************
+     * 2. Personalization / Page Changes
+     *************************************/
+    setTimeout(() => {
+        function personalizePage() {
+            let affirmHTMLSelector = "";
+            let affirmHTMLSelectorList = [];
+            if (window.location.href.includes("cart")) {
+                affirmHTMLSelector = document.querySelector(".instalment-available-highlight-container")
+            } else {
+                affirmHTMLSelectorList = document.querySelectorAll('.instalment-available-highlight-container');
+            }
+
+            if ((affirmHTMLSelectorList.length > 0 || affirmHTMLSelector) && !document.querySelector(".affirm-as-low-as")) {
+                let itemPriceValue = "";
+                let container = "";
+                let pageType = "";
+
+                if (window.location.href.includes("cart")) {
+                    // Remove the old node
+                    container = document.querySelector(".instalment-available-highlight-text")
+                    if (container) container.remove();
+
+                    // Get the price from the cart total element
+                    itemPriceValue = document.querySelector(".basket-aside__total-container .basket-aside__price").innerText;
+                    itemPriceValue = cleanAmount(itemPriceValue);
+                    pageType = "cart";
+
+                    // Update affirm message with new node
+                    affirmHTMLSelector.innerHTML += '<p class="affirm-as-low-as" data-page-type="' + pageType + '" data-amount="' + itemPriceValue + '"></p>';
+                } else {
+                    const itemPriceList = document.querySelectorAll(".product-hero__price--format, .product-hero__price--blue-format, .trade-up-item__price, .trade-up-item__price--blue, .promotional-hero__price--blue-format, .promotional-hero__price--format");
+                    //console.log("itemPriceList is: ", itemPriceList.length);
+                    affirmHTMLSelectorList.forEach((el, i) => {
+                        const affirmMessage = el.querySelector(".instalment-available-highlight-text");
+                        if (affirmMessage) {
+
+                            // Remove the old node
+                            affirmMessage?.remove();
+
+                            // Get the price from the corresponding price element
+                            let listItemPriceStr = itemPriceList[i]?.innerText;
+                            //console.log("listItemPriceStr is: ", listItemPriceStr);
+                            listItemPriceStr = cleanAmount(listItemPriceStr);
+
+                            // Update affirm message with new node
+                            el.innerHTML += '<p class="affirm-as-low-as" data-page-type="product" data-amount="' + listItemPriceStr + '"></p>';
+
+                        }
+                    });
+
+
+                    var counter = 0;
+                    var waitForElement = function () {
+                        console.log("Waiting for learn more link...", counter);
+                        let affirmLearnMoreLink = document.querySelectorAll("a.affirm-modal-trigger");
+                        if (affirmLearnMoreLink.length > 0) {
+                            affirmLearnMoreLink.forEach(element => {
+                                element.setAttribute('data-analytics-action-name', 'affirm-learnmore~cta');
+                                element.addEventListener("click", ((e) => {
+                                    e.preventDefault();
+                                    let name = 'affirm-learnmore~cta';
+                                    if (window.s_gi) {
+                                        var s = s_gi('dysoncaprod');
+                                        s.linkTrackVars = "eVar67";
+                                        s.eVar67 = name;
+                                        s.tl(true, "o", name);
+                                    }
+                                }));
+                            });
+
+                        } else {
+                            ++counter;
+                            counter < 100 && setTimeout(function () { waitForElement(); }, 300)
+                        }
+                    }
+                    waitForElement();
+
+                }
+
+
+                if (typeof affirm !== "undefined" && affirm.ui) {
+                    affirm.ui.ready(() => {
+                        affirm.ui.refresh();   // Force re-render once Affirm is fully ready
+                        personalizePage();
+                    });
+                }
+            }
+
+
+        }
+
+        // Remove all special characters including the dot
+        function cleanAmount(amountStr) {
+            // Keep only digits
+            return amountStr.replace(/[^0-9]/g, "");
+        }
+
+        // MutationObserver: watch for banner to exist
+        new MutationObserver(() => personalizePage())
+            .observe(document.body, { childList: true, subtree: true });
+
+
+        /*************************************
+     * 3. Inject Custom CSS
+     *************************************/
+        function injectCSS(cssText) {
+            var styleTag = document.createElement("style");
+            styleTag.textContent = cssText;
+            document.head.appendChild(styleTag);
+        }
+
+        // Define your custom styles
+        injectCSS(`
+  a.affirm-modal-trigger,
+    a:active,
+    a:visited {
+        color: #6F7A87;
+    }
+
+    a:hover {
+        color: #23292F;
+    }
+`);
+
+    }, 1000);
+
+</script>

@@ -1,0 +1,61 @@
+{
+    "event": {
+        "xdm": {
+            "eventType": "decisioning.propositionDisplay",
+            "identityMap": {
+                "crmID": [
+                    {
+                        "id": "82343079748392237382984823408884432369",
+                        "authenticatedState": "ambiguous",
+                        "primary": true
+                    }
+                ]
+            },
+            "_experience": {
+                "decisioning": {
+                    "propositionEventType": {
+                        "display": 1
+                    },
+                    "propositions": [
+                        {
+                            "id": "AT:eyJhY3Rpdml0eUlkIjoiNzk0Nzg2IiwiZXhwZXJpZW5jZUlkIjoiMSJ9",
+                            "scope": "ing_mbox_at",
+                            "scopeDetails": {
+                                "decisionProvider": "TGT",
+                                "activity": {
+                                    "id": "881835"
+                                },
+                                "experience": {
+                                    "id": "0"
+                                },
+                                "strategies": [
+                                    {
+                                        "step": "entry",
+                                        "trafficType": "0"
+                                    },
+                                    {
+                                        "step": "display",
+                                        "trafficType": "0"
+                                    }
+                                ],
+                                "characteristics": {
+                                    "eventToken": "ypLlW4qb4lkFELTXBv80sZ3BNhkKdJh9FdggP2851ydw54XAlJ3xNRImNE7jBWgsgJd3DNmZFmAmR22YP7jXhw==",
+                                    "stateToken": "ECbfOfAYbPSnagIOCEFqorePagNa7bBIHEOrfFNWHLgpuqMtjxwvGRWWle9m+lvH+GQZBk2DI5wvHSCd1ncWxUHpYwbO3IwSmh7oZCKF9F6Q6RqAvTqYXU6YlIQgjVajcccoNSeRX/8KSVxAef1kFZ/U0cFNwTQkSk5xUmq872oCrLn5vkT86c5rbL8tDlkAymjA5+Pdj7e3Cyudli96pSMo/6/zhI+sCXHWrFH/pzL4sLGIDyJCdIYU6VHw6Ojbwj2bnCvmdWxqQprJG6/0pWsXePLsW+hcNmnNIlL1frsOVvDBm3/ZrZcWtgBsRRzR5M5AdMSYX8z2MYafe04Nb9B4J+0faSSZUS0ZqjJbjV5285CxICoFZNHwQ3/1sTaja2VxFose7x+QM4ShkXaLxPKaXTNBNr4Rbe7EafGj1hc4c6j6Ppokq46CW7p+7VcDsF8TkCFGpnjvsbXjcotMQRBsQvEwv1UFvOW+ZHqRrU2PqhtGQhV+ToN/4LgoSUaP9IKavjHcgYEzLfvAzwr28IjLaYKfmXl4Sln6t2lQ+GNN0hCt1KeS0nRKSDVSQ9Fl7hc7SuqiVD1ZDaBm1/eWCCCbrcs/U+F5HrH1zPdGXNhY7Lk6QADnuSgMPl07AAoZ35xmOzBgF7BuWwFn/1e33RlTD+9srjBblhlJOCs/lthn/P8c2aaSZHETT/xjCN9JEPlpndOpH7bkluNY5Z8llg==",
+                                    "analyticsToken": "881835:0:0|0,881835:0:0|2,881835:0:0|1"
+                                },
+                                "correlationID": "881835:0:0"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "query": {
+        "identity": {
+            "fetch": [
+                "ECID"
+            ]
+        }
+    }
+}

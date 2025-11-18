@@ -1,0 +1,47 @@
+<style>
+    .modal-content{
+        opacity: 0;
+    }
+</style>
+
+<script>
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: '#spa-root > div > div > div > div > div > div > div > div > div> div > div > button.btn.secondary-button',
+            persist: false,
+            success: function (el) {
+                let modalSelector = document.querySelector("#spa-root > div > div > div > div > div > div > div > div > div> div > div > button.btn.secondary-button");
+                modalSelector.innerHTML = "DOWNLOAD BROCHURE";
+                modalSelector.addEventListener("click", function (e) {
+                    console.log("Clicked.................");
+                    var counter = 0;
+
+                    var waitForElement = function () {
+
+                        let modalSelector = document.querySelector(".cmp-modal-title__sub-heading");
+                        if (modalSelector != null) {
+                            let modalContent = document.querySelector(".modal-content");
+                            // modalContent.style.opacity = 0;
+                            modalSelector.innerHTML = "Download Brochure";
+                            let piDescription = document.querySelector(".cmp-form-heading__details > p");
+                            piDescription.innerHTML = "Thank you for your interest in Health Care Access. To download the brochure, please provide the following information below:";
+
+                            let formCheckLabel = document.querySelector(".form-check-label > p");
+                            formCheckLabel.innerHTML = "I agree to receive promotional SMS, emails or calls from AXA Life or its affiliates, subsidiaries, including any person or entities providing services on AXA’s behalf, consistent with the purpose for which the information was obtained.";
+
+                            modalContent.style.opacity = 1;
+
+                        } else {
+                            ++counter;
+                            counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                        }
+                    }
+                    waitForElement();
+                });
+            }
+        });
+
+
+</script>

@@ -25,7 +25,7 @@
         font-size: 0.5rem;
     }
 
-    .notify-bubble_2 {
+    .notify-bubble_wow {
         padding: 0.1rem;
         margin: 0.1rem;
         background-color: white;
@@ -75,11 +75,11 @@
     if (adobeWowOffer == undefined) {
         var waitForElement = function () {
             if (wowOfferSelector != null && digitalData.product[0].productInfo.globalExclusion != true) {
-                let promoBanner_2 = `<span class="notify-bubble_2">Copied!</span><div class="promo-wow-adb-container"><span id="adb-wow20-pdp" class="promo-wow-adb"><p>Just for you:&nbsp;<span class="bold-text">20% off&nbsp;</span> with code <span class="bold-text">&nbsp;WOW20!.&nbsp;</span><br/>Tap to copy code.&nbsp;<a class="tnc-link"> *Valid with S$79 spend, discount cap S$20. T&Cs apply.</a></p></span></div>`;
-                wowOfferSelector.insertAdjacentHTML("afterend", promoBanner_2);
+                let wowPromoBanner = `<span class="notify-bubble_wow">Copied!</span><div class="promo-wow-adb-container"><span id="adb-wow20-pdp" class="promo-wow-adb"><p>Just for you:&nbsp;<span class="bold-text">20% off&nbsp;</span> with code <span class="bold-text">&nbsp;WOW20!.&nbsp;</span><br/>Tap to copy code.<br/><a class="tnc-link"> *Valid with S$79 spend, discount cap S$20. T&Cs apply.</a></p></span></div>`;
+                wowOfferSelector.insertAdjacentHTML("afterend", wowPromoBanner);
 
-                let clickBanner_2 = document.querySelector("#adb-wow20-pdp");
-                clickBanner_2.addEventListener('click', function () {
+                let clickBannerSelector = document.querySelector("#adb-wow20-pdp");
+                clickBannerSelector.addEventListener('click', function () {
                     let name = 'en_wow20-ntr_pdp_banner_campaign_promo_exp_b?';
                     if (window.s_gi) {
                         var s = s_gi('changairport-prod-new');
@@ -91,9 +91,9 @@
                         s.tl(true, "o", name);
                     }
                     navigator.clipboard.writeText("WOW20");
-                    document.querySelector(".notify-bubble_2").style.display = "block";
+                    document.querySelector(".notify-bubble_wow").style.display = "block";
                     setTimeout(() => {
-                        hideBubble(".notify-bubble_2");
+                        hideBubble(".notify-bubble_wow");
                     }, 3000)
                 });
             } else {

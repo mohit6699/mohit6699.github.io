@@ -1,0 +1,36 @@
+<script>
+
+    if (window.location.href.includes('AT=download-brochure')) {
+        (function () {
+            var counter = 0;
+            var waitForElement = function () {
+                let buttonSelector = document.querySelector("div.cmp-heroBannerCarousel.custom-container-spacing button.btn.secondary-button.btn-outline-light");
+                
+
+                if (buttonSelector != null) {
+
+                    //personalization start
+                    buttonSelector.innerHTML = "DOWNLOAD BROCHURE";
+                    let brochureButton = document.querySelector("div.cmp-message-banner.custom-container-spacing button.btn.btn-outline-primary.secondary-button");
+                    buttonSelector.addEventListener("click", function (e) {
+                        e.stopPropagation();
+                        brochureButton.click();
+                    });
+                    //personalization end
+
+                } else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        })();
+    } 
+    else {
+        const url = new URL(window.location)
+        url.searchParams.set("AT", "download-brochure")
+        history.pushState(null, '', url);
+        window.location.href = window.location.href;
+    }
+
+</script>

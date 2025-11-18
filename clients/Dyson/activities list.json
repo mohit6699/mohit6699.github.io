@@ -1,0 +1,155 @@
+{
+    "header": {
+        "msgType": "xdmEntityCreate",
+        "strictValidation": false,
+        "msgId": "97d1b52a-b7ef-4dec-8cbd-e6bfa588f0de",
+        "source": {
+            "name": "EE-Konductor"
+        },
+        "sandboxName": "sit",
+        "originalTimestamp": 1.759811293684711E9,
+        "createdAt": 1.7598112940020576E9,
+        "_smarts": {
+            "runningSmartId": "psmart-ln7wv7cdpl8spm487t4x",
+            "definitionId": "2c288f56f9b6e056f0f166b8605f8ce2d656854e"
+        },
+        "schemaRef": {
+            "id": "https://ns.adobe.com/bangkokbank/schemas/79ec048fa906f376d645282ca96371f58f45298d78233b6a",
+            "contentType": "application/vnd.adobe.xed-full+json;version=1"
+        },
+        "xactionId": "A94F75FC-7B8E-4026-85CB-D60FEBC271E6-b4224b4a65434d2a",
+        "_dcvsMeta": {
+            "processingTimestamp": 1759811296946
+        },
+        "datasetId": "68b7bc0aeb4a483a7b9feaba",
+        "sandboxId": "b6766053-bb7a-4ce7-b660-53bb7adce76a",
+        "flowId": "860dcf49-d72e-4cc8-9623-a9101887937b",
+        "imsOrgId": "599F1E47665EC45B0A495E73@AdobeOrg",
+        "msgVersion": "2"
+    },
+    "body": {
+        "xdmMeta": {
+            "schemaRef": {
+                "id": "https://ns.adobe.com/bangkokbank/schemas/79ec048fa906f376d645282ca96371f58f45298d78233b6a",
+                "contentType": "application/vnd.adobe.xed-full+json;version=1"
+            }
+        },
+        "xdmEntity": {
+            "environment": {
+                "browserDetails": {
+                    "userAgent": "Mozilla/5.0 (iPhone; CPU OS 18_6_2 like Mac OS X; en-TH)"
+                },
+                "ipV4": "87.124.78.187"
+            },
+            "implementationDetails": {
+                "environment": "app",
+                "name": "https://ns.adobe.com/experience/mobilesdk/ios/reactnative",
+                "version": "5.5.0+5.0.3"
+            },
+            "identityMap": {
+                "ECID": [
+                    {
+                        "id": "84029657836491699238813141388380823284",
+                        "authenticatedState": "ambiguous",
+                        "primary": false
+                    }
+                ],
+                "ciscdpid": [
+                    {
+                        "id": "b6c0bf87-c748-46e6-ad66-40ef8312537e",
+                        "authenticatedState": "authenticated",
+                        "primary": true
+                    }
+                ]
+            },
+            "_id": "010EDFC4-B432-4A22-85EA-820D780A6B37",
+            "eventType": "decisioning.propositionDisplay",
+            "_experience": {
+                "decisioning": {
+                    "propositionEventType": {
+                        "display": 1
+                    },
+                    "propositions": [
+                        {
+                            "scopeDetails": {
+                                "characteristics": {
+                                    "clickToken": "Rz24PaLmvT/Ed3hJHdhlzA==",
+                                    "analyticsClickToken": "778339:1:0|32767",
+                                    "displayToken": "YLV6xt7lPmvVSHPIvZZUd7HIOKMJSfhZpJ/Iaj88vWugm08uWOQ9MsVd0L1MFeH5MUwhry8/WCuAY9KCKe3w1CBFk8LJOR7GIPM7mZYbDcE="
+                                },
+                                "activity": {
+                                    "id": "778339"
+                                },
+                                "strategies": [
+                                    {
+                                        "trafficType": "0",
+                                        "step": "entry"
+                                    },
+                                    {
+                                        "trafficType": "0",
+                                        "step": "display"
+                                    },
+                                    {
+                                        "trafficType": "0",
+                                        "step": "custom-metric-3"
+                                    }
+                                ],
+                                "correlationID": "778339:1:0",
+                                "decisionProvider": "TGT",
+                                "experience": {
+                                    "id": "1"
+                                }
+                            },
+                            "scope": "Spotlight",
+                            "id": "AT:eyJhY3Rpdml0eUlkIjoiNzc4MzM5IiwiZXhwZXJpZW5jZUlkIjoiMSJ9",
+                            "items": [
+                                {
+                                    "id": "778339:5"  
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "_bangkokbank": {
+                "pageDetails": {
+                    "siteLanguage": "en",
+                    "appVersion": "1.5.6-189"
+                },
+                "campaign": {
+                    "internal": {
+                        "experienceName": "Experience B",
+                        "impressions": {
+                            "value": 1
+                        },
+                        "campaignName": "NA_landingPage_greetings_general_landing_SIT"
+                    }
+                },
+                "identitiesBBL": {
+                    "cisCdpId": "b6c0bf87-c748-46e6-ad66-40ef8312537e",
+                    "gaid": "",
+                    "idfa": "A13895C8-54FE-43B2-9413-F637C066C61F",
+                    "ECID": "84029657836491699238813141388380823284"
+                },
+                "userDetails": {
+                    "loginStatus": "Logged-in"
+                },
+                "channelDetails": {
+                    "environment": "sit",
+                    "platform": "ios"
+                }
+            },
+            "timestamp": "2025-10-07T04:28:13.611Z"
+        }
+    },
+    "_errors": {
+        "_streamingValidation": [
+            {
+                "path": "#/_experience/decisioning/propositions/0/items/0/id",
+                "code": "DCVS-1102-400",
+                "message": "The message cannot be validated due to the format error: #/_experience/decisioning/propositions/0/items/0/id: [778339:5] is not a valid URI reference.",
+                "errorType": 0
+            }
+        ]
+    }
+}

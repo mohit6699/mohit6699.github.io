@@ -1,0 +1,106 @@
+<style>
+    .AppHeader {
+        overflow-x: visible !important;
+    }
+
+    .adb-account-container {
+        display: flex;
+        position: relative;
+    }
+
+    #adb-promo-account {
+        position: absolute;
+        top: 45pt;
+        right: 0;
+        width: 150px;
+        max-width: none;
+    }
+</style>
+
+<script>
+    (function () {
+        var counter = 0;
+
+
+
+        var waitForElement = function () {
+            let buttonSelector = document.querySelector("header button[aria-label='Account']");
+            if (buttonSelector != null) {
+                let searchSelector = document.querySelector("header button[aria-label='Search']");
+                let imageContainer = '<img id="adb-promo-account" src="https://www.malaysiaairlines.com/content/dam/mh/ab-test/matta-march-2024/Enrich_Login_Nudge_200x130.png" alt="Enrich promo" />';
+                let clonedBtn = buttonSelector;
+                buttonSelector.remove();
+                let accountContainer = '<div class="adb-account-container"></div>';
+                searchSelector.insertAdjacentHTML("afterend", accountContainer);
+                document.querySelector(".adb-account-container").append(clonedBtn);
+                clonedBtn.insertAdjacentHTML("afterend", imageContainer);
+
+                var node = document.querySelector("header button[aria-label='Account']");
+                var MutationObserver = window.MutationObserver;
+                var observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        if (mutation != null) {
+
+                            clickTracking(mutation.target);
+                        }
+                        observer.disconnect();
+                    });
+                });
+                var config = { attributes: true, subtree: true, childList: true, characterData: true };
+                observer.observe(node, config);
+
+                //click tracking
+                function clickTracking(targetEl) {
+                    let clickBanner = document.querySelector("div.LoginMenu > div > div > div:nth-child(2) > div > a");
+                    clickBanner.addEventListener('click', function () {
+                        console.log("Clicked on Enrich.............");
+                        if (typeof alloy === 'function') {  //for WEBSDK
+                            try {
+                                alloy("sendEvent",
+                                    {
+                                        "renderDecisions": false,
+                                        "xdm": {
+                                            "eventType": "target.conversion",
+                                            "_experience": {
+                                                "analytics": {
+                                                    "customDimensions": {
+                                                        "eVars": {
+                                                            "eVar186": "MATTA- Enrich Login Nudge"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "web": {
+                                                "webPageDetails": {
+                                                    "URL": window.location.href,
+                                                    "name": "Home Page"
+                                                },
+                                                "webInteraction": {
+                                                    "name": "Login Enrich Clicks",
+                                                    "type": "other",
+                                                    "linkClicks": {
+                                                        "value": 1
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                )
+                            } catch (error) {
+                                console.log(err)
+                            }
+                        }
+                    })
+                }
+
+
+
+
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+            }
+        }
+        waitForElement();
+    })();
+</script>

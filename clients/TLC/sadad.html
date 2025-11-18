@@ -1,0 +1,93 @@
+<script>
+    //const intervalID = setInterval(() => {
+    //console.log("This will log until count reaches 5");
+    //if (digitalData?.page?.jurisdiction) {
+    //let pageSelector = document.querySelector("#pagewrapper").getAttribute("tatts-state"); 
+    //if (document.querySelector("#pagewrapper")?.getAttribute("tatts-state") !== null) {
+    //var data = { "__adobe": { "target": { "jurisdiction": digitalData.page[jurisdiction] } } };
+    //let stateName = document.querySelector("#pagewrapper").getAttribute("tatts-state");
+    var data = { "__adobe": { "target": { "jurisdiction": "qld" } } };
+    //try { alloy("sendEvent", { decisionScopes: ["__view__"], data: data }); }
+    //catch (err) { }
+    //clearInterval(intervalID);
+    //console.log("Stopped after 5 executions");
+    return data;
+    //}
+    //}, 1000);
+
+
+//setTimeout(() => {
+//let stateName = document.querySelector("#pagewrapper").getAttribute("tatts-state").toUpperCase();
+//console.log("stateName==========>", stateName);
+alloy("sendEvent", {
+  xdm: {
+    "identityMap": {
+      "JURISDICTION": [
+        {
+          "id": "QLD",
+          "authenticatedState": "loggedOut",
+          "primary": false
+        }
+      ]
+    }
+  }
+});
+//}, 1000)
+
+function waitForJurisdiction(callback, maxAttempts = 10, interval = 500) {
+  let attempts = 0;
+ 
+  const checkValue = () => {
+    const jurisdiction = _satellite.getVar("Jurisdiction")?.toUpperCase();
+ 
+    if (jurisdiction) {
+      callback(jurisdiction);
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(checkValue, interval);
+    } else {
+      console.warn("Jurisdiction value not available within timeout.");
+    }
+  };
+ 
+  checkValue();
+}
+ 
+// Wait for jurisdiction value and then fire event
+waitForJurisdiction((jurisdiction) => {
+  alloy("sendEvent", {
+    xdm: {
+      identityMap: {
+        JURISDICTION: [
+          {
+            id: jurisdiction,
+            authenticatedState: "loggedOut",
+            primary: false
+          }
+        ]
+      }
+    }
+  });
+});
+
+
+//window.nextBestOfferProduct='TattsLotto';
+//window.nextBestOfferProduct='MonWedLotto';
+window.nextBestOfferProduct='SetForLife744';
+//window.nextBestOfferProduct='LuckyLotteries2';
+//window.nextBestOfferProduct='LuckyLotteries5';
+//window.nextBestOfferProduct='Powerball';
+//window.nextBestOfferProduct='OzLotto';
+//window.nextBestOfferProduct='MondayWednesdayFridayLotto';
+window.nextBestOfferTickets = {
+    "qpOne": {
+        "qpValueIndex": 1, //see value index table
+        "qpListPos": 1,
+    },
+    "qpTwo": {
+        "qpValueIndex": 2, //see value index table
+        "qpListPos": 1,
+    }
+}
+
+</script>

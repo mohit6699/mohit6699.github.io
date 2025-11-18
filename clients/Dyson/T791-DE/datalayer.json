@@ -1,0 +1,297 @@
+{
+    "pageInfo": {
+        "pageType": "/apps/dyson/templates/page-basket",
+        "pagePath": "/content/dyson/de/de_de/basket",
+        "pageTitle": "warenkorb | dyson.de",
+        "pageCountryCode": "de",
+        "pageLanguage": "de"
+    },
+    "pbr": "true",
+    "stored_product": {
+        "channel": "",
+        "pageName": "product:glatt-wellig-amber-silk",
+        "pageURL": "https://www.dyson.de/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "pageURL_ref": "",
+        "pagePath": "/content/dyson/de/de_de/products/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "pageTemplate": "",
+        "pageLevel": "",
+        "previousPageName": "basket",
+        "stored_custom_definitions": "{\"dimension14\":\"2072294166.1759136575\",\"dimension19\":\"de\",\"dimension20\":\"tuesday|2:33pm|2025-10-07\",\"dimension22\":\"guest\",\"dimension23\":\"de\",\"dimension25\":\"available\",\"dimension57\":\"product-detail\",\"dimension60\":\"product\",\"dimension61\":\"tablet\",\"dimension62\":\"landscape\",\"dimension65\":\"products\",\"dimension66\":\"haarpflege\",\"dimension67\":\"multi-haarstyler\",\"dimension68\":\"airwrap-id\",\"dimension69\":\"glatt-wellig-amber-silk\",\"dimension76\":\"production:2025-10-07T11:39:38Z~28.0.0\",\"dimension103\":\"/content/dyson/de/de_de/products/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk\",\"dimension104\":\"dyson airwrap i.d.™ multi-haarstyler straight+wavy (amber silk)\",\"dimension77\":\"personal care~hair stylers~airwrap id\",\"dimension79\":\"strictly necessary, performance, functional, targeting\",\"dimension131\":\"OXP\",\"dimension12\":\"28822917460565678160619602510811875606\",\"dimension135\":\"346D25B217B42EBC-400005E1818F07BF\"}",
+        "stored_ga_dl": "https://www.dyson.de/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "stored_ga_page": "product:glatt-wellig-amber-silk",
+        "event": "[\"123682-01\"]",
+        "position": "nav bar",
+        "primaryProduct": "{\"localProductID\":\"HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp\",\"localProductSKU\":\"123682-01\",\"globalProductID\":\"HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp\",\"globalProductSKU\":\"123682-01\",\"color\":\"Amber-Silk-Pink-champagne\",\"fullPrice\":\"549.00\",\"salePrice\":null,\"stockStatus\":\"A\",\"sapDivision\":\"FINISHED_GOODS\",\"parents\":[\"Personal care\",\"Hair stylers\",\"Airwrap ID\"],\"b2bFlag\":false,\"formulationSize\":null,\"formulationFormula\":null,\"globalWebNames\":{\"en\":\"Dyson Airwrap i.d.™ multi-styler and dryer - Straight + Wavy (Amber silk/ Pink champagne)\"},\"localWebNames\":{\"de\":\"Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)\"},\"badge\":{\"theme\":\"Trade-In\",\"text\":\"Trade-in | Dyson Deal Days Angebot\"},\"bundle\":null,\"promotions\":null,\"consumable\":false,\"additionalPromotionMessage\":\"\",\"repairabilityIndexScore\":\"\",\"repairabilityIndexScoreImageUrl\":\"\",\"repairabilityIndexScoreSheetUrl\":\"\",\"formulationVariantList\":null,\"formulationProductList\":null,\"pricePerUnit\":null,\"isNewLabelActive\":true,\"urgencyMessaging\":\"\",\"stockMessage\":\"Auf Lager\"}",
+        "products": "",
+        "promoProduct": "{\"localProductID\":\"HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp\",\"localProductSKU\":\"123682-01\",\"globalProductID\":\"HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp\",\"globalProductSKU\":\"123682-01\",\"color\":\"Amber-Silk-Pink-champagne\",\"fullPrice\":\"549.00\",\"salePrice\":null,\"stockStatus\":\"A\",\"sapDivision\":\"FINISHED_GOODS\",\"parents\":[\"Personal care\",\"Hair stylers\",\"Airwrap ID\"],\"b2bFlag\":false,\"formulationSize\":null,\"formulationFormula\":null,\"globalWebNames\":{\"en\":\"Dyson Airwrap i.d.™ multi-styler and dryer - Straight + Wavy (Amber silk/ Pink champagne)\"},\"localWebNames\":{\"de\":\"Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)\"},\"badge\":{\"theme\":\"Trade-In\",\"text\":\"Trade-in | Dyson Deal Days Angebot\"},\"bundle\":null,\"promotions\":null,\"consumable\":false,\"additionalPromotionMessage\":\"\",\"repairabilityIndexScore\":\"\",\"repairabilityIndexScoreImageUrl\":\"\",\"repairabilityIndexScoreSheetUrl\":\"\",\"formulationVariantList\":null,\"formulationProductList\":null,\"pricePerUnit\":null,\"isNewLabelActive\":true}",
+        "free_tools": ""
+    },
+    "target": {
+        "profile": {},
+        "experience": [
+            {
+                "er": [],
+                "ev": [],
+                "ed": []
+            }
+        ],
+        "campaignData": []
+    },
+    "deferred": false,
+    "eventIDs": {
+        "PageView": "e6a3d1a5bd18f4a7942a328ad789bae6",
+        "AddToCart": "33ee0c6df4585ef181431cfffbdc95e3",
+        "RegisterMachine": "3566d7d3db336fb77588d193cfb80532",
+        "TOP15": "803d5e5f041ee2380ac40005043392b4",
+        "TOP30": "f09f069c50ee93e7d775e37fc62f34a0",
+        "TOP60": "8e3197bb959947a27fc5b3cc87df267a",
+        "TOP90": "9eedaa8bea5a5513aa8f299681523688",
+        "TOS360": "67a004f38a06c74c5a977807c35f4431"
+    },
+    "test_and_target": [
+        "1215573:1",
+        "1215573:1"
+    ],
+    "connection": {
+        "testBandwidthVideo": "highbandwidth",
+        "testSpeed": "5527 Kbps",
+        "testValid": "Yes",
+        "processed": true
+    },
+    "overlay": [],
+    "customer": {
+        "email": null,
+        "credentialID": "anonymous",
+        "registeredMachines": [],
+        "nonSerialProducts": null
+    },
+    "products": [
+        {
+            "color": "Amber-Silk-Pink-champagne",
+            "fullPrice": 549,
+            "globalProductID": "HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp",
+            "globalProductSKU": "123682-01",
+            "localProductID": "HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp",
+            "localProductSKU": "123682-01",
+            "parents": [
+                "Personal care",
+                "Hair stylers",
+                "Airwrap ID"
+            ],
+            "salePrice": 549,
+            "voucherDiscount": 0,
+            "stockStatus": "A",
+            "sapDivision": "FINISHED_GOODS",
+            "badge": {
+                "text": "Trade-in | Dyson Deal Days Angebot",
+                "theme": "Trade-In"
+            },
+            "quantity": 1,
+            "localWebNames": {
+                "de": "Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)"
+            },
+            "globalWebNames": {
+                "en": "Dyson Airwrap i.d.™ multi-styler and dryer - Straight + Wavy (Amber silk/ Pink champagne)"
+            },
+            "bundle": null,
+            "promotions": null,
+            "urgencyMessaging": "",
+            "consumable": false,
+            "additionalPromotionMessage": "",
+            "sample": "no"
+        },
+        {
+            "color": "Black-Nickel",
+            "fullPrice": 29,
+            "globalProductID": "Paddle Brush Retail Nk/Bk",
+            "globalProductSKU": "971056-01",
+            "localProductID": "Paddle Brush Retail Nk/Bk",
+            "localProductSKU": "971056-01",
+            "parents": [
+                "Spares"
+            ],
+            "salePrice": 0,
+            "voucherDiscount": 0,
+            "stockStatus": "A",
+            "sapDivision": "ACCESSORIES",
+            "badge": {
+                "text": null,
+                "theme": null
+            },
+            "quantity": 1,
+            "localWebNames": {
+                "de": "Dyson Paddelbürste (Schwarz/Nickel)"
+            },
+            "globalWebNames": {
+                "de": "Paddelbürste",
+                "en": "Dyson Paddle Brush"
+            },
+            "bundle": null,
+            "promotions": null,
+            "urgencyMessaging": "",
+            "consumable": false,
+            "additionalPromotionMessage": "",
+            "sample": "no"
+        }
+    ],
+    "productEvent": [
+        {
+            "color": "Amber-Silk-Pink-champagne",
+            "fullPrice": 549,
+            "globalProductID": "HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp",
+            "globalProductSKU": "123682-01",
+            "localProductID": "HS08 T1/T2 EU/TR/ZA/EG AmSi/PkCp",
+            "localProductSKU": "123682-01",
+            "parents": [
+                "Personal care",
+                "Hair stylers",
+                "Airwrap ID"
+            ],
+            "salePrice": 549,
+            "voucherDiscount": 0,
+            "stockStatus": "A",
+            "sapDivision": "FINISHED_GOODS",
+            "badge": {
+                "text": "Trade-in | Dyson Deal Days Angebot",
+                "theme": "Trade-In"
+            },
+            "quantity": 1,
+            "localWebNames": {
+                "de": "Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)"
+            },
+            "globalWebNames": {
+                "en": "Dyson Airwrap i.d.™ multi-styler and dryer - Straight + Wavy (Amber silk/ Pink champagne)"
+            },
+            "bundle": null,
+            "promotions": null,
+            "urgencyMessaging": "",
+            "consumable": false,
+            "additionalPromotionMessage": "",
+            "sample": "no"
+        },
+        {
+            "color": "Black-Nickel",
+            "fullPrice": 29,
+            "globalProductID": "Paddle Brush Retail Nk/Bk",
+            "globalProductSKU": "971056-01",
+            "localProductID": "Paddle Brush Retail Nk/Bk",
+            "localProductSKU": "971056-01",
+            "parents": [
+                "Spares"
+            ],
+            "salePrice": 0,
+            "voucherDiscount": 0,
+            "stockStatus": "A",
+            "sapDivision": "ACCESSORIES",
+            "badge": {
+                "text": null,
+                "theme": null
+            },
+            "quantity": 1,
+            "localWebNames": {
+                "de": "Dyson Paddelbürste (Schwarz/Nickel)"
+            },
+            "globalWebNames": {
+                "de": "Paddelbürste",
+                "en": "Dyson Paddle Brush"
+            },
+            "bundle": null,
+            "promotions": null,
+            "urgencyMessaging": "",
+            "consumable": false,
+            "additionalPromotionMessage": "",
+            "sample": "no"
+        }
+    ],
+    "messaging": [
+        {
+            "message_type": "information",
+            "message_reference": "free delivery",
+            "message_label": "You are qualified for free delivery",
+            "read_dtm": "yes"
+        },
+        {
+            "message_method": "page",
+            "message_type": "information",
+            "message_reference": "basket",
+            "read_dtm": "yes"
+        }
+    ],
+    "cart": {
+        "delivery": {
+            "costEstimate": "0.00"
+        },
+        "orderTotal": "549.00",
+        "voucherAmount": "0.00",
+        "voucherCode": null,
+        "voucherCodeStatus": null
+    },
+    "bundle_details": true,
+    "overrides": {
+        "events": "scAdd,event10,event13,event55",
+        "eVar1": "product:glatt-wellig-amber-silk",
+        "pageName": "product:glatt-wellig-amber-silk",
+        "prop5": "https://www.dyson.de/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "eVar4": "https://www.dyson.de/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "pageURL": "https://www.dyson.de/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk",
+        "channel": "unknown",
+        "eVar5": "",
+        "eVar2": "unknown",
+        "eVar3": "unknown",
+        "eVar9": "basket",
+        "eVar27": "nav bar",
+        "eVar71": "/content/dyson/de/de_de/products/haarpflege/multi-haarstyler/airwrap-id/glatt-wellig-amber-silk"
+    },
+    "deferred_products": [
+        {
+            "color": "amber-silk-pink-champagne",
+            "globalProductID": "hs08 t1/t2 eu/tr/za/eg amsi/pkcp",
+            "globalProductSKU": "123682-01",
+            "localProductID": "hs08 t1/t2 eu/tr/za/eg amsi/pkcp",
+            "localProductSKU": "123682-01",
+            "stockStatus": "A",
+            "stockMessage": "Auf Lager",
+            "quantity": "1",
+            "productFlags": {
+                "isConsumable": false,
+                "isB2B": false,
+                "isFree": false,
+                "isPrimary": true,
+                "isPromo": false,
+                "isRecommend": false,
+                "isAltRecommend": false,
+                "isBundle": false,
+                "isReducedPrice": false
+            },
+            "salePrice": null,
+            "fullPrice": 549,
+            "sapDivision": "finished_goods",
+            "repairabilityIndexScore": "none",
+            "extendedWarranties": {
+                "type": "none",
+                "status": "none",
+                "parent_id": "none",
+                "child_id": "none"
+            },
+            "badge": "trade-in~trade-in | dyson deal days angebot",
+            "urgencyMessaging": "none",
+            "globalWebName": "none",
+            "localWebName": "Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)",
+            "WebName": "Dyson Airwrap i.d.™ Multi-Haarstyler und -trockner Straight+Wavy (Amber Silk)",
+            "parents": [
+                "personal care",
+                "hair stylers",
+                "airwrap id"
+            ],
+            "bundleDescription": false
+        }
+    ],
+    "cpo": {
+        "event_context": "event"
+    },
+    "pbReady": true,
+    "initialOrder": false,
+    "fbqInit": [
+        "301051210509204"
+    ]
+}

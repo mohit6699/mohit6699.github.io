@@ -1,0 +1,97 @@
+{
+    "uuid": "483913f9-6db8-4ba2-af4b-5fcfb2ee1ee2",
+    "eventNumber": 72,
+    "clientId": "aea8c994-09e6-4a07-85a1-883f99bbb45f",
+    "timestamp": 1745920222755,
+    "vendor": "com.adobe.griffon.mobile",
+    "type": "generic",
+    "payload": {
+      "ACPExtensionEventName": "AEP Request Event",
+      "ACPExtensionEventUniqueIdentifier": "106E2F2D-F473-4FD5-B20A-DD5BD0AA9092",
+      "ACPExtensionEventSource": "com.adobe.eventsource.requestcontent",
+      "ACPExtensionEventTimestamp": 1745920222754.405,
+      "ACPExtensionEventType": "com.adobe.eventtype.edge",
+      "ACPExtensionEventData": {
+        "xdm": {
+          "_experience": {
+            "decisioning": {
+              "propositionEventType": {
+                "display": 1
+              },
+              "propositions": [
+                {
+                  "id": "AT:eyJhY3Rpdml0eUlkIjoiNzUwMDI5IiwiZXhwZXJpZW5jZUlkIjoiMCJ9",
+                  "items": [
+                    {
+                      "id": "0"
+                    }
+                  ],
+                  "scope": "Landing",
+                  "scopeDetails": {
+                    "activity": {
+                      "id": "750029"
+                    },
+                    "correlationID": "750029:0:0",
+                    "strategies": [
+                      {
+                        "step": "entry",
+                        "trafficType": "0"
+                      },
+                      {
+                        "step": "display",
+                        "trafficType": "0"
+                      },
+                      {
+                        "step": "custom-metric-3",
+                        "trafficType": "0"
+                      }
+                    ],
+                    "characteristics": {
+                      "displayToken": "ud3JHW95xwtaXcqcnA57Op3BNhkKdJh9FdggP2851ydw54XAlJ3xNRImNE7jBWgsxaXZbY+oI47LCYdScis3kg==",
+                      "analyticsClickToken": "750029:0:0|32767",
+                      "clickToken": "FGV1IPx4nEuuMbDxvPQD/A=="
+                    },
+                    "decisionProvider": "TGT",
+                    "experience": {
+                      "id": "0"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "eventType": "decisioning.propositionDisplay",
+          "_bangkokbank": {
+            "pageDetails": {
+              "pageType": 0,
+              "siteLanguage": "en",
+              "appVersion": "1.0.0-alpha-52-feature-adobe-in-app-updates-2231"
+            },
+            "campaign": {
+              "internal": {
+                "impressions": {
+                  "value": 1
+                },
+                "campaignName": "UC1 NCBD App – Landing 100425",
+                "campaignId": "750029",
+                "experienceName": "Experience A - Reminding Message"
+              }
+            },
+            "channelDetails": {
+              "environment": "dev",
+              "platform": "ios"
+            },
+            "userDetails": {
+              "loginStatus": "Logged-in"
+            },
+            "identitiesBBL": {
+              "idfa": "",
+              "cisCdpId": "sahild@adobe.com_v9",
+              "gaid": ""
+            }
+          }
+        }
+      }
+    },
+    "annotations": []
+  }

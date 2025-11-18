@@ -1,0 +1,394 @@
+<script>
+
+    targetPageParams = function () {
+        var now = new Date();  // Use the same variable consistently
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var timestampShort = _satellite.getVar('timestamp').slice(0, 2);
+        return {
+            "qa_cookie_value_parameter": _satellite.getVar('targetQaCookie'),
+            "dayOfWeek": days[now.getDay()],  // Get the current day of the week
+            "timeOfDay": timestampShort, // Return the time in a readable format
+            "screenWidth": window.innerWidth,
+            "predictedUserType": _satellite.getVar('predictedBusinessLeisureSRP')
+        };
+    };
+
+
+
+
+    var propositions = event.propositions;
+    if (typeof propositions != "undefined") {
+        window.ttMETA = window.ttMETA || [];
+        for (var i = 0; i < propositions.length; i++) {
+            if (propositions[i].items && propositions[i].items[0] && propositions[i].items[0].meta && propositions[i].items[0].meta["activity.name"] && propositions[i].items[0].meta["experience.name"]) {
+                var campaignName = propositions[i].items[0].meta["activity.name"];
+                var experienceName = propositions[i].items[0].meta["experience.name"];
+                window.ttMETA.push({
+                    ActivityName: campaignName,
+                    ExperienceName: experienceName,
+                    // 'ActivityName': campaignName,
+                    // 'ActivityId': token["activity.id"],
+                    // 'ExperienceName': experienceName,
+                    // 'ExperienceId': token["experience.id"]
+                });
+            }
+        }
+    }
+
+
+    /*
+ *Name: Adobe Target CS Integration (AEP version)
+ *Version: 1.0.1
+ */
+    var propositions = event.propositions;
+
+    if (typeof propositions != "undefined") {
+        window.ttMETA = window.ttMETA || [];
+
+        for (var i = 0; i < propositions.length; i++) {
+            if (propositions[i].items && propositions[i].items[0] && propositions[i].items[0].meta && propositions[i].items[0].meta["activity.name"] && propositions[i].items[0].meta["experience.name"]) {
+                var campaignName = propositions[i].items[0].meta["activity.name"];
+                var experienceName = propositions[i].items[0].meta["experience.name"];
+
+                window.ttMETA.push({
+                    CampaignName: campaignName,
+                    RecipeName: experienceName,
+                    // CampaignName: token["activity.name"],
+                    // CampaignId: token["activity.id"],
+                    // RecipeName: token["experience.name"],
+                    // RecipeId: token["experience.id"],
+                    // OfferId: token["offer.id"],
+                    // OfferName: token["offer.name"],
+                });
+            }
+        }
+    }
+    //Adobe Target CS Integration End
+
+
+    try {
+        if (typeof _satellite.getVar("bookingID") == "undefined" && typeof _satellite.getVar("bookingID") !== "string" && window.location.href.indexOf("/confirmation") == -1) {
+            if (_satellite.getVar("permissionExperience") !== "false") {
+                if (typeof analyticsData.companyID !== "undefined" && analyticsData.companyID.length > 1) {
+                    var mboxArray = [{
+                        index: 0,
+                        name: "Header-Config",
+                        profileParameters: {
+                            BBID: analyticsData.companyID
+                        }
+                    }]
+                } else {
+                    var mboxArray = [{
+                        index: 0,
+                        name: "Header-Config"
+                    }]
+                }
+                if (typeof adobe.target !== "undefined" && (window.location.href.indexOf('business-booker') > -1 || window.location.href.indexOf('innbusiness') > -1 || window.location.href.indexOf('business.premierinn') > -1)) {
+                    let companyIdTimer = 0
+                    let waitUntilCompanyIdSet = setInterval(() => {
+                        companyIdTimer++
+                        if (typeof analyticsData !== "undefined" && _satellite.getVar('companyID') !== "" && _satellite.getVar('companyID') !== undefined) {
+                            clearInterval(waitUntilCompanyIdSet)
+                            adobe.target.getOffer({
+                                "mbox": "Business-Booker",
+                                "params": {
+                                    "companyID": _satellite.getVar("companyID")
+                                },
+                                "success": function (offers) {
+                                    adobe.target.applyOffer({ "mbox": "Business-Booker", "offer": offers })
+                                },
+                                "error": function (status, error) { console.log(status + ': ' + error) },
+                                "timeout": 5000
+                            })
+                        }
+                        if (companyIdTimer > 150 && window.location.href.indexOf('business-booker/home') == -1) clearInterval(waitUntilCompanyIdSet)
+                    }, 100)
+                }
+                if (typeof adobe.target !== "undefined") {
+                    adobe.target.getOffer({
+                        "mbox": "All-Page",
+                        "params": {
+                            "pageName": _satellite.getVar("pageName"),
+                            "companyID": _satellite.getVar("companyID")
+                        },
+                        "success": function (offers) {
+                            adobe.target.applyOffer({
+                                "mbox": "All-Page",
+                                "offer": offers
+                            });
+                        },
+                        "error": function (status, error) {
+                            if (console && console.log) {
+                                console.log(status);
+                                console.log(error);
+                            }
+                        },
+                        "timeout": 5000
+                    });
+                    if (window.location.href.indexOf('booking') > -1 && (window.location.href.indexOf('ancillaries') > -1 || window.location.href.indexOf('guest-details') > -1 || window.location.href.indexOf('payment') > -1)) {
+                        adobe.target.getOffer({
+                            "mbox": "booking-flow-test",
+                            "params": {
+                                "qa_cookie_value_parameter": _satellite.getVar('targetQaCookie')
+                            },
+                            "success": function (offers) {
+                                adobe.target.applyOffer({
+                                    "mbox": "booking-flow-test",
+                                    "offer": offers
+                                });
+                            },
+                            "error": function (status, error) {
+                                if (console && console.log) {
+                                    console.log(status);
+                                    console.log(error);
+                                }
+                            },
+                            "timeout": 5000
+                        });
+                    }
+                }
+            }
+
+            if (window.location.href.indexOf("secure2.") == -1) mboxArray.push({ index: mboxArray.length, name: "L2B-Config" })
+            if (window.location.href.indexOf("/home.html") > -1) mboxArray.push({ index: mboxArray.length, name: "HP-testing" })
+            if (window.location.href.indexOf("/search.html") > -1 && window.location.href.indexOf("ARRdd=") > -1) mboxArray.push({ index: mboxArray.length, name: "SRP" })
+
+            adobe.target.getOffers({ request: { execute: { mboxes: mboxArray } } });
+        }
+
+        //s.sa(_satellite.getVar("rsid"))
+
+        // Set campaign cookie (30 day expiry)
+        if (document.location.href.match(/cid=/ig)) {
+            let expiryDate = new Date(); expiryDate.setTime(expiryDate.getTime() + (30 * 24 * 60 * 60 * 1000))
+            document.cookie = "s_campaign=" + escape(_satellite.getVar("cid")) + ";expires=" + expiryDate.toGMTString() + ";domain=.premierinn.com;path=/;SameSite=None;Secure";
+        }
+
+        // For event spike - we don't fire prop67 if the user has come from an email channel.
+        if (document.location.href.match(/cid=EMC/ig)) {
+            sessionStorage.setItem('emailChannelVisitor', 'true')
+        }
+
+        _satellite.getVar('performanceTiming')
+    } catch (err) {
+        _satellite.logger.warn("Custom Code Error - Basic Page Data Variables & Target Mboxes: " + err.message);
+    }
+
+    // Build decision scopes based on current URL
+    const decisionScopes = [];
+
+    if (window.location.href.indexOf("secure2.") === -1) {
+        decisionScopes.push("L2B-Config");
+    }
+    if (window.location.href.indexOf("/home.html") > -1) {
+        decisionScopes.push("HP-testing");
+    }
+    if (window.location.href.indexOf("/search.html") > -1 && window.location.href.indexOf("ARRdd=") > -1) {
+        decisionScopes.push("SRP");
+    }
+    if (window.location.href.indexOf("business-booker") > -1 || window.location.href.indexOf("innbusiness") > -1 || window.location.href.indexOf("business.premierinn") > -1) {
+        decisionScopes.push("Business-Booker");
+    }
+    if (window.location.href.indexOf('booking') > -1 &&
+        (window.location.href.indexOf('ancillaries') > -1 ||
+            window.location.href.indexOf('guest-details') > -1 ||
+            window.location.href.indexOf('payment') > -1)) {
+        decisionScopes.push("booking-flow-test");
+    }
+    decisionScopes.push("All-Page");
+
+    // Don't send if confirmation page or booking ID exists
+    if (
+        typeof _satellite.getVar("bookingID") === "undefined" &&
+        typeof _satellite.getVar("bookingID") !== "string" &&
+        window.location.href.indexOf("/confirmation") === -1 &&
+        _satellite.getVar("permissionExperience") !== "false"
+    ) {
+        //setTimeout(() => {
+        alloy("sendEvent", {
+            renderDecisions: true,
+            decisionScopes: decisionScopes,
+            xdm: {
+                user: {
+                    custom: {
+                        qaCookieValue: _satellite.getVar("targetQaCookie") || "",
+                        companyID: _satellite.getVar("companyID") || ""
+                    }
+                },
+                web: {
+                    webPageDetails: {
+                        pageName: _satellite.getVar("pageName") || ""
+                    }
+                }
+            },
+            data: {
+                pageName: _satellite.getVar("pageName") || "",
+                companyID: _satellite.getVar("companyID") || "",
+                qa_cookie_value_parameter: _satellite.getVar("targetQaCookie") || ""
+            }
+        }).then(result => {
+            const propositions = result.propositions;
+
+            propositions.forEach(p => {
+                (p.items || []).forEach(item => {
+                    const content = item.data?.content;
+                    if (!content) return;
+
+                    // If it’s a script offer
+                    if (content.includes("<script")) {
+                        const scriptContent = content.replace(/<\/?script[^>]*>/g, "");
+                        const scriptEl = document.createElement("script");
+                        scriptEl.text = scriptContent;
+                        document.body.appendChild(scriptEl);
+                    } else {
+                        // For plain HTML offers (rare in form-based)
+                        const div = document.createElement("div");
+                        div.innerHTML = content;
+                        document.body.appendChild(div);
+                    }
+                });
+            });
+
+            alloy("applyPropositions", { propositions });
+        });
+        //}, 250);
+
+    }
+
+
+    var orderTotal = _satellite.getVar("total revenue")
+    adobe.target.trackEvent({
+        "mbox": "orderConfirmPage",
+        "params": {
+            "orderId": _satellite.getVar("bookingIDUpper"),
+            "orderTotal": orderTotal,
+            "productPurchasedId": _satellite.getVar("hotel code")
+        }
+    })
+
+
+
+    var orderTotal = _satellite.getVar("total revenue");
+    alloy("sendEvent", {
+        renderDecisions: true, // Important for Target personalization
+        xdm: {
+            eventType: "commerce.purchases",
+            web: {
+                webPageDetails: {
+                    viewName: "confirmation" // replaces triggerView("confirmation")
+                }
+            },
+            commerce: {
+                order: {
+                    purchaseID: _satellite.getVar("bookingIDUpper"),
+                    priceTotal: orderTotal
+                },
+                productListItems: [{
+                    SKU: _satellite.getVar("hotel code")
+                }]
+            }
+        },
+        data: {
+            // Optional: carry over old mbox params
+            orderConfirmPage: true,
+            pageName: _satellite.getVar("pageName"),
+            companyID: _satellite.getVar("companyID"),
+            hotelCode: analyticsDataCartConfirmation.CartItems[0].productInfo.sku,
+            tripPurpose: analyticsDataCartConfirmation.typeOfTrip
+        }
+    });
+
+
+
+
+    var orderTotal = _satellite.getVar("total revenue");
+    alloy("sendEvent", {
+        xdm: {
+            eventType: "commerce.purchases",
+            commerce: {
+                order: {
+                    purchaseID: _satellite.getVar("bookingIDUpper"),
+                    priceTotal: orderTotal
+                },
+                productListItems: [{
+                    SKU: _satellite.getVar("hotel code")
+                }]
+            }
+        },
+        data: {
+            // Optional: legacy Target-style params
+            orderConfirmPage: true
+        }
+    });
+
+
+    var orderTotal = _satellite.getVar("total revenue")
+    adobe.target.trackEvent({
+        "mbox": "orderConfirmPage",
+        "params": {
+            "orderId": _satellite.getVar("bookingIDUpper"),
+            "orderTotal": orderTotal,
+            "productPurchasedId": _satellite.getVar("hotel code")
+        }
+    })
+
+
+
+    // For running A/B tests on the confirmation page
+    adobe.target.getOffer({
+        "mbox": "Confirmation-Page",
+        "params": {
+            "pageName": _satellite.getVar("pageName"),
+            "companyID": _satellite.getVar("companyID"),
+            "hotelCode": analyticsDataCartConfirmation.CartItems[0].productInfo.sku,
+            "tripPurpose": analyticsDataCartConfirmation.typeOfTrip
+        },
+        "success": function (offers) {
+            adobe.target.applyOffer({
+                "mbox": "Confirmation-Page",
+                "offer": offers
+            });
+        },
+        "error": () => { throw new Error() },
+        "timeout": 5000
+    });
+
+    // Also trigger view for concurrent testing
+    adobe.target.triggerView('confirmation')
+
+
+
+    alloy("sendEvent", {
+        renderDecisions: true,                      // render personalization
+        decisionScopes: ["Confirmation-Page"],      // personalization mbox
+        xdm: {
+            eventType: "commerce.purchases",          // purchase event
+            commerce: {
+                order: {
+                    purchaseID: _satellite.getVar("bookingIDUpper"),
+                    currencyCode: _satellite.getVar("currencyCode"),
+                    priceTotal: _satellite.getVar("total revenue")
+                }
+            },
+            productListItems: [{
+                SKU: _satellite.getVar("hotel code"),
+                priceTotal: _satellite.getVar("total revenue"),
+                quantity: 1
+            }],
+            web: {
+                webPageDetails: {
+                    name: _satellite.getVar("pageName")
+                }
+            }
+        },
+        data: {
+            pageName: _satellite.getVar("pageName"),
+            companyID: _satellite.getVar("companyID"),
+            tripPurpose: analyticsDataCartConfirmation.typeOfTrip
+        }
+    }).then(function (result) {
+        console.log("✔ Personalization & purchase tracking completed", result);
+    });
+
+
+</script>

@@ -1,0 +1,71 @@
+<script>
+  window.featureOfferProductID = {
+    days: {
+      Monday: {
+        productId: "OzLotto",
+      },
+      Tuesday: {
+        productId: "OzLotto",
+      },
+      Wednesday: {
+        productId: "Powerball",
+      },
+      Thursday: {
+        productId: "Powerball",
+      },
+      Friday: {
+        productId: "TattsLotto",
+      },
+      Saturday: {
+        productId: "TattsLotto",
+      },
+      Sunday: {
+        productId: "OzLotto",
+      },
+    },
+  };
+
+  function getCurrentLocalDay() {
+    // Gets local date from user's system
+    const localDate = new Date();
+
+    // Returns full weekday name in local timezone
+    return localDate.toLocaleDateString(undefined, {
+      weekday: "long",
+    });
+  }
+
+  /**
+   *
+   */
+  function getNextOffer() {
+    if (!window.featureOfferProductID?.days) {
+      return null;
+    }
+
+    // Get current day of week in Brisbane timezone
+    const day = getCurrentLocalDay();
+
+    // Look up the product ID for current day
+    const productId = window.featureOfferProductID.days[day]?.productId;
+
+    // Return the product ID if found, otherwise null
+    return productId || null;
+  }
+
+
+  alloy("sendEvent", {
+    type: "decisioning.propositionFetch",  // Marks as decision fetch, not a typical pageView
+    personalization: { sendDisplayEvent: false },
+    data: {
+      __adobe: {
+        target: {
+          // now as an object instead of "profile.rankSadad"
+          "rankSadad1": getNextOffer();
+        }
+      }
+    }
+  });
+
+  //window.featureOfferProductID = getNextOffer();
+</script>

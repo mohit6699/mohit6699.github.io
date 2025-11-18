@@ -1,0 +1,225 @@
+<style>
+    @media screen and (min-width: 768px) and (max-width: 1365px) {
+        .destination-window-wrapper {
+            transform: scale(0.8) !important;
+            transform-origin: left !important;
+        }
+    }
+
+    @media screen and (min-width: 1366px) and (max-width: 1849px) {
+        .destination-window-wrapper {
+            transform: scale(0.85) !important;
+            transform-origin: left !important;
+        }
+    }
+
+    /* @media screen and (min-width: 1600px) and (max-width: 1849px) {
+        .destination-window-wrapper {
+            transform: scale(0.84) !important;
+            transform-origin: left !important;
+        }
+    } */
+
+    @media screen and (min-width: 1850px) and (max-width: 1919px) {
+        .destination-window-wrapper {
+            transform: scale(0.95) !important;
+            transform-origin: left !important;
+        }
+    }
+
+    .container-content>.generic-container {
+        max-width: 97% !important;
+    }
+</style>
+<script>
+
+
+
+    (function () {
+        var counter = 0;
+        var waitForElement = function () {
+            let destinationWindow = document.querySelectorAll('.DestinationWindow')[0];
+            if (destinationWindow != null) {
+                var swiperContainer = destinationWindow.querySelector('.relative');
+
+                var template = `<div class="swiper at-swiper VueSwiper pb-8" data-variant="" tabindex="-1" data-v-0641b157="" data-v-c084621d=""><div class="swiper-wrapper" id="swiper-wrapper-4843e616b650a11e" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(20px, 0px, 0px);"><div class="swiper-slide swiper-slide-active" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="1 / 9"><div class="destination-window-wrapper m-3" tabindex="0" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="A view of Big Ben and part of the Palace of Westminster with the London skyline in the background and part of the River Thames in the foreground." data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/united-kingdom/london/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">A view of Big Ben and part of the Palace of Westminster with the London skyline in the background and part of the River Thames in the foreground.</span><p class="destination-title heading-5" data-v-c084621d="">London</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">4114</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-united-kingdom/flights-to-london.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide swiper-slide-next" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="2 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="Scenic view of Sydney, with the Opera House and Harbour Bridge in view, along with the city's skyline. " data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/australia/sydney/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">Scenic view of Sydney, with the Opera House and Harbour Bridge in view, along with the city's skyline. </span><p class="destination-title heading-5" data-v-c084621d="">Sydney</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">2723</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-australia/flights-to-sydney.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="3 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="Destination window to Langkawi" data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/malaysia/langkawi/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">Destination window to Langkawi</span><p class="destination-title heading-5" data-v-c084621d="">Langkawi</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">218</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-malaysia/flights-to-langkawi.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="4 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="Destination window to Kota Kinabalu" data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/malaysia/kota-kinabalu/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">Destination window to Kota Kinabalu</span><p class="destination-title heading-5" data-v-c084621d="">Kota Kinabalu</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">509</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-malaysia/flights-to-kota-kinabalu.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="5 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="The Taj Mahal against a blue sky, with the reflecting pool in the foreground." data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/india/delhi/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">The Taj Mahal against a blue sky, with the reflecting pool in the foreground.</span><p class="destination-title heading-5" data-v-c084621d="">Delhi</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">2175</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-india/flights-to-delhi.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="6 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="Destination window to Kuching" data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/malaysia/kuching/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">Destination window to Kuching</span><p class="destination-title heading-5" data-v-c084621d="">Kuching</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">339</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-malaysia/flights-to-kuching.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="7 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="A decorated boat is cruising along the river, providing a view of the golden temple on the riverbanks" data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/thailand/bangkok/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">A decorated boat is cruising along the river, providing a view of the golden temple on the riverbanks</span><p class="destination-title heading-5" data-v-c084621d="">Bangkok</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">788</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-thailand/flights-to-bangkok.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" style="width: 371.358px;" role="group" aria-label="8 / 9"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title=" Stunning view of Marina Bay Sands and Gardens by the Bay in Singapore. " data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/singapore/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d=""> Stunning view of Marina Bay Sands and Gardens by the Bay in Singapore. </span><p class="destination-title heading-5" data-v-c084621d="">Singapore</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">628</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-singapore.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div><div class="swiper-slide" data-v-0641b157="" role="group" aria-label="9 / 9" style="width: 371.358px;"><div class="destination-window-wrapper m-3" tabindex="-1" data-v-c084621d=""><div class="destination-window-content-container" data-v-c084621d=""><div class="handle-wrapper" data-v-c084621d=""><svg class="handle" width="39" height="2" data-v-c084621d="" style="margin: 8% auto 0px;"><rect width="39.13" height="2.03" rx="1.02" fill="#ceaf87" data-v-c084621d=""></rect></svg></div><div class="destination-window-content flex flex-col pt-20 lg:pt-20 md:pt-15 items-center text-neutral-white-base" title="Destination window to Miri" data-v-c084621d="" style="background-image: linear-gradient(rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.9) 100%), url(&quot;/content/dam/mh/my/en/plan-trip/destinations/malaysia/miri/destination-window/destination-window-516x688.jpg&quot;);"><span class="sr-only" data-v-c084621d="">Destination window to Miri</span><p class="destination-title heading-5" data-v-c084621d="">Miri</p><p class="cabin-class-txt text-sm" data-v-c084621d="">Economy from</p><p class="currency-txt text-sm" data-v-c084621d="">MYR</p><p class="price-txt heading-5" data-v-c084621d="">399</p><p class="date-txt text-sm" data-v-c084621d="">Book before 29 Mar 2024</p>\x3C!----><div data-use-theme="MH" class="mb-3 destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -1px;"><button class="CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-small w-auto mx-auto md:mx-auto" type="button" data-aa-target="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Book now</span>\x3C!---->\x3C!---->\x3C!---->\x3C!----></button></div><div data-use-theme="MH" class="text-center md:text-center destination-window-content-btn mt-0" data-v-5f86e776="" data-v-c084621d="" style="--focus-visible-outline-offset: -2px;"><a class="AppHyperlink inline-flex items-center flex-wrap CTAButton inline-flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto" href="/my/en/plan-trip/destinations/flights-to-malaysia/flights-to-miri.html" rel="noopener noreferrer" data-aa-target="" data-v-b2cfd89b="" data-v-5f86e776="">\x3C!----><span class="label basis-0 flex-grow" data-v-5f86e776="">Explore</span>\x3C!---->\x3C!---->\x3C!---->\x3C!---->\x3C!----></a></div></div></div><div class="destination-window-frame-container" role="presentation" data-v-c084621d=""><img src="/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/destination-window-38a3fe6c.svg" class="destination-window-frame" alt="" data-v-c084621d=""></div></div></div></div><div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-4843e616b650a11e" aria-disabled="true"></div><div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-4843e616b650a11e" aria-disabled="false"></div>\x3C!---->\x3C!----><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>`;
+
+                function initialiseSwiper() {
+                    var swiperContainerEl = swiperContainer.querySelector('.swiper');
+                    var mySwiper = new Swiper(swiperContainerEl, {
+                        direction: 'horizontal',
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        loop: false,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 10,
+                            },
+                            900: {
+                                slidesPerView: 3,
+                                spaceBetween: 10,
+                            },
+                            1280: {
+                                slidesPerView: 5,
+                                spaceBetween: 10,
+                            },
+                            1600: {
+                                slidesPerView: 6,
+                                spaceBetween: 10,
+                            }
+                        },
+                    });
+                    console.log(mySwiper);
+                    console.log('swiper init')
+                }
+                function loadScript(src, callback) {
+                    let script = document.createElement("script");
+                    script.src = src;
+                    script.onload = function () {
+                        callback(script);
+                    };
+                    document.head.appendChild(script);
+                }
+                if (window.loadedScripts && window.loadedScripts.includes("swiper")) {
+                    initialiseSwiper();
+                } else {
+                    loadScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js", function (script) {
+                    //loadScript("https://unpkg.com/swiper/swiper-bundle.min.js", function (script) {
+
+                        initialiseSwiper();
+                    });
+                }
+
+                let destinationSelected = false;
+
+                function clearSelection() {
+                    if (destinationSelected === true) {
+                        document.querySelector(".multiselect-dropdown").querySelector("li[data-value='KUL']").click();
+                    }
+                }
+
+                //For London
+                document.querySelector('.DestinationWindow [aria-label="1 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-LHR').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Sydney
+                document.querySelector('.DestinationWindow [aria-label="2 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-SYD').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Langkawi
+                document.querySelector('.DestinationWindow [aria-label="3 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-LGK').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Kota Kinabalu
+                document.querySelector('.DestinationWindow [aria-label="4 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-BKI').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Delhi
+                document.querySelector('.DestinationWindow [aria-label="5 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-DEL').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Kuching
+                document.querySelector('.DestinationWindow [aria-label="6 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-KCH').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Bangkok
+                document.querySelector('.DestinationWindow [aria-label="7 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-BKK').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Singapore
+                document.querySelector('.DestinationWindow [aria-label="8 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-SIN').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+
+                //For Miri
+                document.querySelector('.DestinationWindow [aria-label="9 / 9"] .CTAButton').addEventListener('click', function () {
+                    clearSelection();
+                    setTimeout(() => {
+                        document.querySelector('.AirportPicker-from #multiselect-option-KUL').click();
+                        document.querySelector('.picker-wrapper-to #multiselect-option-MYY').click();
+                        document.querySelector('.SwitchTabHeader').scrollIntoView({ behavior: "smooth", block: 'start' });
+                    }, 1000);
+                    destinationSelected = true;
+
+                });
+                //}
+
+
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+            }
+        }
+        waitForElement();
+    })();
+
+
+</script>

@@ -1,0 +1,64 @@
+<script>
+    Flickerlessly.onReady({
+        selector: '#smb_7',
+        persist: true,
+        success: function (el) {
+ 
+            let ctaButton = document.querySelector("#smb_7");
+ 
+            ctaButton.innerHTML = '<a href="https://www.bangkokbank.com/th-TH/Personal/Save-And-Invest/Mutual-Funds/B-SELECT"><img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/QRE_Product/ProductBanner_FinHealthProduct10.png"></a>';
+            ctaButton.addEventListener("click", function (e) {
+                var data = { "__adobe": { "target": {} } };
+                data.__adobe.target["heroButtonClicked"] = "true";
+                try {
+                    alloy("sendEvent", {
+                        xdm: {
+                            "_experience": {
+                                "decisioning": {
+                                    "propositions": [{
+                                        "scope": "__view__"
+                                    }],
+                                    "propositionEventType": {
+                                        "display": 1
+                                    }
+                                }
+                            },
+                            "eventType": "decisioning.propositionDisplay"
+                        },
+                        renderDecisions: false,
+                        data: data
+                    });
+                } catch (err) {
+                    console.log("Error", err);
+                }
+                try {
+                    window.adobeDataLayer.push({
+                        "event": "linkClicked",
+                        "web": {
+                            "webInteraction": {
+                                "name": "#smb_7",
+                                "type": "other",
+                                "url": e.target.closest('a').href,
+                                "linkClicks": {
+                                    "value": 1
+                                }
+                            }
+                        },
+                        "_bangkokbank": {
+                            "campaign": {
+                                "internal": {
+                                    "campaignId": "${activity.id}",
+                                    "campaignName": "${activity.name}",
+                                    "experienceName": "${campaign.recipe.name}"
+                                }
+                            }
+                        }
+                    });
+                } catch (err) {
+                    console.log("Error", err);
+                }
+            });
+ 
+        }
+    });
+</script>

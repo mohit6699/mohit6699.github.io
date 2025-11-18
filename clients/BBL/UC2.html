@@ -1,0 +1,96 @@
+<script>
+    (function () {
+        let reporting = {
+            "campaignId": "${activity.id}",
+            "campaignName": "${activity.name}",
+            "experienceName": "${campaign.recipe.name}"
+        }
+        var counter = 0;
+        let ctaButton = document.querySelector("#smb_6 > a");
+        var waitForElement = function () {
+            if (ctaButton != null) {
+                ctaButton.innerHTML = '<img src="https://www.bangkokbank.com/~/media/MBI/JourneyB_FinHealth/finhealth_P2_liff_mbi_TH">';
+                ctaButton.addEventListener("click", function (e) {
+                    var data = { "__adobe": { "target": {} } };
+                    data.__adobe.target["heroButtonClicked"] = "true";
+                    try {
+                        alloy("sendEvent", {
+                            xdm: {
+                                "_experience": {
+                                    "decisioning": {
+                                        "propositions": [{
+                                            "scope": "__view__"
+                                        }],
+                                        "propositionEventType": {
+                                            "display": 1
+                                        }
+                                    }
+                                },
+                                "eventType": "decisioning.propositionDisplay",
+                                "_bangkokbank": {
+                                    "campaign": {
+                                        "internal": {
+                                            "campaignId": "750029",
+                                            "clicks": {
+                                                "value": 1
+                                            },
+                                            "experienceName": "Experience A - Reminding Message",
+                                            "campaignName": "UC1 NCBD App – Landing 100425"
+                                        }
+                                    },
+                                },
+                                "web": {
+                                    "webPageDetails": {
+                                        "name": "UncategorizedTransactions"
+                                    },
+                                    "webInteraction": {
+                                        "linkClicks": {
+                                            "value": 1
+                                        },
+                                        "name": "assignCategory",
+                                        "type": "other"
+                                    }
+                                },
+                                renderDecisions: false,
+                                data: data
+                            }
+                        });
+                        ctaButton.href = "https://www.bangkokbank.com/th-TH/Personal/Save-And-Invest/Save/e-Savings-Account"
+                    } catch (err) {
+                        console.log("Error", err);
+                    }
+                });
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+            }
+        }
+        waitForElement();
+    })();
+</script>
+
+<script>
+    var data = { "__adobe": { "target": {} } };
+    data.__adobe.target["heroButtonClicked"] = "true";
+    try {
+        alloy("sendEvent", {
+            xdm: {
+                "_experience": {
+                    "decisioning": {
+                        "propositions": [{
+                            "scope": "__view__"
+                        }],
+                        "propositionEventType": {
+                            "display": 1
+                        }
+                    }
+                },
+                "eventType": "decisioning.propositionDisplay"
+            },
+            renderDecisions: false,
+            data: data
+        });
+    } catch (err) {
+        console.log("Error", err);
+    }
+</script>

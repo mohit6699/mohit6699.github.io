@@ -1,0 +1,74 @@
+<script>
+
+    if (window.location.href.includes('AT=Get-A-Quote-Header')) {
+        (function () {
+            var counter = 0;
+            var waitForElement = function () {
+                let iconSelector = document.querySelector("nav > a");
+
+                if (iconSelector != null) {
+                    let getQuoteButton = document.querySelector("div.cmp-heroBannerCarousel.custom-container-spacing button.btn.primary-button.btn-primary");
+                    let headerGetQuoteButtonHTML = `<button aria-label="buttonAccessibility" class="btn primary-button btn-primary btn-md first-button" style="/* margin-left: 11px; */">GET A QUOTE</button>`
+
+                    //personalization start
+                    iconSelector.insertAdjacentHTML('afterend', headerGetQuoteButtonHTML);
+                    //personalization end
+
+                    let btnClickCount = 0;
+                    let buttonSelector = document.querySelector("nav > button");
+                    buttonSelector.addEventListener("click", function (e) {
+                        e.stopPropagation();
+                        getQuoteButton.click();
+                        btnClickCount++;
+                        console.log("Header button clicked " + btnClickCount + " times.");
+
+                        setTimeout(() => {
+                            let formSubmitBtnSelector = document.querySelector("#talk-to-an-advisor-form-1 div.cmp-custom-form-cta-button");
+                            formSubmitBtnSelector.addEventListener("click", function (e) {
+                                btnClickCount++;
+                                var data = { "__adobe": { "target": {} } };
+                                data.__adobe.target["submitClicked"] = "true";
+                                try {
+                                    alloy("sendEvent", {
+                                        xdm: {
+                                            "_experience": {
+                                                "decisioning": {
+                                                    "propositions": [{
+                                                        "scope": "__view__"
+                                                    }],
+                                                    "propositionEventType": {
+                                                        "display": 1
+                                                    }
+                                                }
+                                            },
+                                            "eventType": "decisioning.propositionDisplay"
+                                        },
+                                        renderDecisions: false,
+                                        data: data
+                                    });
+                                    console.log("Submit button clicked " + btnClickCount + " times.");
+                                } catch (err) {
+                                    console.log("Error", err);
+                                }
+                            });
+                        }, 500);
+
+                    });
+
+
+                } else {
+                    ++counter;
+                    counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+                }
+            }
+            waitForElement();
+        })();
+    }
+    else {
+        const url = new URL(window.location)
+        url.searchParams.set("AT", "Get-A-Quote-Header")
+        history.pushState(null, '', url);
+        window.location.href = window.location.href;
+    }
+
+</script>

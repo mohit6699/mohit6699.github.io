@@ -1,0 +1,159 @@
+<!doctype html><div><link rel="stylesheet" href="https://www.pp.corteva.com/etc.clientlibs/foundation/clientlibs/main.lc-b4994788cf1eaeed300a0aa7af53f3c8-lc.min.css" type="text/css"><script src="https://www.pp.corteva.com/etc.clientlibs/clientlibs/granite/jquery.lc-7842899024219bcbdb5e72c946870b79-lc.min.js"></script><script src="https://www.pp.corteva.com/etc.clientlibs/clientlibs/granite/utils.lc-e7bf340a353e643d198b25d0c8ccce47-lc.min.js"></script><script src="https://www.pp.corteva.com/etc.clientlibs/clientlibs/granite/jquery/granite.lc-543d214c88dfa6f4a3233b630c82d875-lc.min.js"></script><script src="https://www.pp.corteva.com/etc.clientlibs/foundation/clientlibs/jquery.lc-dd9b395c741ce2784096e26619e14910-lc.min.js"></script><script src="https://www.pp.corteva.com/etc.clientlibs/foundation/clientlibs/shared.lc-41f79c8a45bb1766981ec4ca82d7e0e6-lc.min.js"></script><script src="https://www.pp.corteva.com/etc.clientlibs/foundation/clientlibs/main.lc-690ba627a9a2eeef0733ede272cf726b-lc.min.js"></script><link rel="stylesheet" href="https://www.pp.corteva.com/etc.clientlibs/corteva-foundation/clientlibs/clientlib-base.lc-e67f375f8a95af475cc407e9de9ea897-lc.min.css" type="text/css"><script type="text/javascript">
+            (function() {
+                window.ContextHub = window.ContextHub || {};
+
+                /* setting paths */
+                ContextHub.Paths = ContextHub.Paths || {};
+                ContextHub.Paths.CONTEXTHUB_PATH = "/libs/settings/cloudsettings/legacy/contexthub";
+                ContextHub.Paths.RESOURCE_PATH = "\/content\/experience\u002Dfragments\/modernization\/corteva\/en\/alternate_pdp_header\/c_us_homepage\/ctva\u002Dhomepage\u002Dhero\u002Dcarousel\u002Dca\u002D2022\/master\/_jcr_content\/contexthub";
+                ContextHub.Paths.SEGMENTATION_PATH = "";
+                ContextHub.Paths.CQ_CONTEXT_PATH = "";
+
+                /* setting initial constants */
+                ContextHub.Constants = ContextHub.Constants || {};
+                ContextHub.Constants.ANONYMOUS_HOME = "/home/users/K/KXJs2hKBrY2ewZOGvLY1";
+                ContextHub.Constants.MODE = "ui";
+            }());
+        </script><script src="https://www.pp.corteva.com/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub" type="text/javascript"></script><script type="text/javascript">
+                (function($) {
+                    'use strict';
+
+                    /* options */
+                    /**
+                     * @type InjectContextHubOptions
+                     */
+                    var options = {};
+                    /* where to include ContextHub's UI */
+
+                    var injectWindow;
+                    var allowEmbedding = false;
+
+                    //using this to determine if running in Unified Shell to determine where 
+                    // to inject ContextHub UI.  
+                    var unifiedShellDiv = window.top.document.querySelector('#exc');
+        
+                    if (allowEmbedding) {
+                        injectWindow = window;
+                    } else if (!!unifiedShellDiv) {
+                        injectWindow = unifiedShellDiv.querySelector('iframe').contentWindow;
+                    } else {
+                        injectWindow = window.top;
+                    }
+                    
+                    try {
+                        //* if window.top contains 'ContextHubEmbedding' flag, use current window instead of window.top 
+                        if (window.top.hasOwnProperty('ContextHubEmbedding') === true) {
+                            injectWindow = window;
+                        }
+                    } catch(error) {
+                        // if window.top is not reachable for security reasons (like page embedded into an iframe on a different domain), use current window.
+                        injectWindow = window;
+                    }
+
+                    /* is ContextHub UI loaded from another iframe? then hide it by default (event listeners will display it when requested) */
+                    var isEmbedded = injectWindow !== window;
+                    var visibility = isEmbedded ? 'none' : 'block';
+
+                    /* display ContextHub immediately if it's embedded on same page as ContentFinder */
+                    if (isEmbedded && $('#cq-cf-wrapper', injectWindow.document).length) {
+                        /* inject container to a page which includes ContextHub and not to top window */
+                        injectWindow = window;
+                        visibility = 'block';
+                        options['zIndex'] = 10000;
+                    }
+
+                    /*
+                     * coralui3 related includes:
+                     * http://localhost:4502/libs/granite/ui/content/dumplibs.test.html?categories=coralui3
+                     */
+                    var jsExtension = ".min.js";
+                    var scripts = [
+                        "/etc/cloudsettings.ui.js/libs/settings/cloudsettings/legacy/contexthub",
+                        "/etc.clientlibs/clientlibs/granite/typekit" + jsExtension,
+                        "/etc.clientlibs/clientlibs/granite/utils" + jsExtension,
+                        "/etc.clientlibs/clientlibs/granite/jquery/granite" + jsExtension,
+                        "/etc.clientlibs/clientlibs/granite/moment" + jsExtension,
+                        "/etc.clientlibs/clientlibs/granite/coralui3" + jsExtension
+                    ];
+                    var cssExtension = ".min.css";
+                    var styles = [
+                        "/etc.clientlibs/clientlibs/granite/coralui3" + cssExtension,
+                        "/etc/cloudsettings.styles.css/libs/settings/cloudsettings/legacy/contexthub"
+                    ];
+
+                    $.extend(options, {
+                        address: "/etc/cloudsettings.ui.html//libs/settings/cloudsettings/legacy/contexthub",
+                        display: visibility
+                    });
+
+                    window.injectContextHubUI(injectWindow.document, ContextHub, scripts, styles, options, function(UI, options) {
+                        /* call it on parent ready, otherwise rarely window.document.body won't be ready due to race condition! */
+                        $(window.document).ready(function() {
+                            var pageContainer = UI.Properties.get('PAGE_CONTAINER') || $(window.document.body);
+                            var zIndex = options.zIndex || UI.Properties.get('CONTAINER_UI_Z_INDEX') || 890;
+
+                            UI.Properties.set('CONTAINER_UI_Z_INDEX', zIndex);
+                            UI.Properties.set('PAGE_CONTAINER', pageContainer);
+
+                            /* unified shell */
+                            if (injectWindow.document.querySelectorAll('link[href*="exc-unifiedcontent"]').length > 0) {
+                                var excIframe = injectWindow.document.querySelector('.exc-core-sandbox iframe');
+                                var iframeTop = 0, unifiedShellHeight = 0;
+                                
+                                var editorTitleBarOffset = injectWindow.document
+                                    .querySelector('.editor-panel-header').getBoundingClientRect().height
+                                //var editorTitleBarOffset = 50;
+
+                                if (excIframe) {
+                                    iframeTop = excIframe.getBoundingClientRect().top;
+                                    unifiedShellHeight = excIframe.contentWindow.document
+                                        .querySelector('.header-main').getBoundingClientRect().height;
+                                    
+                                }
+
+                                UI.Properties.set('IFRAME_TOP_MARGIN', iframeTop + editorTitleBarOffset);
+                                UI.Properties.set('UNIFIED_SHELL_HEIGHT', unifiedShellHeight);
+                                UI.Properties.set('HIDE_CONTAINER_DRAWER', true);
+                                UI.Container.visible({ state: true });
+                            } else {
+                                UI.Properties.set('UNIFIED_SHELL_HEIGHT', 0);
+                            }
+
+                            /* if document was not yet ready, set the page container once again later */
+                            if (pageContainer.length === 0) {
+                                $(function() {
+                                    UI.Properties.set('PAGE_CONTAINER', $(window.document.body));
+                                });
+                            }
+
+                            if (isEmbedded) {
+                                /* hide ContextHub container on iframe unload - to get rid of white gap that is visible during page reload */
+                                window.onbeforeunload = function() {
+                                    /* catch the errors in case objects will get destroyed before code will be executed */
+                                    try {
+                                        $(ContextHub.UIFrame).hide();
+                                        var pageContainer = UI.Properties.get('PAGE_CONTAINER') || $('');
+                                        pageContainer.css('transition', '');
+                                        pageContainer.css('top', UI.Properties.get('IFRAME_TOP_MARGIN'));
+                                    } catch (error) {
+                                        console.error("Error while unloading the page: ", error);
+                                    }
+                                };
+                            }
+                        });
+                    });
+
+                }(ContextHubJQ));
+            </script><link as="style" href="https://static-p107537-e1063673.adobeaemcloud.com/c59ac8aec54354f2a4dcd1702d3c5d5d03f29df94a99a821ca8aaaf6312b24cc/clientlib-site/css/site.css" rel="preload stylesheet" type="text/css"><link as="style" href="https://static-p107537-e1063673.adobeaemcloud.com/c59ac8aec54354f2a4dcd1702d3c5d5d03f29df94a99a821ca8aaaf6312b24cc/clientlib-corteva/css/corteva.css" rel="preload stylesheet" type="text/css"><div class="container"><div class="root container responsivegrid"><div id="container-eacd1374db" class="cmp-container"><div class="aem-Grid aem-Grid--12 aem-Grid--default--12 "><div class="carousel panelcontainer aem-GridColumn aem-GridColumn--default--12"><div id="carousel-f9dc132104" class="cmp-carousel" role="group" aria-live="polite" aria-roledescription="carousel" data-component="hero-banner" data-initial-index="0" data-placeholder-text="false" data-module="Carousel"><div class="cmp-carousel__content hero-carousel" aria-atomic="false" aria-live="polite"><div class="cmp-carousel__content-slides"><div id="carousel-f9dc132104-item-9a4c616e87-tabpanel" class="cmp-carousel__item cmp-carousel__item--active" role="tabpanel" aria-labelledby="carousel-f9dc132104-item-9a4c616e87-tab" aria-roledescription="slide" aria-label="Slide 1 of 4" data-cmp-data-layer="{&quot;carousel-f9dc132104-item-9a4c616e87&quot;:{&quot;@type&quot;:&quot;core/wcm/components/carousel/v1/carousel/item&quot;,&quot;repo:modifyDate&quot;:&quot;2025-10-13T16:05:35Z&quot;,&quot;dc:title&quot;:&quot;Pindar® GT &amp; <br>Matrix® SG herbicide&quot;}}" data-cmp-hook-carousel="item"><div class="teaser cmp-button--secondary"><div data-component="teaser" data-module="Teaser" id="teaser-9a4c616e87" class="cmp-teaser"><div class="cmp-teaser__content"><p class="cmp-teaser__pretitle">Weed control for orchards</p><h2 class="cmp-teaser__title">
+        Pindar® GT & <br>Matrix® SG herbicide
+    </h2><div class="cmp-teaser__action-container"><a class="cmp-teaser__action-link" data-analytics-type="cta-hero" data-analytics-value="Pindar® GT &amp; Matrix® SG herbicide" id="teaser-9a4c616e87-cta-d72998d3c0" tabindex="0" rel="noopener noreferrer" data-module-name="Learn more" href="https://www.pp.corteva.com/content/corteva/na/us/en/homepage/products-and-solutions/crop-protection/tree-nut-solutions.html" target="_blank">Learn more</a></div></div><div class="cmp-teaser__image"><div class="teaser-component" data-component="image" data-module="Image"><div data-cmp-is="image" data-cmp-dmimage data-cmp-src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US:Wide?ts=1759939001882" data-asset-id="51c1c780-5603-4692-a728-a3f47f26a73f" data-cmp-filereference="/content/dam/dpagco/corteva/na/us/en/images/cp-homepage/alt-images-for-homepage-components/IMG-Almond-berms-CA-carousel-NA-US.jpg" id="teaser-9a4c616e87-image" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject"><picture><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US:Wide?ts=1759939001882" media="(min-width: 1200px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US:Large?ts=1759939001882" media="(min-width: 992px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US:Medium?ts=1759939001882" media="(max-width: 991px)"></source><img src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US?ts=1759939001882" srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Almond-berms-CA-carousel-NA-US?ts=1759939001882" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="6016" height="4016" alt="almond berms" data-preloadimg="true"></picture></div></div></div></div></div></div><div id="carousel-f9dc132104-item-315fd547b7-tabpanel" class="cmp-carousel__item" role="tabpanel" aria-labelledby="carousel-f9dc132104-item-315fd547b7-tab" aria-roledescription="slide" aria-label="Slide 2 of 4" data-cmp-data-layer="{&quot;carousel-f9dc132104-item-315fd547b7&quot;:{&quot;@type&quot;:&quot;core/wcm/components/carousel/v1/carousel/item&quot;,&quot;dc:title&quot;:&quot;Radiant<sup>®</sup> SC insecticide&quot;}}" data-cmp-hook-carousel="item"><div class="teaser cmp-button--secondary"><div data-component="teaser" data-module="Teaser" id="teaser-315fd547b7" class="cmp-teaser"><div class="cmp-teaser__content"><p class="cmp-teaser__pretitle">Control damaging insects</p><h2 class="cmp-teaser__title">
+        Radiant<sup>®</sup> SC insecticide
+    </h2><div class="cmp-teaser__action-container"><a class="cmp-teaser__action-link" data-analytics-type="cta-hero" data-analytics-value="Radiant® SC insecticide" id="teaser-315fd547b7-cta-0515f44b7f" tabindex="0" rel="noopener noreferrer" data-module-name="Download Resources" href="https://www.pp.corteva.com/content/corteva/na/us/en/homepage/products-and-solutions/crop-protection/radiant-sc.html" target="_blank">Download Resources</a></div></div><div class="cmp-teaser__image"><div class="teaser-component" data-component="image" data-module="Image"><div data-cmp-is="image" data-cmp-dmimage data-cmp-src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US:Wide?ts=1759939001798" data-asset-id="f47439df-fd04-4bc4-b84b-3ef76a758e7a" data-cmp-filereference="/content/dam/dpagco/corteva/na/us/en/images/cp-homepage/alt-images-for-homepage-components/IMG-Lettuce-field-mountains-background-NA-US.jpg" id="teaser-315fd547b7-image" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject"><picture><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US:Wide?ts=1759939001798" media="(min-width: 1200px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US:Large?ts=1759939001798" media="(min-width: 992px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US:Medium?ts=1759939001798" media="(max-width: 991px)"></source><img src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US?ts=1759939001798" srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-Lettuce-field-mountains-background-NA-US?ts=1759939001798" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1440" height="560" alt="lettuce field" data-preloadimg="true"></picture></div></div></div></div></div></div><div id="carousel-f9dc132104-item-7eb3cb05bc-tabpanel" class="cmp-carousel__item" role="tabpanel" aria-labelledby="carousel-f9dc132104-item-7eb3cb05bc-tab" aria-roledescription="slide" aria-label="Slide 3 of 4" data-cmp-data-layer="{&quot;carousel-f9dc132104-item-7eb3cb05bc&quot;:{&quot;@type&quot;:&quot;core/wcm/components/carousel/v1/carousel/item&quot;,&quot;dc:title&quot;:&quot;Hulk<sup>®</sup> CA herbicide&quot;}}" data-cmp-hook-carousel="item"><div class="teaser cmp-button--secondary"><div data-component="teaser" data-module="Teaser" id="teaser-7eb3cb05bc" class="cmp-teaser"><div class="cmp-teaser__content"><p class="cmp-teaser__pretitle">Get clean floors</p><h2 class="cmp-teaser__title">
+        Hulk<sup>®</sup> CA herbicide
+    </h2><div class="cmp-teaser__action-container"><a class="cmp-teaser__action-link" data-analytics-type="cta-hero" data-analytics-value="Hulk® CA herbicide" id="teaser-7eb3cb05bc-cta-7f57c641c8" tabindex="0" rel="noopener noreferrer" data-module-name="No Weeds. No Hassle. No Worries." href="https://www.pp.corteva.com/content/corteva/na/us/en/homepage/products-and-solutions/crop-protection/hulk-ca.html" target="_blank">No Weeds. No Hassle. No Worries.</a></div></div><div class="cmp-teaser__image"><div class="teaser-component" data-component="image" data-module="Image"><div data-cmp-is="image" data-cmp-dmimage data-cmp-src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US:Wide?ts=1759938998536" data-asset-id="976e6b60-afaf-4dde-af63-a95508665126" data-cmp-filereference="/content/dam/dpagco/corteva/na/us/en/images/cp-homepage/alt-images-for-homepage-components/IMG-bareground-Hulk-CA-CA-carousel-NA-US.jpg" id="teaser-7eb3cb05bc-image" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject"><picture><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US:Wide?ts=1759938998536" media="(min-width: 1200px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US:Large?ts=1759938998536" media="(min-width: 992px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US:Medium?ts=1759938998536" media="(max-width: 991px)"></source><img src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US?ts=1759938998536" srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-bareground-Hulk-CA-CA-carousel-NA-US?ts=1759938998536" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="4220" height="2197" alt="bareground" data-preloadimg="true"></picture></div></div></div></div></div></div><div id="carousel-f9dc132104-item-5355f5ef23-tabpanel" class="cmp-carousel__item" role="tabpanel" aria-labelledby="carousel-f9dc132104-item-5355f5ef23-tab" aria-roledescription="slide" aria-label="Slide 4 of 4" data-cmp-data-layer="{&quot;carousel-f9dc132104-item-5355f5ef23&quot;:{&quot;@type&quot;:&quot;core/wcm/components/carousel/v1/carousel/item&quot;,&quot;dc:title&quot;:&quot;California Pest and Disease Alerts&quot;}}" data-cmp-hook-carousel="item"><div class="teaser cmp-button--secondary"><div data-component="teaser" data-module="Teaser" id="teaser-5355f5ef23" class="cmp-teaser"><div class="cmp-teaser__content"><p class="cmp-teaser__pretitle">Sign up for alerts</p><h2 class="cmp-teaser__title">
+        California Pest and Disease Alerts
+    </h2><div class="cmp-teaser__action-container"><a class="cmp-teaser__action-link" data-analytics-type="cta-hero" data-analytics-value="California Pest and Disease Alerts" id="teaser-5355f5ef23-cta-973e901960" tabindex="0" rel="noopener noreferrer" data-module-name="Click Here" href="https://www.corteva.us/Resources/disease-blog/ca-pest-disease-alerts.html" target="_blank">Click Here</a></div></div><div class="cmp-teaser__image"><div class="teaser-component" data-component="image" data-module="Image"><div data-cmp-is="image" data-cmp-dmimage data-cmp-src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US:Wide?ts=1759939001211" data-asset-id="13d40eb8-2c29-446c-9243-eed479891376" data-cmp-filereference="/content/dam/dpagco/corteva/na/us/en/images/resources/disease-alerts/IMG-DiseaseAlert-updated-Hero-NA-US.jpg" id="teaser-5355f5ef23-image" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject"><picture><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US:Wide?ts=1759939001211" media="(min-width: 1200px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US:Large?ts=1759939001211" media="(min-width: 992px)"></source><source srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US:Medium?ts=1759939001211" media="(max-width: 991px)"></source><img src="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US?ts=1759939001211" srcset="https://assets.corteva.com/is/image/CortevaSTAGE/IMG-DiseaseAlert-updated-Hero-NA-US?ts=1759939001211" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2560" height="1600" alt="purple background" data-preloadimg="true"></picture></div></div></div></div></div></div></div><div class="cmp-carousel__box-shadow"><ol class="cmp-carousel__indicators" role="tablist" aria-label="Choose a slide to display" data-cmp-hook-carousel="indicators"><li id="carousel-f9dc132104-item-9a4c616e87-tab" class="cmp-carousel__indicator is-selected" role="tab" aria-controls="carousel-f9dc132104-item-9a4c616e87-tabpanel" aria-label="Slide 1" data-cmp-hook-carousel="indicator" data-analytics-type="hero-nav" data-analytics-value="Pindar® GT &amp; <br>Matrix® SG herbicide">Pindar® GT & <br>Matrix® SG herbicide
+                </li><li id="carousel-f9dc132104-item-315fd547b7-tab" class="cmp-carousel__indicator" role="tab" aria-controls="carousel-f9dc132104-item-315fd547b7-tabpanel" aria-label="Slide 2" data-cmp-hook-carousel="indicator" data-analytics-type="hero-nav" data-analytics-value="Radiant<sup>®</sup> SC insecticide">Radiant<sup>®</sup> SC insecticide
+                </li><li id="carousel-f9dc132104-item-7eb3cb05bc-tab" class="cmp-carousel__indicator" role="tab" aria-controls="carousel-f9dc132104-item-7eb3cb05bc-tabpanel" aria-label="Slide 3" data-cmp-hook-carousel="indicator" data-analytics-type="hero-nav" data-analytics-value="Hulk<sup>®</sup> CA herbicide">Hulk<sup>®</sup> CA herbicide
+                </li><li id="carousel-f9dc132104-item-5355f5ef23-tab" class="cmp-carousel__indicator" role="tab" aria-controls="carousel-f9dc132104-item-5355f5ef23-tabpanel" aria-label="Slide 4" data-cmp-hook-carousel="indicator" data-analytics-type="hero-nav" data-analytics-value="California Pest and Disease Alerts">California Pest and Disease Alerts
+                </li></ol></div></div></div></div></div></div></div></div><script async src="https://www.pp.corteva.com/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.lc-0a6aff292f5cc42142779cde92054524-lc.min.js"></script><script async src="https://www.pp.corteva.com/etc.clientlibs/clientlibs/granite/jquery/granite/csrf.lc-652a558c3774088b61b0530c184710d1-lc.min.js"></script><script async src="https://www.pp.corteva.com/etc.clientlibs/corteva-foundation/clientlibs/clientlib-base.lc-e2afc037f6466c05a3975910d71e5ea1-lc.min.js"></script><script src="https://static-p107537-e1063673.adobeaemcloud.com/c59ac8aec54354f2a4dcd1702d3c5d5d03f29df94a99a821ca8aaaf6312b24cc/clientlib-site/js/site.js" async type="text/javascript"></script><script src="https://static-p107537-e1063673.adobeaemcloud.com/c59ac8aec54354f2a4dcd1702d3c5d5d03f29df94a99a821ca8aaaf6312b24cc/clientlib-site/js/corteva.js" async type="text/javascript"></script></div>

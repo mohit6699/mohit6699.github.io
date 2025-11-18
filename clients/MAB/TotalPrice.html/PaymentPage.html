@@ -1,0 +1,777 @@
+<script>
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:visible}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+
+
+        //Personal info page
+
+        {
+            selector: '.row.page-header.justify-content-center',
+            persist: true,
+            success: function (el) {
+                if ((digitalData.page.pageInfo.pageID == "TRAVELER")) {
+                    console.log("Personal info Page");
+                    var activityName = "Refx - TotalPrice Journey";
+
+                    if (typeof alloy === 'function') {
+                        alloy('sendEvent', {
+                            'xdm': {
+                                'eventType': 'target.request',
+                                '_experience': {
+                                    'analytics': {
+                                        'customDimensions': {
+                                            'eVars': {
+                                                'eVar186': 'TotalPrice_ExpB_PersonalInformation',
+                                            },
+
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                        _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                    } else {
+                        _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                    }
+
+
+
+
+
+
+
+
+                    //Modify Button
+
+                    document.querySelector(".mat-button").addEventListener("click", function () {
+
+
+
+                        var ariaExpandedValue = document.querySelector(".mat-expansion-panel-header.mat-focus-indicator.expansion-panel-header").getAttribute('aria-expanded');
+
+
+
+                        if (document.querySelectorAll('refx-modify-search-dialog').length == 1) {
+
+
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Modify',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+
+
+
+
+                        }
+
+
+
+                    });
+
+                    //Inside Modify Button
+                    document.querySelector("#modify-button").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Panel_Modify',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+
+
+
+                    //Inside Round Trip
+                    document.querySelector("[value='roundtrip']").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Roundtrip',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                    //Inside One Way Button
+                    document.querySelector("[value='oneway']").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_OneWay',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                    //Inside Origin Button
+                    document.querySelector("#origin").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Origin',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                    //Inside Destination Button
+                    document.querySelector("#destination").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Destination',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                    //Inside Date Button
+                    document.querySelectorAll("[data-mat-calendar")[1].onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Date',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                    //Inside Passenger Button
+                    document.querySelectorAll(".modify-search-passenger-input")[0].onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Pax',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+
+                    //Inside Class Button
+                    document.querySelectorAll(".cabin-radio").onclick =
+                        function () {
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_Cabin',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+
+
+
+
+                }
+
+
+            }
+        },
+        {
+            selector: '.travelers.sub-component',
+            persist: true,
+            success: function (el) {
+                if (digitalData.page.pageInfo.pageID == "TRAVELER") {
+                    var price = digitalData.cart.price.totalPrice.amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    var currency = digitalData.cart.price.totalPrice.currency;
+                    console.log("Total fare: ", price)
+                    var fullprice = `<refx-flight-recap-dates class="fare sub-component e2e-ignore ng-star-inserted"><div aria-hidden="true" class="flight-recap-fare ng-star-inserted"><div class="fare date-container"><div class="refx-display-5 refx-body-1">Total Fare</div><div class="return refx-display-5 fare refx-body-1">` + currency + ` ` + price + `</div></div></div><span class="flight-recap-dates-accessibility cdk-visually-hidden"><span>price value</span></span></refx-flight-recap-dates>`;
+                    if(document.querySelectorAll('.fare.sub-component').length==0){
+                        document.querySelector(".travelers.sub-component").insertAdjacentHTML('afterend', fullprice);
+                    }
+                    if(document.querySelectorAll('.return.date-container').length == 0){
+                        document.querySelectorAll('.depart.date-container')[0].classList.add('oneway');
+                    }
+                    const userAgent = navigator.userAgent.toLowerCase();
+                    const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
+                    if (isTablet) {
+                        document.querySelector('.dates-with-travelers').setAttribute("style", "flex-direction:row !important");
+                    }
+
+                }
+            }
+        },
+        {
+            selector: 'body > app > refx-app-layout > div > div.main-content.justify-content-center > refx-traveler > refx-basic-in-flow-layout > div > div.footer-wrapper',
+            persist: true,
+            success: function (el) {
+                if (digitalData.page.pageInfo.pageID == "TRAVELER") {
+                    console.log("Inside loop")
+                    document.querySelector("div.footer-wrapper > div > div > div > div > button:nth-child(2)").onclick =
+                        function () {
+                            console.log("Skip Payment Clicked")
+                            if (typeof alloy === 'function') {
+                                alloy('sendEvent', {
+                                    'xdm': {
+                                        'eventType': 'target.request',
+                                        '_experience': {
+                                            'analytics': {
+                                                'customDimensions': {
+                                                    'eVars': {
+                                                        'eVar186': 'TotalPrice_ExpB_PersonalInformation_SkiptoPayment',
+                                                    },
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                                _satellite.logger.log(activityName + ' - SUCCESS - Conversion result was sent.')
+                            } else {
+                                _satellite.logger.warn(activityName + ' - FAIL - Conversion result was not sent.')
+                            }
+                        }
+                }
+
+            }
+        }
+
+
+
+    );
+
+</script>
+<style>
+    :root body refx-upsell .content-wrapper {
+        margin-top: 0px !important;
+    }
+
+    :root body custom-modify-search-pres .mat-expansion-panel .mat-expansion-panel-header-title,
+    :root body custom-modify-search-pres .mat-expansion-indicator:after,
+    :root body .mat-datepicker-toggle-default-icon,
+    :root body custom-modify-search-pres .refx-icon-passenger-multiple:before {
+        color: #1e4073 !important;
+
+    }
+
+    custom-modify-search-pres .radioBtnChecked .mat-radio-label-content {
+        background-color: #c7eafb !important;
+        color: #1e4073 !important;
+    }
+
+    .depart.date-container {
+        padding: 0 !important;
+    }
+    .depart.date-container.oneway{
+        padding: 0 1rem !important;
+    }
+
+    .mat-typography .refx-button,
+    .mat-typography .refx-display-5 {
+        font: 600 14px / 20px MundialRegular !important;
+    }
+
+
+    @media screen and (max-width:990px) {
+        refx-flight-recap-pres .flight-recap .panel-background .left {
+            padding: 1rem 0 0 0 !important;
+        }
+
+        refx-flight-recap-pres .flight-recap .panel-background .left .sub-component {
+            padding: 0 0.5rem !important;
+        }
+
+        refx-flight-recap-travelers.travelers.sub-component {
+            margin: 0px 6rem !important;
+            padding: 6px 1.5rem !important;
+        }
+
+        refx-flight-recap-dates.fare.sub-component.e2e-ignore.ng-star-inserted {
+            padding: 0 10px !important;
+        }
+
+        refx-flight-recap-dates .flight-recap-dates .separator {
+            padding: 0 0.1rem;
+        }
+
+        :root body refx-basic-in-flow-layout .summary-panel refx-flight-recap-pres .flight-recap button.text-icon-button {
+            min-width: 120px !important;
+            padding: 20px !important;
+        }
+
+        .dates-with-travelers {
+            flex-direction: row !important;
+        }
+
+
+    }
+
+    @media screen and (max-width:600px) {
+
+
+
+        .breadcrumbs-target {
+            margin-top: 4rem !important;
+        }
+    }
+
+    @media screen and (min-width:600px) and (max-width:768px) {
+        .test {
+            width: 33% !important;
+        }
+
+        .target-img3 {
+
+            width: 8% !important;
+        }
+
+        .target-img,
+        .target-img2 {
+
+            width: 15% !important;
+        }
+
+
+
+        .target1,
+        .target2,
+        .target3 {
+            font: 350 11px MundialRegular !important;
+        }
+
+        .target2:before,
+        .target3:before {
+
+            width: 68.5% !important;
+            margin-top: -19.5% !important;
+            height: 2px !important;
+        }
+
+        .target1:before {
+
+            width: 65.5% !important;
+            margin-top: -19.5% !important;
+        }
+
+    }
+
+    @media screen and (min-width:768px) and (max-width:990px) {
+        .test {
+            width: 33% !important;
+            margin-left: 4px;
+        }
+
+
+        .target-img3 {
+
+            width: 6% !important;
+        }
+
+        .target-img,
+        .target-img2 {
+
+            width: 11% !important;
+        }
+
+
+
+        .target1,
+        .target2,
+        .target3 {
+            font: 350 11px MundialRegular !important;
+        }
+
+        .target2:before,
+        .target3:before {
+
+            width: 60.5% !important;
+            margin-top: -19.5% !important;
+            height: 2px !important;
+        }
+
+        .target1:before {
+
+            width: 60.5% !important;
+            margin-top: -19.5% !important;
+        }
+
+        :root body refx-basic-in-flow-layout .summary-panel .button-search button {
+            padding: 16px 5px;
+        }
+
+        .dates-with-travelers {
+            flex-direction: row !important;
+        }
+
+    }
+
+
+
+
+
+
+
+    @media screen and (max-width:400px) {
+
+        body>app>refx-app-layout>div>div.main-content.justify-content-center>refx-upsell>refx-basic-in-flow-layout>div>div.breadcrumbs-target.justify-content-center>div:nth-child(2)>p {
+            margin-left: 10% !important;
+        }
+
+        .target-img3 {
+            width: 8% !important;
+        }
+
+        .target-img,
+        .target-img2 {
+
+
+            width: 21% !important;
+        }
+
+        .test {
+            width: 44% !important;
+            margin-left: 7% !important;
+        }
+
+        .target1,
+        .target2,
+        .target3 {
+            font: 350 10px MundialRegular !important;
+        }
+
+
+
+        .target2:before,
+        .target3:before {
+
+            width: 46% !important;
+            margin-top: -30.5% !important;
+            height: 2px !important;
+        }
+
+        .target1:before {
+
+            width: 52% !important;
+            margin-top: -30.5% !important;
+        }
+
+
+    }
+
+    @media only screen and (min-width:401px) and (max-width:599px) {
+        body>app>refx-app-layout>div>div.main-content.justify-content-center>refx-upsell>refx-basic-in-flow-layout>div>div.breadcrumbs-target.justify-content-center>div:nth-child(2)>p {
+            margin-left: 8%;
+        }
+
+        .test {
+            width: 40% !important;
+            margin-left: 8% !important;
+        }
+
+        .target-img3 {
+
+            width: 8% !important;
+        }
+
+        .target-img,
+        .target-img2 {
+
+            width: 19% !important;
+        }
+
+        .target1:before {
+            width: 55.5% !important;
+            margin-top: -29.5% !important;
+            height: 2px !important;
+        }
+
+        .target2:before,
+        .target3:before {
+
+            width: 50% !important;
+            height: 2px !important;
+            margin-top: -27.5% !important;
+        }
+
+        .target1,
+        .target2,
+        .target3 {
+            font: 350 11px MundialRegular !important;
+        }
+
+    }
+
+
+
+    @media screen and (min-width:768px) {
+
+
+
+        :root body custom-modify-search-pres .modify-search-inputs .destination-location-field:before {
+            content: url(https://www.malaysiaairlines.com/content/dam/mh/my/en/a-b-test/refex/flight-to-fro.2c935c6a28f588e7.png) !important;
+            transform: scale(0.3);
+            top: -6.5rem !important;
+            left: -72px !important;
+        }
+    }
+
+    .mat-expansion-panel.mat-expansion-panel.mat-elevation-z.ng-tns-c56-3.collapsed-expansion-panel.ng-star-inserted {
+        z-index: 0 !important;
+    }
+
+    .target1,
+    .target2,
+    .target3 {
+        font: 350 14px MundialRegular;
+    }
+
+
+    .row.summary-panel-wrapper.mat-elevation-z1.row.summary-panel-wrapper.mat-elevation-z1.hidden {
+        position: sticky !important;
+        transform: translateY(0%) !important;
+    }
+
+    .row.summary-panel-wrapper.mat-elevation-z1.row.summary-panel-wrapper.mat-elevation-z1.visible {
+        position: sticky !important;
+
+    }
+
+    .page-title.ng-star-inserted {
+        margin-top: 0px !important;
+    }
+
+    .breadcrumbs-target {
+        left: 10%;
+        display: flex;
+        margin-top: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: -webkit-fill-available;
+    }
+
+    .target-img,
+    .target-img2 {
+
+        text-size-adjust: none;
+        width: 13%;
+    }
+
+    .target-img3 {
+
+        text-size-adjust: none;
+        width: 9%;
+    }
+
+    .test {
+        width: 20%;
+    }
+
+    .target1:before {
+        content: '';
+        width: 74.5%;
+        height: 2px;
+        background: #09396f;
+        position: relative;
+        float: right;
+        margin-top: -12.5%;
+
+    }
+
+    .target2:before {
+        content: '';
+        width: 73.5%;
+        height: 2px;
+        background: #797878;
+        position: relative;
+        float: right;
+        margin-top: -12%;
+
+    }
+
+    .target3:before {
+        content: '';
+        width: 73.5%;
+        height: 2px;
+        background: white;
+        position: relative;
+        float: right;
+        margin-top: -13.5%;
+    }
+
+    /*for price*/
+    :root body refx-basic-in-flow-layout .summary-panel refx-flight-recap-pres .flight-recap .panel-background .left .dates .depart {
+        padding: 0 !important;
+    }
+    :root body refx-basic-in-flow-layout .summary-panel refx-flight-recap-pres .flight-recap .panel-background .left .dates .depart.oneway {
+        padding: 0 1rem !important;
+    }
+
+    .flight-recap .panel-background .left .dates {
+        padding: 0 0 !important;
+        height: auto;
+    }
+
+    .fare.sub-component.e2e-ignore.ng-star-inserted {
+        flex-direction: column;
+        padding: 0 2.5rem !important;
+        height: auto;
+        display: flex;
+        border-left: solid 2px #b5b5b5;
+        border-right: none !important;
+    }
+
+    .flight-recap-fare.ng-star-inserted {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .fare.date-container {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: space-between;
+    }
+
+    .refx-body-2.fare-small {
+
+        display: none;
+    }
+
+    .return.refx-display-5.fare.refx-body-1 {
+        font: 600 14px/20px MundialRegular !important;
+        color: #fff;
+    }
+
+    .target1::after {
+        float: right;
+        content: 'P';
+    }
+
+    @media screen and (min-width:990px) {
+        body>app>refx-app-layout>div>div.main-content.justify-content-center>refx-upsell>refx-basic-in-flow-layout>div>div.breadcrumbs-target.justify-content-center>div:nth-child(2)>p {
+            margin-left: 8px;
+        }
+
+        .test {
+            margin-left: 6px;
+
+        }
+    }
+
+    .header-price-text {
+        display: none !important;
+    }
+</style>

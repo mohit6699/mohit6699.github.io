@@ -1,0 +1,57 @@
+<style>
+    .blink_me {
+        animation: blinker 2s linear infinite;
+
+    }
+
+    #spa-root>div>div>div.AEMContainer.aem-Grid.aem-Grid--12.aem-Grid--default--12.experience-fragment.global-header>div>header>div>div.mx-auto.lg\:hidden.h-full>nav>div:nth-child(4)>a {
+        margin-top: 2px;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    #spa-root>div>div>div.AEMContainer.aem-Grid.aem-Grid--12.aem-Grid--default--12.experience-fragment.global-header>div>header>div>div.mx-auto.lg\:hidden.h-full>nav>div:nth-child(4)>div {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        display: inline-block !important;
+        font-size: 8px !important;
+        position: relative !important;
+        top: 4px !important;
+    }
+</style>
+
+<script>
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    /*persist: false won't execute success function again if the selector show/hide again */
+
+    Flickerlessly.onReady(
+
+        {
+            selector: 'header',
+            persist: true,
+            success: function (el) {
+                document.querySelector("#spa-root > div > div > div.AEMContainer.aem-Grid.aem-Grid--12.aem-Grid--default--12.experience-fragment.global-header > div > header > div > div.mx-auto.lg\\:hidden.h-full > nav > div:nth-child(4) > div").innerHTML = "Exclusive Deals";
+                document.querySelector("#spa-root > div > div > div.AEMContainer.aem-Grid.aem-Grid--12.aem-Grid--default--12.experience-fragment.global-header > div > header > div > div.mx-auto.lg\\:hidden.h-full > nav > div:nth-child(4) > div").className = 'level1-badge mt-2.5 ml-2 rtl:mr-2 rounded border border-current font-bold py-1 px-2 uppercase visible blink_me';
+var jsonData = {
+
+}
+            }
+
+
+
+        }
+
+
+
+    );
+
+
+
+</script>

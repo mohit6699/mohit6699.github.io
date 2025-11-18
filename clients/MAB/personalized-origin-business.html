@@ -1,0 +1,78 @@
+<script>
+    (function () {
+        var counter = 0;
+        var waitForElement = function () {
+            let buttonSelector = document.querySelector(".AirportPicker");
+
+            if (buttonSelector != null) {
+                // For Kuala Lumpur
+                let originDiv = document.querySelector(".AirportPicker-from");
+                originDiv.focus();
+
+                var clickEvent = new MouseEvent('mousedown', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+                originDiv.dispatchEvent(clickEvent);
+                setTimeout(() => {
+                    document.querySelector('#multiselect-option-KUL').click();
+                }, 1000);
+                
+
+                ['click', 'keydown'].forEach(function (e) {
+                    document.querySelector("div[aria-label='Airport of arrival']").addEventListener(e, function (event) {
+                        if (event.target.parentNode.parentElement.parentElement.classList.contains("is-selected") || event.target.parentNode.parentElement.parentElement.classList.contains("AirportPicker") || event.target.parentNode.parentElement.parentElement.classList.contains("multiselect-search") || event.target.parentNode.parentElement.parentElement.classList.contains("multiselect-option") || event.target.parentNode.parentElement.parentElement.classList.contains("multiselect-group") || event.target.parentNode.parentElement.parentElement.classList.contains("multiselect-group-options")) {
+
+                            var date = new Date();
+                            date.setDate(date.getDate() + 7);
+
+                            const month = date.getMonth() + 1; // months from 1-12
+                            const day = date.getDate();
+                            const year = date.getFullYear();
+                            const newDate = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+
+                            document.querySelector('div.single-wrapper > button[data-date="' + newDate + '"]').click();
+
+                            var date2 = new Date();
+                            date2.setDate(date2.getDate() + 14);
+
+                            const month2 = date2.getMonth() + 1; // month2s from 1-12
+                            const day2 = date2.getDate();
+                            const year2 = date2.getFullYear();
+                            const newDate2 = year2 + "-" + (month2 < 10 ? "0" + month2 : month2) + "-" + (day2 < 10 ? "0" + day2 : day2);
+                            setTimeout(() => {
+                                document.querySelector('div.single-wrapper > button[data-date="' + newDate2 + '"]').click();
+                            }, 50);
+                            setTimeout(() => {
+                                document.querySelector("footer > div button.CTAButton").click();
+                            }, 50);
+
+                            setTimeout(() => {
+                                let dv = document.querySelector(".PassengerAndCabinClass").querySelector(".multiselect-main");
+                                dv.focus();
+
+                                var clickEvent = new MouseEvent('mousedown', {
+                                    view: window,
+                                    bubbles: true,
+                                    cancelable: true
+                                });
+                                dv.dispatchEvent(clickEvent);
+
+                                if (document.querySelector(".PassengerAndCabinClass .multiselect-dropdown div button.CTAButton.styleType-secondary > span").innerHTML === "Business") {
+                                    document.querySelector(".PassengerAndCabinClass .multiselect-dropdown div button.CTAButton.styleType-secondary").click();
+                                }
+                            }, 50);
+
+                        }
+                    });
+
+                });
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function () { waitForElement(); }, 100)
+            }
+        }
+        waitForElement();
+    })();
+</script>
