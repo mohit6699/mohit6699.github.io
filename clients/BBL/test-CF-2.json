@@ -1,0 +1,70 @@
+{
+	"data": {
+		"overlayBannerByPath": {
+			"item": {
+				"_path": "/content/dam/bangkokbank/overlay-banner/en/cf-overlaybanner-en",
+				"_id": "5725d290-f19f-4c0b-b573-592f22a51949",
+				"_variation": "master",
+				"language": "en",
+				"displayMessage": "test",
+				"nextAction": "test",
+				"campaignID": "CMP-002",
+				"imagePath": "/content/dam/bangkokbank/PrivateBanking-Section.svg",
+				"displayPrimaryButton": "Read More",
+				"touchPoint": "Test",
+				"uploadIMG": "/content/dam/bangkokbank/PrivateBanking-Section.svg",
+				"_extendedInfo": {
+					"language": {
+						"key": "en",
+						"label": "English"
+					}
+				},
+				"_variations": [],
+				"_metadata": {
+					"calendarMetadata": [
+						{
+							"name": "jcr:created",
+							"value": "2026-05-14T06:26:38.572Z"
+						},
+						{
+							"name": "cq:lastPublished",
+							"value": "2026-03-25T05:08:18.285Z"
+						},
+						{
+							"name": "cq:lastModified",
+							"value": "2026-03-25T05:07:10.623Z"
+						}
+					],
+					"floatMetadata": [],
+					"booleanArrayMetadata": [],
+					"stringMetadata": [
+						{
+							"name": "title",
+							"value": "CF-OverlayBanner-en"
+						},
+						{
+							"name": "description",
+							"value": ""
+						},
+						{
+							"name": "cq:lastReplicationAction",
+							"value": "Activate"
+						}
+					],
+					"intMetadata": [],
+					"calendarArrayMetadata": [],
+					"stringArrayMetadata": [],
+					"floatArrayMetadata": [],
+					"intArrayMetadata": [],
+					"booleanMetadata": []
+				},
+				"_model": {
+					"_path": "/conf/bangkokbank/settings/dam/cfm/models/overlay-banner",
+					"title": "Overlay Banner"
+				},
+				"_tags": []
+			},
+			"_references": []
+		}
+	}
+}

@@ -1,0 +1,314 @@
+  <script>
+      var productsJSON = [
+  {
+    "product name": "V16 Piston Animal Submarine",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/adf/-24f3-4c2f-a539-42ae43a715c4/avs/499087-01-0x360-730k.mp4",
+    "productSKU": "499087-01"
+  },
+  {
+    "product name": "V16 Piston Animal + Detail Cleaning Kit",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/1f7/1f72f6d5-7642-436f-8d66-2b99e543ea88/avs/499090-01-0x360-730k.mp4",
+    "productSKU": "499090-01"
+  },
+  {
+    "product name": "V16 Piston Animal",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/eca/ecab1031-3d09-4c8f-8d18-949f967bbd6d/avs/499085-01-0x360-730k.mp4",
+    "productSKU": "499085-01"
+  },
+  {
+    "product name": "V15 Detect Absolute +",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/e57/-f382-4a16-9bcf-/avs/447045-01-0x360-730k.mp4",
+    "productSKU": "447045-01"
+  },
+  {
+    "product name": "V15 Detect Yellow",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/7cb/7cbd1fb6-1c7a-4e2a-813b-6e76eefacfda/avs/447033-01-0x360-730k.mp4",
+    "productSKU": "447033-01"
+  },
+  {
+    "product name": "Dyson V12 Detect Slim Absolute +",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/ae1/-bac8-4136--085a295d9ad7/avs/448869-01-0x360-730k.mp4",
+    "productSKU": "448869-01"
+  },
+  {
+    "product name": "Dyson V12 Detect Slim Submarine",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/96f/96f9484e-5ff3-402f-906a-/avs/485296-01-0x360-730k.mp4",
+    "productSKU": "485296-01"
+  },
+  {
+    "product name": "Dyson v12 Detect Absolute",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/f14/-9087-4266-95f4-/avs/470521-01-0x360-730k.mp4",
+    "productSKU": "470521-01"
+  },
+  {
+    "product name": "Dyson v11",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/5a3/5a323479-7109-4f86-803e-/avs/479332-01-0x360-730k.mp4",
+    "productSKU": "479332-01"
+  },
+  {
+    "product name": "Dyson v10 submarine",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/7ea/7ea30420-50ce-4eda-af63-/avs/594594-01-0x360-730k.mp4",
+    "productSKU": "594594-01"
+  },
+  {
+    "product name": "Dyson V10 Total Clean",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/b31/-2fd0-44fb-8c17-5188007658e5/avs/443096-01-0x360-730k.mp4",
+    "productSKU": "443096-01"
+  },
+  {
+    "product name": "Dyson v10 Absolute",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/5e2/5e2b2d3d-6891-4a46-8d5a-/avs/394433-01-0x360-730k.mp4",
+    "productSKU": "394433-01"
+  },
+  {
+    "product name": "Dyson Cyclone V8",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/786/786891f7-99f3-4084-93f8-/avs/226564-01-0x360-730k.mp4",
+    "productSKU": "226564-01"
+  },
+  {
+    "product name": "Dyson Pencilvac",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/2c4/2c445fe2-e548-413c--0c7dea1030d8/avs/492690-01-0x360-730k.mp4",
+    "productSKU": "492690-01"
+  },
+  {
+    "product name": "Dyson pencilWash",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/111/111c5610-5b26-44bd-aa50-559fe0d8026a/avs/637218-01-0x360-730k.mp4",
+    "productSKU": "637218-01"
+  },
+  {
+    "product name": "Dyson Clean + Wash",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/d03/d0337871--4a25-8330-2dcb5350a859/avs/431999-01-0x360-730k.mp4",
+    "productSKU": "431999-01"
+  },
+  {
+    "product name": "Robot Spot + Scrub",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/119/1198598e-8079-49e3-976f-7552ac29295f/avs/586180-01-0x360-730k.mp4",
+    "productSKU": "586180-01"
+  },
+  {
+    "product name": "Cinetic Big Ball Animal 2",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/893/893f0386-2a5c-4fbc-8a75-3d8c0b88a664/avs/228428-01-0x360-730k.mp4",
+    "productSKU": "228428-01"
+  },
+  {
+    "product name": "Dyson Ball Animal Complete",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/877/877e662e-9f84-4d37-baee-/avs/394520-01-0x360-730k.mp4",
+    "productSKU": "394520-01"
+  },
+  {
+    "product name": "Big ball Multi Floor 2",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_///-5a47-4d91--84bc4ef7d01d/avs/232573-01-0x360-730k.mp4",
+    "productSKU": "232573-01"
+  },
+  {
+    "product name": "Ball Animal Origin",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/ecb/-9443-441c-bc60-e61891219790/avs/419665-01-0x720-3000k.mp4",
+    "productSKU": "419665-01"
+  },
+  {
+    "product name": "Ball Animal",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/492/492a3dc6-8f8c-41e2-9bf0-9defb030e59d/avs/394518-01-0x360-730k.mp4",
+    "productSKU": "394518-01"
+  },
+  {
+    "product name": "Animal Multi Floor",
+    "videoURL": "",
+    "productSKU": ""
+  },
+  {
+    "product name": "Big Ball Animal 2",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/8eb/8eb406b7--4d92--44bc6c6e2934/avs/228563-01-0x360-730k.mp4",
+    "productSKU": "228563-01"
+  },
+  {
+    "product name": "Car + Boat",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/84b/84bed617-0502-4494-98e9-4082e0175729/avs/586121-01-0x360-730k.mp4",
+    "productSKU": "586121-01"
+  },
+  {
+    "product name": "Co-anda 2x Pink Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/a28/-956b-4fe8-98bf-5faa9c72433f/avs/598792-01-0x360-730k.mp4",
+    "productSKU": "598792-01"
+  },
+  {
+    "product name": "Co-anda 2x Purple Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/462/462687e1--43f6-9aec-/avs/598951-01-0x720-3000k.mp4",
+    "productSKU": "598951-01"
+  },
+  {
+    "product name": "Co-anda 2x Amber Silk Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/fac/-4782-4aaf-b641-27a21f168772/avs/143167-01-0x720-3000k.mp4",
+    "productSKU": "143167-01"
+  },
+  {
+    "product name": "Co-anda 2x Apricot Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/450/450808b5-14f7-4f01-b865-9a13be895552/avs/264192-01-0x360-730k.mp4",
+    "productSKU": "264192-01"
+  },
+  {
+    "product name": "Co-anda 2x Pink Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/815/815692a8-0cd8-4666-9fc9-/avs/596885-01-0x360-730k.mp4",
+    "productSKU": "596885-01"
+  },
+  {
+    "product name": "Co-anda 2x Purple Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/cd7/-5101-46cf-85e0-/avs/597011-01-0x360-730k.mp4",
+    "productSKU": "597011-01"
+  },
+  {
+    "product name": "Co-anda 2x Red Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/aee/aeecdce6-97da-4931-afa7-/avs/176937-01-0x360-730k.mp4",
+    "productSKU": "176937-01"
+  },
+  {
+    "product name": "Airwrap i.d Blue Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/9a6/9a6dacf5--4b06-a003-029f1a1c298d/avs/107183-01-0x360-730k.mp4",
+    "productSKU": "107183-01"
+  },
+  {
+    "product name": "Airwrap i.d Pink Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/387/387b2213-ffc4-4fb1-b677-40baa92b47ad/avs/601857-01-0x360-730k.mp4",
+    "productSKU": "601857-01"
+  },
+  {
+    "product name": "Airwrap i.d Red Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/70c/70c0b7d7--4e21-bdd0-8d2e2c77ba5c/avs/594810-01-0x360-730k.mp4",
+    "productSKU": "594810-01"
+  },
+  {
+    "product name": "Airwrap i.d Apricot Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/fa5/-f159-4fec-947b-/avs/257622-01-0x360-730k.mp4",
+    "productSKU": "257622-01"
+  },
+  {
+    "product name": "Airwrap i.d Amber silk Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/636/6365bddd-84a8-4846-92e0-/avs/142913-01-0x360-730k.mp4",
+    "productSKU": "142913-01"
+  },
+  {
+    "product name": "Airwrap i.d Pink Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/b01/b0147037-1716-4947-a037-09447f2e39c9/avs/601927-01-0x360-730k.mp4",
+    "productSKU": "601927-01"
+  },
+  {
+    "product name": "Airwrap i.d Blue Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/3da/3daa1dd3-bb76-417b--85134692efa6/avs/107454-01-0x360-730k.mp4",
+    "productSKU": "107454-01"
+  },
+  {
+    "product name": "Supersonic r Pink Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/ff4/-5a10-4a40-87b4-0c413e65f70f/avs/533510-01-0x360-730k.mp4",
+    "productSKU": "533510-01"
+  },
+  {
+    "product name": "Supersonic r Purple Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/97e/97ec21bf-64fb-4da1-90ca-5792958bf3c0/avs/122783-01-0x360-730k.mp4",
+    "productSKU": "122783-01"
+  },
+  {
+    "product name": "Supersonic r Pink Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/af7/---46c2-9333-580f16054b83/avs/113373-01-0x720-3000k.mp4",
+    "productSKU": "113373-01"
+  },
+  {
+    "product name": "Supersonic r Purple Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/190/19085d62---4ee7-9777-703c8b375aaa/avs/123487-01-0x360-730k.mp4",
+    "productSKU": "123487-01"
+  },
+  {
+    "product name": "Airstrait pink",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/624/62492dcf-9ebe-4d5c-9370-/avs/598961-01-0x360-730k.mp4",
+    "productSKU": "598961-01"
+  },
+  {
+    "product name": "Airstrait blue",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/368/3688d0e5-6af8-44bd-9848-/avs/401315-01-0x360-730k.mp4",
+    "productSKU": "401315-01"
+  },
+  {
+    "product name": "Airstrait amber silk",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/368/3688d0e5-6af8-44bd-9848-/avs/401315-01-0x360-730k.mp4",
+    "productSKU": "401315-01"
+  },
+  {
+    "product name": "Supersonic Nural Pink Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Amber Silk Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Blue Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Apricot Straight + Wavy",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Red",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/e47/---4ba9-92bf-43bc861fe0d4/avs/493120-01-0x360-730k.mp4",
+    "productSKU": "493120-01"
+  },
+  {
+    "product name": "Supersonic Nural Blue",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/e47/---4ba9-92bf-43bc861fe0d4/avs/493120-01-0x360-730k.mp4",
+    "productSKU": "493120-01"
+  },
+  {
+    "product name": "Corrale Blue",
+    "videoURL": "",
+    "productSKU": ""
+  },
+  {
+    "product name": "Supersonic Nural Pink Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Amber Silk Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Nural Blue Curly",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/00f/00f5dd01-72dc-4ce3-8ef9-09d0b1391218/avs/176979-01-0x720-3000k.mp4",
+    "productSKU": "176979-01"
+  },
+  {
+    "product name": "Supersonic Blue",
+    "videoURL": "",
+    "productSKU": ""
+  },
+  {
+    "product name": "Airstrait strawberry bronze ",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/636/636c0f99-edc6-4f97-a355-/avs/560845-01-0x360-730k.mp4",
+    "productSKU": "560845-01"
+  },
+  {
+    "product name": "Airwrap origin",
+    "videoURL": "",
+    "productSKU": ""
+  },
+  {
+    "product name": "Supersonic Travel ",
+    "videoURL": "https://www.dyson.video/dyson/_renditions_/438/4384e814-5b70-481c-bd90-/avs/492458-01-0x360-730k.mp4",
+    "productSKU": "492458-01"
+  },
+  {
+    "product name": "Supersonic Blue Straight",
+    "videoURL": "",
+    "productSKU": ""
+  },
+  {
+    "product name": "Superosnic Blue Curly",
+    "videoURL": "",
+    "productSKU": ""
+  }
+]
+  </script>

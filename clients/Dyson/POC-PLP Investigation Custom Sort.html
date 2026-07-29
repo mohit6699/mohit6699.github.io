@@ -1,0 +1,129 @@
+<script>
+    (function () {
+        /************************ Configuration - START ************************/
+        const sequence = ["499090-01", "470521-01", "492690-01", "476596-01"];
+        /************************ Configuration - END **************************/
+
+        const MAX_RETRIES = 150;
+        const RETRY_DELAY = 100;
+
+        /**
+         * Master Sorting Function
+         * @param {string} type - 'price-asc', 'price-desc', 'rating', or 'sequence'
+         */
+        function sortProducts(type) {
+            const listContainer = document.querySelector('.product-listing__list-section');
+            if (!listContainer) return;
+
+            // 1. Get only the valid product cards
+            const products = Array.from(listContainer.querySelectorAll('li[data-productcode]'));
+
+            // 2. Sort the array in memory
+            products.sort((a, b) => {
+                const getVal = (el, selector) => {
+                    const target = el.querySelector(selector);
+                    if (!target) return 0;
+                    let text = target.textContent.trim();
+                    if (selector.includes('rating') && text.includes('/')) text = text.split('/')[0];
+                    return parseFloat(text.replace(/[^0-9.]/g, '')) || 0;
+                };
+
+                if (type === 'price-asc') return getVal(a, '.plp-card-final-price') - getVal(b, '.plp-card-final-price');
+                if (type === 'price-desc') return getVal(b, '.plp-card-final-price') - getVal(a, '.plp-card-final-price');
+                if (type === 'rating') return getVal(b, '.plp-card-avg-rating') - getVal(a, '.plp-card-avg-rating');
+
+                if (type === 'sequence') {
+                    const codeA = a.getAttribute('data-productcode');
+                    const codeB = b.getAttribute('data-productcode');
+                    const indexA = sequence.indexOf(codeA) !== -1 ? sequence.indexOf(codeA) : 999;
+                    const indexB = sequence.indexOf(codeB) !== -1 ? sequence.indexOf(codeB) : 999;
+                    return indexA - indexB;
+                }
+                return 0;
+            });
+
+            // 3. THE FIX: Prepend in REVERSE order
+            // By prepending the 'last' item first, the 'first' item ends up at the very top-left.
+            products.reverse().forEach(el => {
+                listContainer.prepend(el);
+            });
+
+            // 4. Force layout recalculation
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 150);
+        }
+
+        function applyReordering() {
+            let counter = 0;
+
+            const findAndApply = function () {
+                let allFound = true;
+                const headerProductCount = document.querySelector(".row.product-listing__row.sort_filter > .col-lg-6.hidden-md-down.product-listing__count-container-lg");
+                const sortDropdown = document.querySelector('.enhanced-search-box');
+                const listContainer = document.querySelector('.product-listing__list-section');
+
+                if (headerProductCount && listContainer) {
+                    if (!document.getElementById('top-picks-btn')) {
+                        // Hide original dropdown if it exists
+                        if (sortDropdown) sortDropdown.style.display = 'none';
+
+                        const buttonHtml = `
+                            <div id="custom-sort-container" style="display: inline-block;">
+                                <button id="priceHL-btn" class="btn btn--secondary" style="margin-left:10px;">Price: H-L</button>
+                                <button id="priceLH-btn" class="btn btn--secondary" style="margin-left:10px;">Price: L-H</button>
+                                <button id="rating-btn" class="btn btn--secondary" style="margin-left:10px;">Rating</button>
+                                <button id="top-picks-btn" class="btn btn--secondary" style="margin-left:10px;">Top picks</button>
+                            </div>`;
+
+                        headerProductCount.insertAdjacentHTML('afterend', buttonHtml);
+
+                        // Attach listeners once buttons are in DOM
+                        document.getElementById('priceHL-btn').addEventListener('click', () => sortProducts('price-desc'));
+                        document.getElementById('priceLH-btn').addEventListener('click', () => sortProducts('price-asc'));
+                        document.getElementById('rating-btn').addEventListener('click', () => sortProducts('rating'));
+                        document.getElementById('top-picks-btn').addEventListener('click', () => sortProducts('sequence'));
+                    }
+                } else {
+                    allFound = false;
+                }
+
+                if (!allFound && counter < MAX_RETRIES) {
+                    counter++;
+                    setTimeout(findAndApply, RETRY_DELAY);
+                }
+            };
+
+            findAndApply();
+        }
+
+        function setupObserver() {
+            const targetNode = document.body;
+            const config = { childList: true, subtree: true };
+            const observer = new MutationObserver((mutations) => {
+                let shouldRerun = false;
+                for (let mutation of mutations) {
+                    if (mutation.addedNodes.length > 0) {
+                        // Avoid triggering observer when we add our own buttons
+                        const isOurButton = Array.from(mutation.addedNodes).some(node =>
+                            node.id === 'custom-sort-container' || (node.parentElement && node.parentElement.id === 'custom-sort-container')
+                        );
+                        if (!isOurButton) {
+                            shouldRerun = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldRerun) {
+                    observer.disconnect();
+                    applyReordering();
+                    setTimeout(() => observer.observe(targetNode, config), 500);
+                }
+            });
+            observer.observe(targetNode, config);
+        }
+
+        applyReordering();
+        setupObserver();
+    })();
+</script>

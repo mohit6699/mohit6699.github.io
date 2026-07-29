@@ -1,0 +1,182 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.4/swiper-bundle.css"
+    integrity="sha512-eCyejMSBO5OZwV8DiCj9XETkTRH4FQBrvxod2fd12/xDKIzsc26NzmUZWucuvOXxOCooPb5NDqP5iOD8SzeOyQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<script>
+
+
+
+
+    // let headingCloserLook = `<div class="divider-line parbase">
+    //     <div class="container-fluid pt-lg-0 pt-xl-0 pb-lg-0 pb-xl-0 pt-md-0 pb-md-0 pt-xs-0 pt-sm-0 pb-xs-0 pb-sm-0">
+    //         <div class="row  row--fluid-no-padding">
+    //             <div class="divider-line__line-container col-md-12">
+    //                 <p class="divider-line__line divider-line__line--theme-light"></p>
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>
+    // <div class="container-fluid container-fluid--upto-lg">
+    //     <div class="closerLook-in-the-box swiper-container row row--no-padding ">
+    //         <div class="col-xs-12">
+    //             <h3 class="closerLook-in-the-box__heading_added h3">Learn more about...</h3>
+    //             <div>
+    //                 <div class="swiper-button-prev">
+    //                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    //                         <path
+    //                             d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z"
+    //                             fill="#333333" />
+    //                     </svg>
+    //                 </div>
+    //                 <div class="swiper-button-next">
+    //                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    //                         <path
+    //                             d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z"
+    //                             fill="#333333" />
+    //                     </svg>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //         ;`;
+
+    // var takeaCloserLookTemplate = `<ul class="swiper-wrapper">`
+    // learnSlideData.forEach((element) => {
+    //     `<li class="swiper-slide">
+    //                     <div class="imageContainer">
+    //                     <img src="` + element.src + `">
+    //                     </div><div class="textContainer"><p class="title">` + element.title + `</p>
+    //                     <p class="description">` + element.desc + `</p></div></li>`
+    // });
+    // `</ul></div></div>`;
+
+
+    //document.querySelector(".at-in-the-box").insertAdjacentHTML("afterend", headingCloserLook + closerLookHtml);
+    (function () {
+        loadcarouselCloserLook = function () {
+            if (typeof (jQuery) != 'undefined') {
+                var jq = jQuery.noConflict();
+                setTimeout(function () {
+                    const swiperCloserLook = new Swiper('.closerLook-in-the-box.swiper-container', {
+                        slidesPerView: 1,
+                        spaceBetween: 16,
+                        autoHeight: false,
+                        preloadImages: true,
+                        centeredSlides: false,
+                        initialSlide: 0,
+                        speed: 600,
+                        loop: false,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            0: {
+                                slidesPerView: 1.25,
+                            },
+                            520: {
+                                slidesPerView: 1.25,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                allowTouchMove: false,
+                            },
+                            1025: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                            1439: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                            2559: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                        },
+                        on: {
+                            init: function () {
+                                document.querySelector(".closerLook-in-the-box.swiper-container").style.opacity = 1;
+                            },
+                            touchEnd: function (state, event) {
+                                s.linkTrackVars = "eVar56";
+                                s.eVar56 = "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",swipe";
+                                s.tl(true, "o", "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",swipe");
+                            }
+                        },
+                    });
+                }, 0);
+            }
+        }
+        const learnSlideData = [
+            { title: "Motorbar™ cleaner head", desc: "43 de-tangling vanes automatically clear wrapped hair.", src: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/972182-01.png" },
+            { title: "Docking station", desc: "Wall-mounted dock to recharge your vacuum and store tools.", src: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/967741-02.png" },
+            { title: "Crevice tool", desc: "Engineered for precise cleaning around tricky edges.", src: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/967612-01.png" }
+        ];
+        var counter = 0;
+
+        var waitForElement = function () {
+            let target = document.querySelectorAll(".container-par.parbase")[0];
+
+            if (target) {
+                const slidesHtml = learnSlideData.map(element => `
+        <li class="swiper-slide">
+            <div class="imageContainer">
+                <img src="${element.src}" alt="${element.title}">
+            </div>
+            <div class="textContainer">
+                <p class="title">${element.title}</p>
+                <p class="description">${element.desc}</p>
+            </div>
+        </li>
+    `).join("");
+
+                const closerLookHtml = `
+        <div class="divider-line parbase">
+            <div class="container-fluid pt-lg-0 pt-xl-0 pb-lg-0 pb-xl-0 pt-md-0 pb-md-0 pt-xs-0 pt-sm-0 pb-xs-0 pb-sm-0">
+                <div class="row row--fluid-no-padding">
+                    <div class="divider-line__line-container col-md-12">
+                        <p class="divider-line__line divider-line__line--theme-light"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid container-fluid--upto-lg">
+            <div class="closerLook-in-the-box swiper-container row row--no-padding">
+                <div class="col-xs-12">
+                    <h3 class="closerLook-in-the-box__heading_added h3">Learn more about...</h3>
+                    <div>
+                        <div class="swiper-button-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z" fill="#333333"/>
+                            </svg>
+                        </div>
+                        <div class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z" fill="#333333"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <ul class="swiper-wrapper">
+                    ${slidesHtml}
+                </ul>
+            </div>
+        </div>
+    `;
+                target.insertAdjacentHTML("afterend", closerLookHtml);
+                loadcarouselCloserLook();
+            } else {
+                console.log("Target container not found, retry number: ", counter);
+                counter++;
+                if (counter < 100) setTimeout(waitForElement, 300);
+            }
+
+
+        };
+        waitForElement();
+    })();
+</script>

@@ -1,0 +1,302 @@
+<style>
+    .comparison-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+
+    /* Grid Layout */
+    .comparison-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .product-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Product Header Info */
+    .image-placeholder.main-img {
+        width: 100%;
+        height: 350px;
+        background-color: #f8f8f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    .product-name {
+        font-size: 18px;
+        line-height: normal;
+        /* Ensures alignment if names wrap */
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+
+    .rating {
+        color: #f4c150;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .rating-count {
+        color: #888;
+        margin-left: 5px;
+    }
+
+    .price {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    /* Specs Section */
+    .spec-section {
+        width: 100%;
+        padding: 25px 0;
+        border-top: 1px solid #eeeeee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-placeholder {
+        width: 30px;
+        height: 30px;
+        background-color: #f0f0f0;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #888;
+    }
+
+    .spec-value {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .spec-value.small-text {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .spec-label {
+        font-size: 12px;
+        color: #777;
+    }
+
+    /* Footer Button */
+    .footer-action {
+        margin-top: 40px;
+    }
+
+    .compare-btn {
+        background-color: #1a1a1a;
+        color: white;
+        padding: 15px 60px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: background 0.3s;
+    }
+
+    .compare-btn:hover {
+        background-color: #333;
+    }
+</style>
+<script>
+    (function () {
+        var counter = 0;
+        var maxRetries = 10; // Limit retries to prevent infinite loops
+        var retryDelay = 500; // Delay between retries in milliseconds
+
+        function insertContainer() {
+            var targetImage = document.querySelector('.product-listing'); // Adjust selector as needed
+            if (targetImage) {
+                const comparisonHTML = `<div class="comparison-container">
+    <h1 class="main-title">Choose the best model for you</h1>
+
+    <div class="comparison-grid">
+        <div class="product-column">
+            <div class="image-placeholder main-img">Product Image<br>250 x 350</div>
+            <h2 class="product-name">Dyson Gen5outsize™</h2>
+            <div class="rating">★★★★★ <span class="rating-count">4.0 (601)</span></div>
+            <div class="price">$1,149.99</div>
+            
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">250 AW</div>
+                <div class="spec-label">Suction power</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">70 min</div>
+                <div class="spec-label">Run time</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">8.6 lb</div>
+                <div class="spec-label">Weight</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">0.5 gal</div>
+                <div class="spec-label">Bin volume</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value small-text">Hard floor and carpet</div>
+                <div class="spec-label">Suitable for</div>
+            </div>
+        </div>
+
+        <div class="product-column">
+            <div class="image-placeholder main-img">Product Image<br>250 x 350</div>
+            <h2 class="product-name">Dyson V15 Detect™ Absolute</h2>
+            <div class="rating">★★★★★ <span class="rating-count">4.6 (17722)</span></div>
+            <div class="price">$849.99</div>
+            
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">240 AW</div>
+                <div class="spec-label">Suction power</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">60 min</div>
+                <div class="spec-label">Run time</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">6.8 lb</div>
+                <div class="spec-label">Weight</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">0.2 gal</div>
+                <div class="spec-label">Bin volume</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value small-text">Hard floor and carpet</div>
+                <div class="spec-label">Suitable for</div>
+            </div>
+        </div>
+
+        <div class="product-column">
+            <div class="image-placeholder main-img">Product Image<br>250 x 350</div>
+            <h2 class="product-name">Dyson V12 Detect Slim</h2>
+            <div class="rating">★★★★★ <span class="rating-count">4.5 (10537)</span></div>
+            <div class="price">$729.99</div>
+            
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">150 AW</div>
+                <div class="spec-label">Suction power</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">60 min</div>
+                <div class="spec-label">Run time</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">5.2 lb</div>
+                <div class="spec-label">Weight</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value">0.09 gal</div>
+                <div class="spec-label">Bin volume</div>
+            </div>
+
+            <div class="spec-section">
+                <div class="icon-placeholder">Icon</div>
+                <div class="spec-value small-text">Hard floor and carpet</div>
+                <div class="spec-label">Suitable for</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-action">
+        <button class="compare-btn">Compare all models</button>
+    </div>
+</div>`
+                targetImage.insertAdjacentHTML('afterend', comparisonHTML);
+                console.log('Container inserted successfully!');
+
+                const PRODUCT_API_BASE = "https://api.dyson.co.uk/apiman-gateway/dyson/product/1.0";
+                const DEFAULT_COUNTRY = "us";
+                const productSKUList = ["400473-01", "496076-01", "447921-01"]; // Example SKUs for Gen5outsize, V15 Detect Absolute, and V12 Detect Slim
+                const productCache = {};
+
+                function fetchDysonProduct(countryCode, sku) {
+                    const cacheKey = countryCode + ":" + sku;
+                    if (productCache[cacheKey]) return Promise.resolve(productCache[cacheKey]);
+                    const url = PRODUCT_API_BASE + "/" + encodeURIComponent(countryCode) + "/" + encodeURIComponent(sku);
+                    return fetch(url)
+                        .then(resp => {
+                            if (!resp.ok) {
+                                console.log("data=============>", resp);
+                                console.warn("Dyson product API error:", resp.status, sku);
+                                return null;
+                            }
+                            return resp.json();
+                        })
+                        .then(data => {
+                            if (data) productCache[cacheKey] = data;
+                            console.log("data=============>", data);
+
+                            return data;
+                        })
+                        .catch(err => {
+                            console.error("Error calling Dyson product API:", err);
+                            return null;
+                        });
+                }
+                fetchDysonProduct(DEFAULT_COUNTRY, productSKUList[0]);
+            } else if (counter < maxRetries) {
+                counter++;
+                console.warn('Target image not found. Retrying... (' + counter + '/' + maxRetries + ')');
+                setTimeout(insertContainer, retryDelay);
+            } else {
+                console.error('Failed to find the target image after ' + maxRetries + ' attempts.');
+            }
+        }
+
+        // Start the image replacement process
+        insertContainer();
+    })();
+</script>

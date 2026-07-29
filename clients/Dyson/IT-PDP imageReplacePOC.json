@@ -1,0 +1,74 @@
+  <script>
+      var productsJSON = [
+    {
+      "product name": "Robot",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/9b3/9b3822c8-2ece-4ba9-b370-a4fcb13c3977/avs/DYS_TVC-BROADCAST_804a-e_GL_en_30s_16-9_hero-high-awareness_fc_spot-scrub-Ai-1440x0-2000k.mp4",
+      "productSKU": "586183-01"
+    },
+    {
+      "product name": "V16 Piston Animal Submarine",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/94c/94c2b969-b414-4d05-9542-f521d02d2003/avs/GB_ENG_692B_TVC_16x9_15_WEST_CLEAN_Signpost-NO-SOUND-1440x0-2000k.mp4",
+      "productSKU": "492969-01"
+    },
+    {
+      "product name": "V16 Piston Animal + Detail Cleaning Kit",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/94c/94c2b969-b414-4d05-9542-f521d02d2003/avs/GB_ENG_692B_TVC_16x9_15_WEST_CLEAN_Signpost-NO-SOUND-1440x0-2000k.mp4",
+      "productSKU": "492963-01"
+    },
+    {
+      "product name": "V15 Submarine",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/caa/caa07379-4d26-4844-bed9-e3e13b1c23cd/avs/V15Submarine-Web-PDP-AnimatedBanner-RR-1440x0-2000k.mp4",
+      "productSKU": "494724-01"
+    },
+    {
+      "product name": "V15 Detect Absolute",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/1e3/1e3cfe5c-0c33-4f25-9a17-80684965fdc0/avs/V15-Web-PDP-AnimatedBanner-RR-1440x0-2000k.mp4",
+      "productSKU": "494719-01"
+    },
+    {
+      "product name": "V12 Detect gold",
+      "videoURL": "",
+      "productSKU": "448870-01"
+    },
+    {
+      "product name": "V12 Submairne",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/837/837b1702-793a-4704-883a-fab63427ca05/avs/620H-hepa-clean_cut-0-720-3000K-1440x0-2000k.mp4",
+      "productSKU": "485350-01"
+    },
+    {
+      "product name": "V10 Konical",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/253/25373c9e-b891-4fa9-a6be-d0eeb0517e71/avs/WEB-ONLY_285M_Product-Film_video_16-9_51s_na_Demo-film_fc_v10-Konical_285O-P_West_clean_ref-no-sound-1440x0-2000k.mp4",
+      "productSKU": "419634-01"
+    },
+    {
+      "product name": "V10 Konical with Dok",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/253/25373c9e-b891-4fa9-a6be-d0eeb0517e71/avs/WEB-ONLY_285M_Product-Film_video_16-9_51s_na_Demo-film_fc_v10-Konical_285O-P_West_clean_ref-no-sound-1440x0-2000k.mp4",
+      "productSKU": "594030-01"
+    },
+    {
+      "product name": "V10 Submarine",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/de1/de1fcc16-d89f-4d4c-93d4-4144a0ee950f/avs/v10-Sub-Cut_v8-2-1440x0-2000k.mp4",
+      "productSKU": "594446-01"
+    },
+    {
+      "product name": "V8 Cyclone",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/7cf/7cf54c88-2c04-4d60-a910-0cce70dfa353/avs/285M_Cyclone_PUSH_BUTTON_Short_copy-1440x0-2000k.mp4",
+      "productSKU": "494706-01"
+    },
+    {
+      "product name": "V8 Absolute",
+      "videoURL": "",
+      "productSKU": "476547-01"
+    },
+    {
+      "product name": "Pencilwash",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/894/894085cc-e072-4d86-a38d-b26cd8d670ca/avs/edited_970a_digital_brand360_hypercut_clean_15s_16x9_1-1440x0-2000k.mp4",
+      "productSKU": "637239-01"
+    },
+    {
+      "product name": "PencilVac",
+      "videoURL": "https://gateway-eu.assetsadobe.com/DMGateway/public-ssl/dyson/_renditions_/433/43375c84-f6ee-4183-9d49-dd3ca73b9045/avs/01_ROW_ENG_683_TVC_Homepage_16x9_11_CLEAN_Digital-1440x0-2000k.mp4",
+      "productSKU": "492689-01"
+    }
+  ];
+  </script>

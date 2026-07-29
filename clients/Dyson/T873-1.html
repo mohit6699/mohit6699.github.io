@@ -1,0 +1,420 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+<style>
+    .closerLook-section-one {
+        width: 100%;
+    }
+
+    .closerLook-section-one__heading_added {
+        margin: 0 0 24px;
+        font-size: 28px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #111;
+    }
+
+
+    .divider-line__line {
+        border: 0;
+        border-top: 1px solid #d9d9d9;
+        margin: 0 0 32px;
+    }
+
+
+    .closerLook-section-one.swiper-container {
+        position: relative;
+        max-width: 1440px;
+        overflow: hidden;
+        margin: 30px auto;
+    }
+
+    .closerLook-section-one .swiper-wrapper {
+        padding-left: 0 !important;
+        list-style: none;
+    }
+
+    .reasons-to-buy__heading.h5,
+    .reasons-to-buy+div,
+    .reasons-to-buy+div+div,
+    .reasons-to-buy+div+div+div,
+    .reasons-to-buy+div+div+div+div,
+    .reasons-to-buy+div+div+div+div+div,
+    .reasons-to-buy+div+div+div+div+div,
+    .reasons-to-buy+div+div+div+div+div+div+div+div,
+    .reasons-to-buy+div+div+div+div+div+div+div+div+div+div,
+    .reasons-to-buy+div+div+div+div+div+div {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .closerLook-section-one .swiper-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 24px;
+            row-gap: 24px;
+            padding: 0;
+            list-style: none;
+            width: 90%;
+            margin: 0 auto;
+            /* transform: none !important; */
+        }
+
+        .closerLook-section-one .swiper-slide {
+            margin: 0 !important;
+            list-style: none;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .closerLook-in-the-box__heading_added_one {
+            width: 90%;
+            margin: 10px auto;
+        }
+    }
+
+    .closerLook-section-one .imageContainer {
+        width: 100%;
+        margin-bottom: 12px;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #f5f5f5;
+    }
+
+    .closerLook-section-one .imageContainer img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .closerLook-section-one .textContainer {
+        padding: 0;
+    }
+
+    .closerLook-section-one .title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        line-height: 1.3;
+    }
+
+    .closerLook-section-one .description {
+        margin: 0;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #595959;
+    }
+
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .closerLook-section-one__heading_added {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .closerLook-section-one.swiper-container {
+            overflow: hidden;
+            width: 100%;
+            margin-left: 5%;
+        }
+
+        .closerLook-section-one .swiper-wrapper {
+            display: flex;
+            gap: 0;
+        }
+
+        .closerLook-section-one .imageContainer {
+            margin-bottom: 10px;
+        }
+
+        .closerLook-section-one .title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .closerLook-section-one .description {
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: absolute;
+            top: 40%;
+            z-index: 10;
+            width: 32px;
+            height: 32px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 50%;
+            color: #111;
+        }
+
+        .swiper-button-prev {
+            right: auto;
+            left: auto;
+        }
+
+        .swiper-button-next {
+            right: 30px;
+            left: auto;
+        }
+
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+
+
+    .swiper-button-prev.swiper-button-disabled,
+    .swiper-button-next.swiper-button-disabled {
+        visibility: hidden;
+    }
+
+    .closerLook-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+    }
+
+    .shopNowArrow {
+        font-size: 20px;
+        line-height: 0;
+    }
+
+    .shopNowCta {
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    var bindSwiperArrowLogsDiscover = function (swiperInstance) {
+        var prevBtn = document.querySelector('.closerLook-section-one .swiper-button-prev');
+        var nextBtn = document.querySelector('.closerLook-section-one .swiper-button-next');
+
+        if (prevBtn && !prevBtn.dataset.logBound) {
+            prevBtn.addEventListener('click', function () {
+                if (typeof s !== "undefined") {
+                    s.linkTrackVars = "eVar56";
+                    s.eVar56 = "Discover More| prev-btn| HP";
+                    s.tl(true);
+                }
+                // console.log('Closer Look swiper: previous arrow clicked, active index:', swiperInstance.activeIndex);
+            });
+            prevBtn.dataset.logBound = 'true';
+        }
+
+        if (nextBtn && !nextBtn.dataset.logBound) {
+            nextBtn.addEventListener('click', function () {
+                if (typeof s !== "undefined") {
+                    s.linkTrackVars = "eVar56";
+                    s.eVar56 = "Discover More| next-btn| HP";
+                    s.tl(true);
+                }
+                //console.log('Closer Look swiper: next arrow clicked, active index:', swiperInstance.activeIndex);
+            });
+            nextBtn.dataset.logBound = 'true';
+        }
+    };
+    var matchtextContainerHeight = function () {
+        var textContainer = document.querySelectorAll('.textContainer .title');
+        var descr = document.querySelectorAll('.textContainer .description');
+
+        if (!textContainer.length) return;
+
+        textContainer.forEach(function (item) {
+            item.style.height = 'auto';
+        });
+
+        var maxHeight = 0;
+
+        textContainer.forEach(function (item) {
+            var itemHeight = item.offsetHeight;
+            if (itemHeight > maxHeight) {
+                maxHeight = itemHeight;
+            }
+        });
+
+        textContainer.forEach(function (item) {
+            item.style.height = maxHeight + 'px';
+        });
+
+        descr.forEach(function (item) {
+            item.style.height = 'auto';
+        });
+
+        var maxHeight = 0;
+
+        descr.forEach(function (item) {
+            var itemHeight = item.offsetHeight;
+            if (itemHeight > maxHeight) {
+                maxHeight = itemHeight;
+            }
+        });
+
+        descr.forEach(function (item) {
+            item.style.height = maxHeight + 'px';
+        });
+    }
+
+
+    var loadcarouselCloserLookTwo = function () {
+
+
+        setTimeout(function () {
+
+
+            if (window.innerWidth <= 767) {
+                const swiper = new Swiper(".closerLook-section-one.swiper-container", {
+                    slidesPerView: 1.35,
+                    spaceBetween: 16,
+                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 35,
+                    autoHeight: true,
+                    preloadImages: true,
+                    centeredSlides: false,
+                    initialSlide: 0,
+                    speed: 600,
+                    loop: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev"
+                    },
+                    on: {
+                        init: function () {
+                            document.querySelector('.closerLook-section-one.swiper-container').style.opacity = '1';
+                            matchtextContainerHeight();
+                            bindSwiperArrowLogsDiscover(this);
+                        },
+                        touchEnd: function () {
+                            setTimeout(function () {
+                                swiper.swipeDirection = undefined;
+                            }, 0);
+                        },
+                        slideChange: function () {
+                            let direction = swiper.swipeDirection === "next" ? "Discover More| swipe-next" : "Discover More| swipe-prev";
+                            if (typeof s !== "undefined" && swiper.swipeDirection && typeof dataLayer !== "undefined" && dataLayer.pageInfo && dataLayer.pageInfo.pageTitle) {
+                                s.linkTrackVars = "eVar56";
+                                s.eVar56 = direction + "| HP";
+                                s.tl(true, "o", direction + "| HP");
+                            }
+                        }
+                    }
+                });
+            } else {
+                document.querySelector('.closerLook-section-one.swiper-container').style.opacity = '1';
+            }
+        }, 1000);
+        //}
+    };
+
+    const slideData = [{
+        title: "Dyson Supersonic™ Travel hair dryer",
+        desc: "32% smaller. 25% lighter.¹ Still mighty.",
+        desktopSrc: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/campaigns/homepage-redesign/supersonic-travel_partial_width_desktop.jpg",
+        mobileSrc: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/campaigns/homepage-redesign/supersonic-travel_partial_width_mobile.jpg",
+        href: "https://www.dyson.com/hair-care/hair-dryers/supersonic-travel/ceramic-pink",
+        evar56: "discover-supersonic-travel-image~cta",
+        shopNowEvar56: "discover-supersonic-travel-shopnow~cta"
+    },
+    {
+        title: "Find+Follow Purifier Cool",
+        desc: "The fan that directs cooling purified air towards you,³ even when you move. Now with Dyson Find+Follow™ air projection.",
+        desktopSrc: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/campaigns/homepage-redesign/find-follow_partial_width_desktop.jpg",
+        mobileSrc: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/campaigns/homepage-redesign/find-follow_partial_width_mobile.jpg",
+        href: "https://www.dyson.com/air-treatment/air-purifiers/find-follow-purifier-cool/white-gold",
+        evar56: "discover-supersonic-travel-image~cta",
+        shopNowEvar56: "discover-find-follow-shopnow~cta"
+    }
+    ];
+
+
+    (function () {
+        var counter = 0;
+
+        var slidesHtml = "";
+        var isMobile = window.innerWidth <= 767;
+
+        slideData.forEach(function (element) {
+            var imageSrc = isMobile ? element.mobileSrc : element.desktopSrc;
+            slidesHtml +=
+                '<li class="swiper-slide">' +
+                '<a href="' + element.href + '" class="closerLook-card" data-analytics-action-name="' + element.evar56 + '">' +
+                '<div class="imageContainer">' +
+                '<img src="' + imageSrc + '" alt="' + element.title + '">' +
+                '</div>' +
+                '<div class="textContainer">' +
+                '<h3 class="title">' + element.title + '</h3>' +
+                '<p class="description">' + element.desc + '</p>' +
+                '</div>' +
+                '</a>' +
+                '<span class="shopNowCta" onclick="handleShopNowCtaClick(\'' + element.shopNowEvar56 + '\', \'' + element.href + '\')">Shop now <span class="shopNowArrow">&#8594;</span></span>' +
+                '</li>';
+        });
+
+        var closerLookHtml =
+            '<div class="closerLook-section-one swiper-container" style="opacity:0">' +
+            '<h3 class="h3 closerLook-in-the-box__heading_added_one">Discover more from Dyson</h3>' +
+            '<ul class="swiper-wrapper">' +
+            slidesHtml +
+            '</ul>' +
+            '<div class="swiper-button-prev"></div>' +
+            '<div class="swiper-button-next"></div>' +
+            '</div>';
+
+        var waitForElement = function () {
+            var targetList = document.querySelectorAll(".container-par.parbase .image-carousel.parbase");
+            var target = targetList.length > 0 ? targetList[0] : null;
+            //var swiperWrapperTwo = document.querySelector(".closerLook-section-one .swiper-wrapper");
+
+            if (target) {
+                target.insertAdjacentHTML("afterend", closerLookHtml);
+                if (window.innerWidth <= 767) {
+                    setTimeout(function () {
+                        loadcarouselCloserLookTwo();
+                    }, 2000);
+
+                } else {
+                    document.querySelector('.closerLook-section-one.swiper-container').style.opacity = '1';
+                }
+
+            } else {
+                counter += 1;
+                if (counter < 100) {
+                    setTimeout(waitForElement, 300);
+                }
+            }
+        };
+        window.handleShopNowCtaClick = function (evar56, href) {
+
+
+            if (typeof s !== "undefined") {
+                s.linkTrackVars = "eVar56";
+                s.eVar56 = evar56;
+                s.tl(true, "o", evar56);
+            }
+            window.location.href = href;
+        }
+
+        waitForElement();
+    })();
+</script>

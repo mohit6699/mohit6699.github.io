@@ -1,0 +1,291 @@
+<style>
+    .custom-sort-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 12px 15px;
+        list-style: none;
+        color: #333;
+    }
+
+    /* Hide checkmark by default */
+    .custom-sort-option .checkmark {
+        display: none;
+    }
+
+    /* Show checkmark only when the option is active */
+    .custom-sort-option.active .checkmark {
+        display: block;
+    }
+
+    .custom-sort-option.active {
+        font-weight: 500;
+    }
+
+    #custom-drop-menu>li {
+        display: flex !important;
+    }
+
+    .product-listing__row.sort_filter {
+        display: flex;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 1025px) {
+        .search-dropdown {
+            font-size: 0.875rem !important;
+        }
+
+        .search-dropdown__side {
+            display: block !important;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .search-dropdown {
+            font-size: 0.875rem !important;
+        }
+
+        .search-dropdown__side {
+            display: block !important;
+        }
+
+        #custom-reordered-dropdown {
+            width: 56% !important;
+        }
+    }
+
+    .margin-top-adjusted {
+        margin-top: -7rem !important;
+    }
+
+    .margin-top-zero {
+        margin-top: 0px !important;
+    }
+</style>
+<script>
+    (function () {
+        // This is the order of product codes for the "Top picks" sorting. Products not in this list will appear at the end in their original order.
+        /******************Sequence for Top Picks Selection******************/
+        // const topPicksSequence = ["499090-01", "470521-01", "492690-01", "476596-01"];
+        const topPicksSequence = ["973756-01", "970516-04", "970516-02", "970516-05", "969559-02", "971327-03"];
+        /********************************************************************/
+
+        // Global state for the session
+        let defaultSortType = 'topPicks'; // valid values: 'price-asc', 'price-desc', 'rating', 'topPicks' 
+
+        function sortProducts(type) {
+            defaultSortType = type;
+            const listContainer = document.querySelector('.product-listing__list-section');
+            if (!listContainer) return;
+
+            const products = Array.from(listContainer.querySelectorAll('li[data-productcode]'));
+            if (products.length === 0) return;
+
+            products.sort((a, b) => {
+                const getVal = (el, selector) => {
+                    const target = el.querySelector(selector);
+                    if (!target) return 0;
+                    let text = target.textContent.trim();
+                    if (selector.includes('rating') && text.includes('/')) text = text.split('/')[0];
+                    return parseFloat(text.replace(/[^0-9.]/g, '')) || 0;
+                };
+
+                if (type === 'price-asc') return getVal(a, '.plp-card-final-price') - getVal(b, '.plp-card-final-price');
+                if (type === 'price-desc') return getVal(b, '.plp-card-final-price') - getVal(a, '.plp-card-final-price');
+                if (type === 'rating') return getVal(b, '.plp-card-avg-rating') - getVal(a, '.plp-card-avg-rating');
+                if (type === 'topPicks') {
+                    const indexA = topPicksSequence.indexOf(a.getAttribute('data-productcode'));
+                    const indexB = topPicksSequence.indexOf(b.getAttribute('data-productcode'));
+                    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+                }
+                return 0;
+            });
+
+            // products.forEach(el => {
+            //     el.style.removeProperty('order');
+            // });
+
+            // // This holds our elements sequentially without touching the layout engine yet
+            // const fragment = document.createDocumentFragment();
+            // products.forEach(el => fragment.appendChild(el));
+
+            // // Stripping the innerHTML completely deletes the layout tracker's memory of ghost items
+            // listContainer.innerHTML = '';
+
+            // // Because the DOM matches the visual layout, row-height scripts work flawlessly
+            // listContainer.appendChild(fragment);
+
+            products.reverse().forEach(el => listContainer.prepend(el));
+            setTimeout(() => window.dispatchEvent(new Event('resize')), 150);
+            setTimeout(() => manageLoadMoreSpacing(), 1000);
+        }
+
+        function setupSwatchClickHandler() {
+            document.addEventListener('click', function (e) {
+                const radio = e.target.closest('input[type="radio"].js-swatch');
+                if (!radio) return;
+
+                // Wait for the site's DOM swap to finish, then re-sort
+                setTimeout(() => {
+                    sortProducts(defaultSortType);
+                    manageLoadMoreSpacing();
+                    console.log("Color change click completed..................");
+                }, 300);
+
+            }, true);
+        }
+
+        function applyReordering() {
+            const headerProductCount = document.querySelector(".product-listing__count-container-lg");
+            const originalContainer = document.querySelector('.product-listing__dropdown-container.enhanced-search-box');
+
+            if (headerProductCount && originalContainer) {
+                // Check if we need to inject or just update
+                let customDropdown = document.getElementById('custom-reordered-dropdown');
+
+                if (!customDropdown) {
+                    originalContainer.style.setProperty('display', 'none', 'important');
+
+                    // Construct HTML - active class and text are dynamic based on defaultSortType
+                    const customDropdownHtml = `
+                    <div id="custom-reordered-dropdown" class="col-lg-3 col-md-6 col-xs-6 product-listing__dropdown-container">
+                        <div class="search-dropdown">
+                            <button class="search-dropdown__button" id="custom-drop-btn">
+                                <span class="search-sort-by">Sort by:</span>
+                                <span class="search-dropdown__side">
+                                    <span class="search-dropdown__value" id="custom-drop-value"></span>
+                                    <span class="search-dropdown__arrow"></span>
+                                </span>
+                            </button>
+                            <ul class="search-dropdown__menu" id="custom-drop-menu" style="display: none; position: absolute;">
+                                <li class="custom-sort-option" data-value="price-asc">Price: Low to High <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true" data-di-res-id="5a987425-d3e9dd68" data-di-rand="1775674232683">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5445 0.5L4.50161 8.575L1.45552 5.52L0 6.98L4.49661 11.5L14 1.96L12.5445 0.5Z" fill="#333333"></path>
+                                    </svg></li>
+                                <li class="custom-sort-option" data-value="price-desc">Price: High to Low <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true" data-di-res-id="5a987425-d3e9dd68" data-di-rand="1775674232683">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5445 0.5L4.50161 8.575L1.45552 5.52L0 6.98L4.49661 11.5L14 1.96L12.5445 0.5Z" fill="#333333"></path>
+                                    </svg></li>
+                                <li class="custom-sort-option" data-value="rating">Customer Rating <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true" data-di-res-id="5a987425-d3e9dd68" data-di-rand="1775674232683">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5445 0.5L4.50161 8.575L1.45552 5.52L0 6.98L4.49661 11.5L14 1.96L12.5445 0.5Z" fill="#333333"></path>
+                                    </svg></li>
+                                <li class="custom-sort-option" data-value="topPicks">Top picks <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden="true" data-di-res-id="5a987425-d3e9dd68" data-di-rand="1775674232683">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5445 0.5L4.50161 8.575L1.45552 5.52L0 6.98L4.49661 11.5L14 1.96L12.5445 0.5Z" fill="#333333"></path>
+                                    </svg></li>
+                            </ul>
+                        </div>
+                    </div>`;
+                    headerProductCount.insertAdjacentHTML('afterend', customDropdownHtml);
+                    customDropdown = document.getElementById('custom-reordered-dropdown');
+
+                    // Re-bind click events for the new injection
+                    bindDropdownEvents();
+                }
+
+                // --- UI SYNC SECTION ---
+                // Update the display text and active classes whenever applyReordering is called
+                const displayVal = document.getElementById('custom-drop-value');
+                const options = document.querySelectorAll('.custom-sort-option');
+
+                options.forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.getAttribute('data-value') === defaultSortType) {
+                        opt.classList.add('active');
+                        displayVal.textContent = opt.textContent; // This updates the button text
+                    }
+                });
+            }
+        }
+
+        function bindDropdownEvents() {
+            const btn = document.getElementById('custom-drop-btn');
+            const menu = document.getElementById('custom-drop-menu');
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+            });
+
+            document.querySelectorAll('.custom-sort-option').forEach(item => {
+                item.addEventListener('click', function () {
+                    const val = this.getAttribute('data-value');
+                    sortProducts(val); // This updates defaultSortType and sorts
+                    applyReordering(); // This updates the button text and checkmarks
+                    menu.style.display = 'none';
+                });
+            });
+
+            document.addEventListener('click', () => {
+                const menu = document.getElementById('custom-drop-menu');
+                if (menu) menu.style.display = 'none';
+            });
+        }
+
+        function setupObserver() {
+            const targetNode = document.body;
+            const config = {
+                childList: true,
+                subtree: true
+            };
+            const observer = new MutationObserver((mutations) => {
+                let needsAction = false;
+
+                for (let mutation of mutations) {
+                    if (mutation.addedNodes.length > 0) {
+                        const isProductUpdate = Array.from(mutation.addedNodes).some(node =>
+                            node.nodeType === 1 && (node.matches('li[data-productcode]') || node.querySelector('li[data-productcode]'))
+                        );
+
+                        if (isProductUpdate || !document.getElementById('custom-reordered-dropdown')) {
+                            needsAction = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (needsAction) {
+                    observer.disconnect();
+                    applyReordering();
+                    sortProducts(defaultSortType);
+                    setTimeout(() => observer.observe(targetNode, config), 600);
+                }
+            });
+            observer.observe(targetNode, config);
+        }
+
+        applyReordering();
+        sortProducts(defaultSortType);
+        setupObserver();
+        setupSwatchClickHandler();
+        //manageLoadMoreSpacing();
+
+        function manageLoadMoreSpacing() {
+            const listContainer = document.querySelector('.product-listing__list-section');
+            if (!listContainer) return;
+
+            const allItems = listContainer.querySelectorAll('li[data-productcode]');
+            if (!allItems.length) return;
+
+            const lastItem = allItems[allItems.length - 1];
+            const loadMoreBtn = document.querySelector('.product-listing-pagination__button');
+
+            if (!loadMoreBtn) return;
+
+            const lastItemBottom = lastItem.getBoundingClientRect().bottom;
+            const loadMoreTop = loadMoreBtn.getBoundingClientRect().top;
+            const gap = loadMoreTop - lastItemBottom;
+
+            console.log('Gap between last product and load more:', gap + 'px');
+
+            if (gap > 100) {
+                // Too much space — pull load more up
+                loadMoreBtn.classList.add('margin-top-zero');
+                document.querySelector('.js-product-listing-pagination').classList.add('margin-top-adjusted');
+                console.log('loadMoreBtn.style.marginTop::::::::', loadMoreBtn.style.marginTop, "------------", document.querySelector('.js-product-listing-pagination').style.marginTop);
+            } else {
+                console.log('No adjustment needed for load more button.');
+                return; // No adjustment needed
+            }
+        }
+    })();
+</script>

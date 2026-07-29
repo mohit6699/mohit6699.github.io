@@ -1,0 +1,75 @@
+<script>
+    const eventData = [[
+        {
+            "title": "LEAP 2026",
+            "location": "Riyadh",
+            "category": "Exhibition",
+            "startDate": { "day": "13", "month": "Apr", "year": "2026" },
+            "endDate": { "day": "16", "month": "Apr", "year": "2026" },
+            "image": "https://scth.scene7.com/is/image/scth/robot-leap-2026",
+            "url": "https://www.visitsaudi.com/en/riyadh/events/leap-2026",
+            "buttonText": "Visit Website",
+            "price": null
+        },
+        {
+            "title": "Fanatics Flag Football Classic",
+            "location": "Riyadh",
+            "category": "Sports",
+            "startDate": { "day": "21", "month": "Mar", "year": "2026" },
+            "endDate": null,
+            "image": "https://scth.scene7.com/is/image/scth/fanatics-flag-football-classic",
+            "url": "https://www.visitsaudi.com/en/riyadh/events/fanatics-flag-football-classic",
+            "buttonText": "Buy Tickets",
+            "price": "35"
+        }
+    ]];
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+    eventData.forEach(event => {
+        const tile = document.createElement('div');
+        tile.className = 'swiper-slide !w-[260px] lg:!w-[390px]';
+
+        // Logic for handling single dates vs date ranges
+        const dateHtml = event.endDate
+            ? `<div class="rounded-ss-[20px] leading-6 md:leading-8">
+         <div class="text-[32px]">${event.startDate.day}</div>
+         <div class="uppercase text-lg">${event.startDate.month}</div>
+       </div>
+       <div class="rounded-ee-[20px] leading-6 border-t-[1px] border-gray-50/40">
+         <div class="text-[32px]">${event.endDate.day}</div>
+         <div class="uppercase text-lg">${event.endDate.month}</div>
+       </div>`
+            : `<div class="rounded-ss-[20px] rounded-ee-[20px] leading-6 md:leading-8">
+         <div class="text-[32px]">${event.startDate.day}</div>
+         <div class="uppercase text-lg">${event.startDate.month}</div>
+       </div>`;
+
+        tile.innerHTML = `
+    <a href="${event.url}" class="text-default block relative rounded-[20px] drop-shadow-lg">
+      <div class="w-[62px] text-white text-center child:bg-black/50 absolute left-0 top-0 z-10">
+        ${dateHtml}
+      </div>
+      
+      <div class="rounded-[20px] overflow-hidden">
+        <img src="${event.image}" alt="${event.title}" class="w-full object-cover h-[390px]">
+      </div>
+
+      <div class="p-4">
+        <div class="flex items-center text-sm uppercase mb-2">
+          <span>${event.location}</span>
+          <span class="mx-2">|</span>
+          <span>${event.category}</span>
+        </div>
+        <h4 class="text-lg font-bold line-clamp-2">${event.title}</h4>
+        
+        <div class="flex justify-between items-center mt-4">
+          ${event.price ? `<span class="text-base">From ﷼ ${event.price}</span>` : '<span></span>'}
+          <button class="bg-purple-800 text-white px-4 py-2 rounded-lg">${event.buttonText}</button>
+        </div>
+      </div>
+    </a>
+  `;
+
+        swiperWrapper.appendChild(tile);
+    });
+</script>

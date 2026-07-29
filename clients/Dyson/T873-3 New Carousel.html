@@ -1,0 +1,650 @@
+<div __recsClickTrackIdPlaceholder__>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.4/swiper-bundle.css"
+        integrity="sha512-eCyejMSBO5OZwV8DiCj9XETkTRH4FQBrvxod2fd12/xDKIzsc26NzmUZWucuvOXxOCooPb5NDqP5iOD8SzeOyQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script type="text/javascript">
+        /*!
+         * flickerlessly.js v0.2.1
+         * @author Vadym Ustymenko
+         * @copyright 1996-2019. Adobe Systems Incorporated. All rights reserved.
+         * @usage: Flickerlessly.onReady({selector:'.a, .b', success:function(el, log){}},
+         *                              {selector:'.c', success:myCallbackFn, persist:true });
+         */
+
+
+        loadcarouselCloserLook = function () {
+            if (typeof (jQuery) != 'undefined') {
+                var jq = jQuery.noConflict();
+                setTimeout(function () {
+                    const swiperCloserLook = new Swiper('.closerLook-in-the-box.swiper-container', {
+                        slidesPerView: 1,
+                        spaceBetween: 16,
+                        autoHeight: false,
+                        preloadImages: true,
+                        centeredSlides: false,
+                        initialSlide: 0,
+                        speed: 600,
+                        loop: false,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            0: {
+                                slidesPerView: 1.25,
+                            },
+                            520: {
+                                slidesPerView: 1.25,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                allowTouchMove: false,
+                            },
+                            1025: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                            1439: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                            2559: {
+                                slidesPerView: 4,
+                                allowTouchMove: false,
+                            },
+                        },
+                        on: {
+                            init: function () {
+                                document.querySelector(".closerLook-in-the-box.swiper-container").style.opacity = 1;
+                            },
+                            touchEnd: function (state, event) {
+                                s.linkTrackVars = "eVar56";
+                                s.eVar56 = "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",swipe";
+                                s.tl(true, "o", "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",swipe");
+                            }
+                        },
+                    });
+                }, 0);
+            }
+        }
+
+
+
+        function isValidImage(src, title, description) {
+            return new Promise((resolve) => {
+                const img = new Image();
+
+                var template = `<li class="swiper-slide">
+                        <div class="imageContainer">
+                        <img src="` + src + `">
+                        </div><div class="textContainer"><p class="title">` + title + `</p>
+                        <p class="description">` + description + `</p></div></li>`;
+
+                img.onload = () => resolve(template);
+                img.onerror = () => resolve(false);
+
+                img.src = src;
+            })
+        }
+
+        var listItems = "";
+
+        function returnList(listItem) {
+            if (listItem !== false) {
+                var Item = listItem;
+                listItems += Item;
+            }
+        }
+
+        function executeMainInTheBox() {
+
+            (function (w, d) {
+                var logInfo = function (str) {
+                    console.info(str)
+                }
+                var Flickerlesslys = w.Flickerlesslys || {};
+                ! function (u) {
+                    "use strict";
+                    var f = function (u, f, n, o) {
+                        var a = "atNodeInserted" + u,
+                            i = [],
+                            s = ["", "-moz-", "-webkit-", "-ms-", "-o-"];
+                        s.forEach(function (u, f) {
+                            i.push("@" + u + "keyframes " + a + " {from {opacity:0.99} to {opacity:1}}")
+                        }), i.push(f + "{"), s.forEach(function (u, f) {
+                            i.push(u + "animation-duration:0.001s;" + u + "animation-name:" + a + ";")
+                        }), i.push("}");
+                        var r = d.getElementsByTagName("head")[0];
+                        if (r) {
+                            var c = d.createElement("style");
+                            c.setAttribute("type", "text/css"), c.styleSheet ? c.styleSheet.cssText = i.join("\n") : c.appendChild(d.createTextNode(i.join("\n"))), r.insertBefore(c, r.firstChild)
+                        }
+                        var l = function (u) {
+                            if (u.animationName === a && "object" == typeof u.target) {
+                                var i = o === !0 || o === !1 && null === u.target.getAttribute("data-flk-success");
+                                w.console && logInfo("('" + f + "') ready! Execute: " + i, u.target), "function" == typeof n && i ? (n(u.target), u.target.setAttribute("data-flk-success", a)) : w.console
+                            }
+                        };
+                        ["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (u, f) {
+                            d.addEventListener(u, l, !1)
+                        })
+                    },
+                        n = Math.floor(1e3 * Math.random() + 1);
+                    u.onReady = function () {
+                        for (var u = 0; u < arguments.length; u++) {
+                            var o = arguments[u],
+                                a = o.selector,
+                                i = o.success || null,
+                                s = o.persist || !1;
+                            f(n++, a, i, s)
+                        }
+                    }
+                }(Flickerlesslys);
+
+
+                Flickerlesslys.onReady({
+                    selector: '.whats-in-the-box',
+                    success: function (el) {
+                        if (!document.querySelector(".closerLook-in-the-box.swiper-container")) {
+                            setTimeout(() => {
+                                var tools = el.querySelectorAll("img").length;
+                                var listTemplate = `<ul class="bulletList">`;
+                                el.querySelectorAll("img").forEach(function (item, index) {
+                                    listTemplate += `<li>` + item.parentElement
+                                        .parentElement.nextElementSibling.innerText + `</li>`;
+                                });
+
+                                listTemplate += `</ul>`;
+
+                                var boxTemplate = `<div class="container-fluid container-fluid--upto-lg at-in-the-box">
+                      <div class="accordion parbase">
+                        <div data-focus-id="specifications" id="newWhatsInTheBox" 
+                        data-analytics-component="accordion" 
+                        data-expanded="false" vue-loaded="accordion" class="accordion-theme--light">
+                        <div class="accordion__heading bulletListAccordion">
+                          <div class="container-fluid container-fluid--upto-lg accordion__heading-container">
+                            <div class="row">
+                              <div class="accordion__heading-content col-xs-12">
+                                <h2 class="accordion__heading-text">
+                                  <button aria-controls="ef9cd7bcc5ad41fc95deb5868935074e" aria-expanded="false" 
+                                  data-analytics-action-name="expand~whatsinthebox"
+                                   class="accordion__heading no-focus" data-di-id="di-id-dd8ca836-62b36a5e">
+                                   <span class="accordion-span">In the box (` + tools + `)</span> 
+                                   <svg aria-hidden="true" class="shape shape--chevron accordion__heading-chevron"
+                                    viewBox="0 0 48 28" data-di-res-id="fb7cdf30-795c98f7" data-di-rand="1770261663560">
+                                    <path d="M45.2 0L24 22.1 2.8 0 0 2.9 24 28 48 2.9 45.2 0z"></path></svg></button></h2>
+                                    </div></div></div></div> <div id="ef9cd7bcc5ad41fc95deb5868935074e" 
+                                    class="accordion__body" style="height: 0px; transition: height 0.5s ease-out; display: none;">
+                                    <div class="accordion-parsys parsys"><div class="container-par parbase">
+                                      <div data-show-if="all" class="js-container-par container-fluid">
+                                        <div class="row row--fluid"><div class="backgroundWhite borderColorWhite">
+                                          <div class="product-specification parbase">
+                                            <section class="product-specification__wrapper js-product-specification 
+                                            container-fluid container-fluid--upto-lg whats-in-the-box-added whats-in-the-box-section">
+                                            <div class="row">
+                                              ` + listTemplate + `
+                                              </div>
+                                              </section>
+                                              </div></div>
+                                              </div></div>
+                                              </div></div>
+                                              </div></div>
+                                            </div>
+                                          </div>
+                                          </div>`;
+
+                                var divider = `<div class="divider-line parbase">
+                        <div class="container-fluid pt-lg-0 pt-xl-0 pb-lg-0 pb-xl-0 pt-md-0 pb-md-0 pt-xs-0 pt-sm-0 pb-xs-0 pb-sm-0">
+                            <div class="row  row--fluid-no-padding">
+                            <div class="divider-line__line-container col-md-12">
+                            <p class="divider-line__line divider-line__line--theme-light"></p>
+                              </div>
+                            </div>
+                        </div>
+                      </div>`;
+
+                                if (document.querySelector("#specifications") && document.querySelector("#specifications").parentElement
+                                    .nextElementSibling.classList.contains("divider-line")) {
+                                    document.querySelector("#specifications").parentElement
+                                        .nextElementSibling.insertAdjacentHTML("afterend", boxTemplate);
+                                } else {
+                                    $(divider + boxTemplate).insertAfter($("[data-analytics-action-name='expand~specifications']")
+                                        .closest(".accordion"))
+                                }
+
+
+                                var headingCloserLook = `<div class="divider-line parbase">
+                        <div class="container-fluid pt-lg-0 pt-xl-0 pb-lg-0 pb-xl-0 pt-md-0 pb-md-0 pt-xs-0 pt-sm-0 pb-xs-0 pb-sm-0">
+                            <div class="row  row--fluid-no-padding">
+                            <div class="divider-line__line-container col-md-12">
+                            <p class="divider-line__line divider-line__line--theme-light"></p>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="container-fluid container-fluid--upto-lg">
+                      <div class="closerLook-in-the-box swiper-container row row--no-padding ">
+                        <div class="col-xs-12">
+                        <h3 class="closerLook-in-the-box__heading_added h3">Learn more about...</h3>
+                        <div>
+                        <div class="swiper-button-prev">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z" fill="#333333"/>
+                            </svg>
+                        </div>
+                         <div class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12.5254 8.02539L5.47289 1.02539L4.47539 2.01589L10.5304 8.02539L4.47539 14.0349L5.47289 15.0254L12.5254 8.02539Z" fill="#333333"/>
+                            </svg>
+                          </div>
+                         </div>
+                        </div>
+                        `;
+
+                                var productSKU = document.querySelector(".whats-in-the-box__product-image-box img")
+                                    .getAttribute("id").split("product-image-")[1];
+
+                                var takeaCloserLookTemplate = `<ul class=" swiper-wrapper">`;
+                                document.querySelector(".whats-in-the-box")
+                                    .querySelectorAll("a").forEach(function (item, index) {
+                                        var imageSrc = `https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/` +
+                                            productSKU +
+                                            `/` + item.getAttribute("aria-controls") + `.png`;
+                                        isValidImage(imageSrc, item.text, item.nextElementSibling.innerText)
+                                            .then((value) => returnList(value));
+                                    })
+
+                                takeaCloserLookTemplate += `</ul></div></div>`;
+                                document.querySelector(".at-in-the-box")
+                                    .insertAdjacentHTML("afterend", headingCloserLook + takeaCloserLookTemplate);
+
+                                el.style.display = "none";
+                                document.querySelector('[href="#box"]') &&
+                                    document.querySelector('[href="#box"]').parentElement.remove();
+                            }, 0);
+                        }
+                    },
+                    persist: true
+                }, {
+                    selector: '.closerLook-in-the-box.swiper-container',
+                    success: function (el) {
+                        setTimeout(() => {
+                            document.querySelector(".closerLook-in-the-box.swiper-container .swiper-wrapper")
+                                .insertAdjacentHTML("afterbegin", listItems);
+                            loadcarouselCloserLook();
+                        }, 800);
+                    },
+                    persist: true
+                }, {
+                    selector: ".bulletListAccordion",
+                    success: function (el) {
+                        el.addEventListener("click", function () {
+                            console.log("clicked accordion :::");
+                            if (el.querySelector(".accordion__heading.no-focus").classList.contains("expanded")) {
+                                el.nextElementSibling.style = "height: 0px; transition: height 0.5s ease-out; display: none;"
+                                el.querySelector(".accordion__heading.no-focus.expanded").classList.remove("expanded");
+                                el.querySelector(".shape.shape--chevron.accordion__heading-chevron.up").classList.remove("up");
+                            } else {
+                                el.querySelector(".accordion__heading.no-focus").classList += " expanded";
+                                el.querySelector(".shape.shape--chevron.accordion__heading-chevron").classList += " up";
+                                el.nextElementSibling.style = "height: auto; transition: height 0.696s ease-out;"
+
+                            }
+                        })
+                    },
+                    persist: true
+                }, {
+                    selector: ".swiper-button-prev",
+                    success: function (el) {
+                        el.onclick = function () {
+                            s.linkTrackVars = "eVar56";
+                            s.eVar56 = "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",button-prev";
+                            s.tl(true, "o", "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + "button-prev");
+                        }
+                    },
+                    persist: true
+                }, {
+                    selector: ".swiper-button-next",
+                    success: function (el) {
+                        el.onclick = function () {
+                            s.linkTrackVars = "eVar56";
+                            s.eVar56 = "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + ",button-next";
+                            s.tl(true, "o", "take-a-closer-look|" + dataLayer.pageInfo.pageTitle + "button-next");
+                        }
+                    },
+                    persist: true
+                }
+
+                );
+            })(window, document);
+        }
+
+
+
+        (function () {
+            var cnt = 10000;
+
+            function loadFunction() {
+                if (typeof (Swiper) != 'undefined') {
+                    executeMainInTheBox();
+                } else if (cnt > 0) {
+                    cnt = cnt - 500;
+                    setTimeout(loadFunction, 500);
+                }
+            }
+            loadFunction();
+        })();
+    </script>
+
+    <style>
+        .closerLook-in-the-box.swiper-container {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            /* overflow: hidden; */
+        }
+
+        .whats-in-the-box-added {
+            background: white !important;
+        }
+
+        .closerLook-in-the-box.swiper-container .textContainer .title {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #2E2E2E;
+        }
+
+        .closerLook-in-the-box.swiper-container .textContainer .description {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #595959;
+        }
+
+
+
+        #box {
+            padding: 2rem 1.5rem 2rem .875rem;
+        }
+
+        .at-in-the-box ul.swiper-wrapper,
+        .closerLook-in-the-box ul.swiper-wrapper {
+            padding-left: 0.625em;
+            margin-bottom: 1em;
+        }
+
+        .at-in-the-box .whats-in-the-box__heading_added,
+        .closerLook-in-the-box .closerLook-in-the-box__heading_added {
+            margin-bottom: 24px;
+            /* font-size: 20px; */
+        }
+
+        .at-in-the-box.swiper-container {
+            overflow: hidden;
+            margin: 0 1.47315%;
+        }
+
+
+        @media only screen and (max-width : 768px) {
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:after,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:after {
+                font-size: 12px;
+                content: ' ' !important;
+                position: relative !important;
+                height: 1.8em !important;
+                width: 1.8em !important;
+                background-repeat: no-repeat !important;
+                left: 0.2em;
+                top: 0.2em;
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev {
+                height: 1.8em !important;
+                width: 1.8em !important;
+                -moz-border-radius: 50% !important;
+                padding-top: 0%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: #f0f0f0 !important;
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:hover,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:hover {
+                background: #f5f5f5 !important;
+                /* border: 1px solid black; */
+            }
+
+
+            .at-in-the-box.swiper-container,
+            .closerLook-in-the-box.swiper-container {
+                margin: 0 auto;
+                margin-top: 2em;
+                padding-right: 1.78571%;
+                padding-left: 1.78571%;
+            }
+
+
+            .closerLook-in-the-box.swiper-container img {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                border-radius: 8px;
+
+            }
+
+            .closerLook-in-the-box .swiper-button-next {
+                right: 0% !important;
+            }
+
+            .closerLook-in-the-box .swiper-button-prev {
+                left: 84% !important;
+            }
+
+            .closerLook-in-the-box .textContainer {
+                margin-top: 1em;
+            }
+
+            .swiper-button-prev svg,
+            .swiper-button-next svg {
+                object-fit: contain;
+                transform-origin: center;
+                margin-left: 7px !important;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:after,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:after {
+                font-size: 12px;
+                content: ' ' !important;
+                position: relative !important;
+                height: 2em !important;
+                width: 2em !important;
+                background-repeat: no-repeat !important;
+                left: 0.3em;
+                top: 0.3em;
+            }
+
+            .closerLook-in-the-box.swiper-container img {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                border-radius: 8px;
+            }
+
+
+            .closerLook-in-the-box .textContainer {
+                margin-top: 1em;
+            }
+
+            .closerLook-in-the-box.swiper-container {
+                margin: 0 auto;
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev {
+                height: 2.8em !important;
+                width: 2.8em !important;
+                -moz-border-radius: 50% !important;
+                padding-top: 0%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: #f0f0f0;
+                display: inline;
+                /* border : 1px solid black; */
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:hover,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:hover {
+                background: #f5f5f5 !important;
+                /* border: 1px solid black; */
+            }
+
+            /* .at-in-the-box ul.swiper-wrapper li .imageContainer{
+        width: 90%;
+      } */
+
+            .closerLook-in-the-box .swiper-button-next {
+                right: 0%;
+                top: 35%;
+            }
+
+            .closerLook-in-the-box .swiper-button-prev {
+                left: 87% !important;
+                top: 35%;
+
+            }
+
+            .swiper-button-prev svg,
+            .swiper-button-next svg {
+                width: 50% !important;
+                height: 50% !important;
+                object-fit: contain;
+                transform-origin: center;
+                margin-left: 9px !important;
+                margin-top: 9px !important;
+            }
+
+        }
+
+
+        @media only screen and (min-width : 1025px) {
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:after,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:after {
+                font-size: 12px;
+                content: ' ' !important;
+                position: relative !important;
+                height: 2em !important;
+                width: 2em !important;
+                background-repeat: no-repeat !important;
+                left: 0.3em;
+                top: 0.3em;
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev {
+                height: 1.8em !important;
+                width: 1.8em !important;
+                -moz-border-radius: 50% !important;
+                padding-top: 0%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: #f0f0f0;
+                display: inline;
+                /* border: 1px solid black; */
+            }
+
+            .closerLook-in-the-box.swiper-container .swiper-button-next:hover,
+            .closerLook-in-the-box.swiper-container .swiper-button-prev:hover {
+                background: #f5f5f5 !important;
+                /* border: 1px solid black; */
+            }
+
+
+            .closerLook-in-the-box .textContainer {
+                margin-top: 1em;
+            }
+
+            .at-in-the-box.swiper-container,
+            .closerLook-in-the-box.swiper-container {
+                margin-top: 3em;
+                margin-bottom: 3em;
+                overflow: hidden;
+                margin: 0 auto;
+                padding-right: 1.23457%;
+                padding-left: 1.23457%;
+                margin-top: 1.5em;
+            }
+
+            .closerLook-in-the-box.swiper-container {
+                overflow: hidden !important;
+            }
+
+            .closerLook-in-the-box li.swiper-slide {
+                max-width: 23.5% !important;
+            }
+
+            .closerLook-in-the-box.swiper-container img {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                border-radius: 8px;
+            }
+
+            .closerLook-in-the-box .swiper-button-next {
+                right: 0% !important;
+            }
+
+            .closerLook-in-the-box .swiper-button-prev {
+                left: 94% !important;
+            }
+
+            .swiper-button-prev svg,
+            .swiper-button-next svg {
+                width: 50% !important;
+                height: 50% !important;
+                object-fit: contain;
+                transform-origin: center;
+                margin-left: 7px !important;
+                margin-top: 7px !important;
+            }
+        }
+
+        .bulletList {
+            font-size: 16px;
+        }
+
+        .bulletList li {
+            margin: 10px 0;
+        }
+
+
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            .closerLook-in-the-box.swiper-container {
+                margin: 0 auto;
+                margin-top: 2em;
+                padding-right: 1.78571%;
+                padding-left: 1.78571%;
+            }
+
+        }
+
+
+        .closerLook-in-the-box .swiper-button-prev svg {
+            transform: rotateY(180deg) !important;
+        }
+
+        .closerLook-in-the-box .swiper-button-prev,
+        .closerLook-in-the-box .swiper-button-next {
+            visibility: visible !important;
+        }
+    </style>

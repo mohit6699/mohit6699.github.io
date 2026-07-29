@@ -1,0 +1,576 @@
+<style>
+    .slider-for .slick-list.draggable {
+        height: 486px !important;
+    }
+
+    .slider-for .slick-slide img {
+        object-fit: contain !important;
+        aspect-ratio: 16 / 9 !important;
+        width: 100% !important;
+    }
+
+    .slider-nav {
+        padding: 0 40px;
+        max-width: 100%;
+        margin: 20px auto 0 auto !important;
+        position: relative;
+        height: 140px;
+    }
+
+    .slider-nav .thumb-item img {
+        aspect-ratio: 16 / 9;
+        object-fit: contain !important;
+        width: 100% !important;
+    }
+
+    .product-hero-image-carousel-wrapper.hidden-original {
+        display: none !important;
+    }
+
+    /* Arrow Styling */
+    .slider-nav .slick-prev,
+    .slider-nav .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        width: 2rem;
+        height: 100%;
+        border: 0;
+        background: #fff;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: #222;
+    }
+
+    .slider-nav .slick-prev {
+        left: 0;
+    }
+
+    .slider-nav .slick-next {
+        right: 0;
+    }
+
+    .slider-nav .slick-prev:before {
+        content: '\2039';
+    }
+
+    .slider-nav .slick-next:before {
+        content: '\203A';
+    }
+
+    .slider-nav .slick-prev:before,
+    .slider-nav .slick-next:before {
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        color: #333;
+        font-weight: 100;
+    }
+
+    .thumb-item {
+        padding: 0 8px;
+        outline: none;
+    }
+
+    .thumb-item img {
+        width: 100%;
+        height: auto;
+        opacity: 1 !important;
+    }
+
+    .thumb-item.slick-current .thumb-image {
+        border: .09375rem solid #333;
+        border-radius: 2%;
+    }
+
+    .thumb-image,
+    .thumb-image img {
+        border-radius: 2%;
+    }
+
+    @media (max-width: 500px) {
+        .slider-for .slick-list.draggable {
+            height: 241px !important;
+        }
+
+        .slick-slide img {
+            object-fit: contain !important;
+            width: 100% !important;
+        }
+
+        .slider-nav {
+            height: 70px;
+            padding-bottom: 15px;
+            padding: 0 30px 15px 30px;
+            max-width: 100%;
+            margin: 10px auto 0 auto !important;
+        }
+
+        .thumb-item {
+            margin: 0 .25rem;
+            padding: 0;
+        }
+    }
+
+    /* Play Button Overlay for the Video Slide */
+    .video-trigger {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .video-trigger::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.9) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>') no-repeat center;
+        background-size: 40px;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 5;
+        transition: transform 0.2s;
+    }
+
+    .video-trigger:hover::after {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Modal Overlay */
+    #video-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.56);
+        display: none;
+        z-index: 10001;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 1100px;
+    }
+
+    .modal-content video {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        display: block;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        color: #fff;
+        font-size: 40px;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .video-controls {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .video-controls button {
+        background: #fff;
+        color: #000;
+        border: none;
+        padding: 12px 30px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+
+    #target-new-carousel-container .slick-list {
+        height: auto !important;
+    }
+
+    .custom-slider-text-overlay {
+        display: block !important;
+        visibility: visible !important;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Ensure the slide itself doesn't constrain height */
+    #target-new-carousel-container .slick-slide {
+        height: auto !important;
+    }
+</style>
+
+<script>
+    (function() {
+        var counter = 0;
+        var preloadedVideoUrl = null;
+
+        // Fetch dynamic URL from Dyson API using DataLayer SKU
+        var getDynamicVideoUrl = function() {
+            var sku = (window.dataLayer && window.dataLayer.primaryProduct) ?
+                window.dataLayer.primaryProduct.globalProductSKU :
+                "499090-01";
+
+            // Ensure productsJSON exists and is an array
+            if (window.productsJSON && Array.isArray(window.productsJSON)) {
+
+                // Find the specific product object where productSKU matches
+                var matchedProduct = window.productsJSON.find(function(item) {
+                    return item.productSKU === sku;
+                });
+
+                if (matchedProduct && matchedProduct.videoURL) {
+                    preloadedVideoUrl = matchedProduct.videoURL;
+
+                    // Optional: Ensure URL ends with '?' if it's a direct mp4 for certain players
+                    if (preloadedVideoUrl.indexOf('.mp4') !== -1 && !preloadedVideoUrl.endsWith('?')) {
+                        preloadedVideoUrl += '?';
+                    }
+
+                    console.log("Success: Found video for SKU " + sku + ":", preloadedVideoUrl);
+                } else {
+                    console.warn("SKU " + sku + " not found in productsJSON or videoURL is missing.");
+                }
+            } else {
+                console.error("productsJSON is not defined or is not an array.");
+            }
+        };
+
+        var videoUrlRequested = false;
+
+        var triggerVideoUrlOnce = function() {
+            if (videoUrlRequested) return;
+
+            var sku = window.dataLayer &&
+                window.dataLayer.primaryProduct &&
+                window.dataLayer.primaryProduct.globalProductSKU;
+
+            if (!sku) {
+                setTimeout(triggerVideoUrlOnce, 100);
+                return;
+            }
+
+            videoUrlRequested = true;
+            getDynamicVideoUrl();
+        };
+
+        // call once, early
+        triggerVideoUrlOnce();
+
+        var waitForElement = function() {
+            var originalSlickTrack = document.querySelector(".product-hero-image-carousel-wrapper .slick-track");
+
+            if (originalSlickTrack) {
+                var wrapper = document.querySelector('.product-hero-image-carousel-wrapper');
+
+                // 1. DATA EXTRACTION (Vanilla JS)
+                var sliderData = [];
+                var slides = document.querySelectorAll('.js-image-carousel-slides .responsive-image:not(.slick-cloned)');
+
+                // NEW EXTRACTION LOGIC: Search for SVG inside the slide
+                slides.forEach(function(slide) {
+                    var img = slide.querySelector('img');
+                    var hasSvg = slide.querySelector('svg') !== null; // Check for SVG icon presence
+
+                    var textOverlay = slide.querySelector('.slider-text-overlay span');
+                    var slideText = textOverlay ? textOverlay.innerText.trim() : "";
+
+                    if (img) {
+                        var imgUrl = img.getAttribute('data-src') || img.getAttribute('src');
+                        if (imgUrl && imgUrl.indexOf('base64') === -1) {
+                            sliderData.push({
+                                url: imgUrl,
+                                isVideo: hasSvg,
+                                text: slideText
+                            });
+                        }
+                    }
+                });
+
+                if (sliderData.length < 3) return;
+
+                // 2. REORDER (3rd to 1st, 1st to Last)
+                var thirdItem = sliderData.splice(2, 1)[0];
+                var firstItem = sliderData.splice(0, 1)[0];
+                sliderData.unshift(thirdItem);
+                sliderData.push(firstItem);
+
+                // 3. HIDE ORIGINAL & INJECT TARGET CONTAINER
+                wrapper.classList.add('hidden-original');
+
+                var newContainer = document.getElementById('target-new-carousel-container');
+                if (!newContainer) {
+                    newContainer = document.createElement('div');
+                    newContainer.id = 'target-new-carousel-container';
+                    newContainer.innerHTML = '<div class="slider-for"></div><div class="slider-nav" style="margin-top:20px;"></div>';
+                    wrapper.parentNode.insertBefore(newContainer, wrapper.nextSibling);
+
+                    // // Add Modal to Body
+                    // var modalHtml = '<div id="video-modal-overlay"><div class="modal-content"><span class="close-modal">&times;</span><video id="popup-video" playsinline></video><div class="video-controls"><button id="play-pause-toggle">Pause</button></div></div></div>';
+                    // document.body.insertAdjacentHTML('beforeend', modalHtml);
+                    // Video Popup Structure
+                    var modalHtml =
+                        '<div id="video-modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;z-index:10000;align-items:center;justify-content:center;">' +
+                        '  <div style="position:relative;width:100%;max-width:900px;background:#000;padding:10px 0px;border-radius:8px;">' +
+                        '    <span class="close-modal" style="position:absolute;top:-45px;right:0;color:#fff;font-size:35px;cursor:pointer;">&times;</span>' +
+                        '    <video id="popup-video" playsinline style="width:100%; display:block;"></video>' +
+                        '    <div id="video-controls" style="display:flex; align-items:center; gap:15px; padding:15px 10px 5px; color:#fff; font-family:sans-serif;">' +
+                        '      <button id="main-play-pause" style="background:none; border:none; cursor:pointer; padding:0; display:flex;">' +
+                        '        <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>' +
+                        '        <svg id="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>' +
+                        '      </button>' +
+                        '      <input type="range" id="seek-slider" value="0" step="0.1" style="flex-grow:1; cursor:pointer; accent-color:#fff;">' +
+                        '      <div style="font-size:13px; min-width:85px; white-space:nowrap;"><span id="current-time">0:00</span> / <span id="total-time">0:00</span></div>' +
+                        '      <button id="toggle-captions" style="background:none; border:none; cursor:pointer; opacity:0.7;"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/></svg></button>' +
+                        '      <button id="full-screen" style="background:none; border:none; cursor:pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>' +
+                        '    </div>' +
+                        '  </div>' +
+                        '</div>';
+                    document.body.insertAdjacentHTML('beforeend', modalHtml);
+                }
+
+                // 4. LOAD SLICK JS
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js";
+                script.onload = function() {
+                    var sliderFor = newContainer.querySelector('.slider-for');
+                    var sliderNav = newContainer.querySelector('.slider-nav');
+
+                    // Populate HTML
+                    sliderData.forEach(function(item) {
+                        //var videoAttr = item.isVideo ? 'class="video-trigger"' : '';
+                        var forDiv = document.createElement('div');
+                        if (item.isVideo) {
+                            forDiv.setAttribute('class', 'video-trigger');
+                        }
+
+                        // Check if text exists to decide if we show the overlay
+                        var textHtml = '';
+                        if (item.text && item.text.trim().length > 0) {
+                            textHtml =
+                                '<div class="custom-slider-text-overlay" style="background: #222; color: #fff; padding: 15px 20px; font-size: 18px; width: 100%; box-sizing: border-box;">' +
+                                '<span>' + item.text + '</span>' +
+                                '</div>';
+                        }
+
+                        forDiv.innerHTML =
+                            '<div class="slide-content-wrapper" style="display:flex; flex-direction:column;">' +
+                            '<img src="' + item.url + '" style="display:block; width:100%; height:auto;">' +
+                            textHtml +
+                            '</div>';
+                        sliderFor.appendChild(forDiv);
+
+                        var navDiv = document.createElement('div');
+                        navDiv.className = 'thumb-item';
+                        var playOverlay = item.isVideo ?
+                            '<div class="thumb-play-overlay" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); pointer-events:none; z-index:2; line-height:0;">' +
+                            '  <svg width="35" height="35" viewBox="0 0 24 24" fill="white" style="filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.6));">' +
+                            '    <path d="M8 5v14l11-7z"/>' +
+                            '  </svg>' +
+                            '</div>' : '';
+
+                        navDiv.innerHTML =
+                            '<div class="thumb-image" style="position:relative;">' +
+                            '<img src="' + item.url + '?wid=150">' +
+                            playOverlay +
+                            '</div>';
+                        sliderNav.appendChild(navDiv);
+                    });
+
+                    // --- ADDED TRACKING UTILITY ---
+                    var triggerTracking = function(index, total, action, type) {
+                        var name = "main~" + (index) + "of" + total + "|product hero:main-product-media|media-carousel," + action + "|" + type;
+                        console.log("Tracking Event Start====================>", name);
+                        if (window.s_gi) {
+                            var s = s_gi('dysonukprod');
+                            s.linkTrackVars = "eVar56";
+                            s.eVar56 = name;
+                            s.tl(true, "o", name);
+                            console.log("Tracking Event Processed====================>", name);
+                        }
+                    };
+                    // ------------------------------
+
+                    // Initialize via jQuery (Slick requires jQuery to run, but our logic is Vanilla)
+                    $(sliderFor).slick({
+                        slidesToShow: 1,
+                        fade: true,
+                        asNavFor: sliderNav,
+                        arrows: false,
+                        accessibility: false, // Crucial for stopping scroll jump
+                    });
+
+                    $(sliderNav).slick({
+                        slidesToShow: 3,
+                        asNavFor: sliderFor,
+                        focusOnSelect: true,
+                        variableWidth: false,
+                        arrows: true,
+                        accessibility: false, // Crucial for stopping scroll jump
+                        prevArrow: '<button type="button" class="slick-prev"></button>',
+                        nextArrow: '<button type="button" class="slick-next"></button>'
+                    });
+
+                    // --- ADDED EVENT LISTENERS FOR TRACKING ---
+                    var totalSlides = sliderData.length;
+                    var isManualSwipe = false;
+
+                    // 1. Detect the start of a manual swipe/drag
+                    $(sliderFor).on('mousedown touchstart', function() {
+                        isManualSwipe = true;
+                    });
+
+                    // 2. The main event listener
+                    $(sliderFor).on('afterChange', function(event, slick, currentSlide) {
+                        if (isManualSwipe) {
+                            triggerTracking(currentSlide, totalSlides, 'gallery_image,swipe', 'DIV');
+                            // Reset the flag immediately
+                            isManualSwipe = false;
+                        }
+                    });
+
+                    $(sliderNav).on('afterChange', function(event, slick, currentSlide) {
+                        if (isManualSwipe) {
+                            triggerTracking(currentSlide, totalSlides, 'gallery_image,swipe', 'DIV');
+                            // Reset the flag immediately
+                            isManualSwipe = false;
+                        }
+                    });
+
+                    // Track Next/Prev Button Clicks
+                    $(sliderNav).on('click', '.slick-next', function() {
+                        isManualSwipe = false;
+
+                        var currentIndex = $(sliderNav).slick('slickCurrentSlide');
+                        triggerTracking(currentIndex, totalSlides, 'icon,next', 'BUTTON');
+                    });
+
+                    $(sliderNav).on('click', '.slick-prev', function() {
+                        isManualSwipe = false;
+
+                        var currentIndex = $(sliderNav).slick('slickCurrentSlide');
+                        triggerTracking(currentIndex, totalSlides, 'icon,previous', 'BUTTON'); // Note: 'prev' used for logical clarity in reporting
+                    });
+                    // ------------------------------------------
+
+                    setTimeout(function() {
+                        $(sliderFor).slick('setPosition');
+                        $(sliderNav).slick('setPosition');
+                    }, 200);
+
+                    // 5. REVEAL
+                    newContainer.classList.add('ready');
+
+
+                    // 1. ADD THESE NEW VARIABLES & UTILITY
+                    var v = document.getElementById('popup-video');
+                    var seekSlider = document.getElementById('seek-slider');
+                    var currentTimeText = document.getElementById('current-time');
+                    var totalTimeText = document.getElementById('total-time');
+
+                    var formatTime = function(seconds) {
+                        var min = Math.floor(seconds / 60);
+                        var sec = Math.floor(seconds % 60);
+                        return min + ":" + (sec < 10 ? '0' + sec : sec);
+                    };
+
+                    // 2. REPLACE THE OLD CLICK TRIGGER
+                    $(sliderFor).on('click', '.video-trigger', function() {
+                        if (preloadedVideoUrl) {
+                            var source = v.querySelector('source');
+                            if (!source) {
+                                source = document.createElement('source');
+                                source.type = 'video/mp4';
+                                v.appendChild(source);
+                            }
+
+                            // REPLACED: Use dynamic URL and reset UI state
+                            source.src = preloadedVideoUrl;
+                            v.load();
+                            $('#video-modal-overlay').css('display', 'flex');
+
+                            v.play().then(function() {
+                                $('#play-icon').hide();
+                                $('#pause-icon').show();
+                            });
+                        } else {
+                            console.warn("Video URL not ready yet.");
+                        }
+                    });
+
+                    // 3. ADD THESE NEW VIDEO EVENT LISTENERS
+                    v.addEventListener('loadedmetadata', function() {
+                        seekSlider.max = v.duration;
+                        totalTimeText.innerText = formatTime(v.duration);
+                    });
+
+                    v.addEventListener('timeupdate', function() {
+                        seekSlider.value = v.currentTime;
+                        currentTimeText.innerText = formatTime(v.currentTime);
+                    });
+
+                    // 4. ADD NEW UI CONTROL HANDLERS
+                    seekSlider.addEventListener('input', function() {
+                        v.currentTime = seekSlider.value;
+                    });
+
+                    $('#main-play-pause, #popup-video').on('click', function() {
+                        if (v.paused) {
+                            v.play();
+                            $('#play-icon').hide();
+                            $('#pause-icon').show();
+                        } else {
+                            v.pause();
+                            $('#play-icon').show();
+                            $('#pause-icon').hide();
+                        }
+                    });
+
+                    $('#full-screen').on('click', function() {
+                        if (v.requestFullscreen) v.requestFullscreen();
+                        else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+                    });
+
+                    // 5. UPDATE THE CLOSE MODAL LOGIC (Minor cleanup)
+                    $('.close-modal, #video-modal-overlay').on('click', function(e) {
+                        if (e.target !== this && !$(e.target).hasClass('close-modal')) return;
+                        v.pause();
+                        $('#video-modal-overlay').hide();
+                    });
+
+
+                };
+                document.head.appendChild(script);
+
+            } else {
+                counter++;
+                if (counter < 150) {
+                    setTimeout(waitForElement, 100);
+                }
+            }
+        };
+
+        // Ensure Slick's CSS is present
+        if (!document.getElementById('slick-cdn-css')) {
+            var link = document.createElement('link');
+            link.id = 'slick-cdn-css';
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css';
+            document.head.appendChild(link);
+        }
+
+        waitForElement();
+    })();
+</script>

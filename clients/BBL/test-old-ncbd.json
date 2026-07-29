@@ -1,0 +1,14 @@
+{
+  "content": {
+    "topicMessage": "Keep spending in check",
+    "message": "Set limits on expenses that you want and know before it goes over",
+    "ctaLink": "ncbdapp://expense-limit/invite",
+    "ctaText": "Tell me more",
+    "lang": "en"
+  },
+  "reporting": {
+    "campaignId": "${activity.id}",
+    "campaignName": "${activity.name}",
+    "experienceName": "${campaign.recipe.name}"
+  }
+}

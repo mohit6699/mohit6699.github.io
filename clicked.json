@@ -1,93 +1,67 @@
 {
-  "uuid": "577a0622-166c-4891-81b8-ab7523aeffe9",
-  "eventNumber": 81,
-  "clientId": "1aa20be3-f01a-4e2a-a04e-e56606070209",
-  "timestamp": 1747126718513,
-  "vendor": "com.adobe.griffon.mobile",
-  "type": "generic",
-  "payload": {
-    "ACPExtensionEventData": {
-      "xdm": {
-        "eventType": "decisioning.propositionInteract",
-        "_experience": {
-          "decisioning": {
-            "propositions": [
-              {
-                "scopeDetails": {
-                  "characteristics": {
-                    "clickToken": "Hb4U8PUapIUqZ7AyzpCQ9w==",
-                    "analyticsClickToken": "753799:0:0|32767",
-                    "displayToken": "TvHeEHhu7mFLDba40MadWJ3BNhkKdJh9FdggP2851ydw54XAlJ3xNRImNE7jBWgsxaXZbY+oI47LCYdScis3kg=="
-                  },
-                  "activity": {
-                    "id": "753799"
-                  },
-                  "strategies": [
-                    {
-                      "trafficType": "0",
-                      "step": "entry"
-                    },
-                    {
-                      "trafficType": "0",
-                      "step": "display"
-                    },
-                    {
-                      "trafficType": "0",
-                      "step": "custom-metric-3"
-                    }
-                  ],
-                  "correlationID": "753799:0:0",
-                  "decisionProvider": "TGT",
-                  "experience": {
-                    "id": "0"
-                  }
+  "event": {
+    "xdm": {
+      "eventType": "decisioning.propositionDismiss",
+      "identityMap": {
+        "ECID": [
+          {
+            "id": "05907638112924484241029082405297151123",
+            "authenticatedState": "authenticated",
+            "primary": false
+          }
+        ],
+        "banextid": [
+          {
+            "id": "76543210",
+            "authenticatedState": "authenticated",
+            "primary": true
+          }
+        ]
+      },
+      "_experience": {
+        "decisioning": {
+          "propositionEventType": {
+            "suppressDisplay": 1
+          },
+          "propositions": [
+            {
+              "id": "AT:eyJhY3Rpdml0eUlkIjoiNzkzNjkzIiwiZXhwZXJpZW5jZUlkIjoiMCJ9",
+              "scope": "test-overlay-1 ",
+              "scopeDetails": {
+                "decisionProvider": "TGT",
+                "activity": {
+                  "id": "804840"
                 },
-                "scope": "Landing",
-                "id": "AT:eyJhY3Rpdml0eUlkIjoiNzUzNzk5IiwiZXhwZXJpZW5jZUlkIjoiMCJ9",
-                "items": [
+                "experience": {
+                  "id": "0"
+                },
+                "strategies": [
                   {
-                    "id": "0"
+                    "step": "entry",
+                    "trafficType": "0"
+                  },
+                  {
+                    "step": "display",
+                    "trafficType": "0"
                   }
-                ]
+                ],
+                "characteristics": {
+                  "eventToken": "REPLACE_WITH_DISPLAY_TOKEN_FROM_FETCH_RESPONSE", //characteristics.displayToken
+                },
+                "correlationID": "804840:0:0"
               }
-            ]
-          }
-        },
-        "_bangkokbank": {
-          "pageDetails": {
-            "siteLanguage": "en",
-            "appVersion": "0.2.0",
-            "pageType": "50.33333206176758"
-          },
-          "campaign": {
-            "internal": {
-              "campaignId": "753799",
-              "experienceName": "Experience A - Reminding Message",
-              "impressions": {
-                "value": 1
-              },
-              "campaignName": "Test | UC1 NCBD App – Landing 100425"
             }
-          },
-          "userDetails": {
-            "loginStatus": "Logged-in"
-          },
-          "channelDetails": {
-            "environment": "dev",
-            "platform": "android"
-          },
-          "identitiesBBL": {
-            "cisCdpId": "uc1_inApp_track_id-1",
-            "gaid": "3969c786-94dc-42ca-9d64-31137941f49f",
-            "idfa": ""
-          }
+          ]
         }
       }
     },
-    "ACPExtensionEventUniqueIdentifier": "32eb7039-d138-44c5-8eee-06e1fca0c713",
-    "ACPExtensionEventName": "AEP Request Event",
-    "ACPExtensionEventSource": "com.adobe.eventsource.requestcontent",
-    "ACPExtensionEventType": "com.adobe.eventtype.edge"
-  },
-  "annotations": []
+    "data": {
+      "__adobe": {
+        "target": {
+          “action”: “never”,
+          "campaignCode": " CMP-02405-J0K0B6"
+        }
+      }
+    }
+  }
 }

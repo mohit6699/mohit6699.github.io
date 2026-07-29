@@ -1,0 +1,224 @@
+<style>
+    .dyson-learnMore-section {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: inherit;
+    }
+
+    .dyson-learnMore-section h2 {
+        padding: 2rem 1.5rem 0px 6.5rem;
+    }
+
+    /* Desktop View: Grid layout */
+    .learnMore-desktop-view {
+        display: flex;
+        gap: 20px;
+        padding: 20px 20px 40px 20px;
+        max-width: 88vw;
+        margin: 0 auto;
+    }
+
+    .learnMore-column {
+        flex: 1;
+    }
+
+    .learnMore-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.5rem;
+    }
+
+    .learnMore-card-content h3 {
+        font-size: 1.75rem;
+        margin: 15px 0 10px;
+    }
+
+    .learnMore-card-content p {
+        font-size: 1.2rem;
+    }
+
+    /* Mobile Carousel Logic */
+    .mobile-learnMoreCarousel-container {
+        display: none;
+        position: relative;
+        /* Full-bleed effect: ignores parent padding */
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        background: #fff;
+    }
+
+    @media (max-width: 768px) {
+
+        .dyson-learnMore-section h2 {
+            padding: 20px 15px 0 15px;
+            margin-bottom: 0 !important;;
+        }
+
+        .learnMore-desktop-view {
+            display: none;
+        }
+
+        .mobile-learnMoreCarousel-container {
+            display: block;
+        }
+
+        .learnMore-mobile-view {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        .learnMore-mobile-view::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Chrome/Safari */
+
+        .mobile-learnMore-card {
+            min-width: 75%;
+            scroll-snap-align: start;
+            padding: 20px 0px 20px 15px;
+        }
+
+        .mobile-learnMore-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        .mobile-learnMore-card-content {
+            padding: 20px 20px 20px 3px;
+            text-align: left;
+        }
+
+        /* Arrows overlaying the image area */
+        .learnMoreCarousel-btn {
+            position: absolute;
+            top: 35%;
+            transform: translateY(-50%);
+            background: #333;
+            opacity: 0.8;
+            color: lightgrey;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 24px;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .learnMoreCarousel-btn.prev {
+            left: 15px;
+            padding: 0px 2px 5px 0px;
+        }
+
+        .learnMoreCarousel-btn.next {
+            right: 15px;
+            padding: 0px 0px 5px 2px;
+        }
+
+    }
+</style>
+
+<script>
+    (function () {
+        var counter = 0;
+
+        function initCarouselLogic() {
+            const learnMoreCarousel = document.querySelector('.learnMore-mobile-view');
+            //const dots = document.querySelectorAll('.dot');
+            const btnPrev = document.querySelector('.learnMoreCarousel-btn.prev');
+            const btnNext = document.querySelector('.learnMoreCarousel-btn.next');
+
+            if (!learnMoreCarousel) return;
+
+            // Arrow Clicks
+            btnNext.addEventListener('click', () => {
+                learnMoreCarousel.scrollBy({ left: learnMoreCarousel.offsetWidth, behavior: 'smooth' });
+            });
+
+            btnPrev.addEventListener('click', () => {
+                learnMoreCarousel.scrollBy({ left: -learnMoreCarousel.offsetWidth, behavior: 'smooth' });
+            });
+        }
+
+        var waitForLearnMoreElement = function () {
+            let heroContainer = document.querySelectorAll(".container-par.parbase")[0];
+
+            if (heroContainer) {
+                let newHTML = `
+                <div class="dyson-learnMore-section">
+                    <h2>Learn more about... </h2>
+                    <div class="learnMore-desktop-view">
+                        <div class="learnMore-column">
+                            <div class="learnMore-card">
+                                <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/972182-01.png" alt="Expert Guides">
+                                <div class="learnMore-card-content">
+                                    <h3>Motorbar™ cleaner head</h3>
+                                    <p>43 de-tangling vanes automatically clear wrapped hair.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="learnMore-column">
+                            <div class="learnMore-card">
+                                <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/967741-02.png" alt="Enhancements">
+                                <div class="learnMore-card-content">
+                                    <h3>Docking station</h3>
+                                    <p>Wall-mounted dock to recharge your vacuum and store tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mobile-learnMoreCarousel-container">
+                        <button class="learnMoreCarousel-btn prev">‹</button>
+                        <div class="learnMore-mobile-view">
+                            <div class="mobile-learnMore-card">
+                                <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/972182-01.png">
+                                <div class="mobile-learnMore-card-content">
+                                    <h3>Motorbar™ cleaner head</h3>
+                                    <p>43 de-tangling vanes automatically clear wrapped hair.</p>
+                                </div>
+                            </div>
+                            <div class="mobile-learnMore-card">
+                                <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/witbuxredesign/447266-01/967741-02.png">
+                                <div class="mobile-learnMore-card-content">
+                                    <h3>Docking station</h3>
+                                    <p>Wall-mounted dock to recharge your vacuum and store tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="learnMoreCarousel-btn next">›</button>
+                    </div>
+                </div>`;
+
+                heroContainer.insertAdjacentHTML('afterend', newHTML);
+
+                // Initialize logic AFTER insertion
+                initCarouselLogic();
+
+            } else {
+                counter++;
+                if (counter < 100) {
+                    setTimeout(waitForLearnMoreElement, 300);
+                }
+            }
+        };
+
+        waitForLearnMoreElement();
+    })();
+</script>

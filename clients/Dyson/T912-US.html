@@ -1,0 +1,74 @@
+<style>
+    .need-help-container {
+        background-color: #f3f3f3;
+        padding: 10px 10px 10px 10px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+    }
+
+    .accordion-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #f8f8f8;
+        /* Light gray background matching your image */
+        font-family: sans-serif;
+        color: #333333;
+        cursor: pointer;
+    }
+
+    /* Creates the crisp chevron arrow seen in the image */
+    .chevron-arrow {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #555555;
+        /* Upper slant of chevron */
+        border-right: 2px solid #555555;
+        /* Lower slant of chevron */
+        transform: rotate(45deg);
+        /* Points the chevron to the right */
+        margin-right: 5px;
+    }
+</style>
+
+<script>
+    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
+    Flickerlessly.onReady(
+        {
+            selector: '.product-hero__text .product-hero__cta-container',
+            persist: false,
+            success: function (el) {
+                let pdpUrl = window.location.href;
+                let hmcUrl = "";
+                if (pdpUrl.includes("hair-care")) {
+                    hmcUrl = "https://www.dyson.com/help-me-choose/hair-care";
+                } else if (pdpUrl.includes("vacuum-cleaners")) {
+                    hmcUrl = "https://www.dyson.com/help-me-choose/vacuum-cleaners";
+                } else if (pdpUrl.includes("air-treatment")) {
+                    hmcUrl = "https://www.dyson.com/help-me-choose/air-treatment";
+                }
+                //let heroDetailsContainer = document.querySelector(".product-hero__text .product-hero__cta-container")
+                let variantContainer = document.querySelector(".swatches");
+                let needHelpContainer = '<a class="need-help-container" href="' + hmcUrl + '" target="_self"><span class="need-help-text">Need help choosing the right product for you?</span><span class="chevron-arrow"></span></a>';
+
+                if (variantContainer == undefined && variantContainer == null) {
+                    console.log("variants container exists!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+                    el.insertAdjacentHTML('beforebegin', needHelpContainer);
+                } else {
+                    console.log("variants container does not exist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+                    let variantDivList = document.querySelectorAll(".swatches");
+                    variantDivList[variantDivList.length - 1].insertAdjacentHTML('afterend', needHelpContainer);
+                }
+            }
+        });
+
+
+
+</script>
