@@ -1,0 +1,242 @@
+<div id="action_insert_1787544656746"><style>
+  .at-banner-root,
+  .at-banner-root *,
+  .at-banner-root *::before,
+  .at-banner-root *::after {
+    box-sizing: border-box;
+  }
+
+  .at-banner-root h1,
+  .at-banner-root h2 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+  }
+
+  .at-banner-root img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .at-banner-root a {
+    text-decoration: none;
+  }
+
+  .at-banner-root {
+    display: block;
+    width: calc(var(--vw, 1vw) * 100);
+    position: relative;
+    left: 50%;
+    margin-left: calc(var(--vw, 1vw) * -50);
+  }
+
+  .at-banner-root .at-banner {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .at-banner-root .at-banner__panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    text-align: left;
+    background-color: var(--at-indigo);
+  }
+
+  .at-banner-root .at-banner__copy {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .at-banner-root .at-banner__media {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--at-indigo);
+  }
+
+  .at-banner-root .at-banner__eyebrow {
+    /* font-family: 'NexaBold', sans-serif; */
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .at-banner-root .at-banner__title {
+    /* font-family: 'Nexa', sans-serif; */
+    font-size: 35px;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .at-banner-root .at-banner__cta-row {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .at-banner-root .at-banner__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: 2.5rem;
+    padding: 0.625rem 1.5rem;
+    border: 2px solid var(--at-ca-red2);
+    border-radius: 9999px;
+    /* font-family: 'NexaXBold', sans-serif; */
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    background-color: var(--at-ca-red2);
+    cursor: pointer;
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: var(--at-ease);
+  }
+
+  .at-banner-root .at-banner__cta:hover {
+    background-color: #fff;
+    color: var(--at-indigo);
+  }
+
+  .at-banner-root .at-banner__cta:active {
+    background-color: var(--at-ca-red2);
+    color: #fff;
+  }
+
+  .at-banner-root .at-banner__cta:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--at-ca-red-focus);
+  }
+
+  .at-banner-root .at-banner__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .at-banner-root .at-banner__img--desktop {
+    display: none;
+    height: 800px;
+    border-top-left-radius: 100px;
+  }
+
+  .at-banner-root .at-banner__img--tablet {
+    display: none;
+    height: 380px;
+    border-bottom-right-radius: 80px;
+  }
+
+  .at-banner-root .at-banner__img--mobile {
+    display: block;
+    height: 320px;
+    border-bottom-right-radius: 80px;
+  }
+
+  /* sm — 640px */
+  @media (min-width: 640px) {
+    .at-banner-root .at-banner__eyebrow {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  /* md — 768px */
+  @media (min-width: 768px) {
+    .at-banner-root .at-banner__copy {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .at-banner-root .at-banner__img--tablet {
+      display: block;
+    }
+
+    .at-banner-root .at-banner__img--mobile {
+      display: none;
+    }
+  }
+
+  /* xl — 1280px */
+  @media (min-width: 1280px) {
+    .at-banner-root .at-banner {
+      flex-direction: row;
+      height: 480px;
+    }
+
+    .at-banner-root .at-banner__panel {
+      width: 57.142857%;
+      padding-left: 64px;
+      padding-right: 24px;
+    }
+
+    .at-banner-root .at-banner__media {
+      width: 42.857143%;
+    }
+
+    .at-banner-root .at-banner__copy {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .at-banner-root .at-banner__title {
+      font-size: 61px;
+    }
+
+    .at-banner-root .at-banner__img--desktop {
+      display: block;
+    }
+
+    .at-banner-root .at-banner__img--tablet {
+      display: none;
+    }
+  }
+
+  /* ca-xl — 1440px */
+  @media (min-width: 1440px) {
+    .at-banner-root .at-banner__panel {
+      padding-left: 112px;
+      padding-right: 2rem;
+    }
+  }
+
+  /* ca-2xl — 1872px */
+  @media (min-width: 1872px) {
+    .at-banner-root .at-banner__panel {
+      padding-left: 146px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .at-banner-root .at-banner__cta {
+      transition-duration: 0ms;
+    }
+  }
+</style>
+
+<div class="at-banner-root">
+  <div class="at-banner">
+    <div class="at-banner__panel">
+      <div class="at-banner__copy">
+        <h1 class="at-banner__title">Accounting for Sustainability</h1>
+        <h2 class="at-banner__eyebrow">Shaping the world, not just the numbers.</h2>
+      </div>
+    </div>
+
+    <div class="at-banner__media">
+      <img class="at-banner__img at-banner__img--desktop" src="https://assets.charteredaccountantsanz.com/asset/4484b0ac-f3ba-4627-aa58-12169e616886/Website-Hero-Banner/MCT1-Road-to-Sea-Aerial-New-Zealand.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="">
+      <img class="at-banner__img at-banner__img--tablet" src="https://assets.charteredaccountantsanz.com/asset/4484b0ac-f3ba-4627-aa58-12169e616886/Website-Hero-Banner/MCT1-Road-to-Sea-Aerial-New-Zealand.jpg" width="1000" height="700" loading="lazy" decoding="async" alt="">
+      <img class="at-banner__img at-banner__img--mobile" src="https://assets.charteredaccountantsanz.com/asset/4484b0ac-f3ba-4627-aa58-12169e616886/Website-Hero-Banner/MCT1-Road-to-Sea-Aerial-New-Zealand.jpg" width="800" height="600" loading="lazy" decoding="async" alt="">
+    </div>
+
+  </div>
+</div></div>

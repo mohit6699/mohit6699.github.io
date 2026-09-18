@@ -1,0 +1,624 @@
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .policy_container {
+        font-size: 10px;
+        line-height: 14px;
+        margin-bottom: 10px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .atSignupPopupContent {
+        width: 95%;
+        max-width: 500px;
+        position: relative;
+        background: #fff;
+        padding: 16px;
+        /* height: 383px; */
+    }
+
+    .atSignupPopup {
+        position: fixed;
+        background: #000000c2;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .atSignupPopup .atSignupPopupContent h2 {
+        padding-top: 0 !important;
+        line-height: 32px;
+        font-size: 24px;
+    }
+
+    .atSignupPopupContent p {
+        margin-bottom: 16px !important;
+        margin-top: 0;
+    }
+
+    .typography-body--small.marketing-form__footer-text p {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .atSignupPopup {
+        /* display: none; */
+        display: flex;
+    }
+
+    .atFormSubmitted p,
+    .atFormSubmitted #atSignupPopupForm {
+        display: none !important;
+    }
+
+    .atSignupPopupContent.atFormSubmitted {
+        height: 383px;
+    }
+
+    .atSignupPopupContent.atFormSubmitted h1 {
+        margin-top: 30%;
+    }
+
+    .atSignupPopup .atClose {
+        float: right;
+        cursor: pointer;
+        width: 20px;
+        z-index: 1;
+    }
+
+    .atSignupPopupImg {
+        position: relative;
+        height: 383px;
+    }
+
+    .atpopupImg {
+        width: 392px;
+        max-width: 500px;
+        height: 235px;
+        position: relative;
+        left: 6.3%;
+        object-fit: cover;
+    }
+
+    @media screen and (min-width: 390px) {
+        .atpopupImg {
+            width: 370px;
+            left: 0;
+        }
+    }
+
+    @media screen and (min-width: 410px) {
+        .atSignupPopupImg {
+            position: relative;
+            height: 383px;
+        }
+
+        .atpopupImg {
+            width: 100%;
+            left: 0;
+            height: 410px;
+        }
+
+        .atSignupPopup .atSignupPopupContent h2 {
+            padding-top: 0 !important;
+            line-height: 32px;
+            font-size: 1.33rem;
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        .atSignupPopupImg {
+            position: relative;
+            height: 383px;
+            width: 95%;
+        }
+    }
+
+    .atSignupPopupImg .atClose {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        z-index: 1;
+    }
+
+    .atClose.mobile {
+        display: block;
+    }
+
+    .atClose.desktop {
+        display: none;
+    }
+
+    .atGif {
+        /* height: 70px; */
+        display: flex;
+        margin: 20% auto;
+    }
+
+    .atSignupPopupContent form a {
+        text-decoration: underline;
+    }
+
+    @media screen and (min-width: 768px) {
+        .atSignupPopup {
+            flex-direction: row;
+        }
+
+        .atSignupPopupContent {
+            width: 62%;
+            height: 470px;
+            padding: 30px;
+        }
+
+        .atSignupPopupContent.atFormSubmitted {
+            height: 470px;
+        }
+
+        .atSignupPopup .atSignupPopupContent h2 {
+            padding-top: 15px !important;
+        }
+
+        .atSignupPopupContent p {
+            margin-bottom: 25px !important;
+            margin-top: 15px !important;
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+        }
+
+        .forms-group.js-form-group.forms-group--reset-mobile.forms--error {
+            margin-bottom: 20px !important;
+        }
+
+        .atSignupPopupImg {
+            height: 470px;
+        }
+
+        .atSignupPopupImg .atClose {
+            right: 15px;
+        }
+
+        .atpopupImg {
+            width: 100%;
+            left: 0;
+            height: 470px;
+        }
+
+        .atClose.mobile {
+            display: none;
+        }
+
+        .atClose.desktop {
+            display: block;
+            filter: brightness(5);
+        }
+    }
+
+    @media screen and (min-width: 1023px) {
+        .atSignupPopup {
+            flex-direction: row;
+        }
+
+        .atSignupPopupContent {
+            width: 470px;
+            /* width: 92%; */
+            height: 470px;
+            padding: 30px;
+        }
+
+        .atSignupPopupContent h2 {
+            padding-top: 15px !important;
+        }
+
+        .atSignupPopupContent p {
+            margin-bottom: 25px !important;
+            margin-top: 15px !important;
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+        }
+
+        .forms-group.js-form-group.forms-group--reset-mobile.forms--error {
+            margin-bottom: 20px !important;
+        }
+
+        .atSignupPopupImg {
+            height: 470px;
+        }
+
+        .atSignupPopupImg .atClose {
+            /* right: 50px; */
+        }
+
+        .atpopupImg {
+            width: 470px;
+            /* width: 92%; */
+            left: 0;
+            height: 470px;
+        }
+
+        .atClose.mobile {
+            display: none;
+        }
+
+        .atClose.desktop {
+            display: block;
+        }
+
+    }
+
+    .adb-offer-div {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+        margin: 7.5rem 0 3rem 0;
+        border: 2px solid #D2D2D2;
+        cursor: pointer !important;
+        background-color: #F9F9F9;
+        border-radius: 5px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .adb-offer-div {
+            margin: 6.5rem 0 0rem 0;
+
+        }
+
+    }
+
+    .adb-offer-icon {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+
+    .adb-offer-text {
+        margin-top: auto;
+        margin-bottom: 0px !important;
+    }
+
+    .adb-offer-link {
+        /* color: #0070ba !important; */
+        font-weight: 500 !important;
+        text-decoration: underline !important;
+    }
+
+    .tapToCopy-btn {
+        display: flex;
+        align-items: center;
+        background-color: lightgrey;
+        color: #000;
+        margin: 20px;
+        padding: 7.5px 20px;
+        border-radius: 5px 5px;
+        cursor: pointer;
+        border: 0;
+        font-size: large;
+    }
+
+    .adb-btn-clicked {
+        display: flex;
+        align-items: center;
+        background-color: #1C1C1C;
+        color: #fff;
+        margin: 20px;
+        padding: 7.5px 20px;
+        border-radius: 5px 5px;
+        border: 0;
+        font-size: large;
+    }
+
+    .product-hero__cta-container {
+        flex-direction: column !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .js-slider-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .js-slider-text h2 {
+        font-size: 1.25rem;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .adb-coupon-code {
+        color: #0066CC;
+        font-size: 2.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .adb-btn-icon {
+        width: 2rem;
+        margin: 7.5px 15px 7.5px 0px;
+    }
+</style>
+<script>
+    let modalPopup = `<div class="atSignupPopup">
+        <div class="atSignupPopupContent" data-analytics-component="subs-component"
+            data-analytics-action-title="subscription">
+            <a tabindex="0" class="pop-up-close-btn atClose-link" href="#" data-analytics-action-name="button~close"
+                name="close">
+                <img src="https://cimage.adobe.com/dyson/images/Close-Icon.png" class="atClose mobile">
+            </a>
+            <div class="js-slider-text">
+                <h2 style="padding-top: 15px;">-5% cumulables avec nos offres en cours.</h2>
+            </div>
+            <div class="js-slider-prev popuptracking" data-analytics-nav-type="pop-up thankyou"
+                data-analytics-nav-location="submit pop up" style="display:none;"></div>
+            <p style=" margin-bottom: 25px; margin-top: 20px;">Recevez en exclusivité les informations sur nos toutes
+                dernières technologies, nos offres sur Dyson.fr ou en Demo Stores et de nombreux autres avantages.</p>
+        <!-- https://api.dyson.fr/apiman-gateway/dyson/aemforms/1.0/data-async-success-url="/new-launches/success"  -->
+            <form id="atSignupPopupForm" method="post" action="javascript:void(0)"
+                name="marketing-form-2c67af89f7e244649bddac305b5944b7" class="js-forms" data-async-submit=""
+                data-parsley-validate="" data-analytics-action-title="no_heading" novalidate="novalidate">
+                <div class="text">
+                    <div class="form_row">
+                        <div class="">
+                            <div class="forms-group js-form-group forms-group--reset-mobile">
+                                <div class="forms-errortext js-form-error"></div>
+                                <div class="forms-control js-form-control form_rightcol_wrapper">
+                                    <input id="email_edfcaa53ae424abda99ff68422f20f03" tabindex="0" type="text"
+                                        name="email_address" class="forms-text js-forms-text form_field form_field_text"
+                                        autofocus aria-required="" aria-invalid="false"
+                                        data-parsley-is-email-message="Nous vous utiliserons cet e-mail pour vous contacter"
+                                        data-parsley-is-email="true"
+                                        data-parsley-required-message="Nous vous utiliserons cet e-mail pour vous contacter"
+                                        data-parsley-required=""
+                                        data-parsley-maxlength-message="Please enter a maximum of 80 characters"
+                                        data-parsley-maxlength="80"> <label for="email_edfcaa53ae424abda99ff68422f20f03"
+                                            class="forms-label forms-label--overlay"> E-mail * </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="policy_container"> Vous pouvez vous désinscrire à tout moment et facilement, ou juste
+                        changer la manière dont on vous contacte. Nous expliquons comment nous utilisons vos données
+                        personnelles à travers notre <a class='privacy-policy'
+                            href="https://privacy.dyson.com/fr/privacy-policy.aspx" data-analytics-action-name="link~policy"
+                            name="policy">politique de confidentialité.</a>.</div>
+                </div>
+                <!--<div>
+                    <div class="">
+                        <div class="text__body js-text-body typography-body--small marketing-form__footer-text">
+                            <div class="policy_container">  Sie können sich jederzeit von der Liste abmelden oder die Art und Weise, wie wir Sie kontaktieren, anpassen. Weitere Informationen darüber, wie Dyson Ihre personenbezogenen Daten erfasst und nutzt, können Sie unserer <a class='privacy-policy'
+                                href="https://privacy.dyson.com/en/homepage.aspx" data-analytics-action-name="link~policy" name="policy">Datenschutzrichtlinie entnehmen.</a>.</div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="hidden-xs-up"> <input type="hidden" name="campaign_id" value="FR-Always-on-prospects"> </div>
+                <div class="hidden-xs-up"> <input type="hidden" name="form_name" value="FR-Always-on-prospects"> </div>
+                <div class="hidden-xs-up"> <input type="hidden" name="preferred_language" value="fr"> </div>
+                <div class="hidden-xs-up"> <input type="hidden" name="market" value="FR"> </div>
+                <div class="hidden-xs-up"> <input type="hidden" name="channel_id"
+                    class="js-marketing-form-query-string-field" data-query-string-param="channel_id"
+                    data-default-value="WEB" max-length="40"> </div>
+                <div>
+                    <a class="submission" href='#' data-analytics-action-name="button~submit" name="submit">
+                        <div class="button button--interactive button--large js-disabled-forms-submit-button" type="button"
+                            name="Submit" value="Submit" style="width: 100%;"> S'inscrire </div>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="atSignupPopupImg">
+            <a tabindex="0" class="pop-up-close-btn atClose-link" href="#" data-analytics-action-name="button~close"
+                name="close">
+                <img tabindex="0" src="https://cimage.adobe.com/dyson/images/Close-Icon.png" class="atClose desktop"
+                    data-analytics-action-name="button~close">
+            </a>
+            <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/sign-up/XCat_Lounge_Editorial_Imagery_Q1_2021_CF06_HP07_SV22HEPA.jpg"
+                class="atpopupImg">
+        </div>
+    </div>`;
+
+    let btnClicked = false;
+    (function() {
+        var counter = 0;
+        var flag = 0;
+        var newSession = "${user.isNewSession}"
+        if (!localStorage.getItem('clikedCloseSess')) {
+            localStorage.setItem('clikedCloseSess', '1');
+        }
+
+        function signupModal() {
+
+            document.querySelector("header").insertAdjacentHTML("afterend", modalPopup);
+
+            var formSub = function() {
+                if ($('#atSignupPopupForm .forms-group.forms--error').length == 0 && $('#email_edfcaa53ae424abda99ff68422f20f03').val() !== '') {
+                    var data = {
+                        email_address: $('#email_edfcaa53ae424abda99ff68422f20f03').val(),
+                        prospect_consent: "Yes",
+                        campaign_id: 'FR-Always-on-prospects',
+                        form_name: 'FR-Always-on-prospects',
+                        preferred_language: "fr",
+                        market: "FR",
+                        channel_id: "WEB",
+                        time_stamp: (new Date).toISOString()
+                    };
+                    var requestBody = new URLSearchParams(data).toString();
+                    fetch("https://api.dyson.fr/apiman-gateway/dyson/aemforms/1.0/", {
+                        "headers": {
+                            "accept": "*/*",
+                            "content-type": "application/x-www-form-urlencoded"
+                        },
+                        "referrer": "https://www.dyson.fr/fr",
+                        "referrerPolicy": "strict-origin-when-cross-origin",
+                        "body": requestBody,
+                        "method": "POST",
+                    }).then(function(data) {
+                        $('.atSignupPopupContent h2').html('Merci pour votre inscription! Votre code pour bénéficier de -5% sur votre première commande:');
+
+                        if (!btnClicked) {
+                            document.querySelector('.atSignupPopupContent h2').insertAdjacentHTML('afterend', '<label class="adb-coupon-code">WELCOME-5</label><button class="tapToCopy-btn" data-analytics-action-name="copy-coupon"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/misc/Copy-icon.png?fmt=png-alpha" class="adb-btn-icon">Copy code</button>')
+                        } else {
+                            document.querySelector('.atSignupPopupContent h2').insertAdjacentHTML('afterend', '<label class="adb-coupon-code">WELCOME-5</label><button class="adb-btn-clicked"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/apac-dd/tick.png?fmt=png-alpha" class="adb-btn-icon">Copied!</button>')
+                        }
+
+                        $('.atSignupPopupContent').addClass('atFormSubmitted');
+                        const element = document.querySelector('.atSignupPopupContent .js-slider-text h2');
+                        //const thankyouText = 'Merci pour votre inscription! Votre code pour bénéficier des 5% : HIGH-5-DYSON';
+                        const thankyouText = 'Merci pour votre inscription!';
+                        //if (element && element.innerHTML.trim() === thankyouText) {
+                        if (element && element.innerHTML.includes(thankyouText) && !btnClicked) {
+                            const tapToCopyBtn = document.querySelector('.tapToCopy-btn');
+                            tapToCopyBtn.addEventListener('click', function() {
+
+                                let name = 'copy-coupon';
+                                if (window.s_gi) {
+                                    var s = s_gi('Dyson FR Raw');
+                                    s.linkTrackVars = "eVar56";
+                                    s.eVar56 = name;
+                                    s.tl(true, "o", name);
+                                }
+
+                                btnClicked = true;
+                                navigator.clipboard.writeText('WELCOME-5');
+                                tapToCopyBtn.innerHTML = '<img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/misc/Tick-icon.jpg" class="adb-btn-icon">Copied!';
+                                tapToCopyBtn.classList.add('adb-btn-clicked');
+                                tapToCopyBtn.classList.remove('tapToCopy-btn');
+                                adobe.target.trackEvent({
+                                    "mbox": "mboxClickTrack",
+                                    "params": {
+                                        "clicked": "copy-coupon"
+                                    }
+                                });
+                            });
+                            $('.atSignupPopupContent .popuptracking').click();
+                        }
+
+                        adobe.target.trackEvent({
+                            "mbox": "mboxClickTrack",
+                            "params": {
+                                "clicked": "incentive-signup"
+                            }
+                        });
+                        adobe.target.trackEvent({
+                            "mbox": "mboxClickTrack",
+                            "params": {
+                                "profile.emailSubmit": "submitted"
+                            }
+                        });
+                        setTimeout(function() {
+                            document.querySelector('.atSignupPopup').style.display = "none";
+                        }, 60000);
+                    }).catch(function(err) {
+                        $('.atSignupPopupContent h1').html('Unknown error');
+                        setTimeout(function() {
+                            document.querySelector('.atSignupPopup').style.display = "none";
+                        }, 60000);
+                    });
+                }
+            }
+            $('#email_edfcaa53ae424abda99ff68422f20f03').keypress(function(e) {
+                setTimeout(function() {
+                    if (e.key === "Enter" && !document.querySelector('.forms-group.js-form-group.forms-group--reset-mobile').classList.contains('forms--error')) {
+                        formSub();
+                    }
+                }, 500)
+            })
+            $('#atSignupPopupForm .submission').on('click', function() {
+                if (window.innerWidth > 768) {
+                    if (flag == 0 && $('#email_edfcaa53ae424abda99ff68422f20f03').val() == '') {
+                        $('#email_edfcaa53ae424abda99ff68422f20f03').val('').focus();
+                        $('#email_edfcaa53ae424abda99ff68422f20f03').val('').blur();
+                        flag = 1;
+                    }
+                }
+                formSub();
+            });
+
+            $('.submission').click(function(e) {
+                e.preventDefault();
+            });
+
+            $('.atSignupPopup .atClose-link').click(function() {
+                localStorage.setItem('clikedCloseSess', '3');
+                adobe.target.trackEvent({
+                    "mbox": "mboxClickTrack",
+                    "params": {
+                        "clicked": "incentive-learnmore_PopUpClosed_EXP-B"
+                    }
+                });
+                document.querySelector('.atSignupPopup').style.display = "none";
+            })
+
+            $(document).on('click', '.atSignupPopup', function(e) {
+                if ($(e.target).closest('.atSignupPopupContent').length === 0 && $(e.target).closest('.atSignupPopupImg').length === 0) {
+                    $('.atSignupPopup').hide();
+                }
+            });
+
+            $('.atSignupPopupContent .privacy-policy').click(function() {
+                adobe.target.trackEvent({
+                    "mbox": "mboxClickTrack",
+                    "params": {
+                        "clicked": "privacyPolicy_EXP-B"
+                    }
+                });
+                //document.querySelector('.atSignupPopup').style.display = "none";
+            })
+            $(document).click(function(e) {
+                if ($(e.target).is('.popuptracking')) {
+                    return;
+                }
+                var $target = $(e.target);
+                var popupContent = $(".atSignupPopupContent,.atSignupPopupContent h2,.atSignupPopupContent p,.atSignupPopupContent form,.atSignupPopupContent form div,.atSignupPopupContent form div input,.atSignupPopupContent form button, .atSignupPopupContent form span,.atSignupPopupImg .atpopupImg");
+                if (!$target.is(popupContent)) {
+                    if ($('.atSignupPopup.at-element-marker').is(':visible')) {
+                        $('.atSignupPopup.at-element-marker').hide();
+                    }
+                }
+            });
+        }
+
+        var waitForjQuery = function() {
+            let imageSelector = document.querySelector(".product-hero__bottom-section");
+            let offerText = '<div class="adb-offer-div" data-analytics-action-name="incentive-signup" tabindex="0"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/misc/e-mail-icon-dark.png?fmt=png-alpha" class="adb-offer-icon"><p class="adb-offer-text"><span class="adb-offer-link">Inscrivez-vous </span>pour bénéficier de -5% sur votre première commande</p></div>';
+
+            if (imageSelector != null) {
+                imageSelector.insertAdjacentHTML("afterend", offerText);
+                let learnMoreClick = document.querySelector(".adb-offer-div");
+                learnMoreClick.addEventListener('click', function() {
+
+                    let name = 'incentive-signup';
+                    if (window.s_gi) {
+                        var s = s_gi('Dyson FR Raw');
+                        s.linkTrackVars = "eVar56";
+                        s.eVar56 = name;
+                        s.tl(true, "o", name);
+                    }
+
+                    signupModal();
+                });
+            } else {
+                ++counter;
+                counter < 150 && setTimeout(function() {
+                    waitForjQuery();
+                }, 300)
+            }
+        }
+        waitForjQuery();
+    })();
+</script>

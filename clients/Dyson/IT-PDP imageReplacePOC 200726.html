@@ -12,9 +12,10 @@
     .slider-nav {
         padding: 0 40px;
         max-width: 100%;
-        margin: 20px auto 0 auto !important;
+        margin: 20px auto 20px auto !important;
         position: relative;
-        height: 140px;
+        height: 100%;
+        /* height: 140px; */
     }
 
     .slider-nav .thumb-item img {
@@ -69,6 +70,13 @@
         font-weight: 100;
     }
 
+    .slider-nav .slick-prev:focus,
+    .slider-nav .slick-next:focus {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
     .thumb-item {
         padding: 0 8px;
         outline: none;
@@ -105,7 +113,7 @@
             padding-bottom: 15px;
             padding: 0 30px 15px 30px;
             max-width: 100%;
-            margin: 10px auto 0 auto !important;
+            margin: 10px auto 10px auto !important;
         }
 
         .thumb-item {
@@ -169,8 +177,8 @@
 
     .close-modal {
         position: absolute;
-        top: -50px;
-        right: 0;
+        top: 1rem;
+        right: 1rem;
         color: #fff;
         font-size: 40px;
         cursor: pointer;
@@ -194,6 +202,10 @@
         border-radius: 50px;
     }
 
+    #target-new-carousel-container {
+        margin: 20px 0 20px 0;
+    }
+
     #target-new-carousel-container .slick-list {
         height: auto !important;
     }
@@ -212,12 +224,12 @@
 </style>
 
 <script>
-    (function() {
+    (function () {
         var counter = 0;
         var preloadedVideoUrl = null;
 
         // Fetch dynamic URL from Dyson API using DataLayer SKU
-        var getDynamicVideoUrl = function() {
+        var getDynamicVideoUrl = function () {
             var sku = (window.dataLayer && window.dataLayer.primaryProduct) ?
                 window.dataLayer.primaryProduct.globalProductSKU :
                 "586183-01";
@@ -226,7 +238,7 @@
             if (window.productsJSON && Array.isArray(window.productsJSON)) {
 
                 // Find the specific product object where productSKU matches
-                var matchedProduct = window.productsJSON.find(function(item) {
+                var matchedProduct = window.productsJSON.find(function (item) {
                     return item.productSKU === sku;
                 });
 
@@ -249,7 +261,7 @@
 
         var videoUrlRequested = false;
 
-        var triggerVideoUrlOnce = function() {
+        var triggerVideoUrlOnce = function () {
             if (videoUrlRequested) return;
 
             var sku = window.dataLayer &&
@@ -268,18 +280,18 @@
         // call once, early
         triggerVideoUrlOnce();
 
-        var waitForElement = function() {
+        var waitForElement = function () {
             var originalSlickTrack = document.querySelector(".product-hero-image-carousel-wrapper .slick-track");
 
             if (originalSlickTrack) {
                 var wrapper = document.querySelector('.product-hero-image-carousel-wrapper');
 
-                // 1. DATA EXTRACTION (Vanilla JS)
+                // DATA EXTRACTION
                 var sliderData = [];
                 var slides = document.querySelectorAll('.js-image-carousel-slides .responsive-image:not(.slick-cloned)');
 
                 // NEW EXTRACTION LOGIC: Search for SVG inside the slide
-                slides.forEach(function(slide) {
+                slides.forEach(function (slide) {
                     var img = slide.querySelector('img');
                     var hasSvg = slide.querySelector('svg') !== null; // Check for SVG icon presence
 
@@ -300,13 +312,13 @@
 
                 if (sliderData.length < 3) return;
 
-                // 2. REORDER (3rd to 1st, 1st to Last)
+                // REORDER (3rd to 1st, 1st to Last)
                 var thirdItem = sliderData.splice(2, 1)[0];
                 var firstItem = sliderData.splice(0, 1)[0];
                 sliderData.unshift(thirdItem);
                 sliderData.push(firstItem);
 
-                // 3. HIDE ORIGINAL & INJECT TARGET CONTAINER
+                // HIDE ORIGINAL & INJECT TARGET CONTAINER
                 wrapper.classList.add('hidden-original');
 
                 var newContainer = document.getElementById('target-new-carousel-container');
@@ -323,7 +335,7 @@
                     var modalHtml =
                         '<div id="video-modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;z-index:10000;align-items:center;justify-content:center;">' +
                         '  <div style="position:relative;width:100%;max-width:1221px;background:#000;padding:10px 0px;border-radius:8px;">' +
-                        '    <span class="close-modal" style="position:absolute;top:-45px;right:0;color:#fff;font-size:35px;cursor:pointer;">&times;</span>' +
+                        '    <span class="close-modal" style="position:absolute;top:1rem;right:1rem;color:#fff;font-size:40px;cursor:pointer;">&times;</span>' +
                         '    <video id="popup-video" playsinline style="width:100%; display:block;"></video>' +
                         '    <div id="video-controls" style="display:flex; align-items:center; gap:15px; padding:15px 10px 5px; color:#fff; font-family:sans-serif;">' +
                         '      <button id="main-play-pause" style="background:none; border:none; cursor:pointer; padding:0; display:flex;">' +
@@ -343,12 +355,12 @@
                 // 4. LOAD SLICK JS
                 var script = document.createElement('script');
                 script.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js";
-                script.onload = function() {
+                script.onload = function () {
                     var sliderFor = newContainer.querySelector('.slider-for');
                     var sliderNav = newContainer.querySelector('.slider-nav');
 
                     // Populate HTML
-                    sliderData.forEach(function(item) {
+                    sliderData.forEach(function (item) {
                         //var videoAttr = item.isVideo ? 'class="video-trigger"' : '';
                         var forDiv = document.createElement('div');
                         if (item.isVideo) {
@@ -389,7 +401,7 @@
                     });
 
                     // --- ADDED TRACKING UTILITY ---
-                    var triggerTracking = function(index, total, action, type) {
+                    var triggerTracking = function (index, total, action, type) {
                         var name = "main~" + (index) + "of" + total + "|product hero:main-product-media|media-carousel," + action + "|" + type;
                         console.log("Tracking Event Start====================>", name);
                         if (window.s_gi) {
@@ -426,13 +438,13 @@
                     var totalSlides = sliderData.length;
                     var isManualSwipe = false;
 
-                    // 1. Detect the start of a manual swipe/drag
-                    $(sliderFor).on('mousedown touchstart', function() {
+                    // Detect the start of a manual swipe/drag
+                    $(sliderFor).on('mousedown touchstart', function () {
                         isManualSwipe = true;
                     });
 
-                    // 2. The main event listener
-                    $(sliderFor).on('afterChange', function(event, slick, currentSlide) {
+                    // The main event listener
+                    $(sliderFor).on('afterChange', function (event, slick, currentSlide) {
                         if (isManualSwipe) {
                             triggerTracking(currentSlide, totalSlides, 'gallery_image,swipe', 'DIV');
                             // Reset the flag immediately
@@ -440,7 +452,7 @@
                         }
                     });
 
-                    $(sliderNav).on('afterChange', function(event, slick, currentSlide) {
+                    $(sliderNav).on('afterChange', function (event, slick, currentSlide) {
                         if (isManualSwipe) {
                             triggerTracking(currentSlide, totalSlides, 'gallery_image,swipe', 'DIV');
                             // Reset the flag immediately
@@ -449,14 +461,14 @@
                     });
 
                     // Track Next/Prev Button Clicks
-                    $(sliderNav).on('click', '.slick-next', function() {
+                    $(sliderNav).on('click', '.slick-next', function () {
                         isManualSwipe = false;
 
                         var currentIndex = $(sliderNav).slick('slickCurrentSlide');
                         triggerTracking(currentIndex, totalSlides, 'icon,next', 'BUTTON');
                     });
 
-                    $(sliderNav).on('click', '.slick-prev', function() {
+                    $(sliderNav).on('click', '.slick-prev', function () {
                         isManualSwipe = false;
 
                         var currentIndex = $(sliderNav).slick('slickCurrentSlide');
@@ -464,7 +476,7 @@
                     });
                     // ------------------------------------------
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $(sliderFor).slick('setPosition');
                         $(sliderNav).slick('setPosition');
                     }, 200);
@@ -473,20 +485,20 @@
                     newContainer.classList.add('ready');
 
 
-                    // 1. ADD THESE NEW VARIABLES & UTILITY
+                    // ADD NEW VARIABLES & UTILITY
                     var v = document.getElementById('popup-video');
                     var seekSlider = document.getElementById('seek-slider');
                     var currentTimeText = document.getElementById('current-time');
                     var totalTimeText = document.getElementById('total-time');
 
-                    var formatTime = function(seconds) {
+                    var formatTime = function (seconds) {
                         var min = Math.floor(seconds / 60);
                         var sec = Math.floor(seconds % 60);
                         return min + ":" + (sec < 10 ? '0' + sec : sec);
                     };
 
-                    // 2. REPLACE THE OLD CLICK TRIGGER
-                    $(sliderFor).on('click', '.video-trigger', function() {
+                    // Video trigger
+                    $(sliderFor).on('click', '.video-trigger', function () {
                         if (preloadedVideoUrl) {
                             var source = v.querySelector('source');
                             if (!source) {
@@ -495,12 +507,12 @@
                                 v.appendChild(source);
                             }
 
-                            // REPLACED: Use dynamic URL and reset UI state
+                            // Use dynamic URL and reset UI state
                             source.src = preloadedVideoUrl;
                             v.load();
                             $('#video-modal-overlay').css('display', 'flex');
 
-                            v.play().then(function() {
+                            v.play().then(function () {
                                 $('#play-icon').hide();
                                 $('#pause-icon').show();
                             });
@@ -509,23 +521,23 @@
                         }
                     });
 
-                    // 3. ADD THESE NEW VIDEO EVENT LISTENERS
-                    v.addEventListener('loadedmetadata', function() {
+                    // VIDEO EVENT LISTENERS
+                    v.addEventListener('loadedmetadata', function () {
                         seekSlider.max = v.duration;
                         totalTimeText.innerText = formatTime(v.duration);
                     });
 
-                    v.addEventListener('timeupdate', function() {
+                    v.addEventListener('timeupdate', function () {
                         seekSlider.value = v.currentTime;
                         currentTimeText.innerText = formatTime(v.currentTime);
                     });
 
-                    // 4. ADD NEW UI CONTROL HANDLERS
-                    seekSlider.addEventListener('input', function() {
+                    // UI CONTROL HANDLERS
+                    seekSlider.addEventListener('input', function () {
                         v.currentTime = seekSlider.value;
                     });
 
-                    $('#main-play-pause, #popup-video').on('click', function() {
+                    $('#main-play-pause, #popup-video').on('click', function () {
                         if (v.paused) {
                             v.play();
                             $('#play-icon').hide();
@@ -537,13 +549,13 @@
                         }
                     });
 
-                    $('#full-screen').on('click', function() {
+                    $('#full-screen').on('click', function () {
                         if (v.requestFullscreen) v.requestFullscreen();
                         else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
                     });
 
-                    // 5. UPDATE THE CLOSE MODAL LOGIC (Minor cleanup)
-                    $('.close-modal, #video-modal-overlay').on('click', function(e) {
+                    // CLOSE MODAL LOGIC (Minor cleanup)
+                    $('.close-modal, #video-modal-overlay').on('click', function (e) {
                         if (e.target !== this && !$(e.target).hasClass('close-modal')) return;
                         v.pause();
                         $('#video-modal-overlay').hide();
@@ -561,7 +573,7 @@
             }
         };
 
-        // Ensure Slick's CSS is present
+        // Ensuring Slick's CSS
         if (!document.getElementById('slick-cdn-css')) {
             var link = document.createElement('link');
             link.id = 'slick-cdn-css';
