@@ -1,587 +1,1089 @@
-<div id="action_insert_1787548658480">
-    <section>
-        <div class="at-caanz-all-container at-caanz-all-adjust-y" id="at-caanz-custom-infocontainer--1">
-            <h2 style="padding-bottom: 24px" class="at-caanz-all-h2 at-font-nexaxbold at-text-cablack">
-                Choose the right path
-            </h2>
-        </div>
-    </section>
-    <section>
-        <div class="at-caanz-all-container at-flex at-flex-column at-caanz-all-adjust-y--2">
-            <h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0" style="margin-bottom: 24px">
-                Dive deeper into sustainability
-            </h2>
-            <div class="at-caanz-all-slick-2">
-                <div style="
-              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-              border-radius: 6px;
-              background-color: #fff;
-            ">
-                    <picture>
-                        <img src="https://assets.charteredaccountantsanz.com/asset/e409c5c4-581a-401e-b117-98365b5d235e/Website-Content-tile/MCT1-Byron-Bay-Aerial-Australia.jpg" alt="Beach side highway" style="
-                  width: 100%;
-                  aspect-ratio: 376 / 218;
-                  height: auto;
-                  object-fit: cover;
-                  object-position: center;
-                  display: block;
-                  border-top-left-radius: 6px;
-                  border-top-right-radius: 6px;
-                  padding: 4px 4px 0;
-                  box-sizing: border-box;
-                ">
-                    </picture>
-                    <div class="at-flex at-flex-column" style="
-                padding: 24px 16px;
-                height: 258px;
-                justify-content: space-between;
-              ">
-                        <div class="at-flex at-flex-column" style="gap: 12px">
-                            <h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">
-                                Are you ready to delve into more resources?
-                            </h3>
-                            <p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">
-                                The Sustainability Resource Centre has pratical tools, training, insights and playbook.
+<style nonce="2726c7f26c">
+    .at-choose-path {
+        margin-top: 8px;
+    }
+
+    /* --- Tab bar --- */
+    .at-choose-path__tabs {
+        display: flex;
+        align-items: stretch;
+        border-bottom: 1px solid #cccccc;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .at-choose-path__tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .at-choose-path__tab {
+        flex: 0 0 auto;
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-style: solid;
+        cursor: pointer;
+        padding: 10px 1.5rem 13px;
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 150%;
+        font-weight: 400;
+        color: #261A42;
+        white-space: nowrap;
+        border-bottom-width: 1px;
+    }
+
+    .at-choose-path__tab[aria-selected="true"] {
+        border-bottom-color: var(--ca-azure, #0072AC);
+        border-bottom-width: 4px;
+        padding-bottom: 10px;
+        font-weight: 800;
+    }
+
+    /* --- Card grid: 4-up desktop, mobile carousel --- */
+    .at-choose-path__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+        align-items: stretch;
+    }
+
+    .at-choose-path__grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .at-choose-path__pager {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .at-choose-path {
+            margin-top: 4px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        /* .at-choose-path__tabs {
+            gap: 28px;
+            overflow-x: auto;
+            padding-right: 24px;
+            margin-right: -16px;
+            padding-left: 0;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .at-choose-path__tabs::-webkit-scrollbar {
+            display: none;
+        } */
+
+        .at-choose-path__tabs {
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            padding-right: 24px;
+            margin-right: -16px;
+            padding-left: 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .at-choose-path__tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .at-choose-path__tab {
+            flex: 0 0 auto;
+            font-size: 16px;
+            line-height: 150%;
+            padding: 10px 1rem 13px;
+        }
+
+        .at-choose-path__tab[aria-selected="true"] {
+            padding-bottom: 10px;
+        }
+
+        .at-choose-path__grid {
+            display: flex;
+            flex-wrap: nowrap;
+            width: auto;
+            max-width: none;
+            margin-top: 16px;
+            margin-right: -16px;
+            padding: 0 16px 8px 0;
+            gap: 12px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: 0;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+        }
+
+        .at-choose-path__grid>.pivot-item {
+            flex: 0 0 79%;
+            width: 79%;
+            min-width: 0;
+            max-width: 79%;
+            scroll-snap-align: start;
+            box-sizing: border-box;
+        }
+
+        .at-choose-path__grid>.pivot-item:first-child {
+            margin-left: 0;
+        }
+
+        .at-choose-path__body {
+            padding: 14px 12px 12px;
+        }
+
+        .at-choose-path__title {
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        .at-choose-path__meta-row {
+            min-width: 0;
+            font-size: 12px;
+            line-height: 18px;
+            gap: 6px;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .at-choose-path__meta-row svg {
+            flex: 0 0 auto;
+        }
+
+        .at-choose-path__price-block {
+            padding-top: 10px;
+        }
+
+        .at-choose-path__price {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .at-choose-path__price-sub {
+            font-size: 11px;
+            line-height: 16px;
+        }
+
+        .at-choose-path__cta {
+            display: flex;
+            width: 100%;
+            min-height: 28px;
+            box-sizing: border-box;
+            justify-content: center;
+            margin-top: 12px;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .at-choose-path__pager {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-height: 16px;
+            margin-top: 2px;
+        }
+
+        .at-choose-path__pager-dot {
+            width: 6px;
+            height: 6px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #C8C8C8;
+            cursor: pointer;
+        }
+
+        .at-choose-path__pager-dot[aria-current="true"] {
+            background: #777777;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .at-choose-path__grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+        }
+
+        .at-choose-path__grid>.pivot-item {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+    }
+
+    /* --- Card --- */
+    .at-choose-path__card {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+        background-color: #fff;
+
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 100%;
+        box-sizing: border-box;
+    }
+
+    .at-choose-path__media {
+        position: relative;
+    }
+
+    .at-choose-path__media img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    .at-choose-path__badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #261A42;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 3px;
+    }
+
+    .at-choose-path__badge.is-hidden {
+        display: none;
+    }
+
+    .at-choose-path__body {
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        box-sizing: border-box;
+    }
+
+    .at-choose-path__title {
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        color: #261A42;
+        margin: 0 0 12px 0;
+        height: 50px;
+        min-height: 40px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .at-choose-path__meta-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        line-height: 20px;
+        color: #261A42;
+        padding: 0;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    .at-choose-path__meta-row svg {
+        flex: 0 0 auto;
+    }
+
+    .at-choose-path__meta-row+.at-choose-path__meta-row {
+        border-top: none;
+    }
+
+    .at-choose-path__price-block {
+        border-top: 1px solid #ccccccff;
+        padding-top: 12px;
+        margin-top: auto;
+    }
+
+    .at-choose-path__price {
+        font-size: 20px;
+        font-weight: 800;
+        color: #4B2E83;
+        margin: 0 0 2px 0;
+    }
+
+    .at-choose-path__price-sub {
+        font-size: 13px;
+        color: #6B6B6B;
+    }
+
+    .at-choose-path__cta {
+        width: 100%;
+        height: 48px;
+        min-height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+        margin-top: 16px;
+
+        border: 2px solid #0934BBFF;
+        border-radius: 999px;
+
+        padding: 10px 20px;
+        box-sizing: border-box;
+
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+
+        color: #261A42;
+        text-decoration: none;
+    }
+
+    .at-choose-path__cta:hover {
+        background: #F5F3F8;
+    }
+
+    .pivot-item {
+        border: 1px solid #cccccc;
+        box-sizing: border-box;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-self: stretch;
+    }
+
+    /* sustainability banner style */
+
+    .sustainability-banner {
+        width: 100%;
+        background-image:
+            linear-gradient(90deg, rgba(18, 14, 27, 0.92) 0%, rgba(18, 14, 27, 0.66) 42%, rgba(18, 14, 27, 0.12) 72%),
+            url('https://assets.charteredaccountantsanz.com/asset/990dcc41-1a82-4cb9-850c-2bcf9f2dc10b/Website-Hero-Banner/MCT1-Group-watching-webinar-06.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+    }
+
+    .sustainability-banner__inner {
+        width: min(100%, var(--ca-max-width));
+        margin: 0 auto;
+        padding: 48px 64px;
+    }
+
+    .sustainability-banner__content {
+        max-width: 60%;
+    }
+
+    .sustainability-banner__title {
+        margin: 0 0 14px;
+        font-size: clamp(32px, 3vw, 50px);
+        line-height: 1.08;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+    }
+
+    .sustainability-banner__copy {
+        margin: 0 0 24px;
+        max-width: 490px;
+        font-size: 18px;
+        line-height: 1.45;
+        font-weight: 400;
+        color: #ffffff;
+    }
+
+    .sustainability-banner__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 9px 22px;
+        border: 0 !important;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ca-purple);
+        text-decoration: none;
+        font-size: 15px;
+        line-height: 1;
+        font-weight: 700;
+    }
+
+    .at-choose-path__body a:hover,
+    .sustainability-banner__cta:hover,
+    .sustainability-banner__cta:focus-visible {
+        text-decoration: none;
+        background-color: #0934bb;
+        color: #fff;
+    }
+
+    /* Mobile reference treatment */
+    @media (max-width: 767px) {
+        .sustainability-banner {
+            min-height: 0;
+            height: 100vw;
+            max-height: 640px;
+            background-image:
+                linear-gradient(180deg,
+                    rgba(18, 14, 27, 0.38) 0%,
+                    rgba(18, 14, 27, 0.30) 45%,
+                    rgba(18, 14, 27, 0.72) 100%),
+                url('https://assets.charteredaccountantsanz.com/asset/990dcc41-1a82-4cb9-850c-2bcf9f2dc10b/Website-Hero-Banner/MCT1-Group-watching-webinar-06.jpg');
+
+            background-position: center;
+            align-items: stretch;
+        }
+
+        .sustainability-banner__inner {
+            padding: 26px 18px 24px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .sustainability-banner__content {
+            max-width: 100%;
+            padding-top: 0;
+        }
+
+        .sustainability-banner__title {
+            margin-bottom: 22px;
+            font-size: clamp(30px, 9vw, 48px);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+        }
+
+        .sustainability-banner__copy {
+            margin-bottom: 28px;
+            max-width: 285px;
+            font-size: 17px;
+            line-height: 1.42;
+        }
+
+        .sustainability-banner__cta {
+            min-height: 38px;
+            padding: 9px 18px;
+            font-size: 14px;
+        }
+    }
+
+    .video-wrapper {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        align-items: stretch;
+        padding: 3rem 0 2rem 0;
+    }
+
+    #sustainability-conference-video-container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-description {
+        /* width: 50%; */
+        height: auto;
+        box-sizing: border-box;
+        padding: 0 24px 0 0;
+    }
+
+    .video-wrapper>.rich-text.container.mx-auto {
+        width: 50%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+        .video-wrapper {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .video-description,
+        .video-wrapper>.rich-text.container.mx-auto {
+            width: 100%;
+        }
+
+        #sustainability-conference-video-container {
+            width: 100%;
+        }
+    }
+
+    .at-banner-root .at-banner__eyebrow {
+        font-family: NexaBook, sans-serif;
+        font-weight: 400;
+    }
+
+    .rich-text.container.mx-auto>div.text-base {
+        font-size: 18px;
+        line-height: 150%;
+    }
+
+    .at-richtext-header {
+        padding: 2rem 0;
+    }
+
+    .video-description>h2 {
+        margin-bottom: 2rem;
+    }
+</style>
+
+
+<script id="at-pers" nonce="2726c7f26c">
+
+    Flickerlessly = window.Flickerlessly || {}, !function (t) {
+        "use strict";
+
+        var e = function (t, e, a, n) {
+
+            var i = "atNodeInserted" + t,
+                s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n";
+
+            s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}";
+
+            var o = document.getElementsByTagName("head")[0];
+
+            if (o) {
+                var r = document.createElement("style");
+
+                r.setAttribute("type", "text/css"),
+
+                    r.styleSheet
+                        ? r.styleSheet.cssText = s
+                        : r.appendChild(document.createTextNode(s)),
+
+                    o.insertBefore(r, o.firstChild)
+            }
+
+            var c = function (t) {
+
+                if (
+                    t.animationName === i &&
+                    "object" == typeof t.target
+                ) {
+
+                    var s =
+                        n === !0 ||
+                            n === !1 &&
+                            null === t.target.getAttribute("data-flk-success")
+                            ? !0
+                            : !1;
+
+                    console &&
+                        console.info &&
+                        console.info(
+                            "Node " + e + " ready! Execute: " + s,
+                            t.target
+                        ),
+
+                        "function" == typeof a &&
+                        s &&
+                        (
+                            a(t.target),
+                            t.target.setAttribute(
+                                "data-flk-success",
+                                i
+                            )
+                        ),
+
+                        t.target.style.visibility = "visible"
+                }
+            };
+
+            [
+                "animationstart",
+                "MSAnimationStart",
+                "webkitAnimationStart"
+            ].forEach(function (t, e) {
+
+                document.addEventListener(
+                    t,
+                    c,
+                    !1
+                )
+
+            })
+        };
+
+        t.onReady = function () {
+
+            for (
+                var t = 0;
+                t < arguments.length;
+                t++
+            ) {
+
+                var a = arguments[t],
+                    n = a.selector,
+                    i = a.success || null,
+                    s = a.persist || !1,
+                    o = Math.floor(100 * Math.random() + 1);
+
+                e(o, n, i, s)
+            }
+        }
+
+    }(Flickerlessly);
+
+
+    Flickerlessly.onReady(
+        {
+            selector: '.flex.justify-center.full-width',
+            persist: false,
+
+            success: function (el) {
+
+
+                /* =========================================================
+                   VIDEO CONTAINER
+                   ========================================================= */
+
+                // let videoTitleHTML = `<div class="bg-white full-width">
+                //     <div class="px-5 ca-md:px-12 ca-md:pt-13.5 xl:px-27.5 xl:pt-18 max-w-360 mx-auto w-full">
+                //     </div>
+                // </div>`;
+
+
+                let videoDescHTML = `
+                    <div id="sustainability-conference-video-container">
+
+                        <div class="video-description">
+
+                            <h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0">
+                                Sustainability Conference
+                            </h2>
+
+                            <p>
+                                Designed by CAs for CAs, this flagship conference will equip finance leaders,
+                                accountants, advisers and assurance practitioners with practical insights
+                                to navigate the changing sustainability landscape and expectations with confidence.
                             </p>
+
+
+                            <!-- =====================================================
+                                 ANALYTICS:
+                                 Video Banner - Find out more
+
+                                 >>> UPDATED ANALYTICS CONFIGURATION
+                                 eventType = contentTileClick
+                                 eventModule = Video Banner Module
+                                 ===================================================== -->
+
+                            <a
+                                class="at-tracked-contentTileClick mt-7.5 btn-cta--primary w-fit flex items-center justify-center font-nexa-xbold safari-nexa-xbold text-base h-10 px-6 py-2.5 border-2 transition duration-200 rounded-full text-white bg-azure"
+                                href="https://store.charteredaccountantsanz.com/courses/au/Sustainability-Conference-2026-AU"
+
+                                data-module="Video Banner Module"
+                                data-element="Find out more"
+                                data-title="Sustainability Conference"
+                                data-event-type="contentTileClick">
+
+                                Find out more
+
+                            </a>
+
                         </div>
-                        <a href="https://www.charteredaccountantsanz.com/member-services/sustainability-resource-centre" class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile" style="display: inline-block; width: fit-content" data-title="Are you ready to delve into more resources?" data-element="Download the report" data-module="Content tile" data-event-module="Content tile" data-content-tile-title="Are you ready to delve into more resources?" data-content-tile-container="Dive deeper into sustainability" data-content-tile-button-text="Download the report" data-internal-link="Content tile|Dive deeper into sustainability|Are you ready to delve into more resources?|Download the report" target="_blank" rel="noopener noreferrer">Download the report</a>
+
                     </div>
-                </div>
-                <div style="
-              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-              border-radius: 6px;
-              background-color: #fff;
-            ">
-                    <picture>
-                        <img src="https://assets.charteredaccountantsanz.com/asset/5ac6930a-2c9a-45a3-978f-9ef4cf469d9f/Website-Content-tile/MCT1-Queensland-8.jpg" alt="Landscape beach front" style="
-                  width: 100%;
-                  aspect-ratio: 376 / 218;
-                  height: auto;
-                  object-fit: cover;
-                  object-position: center;
-                  display: block;
-                  border-top-left-radius: 6px;
-                  border-top-right-radius: 6px;
-                  padding: 4px 4px 0;
-                  box-sizing: border-box;
-                ">
-                    </picture>
-                    <div class="at-flex at-flex-column" style="
-                padding: 24px 16px;
-                height: 258px;
-                justify-content: space-between;
-              ">
-                        <div class="at-flex at-flex-column" style="gap: 12px">
-                            <h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">
-                                A practical guide to sustainability
-                            </h3>
-                            <p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">
-                                Download and read the Sustainability Playbook designed to help build sustainability capability in accounting and finance.
-                            </p>
-                        </div>
-                        <a href="https://www.charteredaccountantsanz.com/tools-and-resources/client-service-essentials/sustainability/sustainability-playbook" class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile" style="display: inline-block; width: fit-content" data-title="Complimentary Sharing Knowledge" data-element="Learn with our playbook" data-module="Content tile" data-event-module="Content tile" data-content-tile-title="A practical guide to sustainability" data-content-tile-container="Dive deeper into sustainability" data-content-tile-button-text="Learn with our playbook" data-internal-link="Content tile|Dive deeper into sustainability|A practical guide to sustainability|Learn with our playbook" target="_blank" rel="noopener noreferrer">Learn with our playbook</a>
-                    </div>
-                </div>
+                `;
 
-            </div>
-        </div>
-    </section>
-    <script>
-        (function(global) {
-            "use strict";
 
-            class PivotRenderer {
-                constructor(options = {}) {
-                    this.containerClass = options.containerClass || "pivot-container";
-                    this.containerStyle = options.containerStyle || "";
-                    this.itemClass = options.itemClass || "pivot-item";
-                    this.itemStyle = options.itemStyle || "";
-                    this.modules = new Map();
-                }
+                let videoContainer =
+                    document.querySelectorAll(
+                        "div.rich-text.container.mx-auto"
+                    )[1];
 
-                define(name, config) {
-                    if (!name || typeof name !== "string") {
-                        throw new Error("Module name must be a non-empty string");
-                    }
-                    if (!Array.isArray(config.data)) {
-                        throw new Error("Data must be an array");
-                    }
-                    if (typeof config.template !== "string") {
-                        throw new Error("Template must be a string");
-                    }
 
-                    this.modules.set(name, {
-                        data: config.data,
-                        template: config.template,
-                        containerClass: config.containerClass || null,
-                        rendered: false,
-                        container: null,
-                    });
+                if (videoContainer) {
 
-                    return this;
-                }
-
-                parseTemplate(template, data) {
-                    return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-                        if (data.hasOwnProperty(key)) {
-                            const value = data[key];
-                            return this.escapeHtml(String(value));
-                        }
-                        console.warn(`PivotRenderer: Missing key "${key}" in data`);
-                        return "";
-                    });
-                }
-
-                escapeHtml(str) {
-                    const htmlEntities = {
-                        "&": "&amp;",
-                        "<": "&lt;",
-                        ">": "&gt;",
-                        '"': "&quot;",
-                        "'": "&#39;",
-                    };
-                    return str.replace(/[&<>"']/g, (char) => htmlEntities[char]);
-                }
-
-                render(name) {
-                    const module = this.modules.get(name);
-                    if (!module) {
-                        throw new Error(`Module "${name}" not found`);
-                    }
-
-                    const container = document.createElement("div");
-                    container.className = module.containerClass || this.containerClass;
-
-                    if (module.containerStyle || this.containerStyle) {
-                        container.style.cssText = module.containerStyle || this.containerStyle;
-                    }
-
-                    module.data.forEach((item, index) => {
-                        const renderedHtml = this.parseTemplate(module.template, item);
-                        const itemWrapper = document.createElement("div");
-                        itemWrapper.className = module.itemClass || this.itemClass;
-                        itemWrapper.setAttribute("data-pivot-index", index);
-
-                        if (module.itemStyle || this.itemStyle) {
-                            itemWrapper.style.cssText = module.itemStyle || this.itemStyle;
-                        }
-
-                        itemWrapper.innerHTML = renderedHtml;
-                        container.appendChild(itemWrapper);
-                    });
-
-                    module.rendered = true;
-                    module.container = container;
-
-                    return container;
-                }
-
-                insert(moduleName, selector, position = "append") {
-                    const target = document.querySelector(selector);
-                    if (!target) {
-                        throw new Error(`Target element not found: ${selector}`);
-                    }
-
-                    const module = this.modules.get(moduleName);
-                    if (!module) {
-                        throw new Error(`Module "${moduleName}" not found`);
-                    }
-
-                    // Render if not already rendered
-                    const container = module.container || this.render(moduleName);
-
-                    switch (position) {
-                        case "before":
-                            target.parentNode.insertBefore(container, target);
-                            break;
-                        case "after":
-                            target.parentNode.insertBefore(container, target.nextSibling);
-                            break;
-                        case "prepend":
-                            target.insertBefore(container, target.firstChild);
-                            break;
-                        case "append":
-                        default:
-                            target.appendChild(container);
-                            break;
-                    }
-
-                    return this;
-                }
-
-                update(name, newData) {
-                    const module = this.modules.get(name);
-                    if (!module) {
-                        throw new Error(`Module "${name}" not found`);
-                    }
-
-                    const oldContainer = module.container;
-                    module.data = newData;
-                    module.rendered = false;
-                    module.container = null;
-
-                    // Re-render and replace old container if it exists in DOM
-                    if (oldContainer && oldContainer.parentNode) {
-                        const newContainer = this.render(name);
-                        oldContainer.parentNode.replaceChild(newContainer, oldContainer);
-                    }
-
-                    return this;
-                }
-
-                remove(name) {
-                    const module = this.modules.get(name);
-                    if (module && module.container && module.container.parentNode) {
-                        module.container.parentNode.removeChild(module.container);
-                        module.container = null;
-                        module.rendered = false;
-                    }
-                    return this;
-                }
-
-                destroy(name) {
-                    this.remove(name);
-                    this.modules.delete(name);
-                    return this;
-                }
-
-                getModuleNames() {
-                    return Array.from(this.modules.keys());
-                }
-            }
-
-            // Expose to global scope
-            global.PivotRenderer = PivotRenderer;
-        })(typeof window !== "undefined" ? window : this);
-
-        (function() {
-            const packages = [{
-                    name: "jQuery",
-                    url: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js",
-                    test: function() {
-                        return typeof jQuery !== "undefined";
-                    },
-                },
-                {
-                    name: "Slick",
-                    url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
-                    test: function() {
-                        return (
-                            typeof jQuery !== "undefined" &&
-                            typeof jQuery.fn.slick !== "undefined"
-                        );
-                    },
-                },
-            ];
-
-            function loadScript(src) {
-                return new Promise((resolve, reject) => {
-                    const script = document.createElement("script");
-                    script.src = src;
-                    script.nonce = "2726c7f26c";
-                    script.onload = resolve;
-                    script.onerror = reject;
-                    document.head.appendChild(script);
-                });
-            }
-
-            async function loadPackages() {
-                for (const pkg of packages) {
-                    if (!pkg.test()) {
-                        console.log(`Loading ${pkg.name}...`);
-                        try {
-                            await loadScript(pkg.url);
-                            console.log(`${pkg.name} loaded successfully.`);
-                        } catch (error) {
-                            console.error(`Failed to load ${pkg.name}:`, error);
-                        }
-                    } else {
-                        console.log(`${pkg.name} is already loaded.`);
-                    }
-                }
-            }
-
-            function runYourCode() {
-                async function getRegionWithRetry(maxAttempts = 30, delayMs = 100) {
-                    for (let attempt = 0; attempt < maxAttempts; attempt++) {
-                        const region = window.digitalData?.page?.userInfo?.catalog;
-                        if (region) {
-                            return region;
-                        }
-                        // Wait before next attempt
-                        await new Promise((resolve) => setTimeout(resolve, delayMs));
-                    }
-                    return null;
-                }
-
-                (async function() {
-                    const region = (await getRegionWithRetry(20, 50)) || "AU";
-
-                    const infoRenderer1 = new PivotRenderer({
-                        containerClass: "at-caanz-all-slick-3 at-topic-carousel--1",
-                        itemClass: "at-topic-carousel--1-tiles",
-                        itemStyle: `
-                box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px 0px;
-                border-radius: 6px;
-                background-color: rgb(255, 255, 255);
-            `,
-                    });
-
-                    const nzData1 = [{
-                            asset: "https://assets.charteredaccountantsanz.com/asset/86577bcd-6ac4-4f12-97c2-89d24a5311a0/Website-Content-tile/MCT1-UK-Eco-solar-panels.jpg",
-                            imgDes: "Solar panels and wind turbines",
-                            title: "Climate change essentials for finance",
-                            cpdHours: 3,
-                            href: "https://store.charteredaccountantsanz.com/courses/nz/Climate-Change-Essentials-for-Finance--New-Zealand",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "$195.00",
-                            nonMemberPrice: "$244.00"
-                        },
-                        {
-                            asset: "https://assets.charteredaccountantsanz.com/asset/86577bcd-6ac4-4f12-97c2-89d24a5311a0/Website-Content-tile/MCT1-UK-Eco-solar-panels.jpg",
-                            imgDes: "A female researcher in a greenhouse with plants",
-                            title: "Sustainability essentials",
-                            cpdHours: 2,
-                            href: "https://store.charteredaccountantsanz.com/courses/nz/Sustainability-essentials-New-Zealand",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "$195.00",
-                            nonMemberPrice: "$245.00"
-                        },
-                        {
-                            asset: "https://assets.charteredaccountantsanz.com/asset/418db1a2-8571-40b7-861d-878e87594c9a/Website-Content-tile/MCT1-Aerial-riverbed.jpg",
-                            imgDes: "Lower river",
-                            title: "Introduction to sustainability",
-                            cpdHours: 1,
-                            href: "https://store.charteredaccountantsanz.com/courses/nz/Introduction-to-sustainability---NZ",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "Free",
-                            nonMemberPrice: "$100.00"
-                        }
-                    ]
-
-                    const auData1 = [{
-                            asset: "https://assets.charteredaccountantsanz.com/asset/86577bcd-6ac4-4f12-97c2-89d24a5311a0/Website-Content-tile/MCT1-UK-Eco-solar-panels.jpg",
-                            imgDes: "Solar panels and wind turbines",
-                            title: "Climate change essentials for finance",
-                            cpdHours: 3,
-                            href: "https://store.charteredaccountantsanz.com/courses/au/Climate-Change-Essentials-for-Finance---Australia",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "$195.00",
-                            nonMemberPrice: "$244.00"
-                        },
-                        {
-                            asset: "https://assets.charteredaccountantsanz.com/asset/86577bcd-6ac4-4f12-97c2-89d24a5311a0/Website-Content-tile/MCT1-UK-Eco-solar-panels.jpg",
-                            imgDes: "A female researcher in a greenhouse with plants",
-                            title: "Sustainability essentials",
-                            cpdHours: 2,
-                            href: "https://store.charteredaccountantsanz.com/courses/au/Sustainability-essentials-Australia",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "$195.00",
-                            nonMemberPrice: "$245.00"
-                        },
-                        {
-                            asset: "https://assets.charteredaccountantsanz.com/asset/418db1a2-8571-40b7-861d-878e87594c9a/Website-Content-tile/MCT1-Aerial-riverbed.jpg",
-                            imgDes: "Lower river",
-                            title: "Introduction to sustainability",
-                            cpdHours: 1,
-                            href: "https://store.charteredaccountantsanz.com/courses/au/Introduction-to-sustainability---AU",
-                            buttonText: "View course",
-                            containerTitle: "Understand the fundamentals",
-                            memberPrice: "Free",
-                            nonMemberPrice: "$100.00"
-                        }
-                    ]
-
-                    infoRenderer1.define("infoTiles", {
-                        data: region === "NZ" ? nzData1 : auData1,
-                        template: `
-                    <picture>
-                        <img src="{{asset}}"
-                                alt="{{imgDes}}" style="
-                        width: 100%;
-                        aspect-ratio: 16 / 9;
-                        height: auto;
-                        object-fit: cover;
-                        object-position: center;
-                        display: block;
-                        border-top-left-radius: 6px;
-                        border-top-right-radius: 6px;
-                        padding: 4px 4px 0;
-                        box-sizing: border-box;
-                        ">
-                        </picture>
-                        <div class="at-flex at-flex-column" style="
-                        padding: 24px 16px;
-                        justify-content: space-between;
-                    ">
-                            <h4 class="at-caanz-all-body--l at-text-cablack at-font-nexaxbold at-mb-0">
-                                {{title}}
-                            </h4>
-                            <div class="font-nexa-book text-sm py-5">
-                                <div class="flex pb-[10px] items-center gap-x-2"><svg width="18" height="18" viewBox="0 0 18 18"
-                                        class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.00006 0.208008C4.86406 0.208008 1.38405 3.08801 0.456055 6.93601C0.688055 6.84801 0.944055 6.80001 1.20805 6.80001C1.67205 6.80001 2.10405 6.94401 2.45605 7.19201C3.24805 4.32001 5.88005 2.20801 9.00006 2.20801C12.7521 2.20801 15.7921 5.25601 15.7921 9.00001C15.7921 12.128 13.6801 14.752 10.8081 15.544C11.0561 15.896 11.2001 16.328 11.2001 16.792C11.2001 17.056 11.1521 17.312 11.0641 17.544C14.9201 16.616 17.7921 13.136 17.7921 9.00001C17.7921 4.16001 13.8481 0.208008 9.00006 0.208008Z"
-                                            fill="#261A42"></path>
-                                        <path
-                                            d="M12.2883 11.72L9.77633 9.20801L9.73633 3.76001L7.73633 3.77601L7.77633 10.04L10.8723 13.136L12.2883 11.72Z"
-                                            fill="#261A42"></path>
-                                        <path
-                                            d="M9.00001 15.792C5.25601 15.792 2.20801 12.752 2.20801 9C2.20801 8.448 1.76801 8 1.20801 8C0.648008 8 0.208008 8.448 0.208008 9C0.208008 13.848 4.16001 17.792 9.00001 17.792C9.56001 17.792 10 17.352 10 16.792C10 16.232 9.56001 15.792 9.00001 15.792Z"
-                                            fill="#261A42"></path>
-                                    </svg>
-                                    <p class="text-sm pb-0 shrink-0">CPD <!-- -->{{cpdHours}}<!-- --> hours</p><svg width="24" height="24"
-                                        viewBox="0 0 24 24" class="w-6 h-6 ml-5 ca-md:ml-0 " fill="#261A42"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.137 18.224L12.041 18.32H12.233L12.137 18.224Z" fill="#261A42"></path>
-                                        <path
-                                            d="M20.8887 18.32H15.0567L18.4407 21.704L18.2967 21.848H15.7607L12.2327 18.32L12.1367 18.224L8.51272 21.848H5.96872L5.82472 21.704L9.21672 18.32H3.13672V8.65601H5.13672V16.32H18.8887V8.65601H20.8887V18.32Z"
-                                            fill="#261A42"></path>
-                                        <path d="M13.776 2.59998H10.248V4.25598H13.776V2.59998Z" fill="#261A42"></path>
-                                        <path
-                                            d="M22.3764 6.45593C22.3764 7.00793 21.9284 7.45593 21.3764 7.45593H2.64844C2.09644 7.45593 1.64844 7.00793 1.64844 6.45593C1.64844 5.90393 2.09644 5.45593 2.64844 5.45593H21.3764C21.9284 5.45593 22.3764 5.90393 22.3764 6.45593Z"
-                                            fill="#261A42"></path>
-                                    </svg>
-                                    <p class="line-clamp-1 text-sm break-all pb-0">Course</p>
-                                </div>
-                                <div class="flex items-center gap-x-2"><span class="flex gap-x-2 items-center"><span
-                                            class="flex gap-x-2 items-center mr-2"><svg xmlns="http://www.w3.org/2000/svg"
-                                                width="18" height="20" viewBox="0 0 18 20" fill="none" class="size-5">
-                                                <path
-                                                    d="M6.59202 10.4639C5.20002 10.4639 4.40002 11.2559 4.40002 12.6319V13.2879C4.40002 14.6479 5.22402 15.4559 6.60002 15.4559C7.10402 15.4559 8.75202 15.2959 8.75202 13.2799V12.6319C8.75202 11.2719 7.94402 10.4639 6.59202 10.4639ZM7.40002 12.6399V13.2879C7.40002 13.9439 7.09602 14.3119 6.57602 14.3119C6.05602 14.3119 5.76002 13.9359 5.76002 13.2879V12.6399C5.76002 12.0079 6.06402 11.6399 6.59202 11.6399C7.12002 11.6399 7.40002 12.0079 7.40002 12.6399Z"
-                                                    fill="#261A42"></path>
-                                                <path
-                                                    d="M12.432 14.2478V10.4238L10.072 11.2718L10.056 11.2798V12.3678L11.088 12.0318V14.2478H9.93604V15.3198H13.592V14.2478H12.432Z"
-                                                    fill="#261A42"></path>
-                                                <path
-                                                    d="M15.92 1.94385V3.94385H16V6.39185H2V3.94385H2.08V1.94385H0V19.9438H18V1.94385H15.92ZM16 17.9438H2V8.39185H16V17.9438Z"
-                                                    fill="#261A42"></path>
-                                                <path d="M11.52 1.94385H6.47998V3.94385H11.52V1.94385Z" fill="#261A42"></path>
-                                                <path
-                                                    d="M5.28003 1.05591V4.41591C5.28003 4.96791 4.83203 5.41591 4.28003 5.41591C3.72803 5.41591 3.28003 4.96791 3.28003 4.41591V1.05591C3.28003 0.503908 3.72803 0.0559082 4.28003 0.0559082C4.83203 0.0559082 5.28003 0.503908 5.28003 1.05591Z"
-                                                    fill="#261A42"></path>
-                                                <path
-                                                    d="M14.72 1.05591V4.41591C14.72 4.96791 14.272 5.41591 13.72 5.41591C13.168 5.41591 12.72 4.96791 12.72 4.41591V1.05591C12.72 0.503908 13.168 0.0559082 13.72 0.0559082C14.272 0.0559082 14.72 0.503908 14.72 1.05591Z"
-                                                    fill="#261A42"></path>
-                                            </svg> <!-- -->On Demand</span></span><svg width="24" height="24"
-                                        viewBox="0 0 24 24" class="w-6 h-6 ml-5 ca-md:ml-0" fill="#261A42"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M17.1757 10.888C16.2717 13.712 13.6557 17.296 11.9997 19.304C9.98372 16.848 6.51172 12.032 6.51172 9.12803C6.51172 6.72803 8.06372 4.67203 10.2237 3.93604C9.95972 3.57604 9.79972 3.12803 9.79972 2.64004C9.79972 2.39204 9.83972 2.16004 9.91172 1.93604C6.79972 2.84004 4.51172 5.72803 4.51172 9.12803C4.51172 13.864 10.9757 21.208 11.2557 21.512L11.9997 22.36L12.7517 21.512C12.9837 21.248 17.8157 15.776 19.1517 11.232C18.9437 11.296 18.7277 11.328 18.4957 11.328C17.9997 11.328 17.5437 11.16 17.1757 10.888Z"
-                                            fill="#261A42"></path>
-                                        <path
-                                            d="M11.9922 1.64001C11.4402 1.64001 10.9922 2.08801 10.9922 2.64001C10.9922 3.19201 11.4402 3.64001 11.9922 3.64001C15.0242 3.64001 17.4882 6.10401 17.4882 9.12801C17.4882 9.68001 17.9362 10.128 18.4882 10.128C19.0402 10.128 19.4882 9.68001 19.4882 9.12801C19.4882 5.00001 16.1282 1.64001 11.9922 1.64001Z"
-                                            fill="#261A42"></path>
-                                        <path
-                                            d="M11.9996 11.752C13.3036 11.752 14.3596 10.696 14.3596 9.39198C14.3596 8.08798 13.3036 7.03198 11.9996 7.03198C10.6956 7.03198 9.63965 8.08798 9.63965 9.39198C9.63965 10.696 10.6956 11.752 11.9996 11.752Z"
-                                            fill="#261A42"></path>
-                                    </svg>
-                                    <p class="text-sm pb-0">Online</p>
-                                </div>
-
-                            </div>
-                            <div class="pb-3 h-[77px] flex flex-col justify-center pt-4 border-t border-light-silver">
-                                <div class="flex ">
-                                    <p
-                                        class="pb-1 font-nexa-xbold safari-nexa-xbold leading-6 text-indigo text-xl max-md:-tracking-0.1">
-                                    {{memberPrice}}</p>
-                                </div>
-                                <div class="flex "><span
-                                        class="text-base md:text-sml font-nexa-book max-md:-tracking-0.1 text-monochromatic">non-member
-                                        : {{nonMemberPrice}}</span></div>
-                            </div>
-                            <a href="{{link}}"
-                                class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile"
-                                style="display: inline-block; width: fit-content" data-element="{{buttonText}}"
-                                data-module="Textlink" data-title="{{title}}"
-                                data-event-module="Product tile" data-content-tile-title="{{title}}"
-                                data-content-tile-container="{{containerTitle}}"
-                                data-content-tile-button-text="{{buttonText}}"
-                                data-internal-link="Product tile|{{containerTitle}}|{{title}}|{{buttonText}}"
-                                tabindex="0">{{buttonText}}</a>
-                        </div> `
-                    });
-
-                    infoRenderer1.insert(
-                        "infoTiles",
-                        "#at-caanz-custom-infocontainer--1",
-                        "append",
+                    /*
+                     * Existing video tracking selector.
+                     */
+                    videoContainer.classList.add(
+                        "at-tracked-play-video"
                     );
 
-                    const $c2 = $(".at-caanz-all-slick-2");
-                    const $c3 = $(".at-caanz-all-slick-3");
-                    if (!$c2.length || $c2.hasClass("slick-initialized")) return;
-                    if (!$c3.length || $c3.hasClass("slick-initialized")) return;
 
-                    $c2.slick({
-                        arrows: false,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        responsive: [{
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 1,
-                                draggable: true,
-                                dots: true
-                            }
-                        }]
-                    });
+                    let videoWrapper =
+                        document.createElement("div");
 
-                    $c3.slick({
-                        arrows: false,
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        dots: true,
-                        responsive: [{
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 2,
-                                    draggable: true
-                                }
-                            },
-                            {
+                    videoWrapper.className =
+                        "video-wrapper";
 
-                                breakpoint: 768,
-                                settings: {
-                                    slidesToShow: 1
-                                }
-                            }
-                        ]
-                    });
+                    videoWrapper.id =
+                        "at-sustainability-video-wrapper";
 
-                    requestAnimationFrame(() => $c2.slick("setPosition"));
-                    requestAnimationFrame(() => $c3.slick("setPosition"));
-                    $(window).on("load", () => {
-                        $c2.slick("setPosition")
-                        $c3.slick("setPosition")
-                    });
-                })();
 
-                if (window.next?.router) {
-                    const router = window.next.router;
+                    videoContainer.parentNode.insertBefore(
+                        videoWrapper,
+                        videoContainer
+                    );
 
-                    router.events.on("routeChangeStart", (url) => {
-                        if (url !== "/") {
-                            //   document.querySelector("#action_insert_1771541937383")?.remove();
-                            //   document.querySelector("#action_insert_1771541984832")?.remove();
-                        }
-                        if (window.CAANZAnalytics) {
-                            window.CAANZAnalytics = {};
-                        }
-                    });
+
+                    videoWrapper.insertAdjacentHTML(
+                        "beforeend",
+                        videoDescHTML
+                    );
+
+
+                    videoWrapper.appendChild(
+                        videoContainer
+                    );
+
+
+                    // videoWrapper.insertAdjacentHTML(
+                    //     "beforebegin",
+                    //     videoTitleHTML
+                    // );
                 }
-            }
 
-            loadPackages()
-                .then(runYourCode)
-                .catch((error) => {
-                    console.error("An error occurred while loading packages:", error);
-                });
-        })();
-    </script>
-</div>
+
+
+                /* =========================================================
+                   CHOOSE THE RIGHT PATH + DIVE DEEPER
+                   ========================================================= */
+
+                let tabHTML = `
+                    <div
+                        id="action_insert_1787548658480"
+                        class="bg-off-white full-width max-ca-md:overflow-hidden"
+                    >
+
+                        <section>
+
+                            <div
+                                class="at-caanz-all-container at-caanz-all-adjust-y"
+                                id="at-caanz-custom-infocontainer--1"
+                            >
+
+                                <h2
+                                    style="padding-bottom: 24px"
+                                    class="text-ca-3xl text-indigo leading-120 font-nexa-bold lg:text-4.5xl mb-2.5"
+                                >
+                                    Choose the right path
+                                </h2>
+
+
+                                <div id="at-caanz-choose-path"></div>
+
+                            </div>
+
+                        </section>
+
+
+                        <section>
+
+                            <div
+                                class="at-caanz-all-container at-flex at-flex-column at-caanz-all-adjust-y--2"
+                            >
+
+                                <h2
+                                    class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0"
+                                    style="margin-bottom: 24px"
+                                >
+                                    Dive deeper into sustainability
+                                </h2>
+
+
+                                <div class="at-caanz-all-slick-2">
+
+
+                                    <!-- ==========================================
+                                         DIVE DEEPER TILE 1
+                                         ========================================== -->
+
+                                    <div
+                                        style="
+                                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+                                            border-radius: 6px;
+                                            background-color: #fff;
+                                        "
+                                    >
+
+                                        <picture>
+
+                                            <img
+                                                src="https://assets.charteredaccountantsanz.com/asset/e409c5c4-581a-401e-b117-98365b5d235e/Website-Content-tile/MCT1-Byron-Bay-Aerial-Australia.jpg"
+                                                alt="Beach side highway"
+
+                                                style="
+                                                    width: 100%;
+                                                    aspect-ratio: 376 / 218;
+                                                    height: auto;
+                                                    object-fit: cover;
+                                                    object-position: center;
+                                                    display: block;
+                                                    border-top-left-radius: 6px;
+                                                    border-top-right-radius: 6px;
+                                                    padding: 4px 4px 0;
+                                                    box-sizing: border-box;
+                                                "
+                                            >
+
+                                        </picture>
+
+
+                                        <div
+                                            class="at-flex at-flex-column"
+
+                                            style="
+                                                padding: 24px 16px;
+                                                height: 258px;
+                                                justify-content: space-between;
+                                            "
+                                        >
+
+                                            <div
+                                                class="at-flex at-flex-column"
+                                                style="gap: 12px"
+                                            >
+
+                                                <h3
+                                                    class="at-caanz-all-h3--m at-font-nexa at-text-cablack"
+                                                >
+                                                    Are you ready to delve into more resources?
+                                                </h3>
+
+
+                                                <p
+                                                    class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0"
+                                                >
+                                                    The Sustainability Resource Centre has pratical tools,
+                                                    training, insights and playbook.
+                                                </p>
+
+                                            </div>
+
+
+                                            <a
+                                                href="https://www.charteredaccountantsanz.com/member-services/sustainability-resource-centre"
+
+                                                class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile"
+
+                                                style="
+                                                    display: inline-block;
+                                                    width: fit-content
+                                                "
+
+                                                data-title="Are you ready to delve into more resources?"
+                                                data-element="Download the report"
+
+                                                data-module="Content tile"
+                                                data-event-module="Content tile"
+
+                                                data-content-tile-title="Are you ready to delve into more resources?"
+                                                data-content-tile-container="Dive deeper into sustainability"
+                                                data-content-tile-button-text="Download the report"
+
+                                                data-internal-link="Content tile|Dive deeper into sustainability|Are you ready to delve into more resources?|Download the report"
+
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Explore now
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- ==========================================
+                                         DIVE DEEPER TILE 2
+                                         ========================================== -->
+
+                                    <div
+                                        style="
+                                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+                                            border-radius: 6px;
+                                            background-color: #fff;
+                                        "
+                                    >
+
+                                        <picture>
+
+                                            <img
+                                                src="https://assets.charteredaccountantsanz.com/asset/5ac6930a-2c9a-45a3-978f-9ef4cf469d9f/Website-Content-tile/MCT1-Queensland-8.jpg"
+                                                alt="Landscape beach front"
+
+                                                style="
+                                                    width: 100%;
+                                                    aspect-ratio: 376 / 218;
+                                                    height: auto;
+                                                    object-fit: cover;
+                                                    object-position: center;
+                                                    display: block;
+                                                    border-top-left-radius: 6px;
+                                                    border-top-right-radius: 6px;
+                                                    padding: 4px 4px 0;
+                                                    box-sizing: border-box;
+                                                "
+                                            >
+
+                                        </picture>
+
+
+                                        <div
+                                            class="at-flex at-flex-column"
+
+                                            style="
+                                                padding: 24px 16px;
+                                                height: 258px;
+                                                justify-content: space-between;
+                                            "
+                                        >
+
+                                            <div
+                                                class="at-flex at-flex-column"
+                                                style="gap: 12px"
+                                            >
+
+                                                <h3
+                                                    class="at-caanz-all-h3--m at-font-nexa at-text-cablack"
+                                                >
+                                                    A practical guide to sustainability
+                                                </h3>
+
+
+                                                <p
+                                                    class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0"
+                                                >
+                                                    Download and read the Sustainability Playbook designed
+                                                    to help build sustainability capability in accounting
+                                                    and finance.
+                                                </p>
+
+                                            </div>
+
+
+                                            <a
+                                                href="https://www.charteredaccountantsanz.com/tools-and-resources/client-service-essentials/sustainability/sustainability-playbook"
+
+                                                class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile"
+
+                                                style="
+                                                    display: inline-block;
+                                                    width: fit-content
+                                                "
+
+                                                data-title="Complimentary Sharing Knowledge"
+                                                data-element="Learn with our playbook"
+
+                                                data-module="Content tile"
+                                                data-event-module="Content tile"
+
+                                                data-content-tile-title="A practical guide to sustainability"
+                                                data-content-tile-container="Dive deeper into sustainability"
+                                                data-content-tile-button-text="Learn with our playbook"
+
+                                                data-internal-link="Content tile|Dive deeper into sustainability|A practical guide to sustainability|Learn with our playbook"
+
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Learn with our playbook
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+                `;
+
+
+                let tabContainer =
+                    document.querySelector(
+                        "#at-sustainability-video-wrapper"
+                    );
+
+
+                if (tabContainer) {
+
+                    let targetElement =
+                        tabContainer;
+
+
+                    /*
+                     * Move 5 elements forward.
+                     */
+                    for (let i = 0; i < 5; i++) {
+
+                        if (
+                            targetElement.nextElementSibling
+                        ) {
+
+                            targetElement =
+                                targetElement.nextElementSibling;
+
+
+                            /*
+                             * Hide next four elements.
+                             */
+                            if (
+                                i === 0 ||
+                                i === 1 ||
+                                i === 2 ||
+                                i === 3
+                            ) {
+
+                                targetElement.setAttribute(
+                                    "data-at-caanz-hidden",
+                                    "true"
+                                );
+
+                                targetElement.style.display =
+                                    "none";
+                            }
+                        }
+                    }
+
+
+                    /*
+                     * Insert new section after the
+                     * fifth element.
+                     */
+                    targetElement.insertAdjacentHTML(
+                        "afterend",
+                        tabHTML
+                    );
+                }

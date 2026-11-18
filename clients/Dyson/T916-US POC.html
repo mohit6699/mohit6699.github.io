@@ -4,18 +4,12 @@
         position: relative;
     }
 
-    .dy-recommendations-header_T546 {
-        padding: 0 16px;
-    }
-
     .dy-recommendations-header_T546 h2,
     .basket-recommendations_T546 h2 {
-        /* margin: 0;
-        padding-bottom: 0; */
         font-weight: 400;
         font-size: 1.15rem;
         line-height: 1.25;
-        padding: 1rem 0 0 0;
+        padding: 0 0 0.5rem 0;
     }
 
     .basket-recommendations_T546 h3 {
@@ -37,11 +31,13 @@
 
     .basket-recommendations_T546 .plp-cards__image-container {
         position: relative;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
     }
 
     .basket-recommendations_T546 .plp-cards__image-container img {
         display: block;
-        aspect-ratio: 16/9;
+        /* aspect-ratio: 16/9; */
         width: auto !important;
         max-width: 100%;
         max-height: 200px;
@@ -50,19 +46,78 @@
 
     .basket-recommendations_T546 .plp-cards__text-container {
         padding: 12px 16px 16px;
+        flex: 1 1 auto;
+        overflow: visible;
+    }
+
+    .basket-recommendations_T546 .dy-title-row_T546 {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        position: relative;
     }
 
     .basket-recommendations_T546 .plp-cards__name {
         margin-top: 0 !important;
+        flex: 1 1 auto;
     }
 
-    .basket-recommendations_T546 .plp-cards__description {
-        margin: 8px 0 0;
-        min-height: 44px;
+    .basket-recommendations_T546 .dy-info-btn_T546 {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #767676;
+        background: #1c1c1c;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        margin-top: 1px;
+        line-height: 1;
+        transition: all 0.2s ease;
+    }
+
+    .basket-recommendations_T546 .dy-info-btn_T546:hover {
+        color: #fff;
+        border-color: #000;
+    }
+
+    .basket-recommendations_T546 .dy-tooltip-content_T546 {
+        display: none;
+        position: absolute;
+        top: 26px;
+        right: -8px;
+        width: max-content;
+        max-width: 230px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        z-index: 100;
+        font-size: 0.85rem;
+        color: #444;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: left;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+
+    .basket-recommendations_T546 .dy-tooltip-content_T546.is-visible_T546 {
+        display: block;
     }
 
     .basket-recommendations_T546 .plp-cards__price-container {
-        padding: 0 16px;
+        padding: 5px 16px 0 16px;
         display: flex;
         flex-direction: row;
     }
@@ -91,6 +146,10 @@
         padding: 0 16px;
         border: 0;
         cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .basket-recommendations_T546 .button--transactional.active {
@@ -99,9 +158,10 @@
 
     .basket-recommendations_T546 .button--transactional.completed_T791::after {
         content: "✓";
-        display: inline-block;
-        margin-left: 8px;
-        font-size: 1rem;
+        position: absolute;
+        top: 25%;
+        font-size: 1.5rem;
+        line-height: 1;
     }
 
     .basket-recommendations_T546 .wasPrice {
@@ -116,6 +176,7 @@
     .basket-recommendations_T546 .plp-cards__items {
         display: flex;
         flex-wrap: nowrap;
+        align-items: stretch;
         gap: 8px;
         margin: 0;
         padding: 0 16px 8px;
@@ -125,7 +186,7 @@
 
     .dy-recommendations-viewport_T546 {
         overflow-x: auto;
-        overflow-y: hidden;
+        overflow-y: visible;
         width: 100%;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -138,15 +199,19 @@
     }
 
     .basket-recommendations_T546 .plp-cards__items>li {
+        display: flex;
         flex: 0 0 calc(100% - 24px);
         max-width: 300px;
         scroll-snap-align: start;
     }
 
     .basket-recommendations_T546 .at_recs_card_T546 {
-        overflow: hidden;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
         border-radius: 8px;
         background: #fff;
+        margin-bottom: 0 !important;
     }
 
     .basket-recommendations_T546 .at_recs_card_T546.active .plp-cards__image-container {
@@ -179,10 +244,9 @@
     .at-carousel-prev_T546,
     .at-carousel-next_T546 {
         display: flex;
-        /* align-items: center; */
         justify-content: center;
         position: absolute;
-        top: 56%;
+        top: 62%;
         transform: translateY(-50%);
         width: 36px;
         height: 36px;
@@ -195,6 +259,12 @@
         line-height: 1;
         z-index: 4;
         cursor: pointer;
+    }
+
+    .at-carousel-prev_T546:focus,
+    .at-carousel-next_T546:focus {
+        outline: 3px solid #222 !important;
+        box-shadow: none !important;
     }
 
     .at-carousel-prev_T546 {
@@ -237,12 +307,46 @@
         background: #000;
     }
 
-    .centralizedpopup__content .add-to-basket-notification.centralizedpopup__description {
+    #dy-atb-popup_T546 .centralizedpopup__container {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__title {
+        flex: 0 0 auto;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__description {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
         padding: 0 !important;
     }
 
-    .add-to-basket-notification__wrapper {
+    #dy-atb-popup_T546 .add-to-basket-notification__wrapper {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding: 0 !important;
+    }
+
+    #dy-atb-popup_T546 .add-to-basket-notification__button-container {
+        flex: 0 0 auto;
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding-top: 8px;
     }
 
     body.dy-atb-popup-open_T546 {
@@ -255,10 +359,6 @@
         z-index: 100000;
     }
 
-    /* =========================================================
-       POPUP SHELL
-       Keeps close button outside the scrollable content.
-       ========================================================= */
     #dy-atb-popup_T546 .dy-atb-modal-shell_T546 {
         position: relative;
         width: min(520px, 92vw);
@@ -281,7 +381,7 @@
         position: relative;
         width: 100%;
         max-height: calc(100vh - 48px);
-        overflow-y: auto;
+        overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: border-box;
         background: #fff;
@@ -328,17 +428,34 @@
         display: block;
     }
 
-    #dy-atb-popup_T546 .basket-recommendations_T546 {
+    #dy-atb-popup_T546 .basket-recommendations_T546,
+    .centralizedpopup .basket-recommendations_T546 {
         position: relative;
         margin-top: 4px;
     }
 
-    #dy-atb-popup_T546 .basket-recommendations_T546 .plp-cards {
+    #dy-atb-popup_T546 .basket-recommendations_T546 .plp-cards,
+    .centralizedpopup .basket-recommendations_T546 .plp-cards {
         position: relative;
         z-index: 1;
     }
 
     @media (max-width: 767px) {
+        .basket-recommendations_T546 .plp-cards__price-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__prices p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .basket-recommendations_T546 .was-price-placeholder {
+            line-height: 1.2;
+        }
+
         #dy-atb-popup_T546 .centralizedpopup__overlay {
             align-items: flex-end;
             justify-content: center;
@@ -354,14 +471,14 @@
         #dy-atb-popup_T546 .centralizedpopup__container {
             width: 100%;
             max-height: calc(100vh - 32px);
-            overflow-y: auto;
+            overflow-y: hidden;
             overflow-x: hidden;
             padding: 8px 8px 6px;
         }
 
         #dy-atb-popup_T546 .centralizedpopup__close {
-            top: -12px;
-            right: -12px;
+            top: -40px;
+            right: 0px;
             width: 30px;
             height: 30px;
         }
@@ -374,58 +491,108 @@
             margin-top: 1rem;
             padding: 0 10px 10px;
         }
+    }
 
-        .basket-recommendations_T546 .plp-cards__description {
-            min-height: 64px;
+    @media (max-width: 767px) and (max-height: 700px) {
+        .dy-recommendations-viewport_T546 {
+            max-height: calc(100vh - 430px);
+            min-height: 120px;
+            overflow-y: auto;
+            overscroll-behavior-y: contain;
         }
     }
+
+    .centralizedpopup__title {
+        padding-left: 0 !important;
+    }
+
+    .plp-cards js-plp-cards dy-recommendations-carousel_T546 {
+        margin-bottom: 0 !important;
+    }
+
+    .add-to-basket-notification__outer {
+        margin-bottom: 1rem !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 1365px) {
+        #dy-atb-popup_T546 .dy-atb-modal-shell_T546 {
+            width: 475px;
+            max-width: 90vw;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__outer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 0.75rem !important;
+            text-align: left;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__image-wrapper {
+            flex: 0 0 120px;
+            margin: 0;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__container {
+            flex: 1 1 auto;
+            margin: 0;
+        }
+
+        .basket-recommendations_T546 .plp-cards__text-container {
+            padding: 8px 12px 10px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__image-container img {
+            max-height: 140px;
+            margin: 0;
+        }
+
+        .basket-recommendations_T546 .plp-cards__items>li {
+            max-width: 250px;
+        }
+
+        #dy-atb-popup_T546 .centralizedpopup__container {
+            padding: 1rem 1.2rem;
+        }
+    }
+
+    .dy-recommendations-viewport_T546 {
+        cursor: grab;
+    }
+
+    .dy-recommendations-viewport_T546:active {
+        cursor: grabbing;
+    }
+
+    .basket-recommendations_T546 .plp-cards__image-container img {
+        pointer-events: none;
+    }
 </style>
+
 <script>
-    /* ==========================================================================
-   Dyson.com (US) — "free tools" hero button
-     .button--transactional.button--free-tools.product-hero__button
-
-   Step 1 of the flow (this file): on click, add the main product to the
-   basket via the cart API, look up its real display data, and show a
-   popup using the SITE'S OWN "Added to your basket" markup/classes
-   (centralizedpopup / add-to-basket-notification__*), populated with
-   that real product's name, image, and pricing.
-
-   The product SKU is NOT hardcoded — it's read live from
-   dataLayer.primaryProduct.localProductSKU (the same field the site's own
-   reference script already relies on), so name/price/image in the popup
-   always match whatever product page the button is actually on. If that
-   dataLayer field isn't populated for some reason, the script logs an
-   error and lets the button's native click go through instead of
-   showing a popup with wrong or missing data.
-
-   Accessories: checks a static SKU map first (mirroring the reference
-   script's window.staticIds / fetchStaticIds priority), and only falls
-   back to deriving from the main product's own productReferences API
-   field (fetchAccessorySkus, matching the reference's fetchAccessories)
-   when the SKU isn't in that static map. No bundle-selector page
-   fetch/scraping involved either way.
-
-   Styling: injectReferenceSiteStyles() injects the ACTUAL site CSS
-   (recs_style + the snapper carousel stylesheet) verbatim, idempotently
-   (skipped if #recs_style already exists on the page). Since the popup
-   and accessory cards reuse the site's own real class names, this gives
-   the native look directly instead of a hand-rolled approximation.
-   ensureVisibilityStyles() only adds the handful of rules with no site
-   equivalent: the overlay/backdrop and the popup panel's own position.
-   ========================================================================== */
-
     (function (w, d) {
         "use strict";
 
-        // ---- Config (US) -----------------------------------------------------------
-
-        // var HERO_BUTTON_SELECTOR =
-        //     ".button.button--transactional.js-add-to-basket-button.product-hero__button.add-to-basket__form-button";
-        var HERO_BUTTON_SELECTOR = ".button.button--transactional.button--free-tools.product-hero__button";
+        var HERO_BUTTON_SELECTOR =
+            ".product-hero__button.js-add-to-basket-button, " +
+            ".button--nav.js-add-to-basket-button, " +
+            ".button--free-tools.button--nav, " +
+            ".button--free-tools.product-hero__button, " +
+            ".product-bundle__basket-button.js-product__basket-button.card-btn-radius, " +
+            ".promotional-hero__button.js-add-to-basket-button, " +
+            ".plp-card-addToBasket-button, " +
+            ".add-to-basket__form-button.js-add-to-basket-button, " +
+            ".button--free-tools.promotional-hero__button.card-btn-no-radius-bot, " +
+            ".plp-card-addToBasket-button.card-btn-no-radius-tm.bundleSelectionBtn, " +
+            ".button.button--transactional.js-add-to-basket-button.promotional-hero__button.card-btn-no-radius-bot.add-to-basket__form-button";
 
         var PRODUCT_API_BASE = "https://api.dyson.com/apiman-gateway/dyson/product/1.0/us/";
         var CART_BASE_URL = "https://api.dyson.com/apiman-gateway/dyson/cart/1.0/us/";
+        var BUNDLE_API_BASE = "https://api.dyson.com/apiman-gateway/dyson/bundle/1.0/us/";
+        var BUNDLE_CART_API = "https://api.dyson.com/apiman-gateway/dyson/bundleCart/1.0/us/bundle/users/anonymous/carts/";
+        var BUNDLE_ENFORCE_TEMPLATE_LIMIT = false;
+
+        var DEFER_STATIC_ACCESSORIES = true;
         var LANG = "en";
 
         var STRINGS = {
@@ -443,7 +610,14 @@
 
         var MODAL_ID = "dy-atb-popup_T546";
 
-        // ---- Cookie / auth helpers --------------------------------------------------
+        w.dyLastClickedSku = w.dyLastClickedSku || null;
+        w.dyLastClickedBundleId = w.dyLastClickedBundleId || null;
+
+        var EXCLUDED_SKUS = [
+            "492383-01", "492477-01", "492523-01",
+            "492462-01", "492485-01", "492423-01",
+            "113344-01", "123471-01", "253390-01"
+        ];
 
         function getCookieVal(cname) {
             var cookie = (document.cookie || "").split(";");
@@ -456,59 +630,86 @@
         }
 
         function checkLoggedIn() {
-            return w.dataLayer && w.dataLayer.customer && w.dataLayer.customer.credentialID !== "anonymous";
+            var isLogged = w.dataLayer && w.dataLayer.customer && w.dataLayer.customer.credentialID !== "anonymous";
+            console.log("[T546 Debug] Check logged in status:", isLogged);
+            return isLogged;
         }
-
-        // ---- Read the real SKU straight off the current page ----------------------
-        // Same source the rest of the site's own scripts use (see the reference
-        // "basket recommendations" module: PDPproductId = dataLayer.primaryProduct
-        // .localProductSKU). Nothing here is hardcoded to a specific product —
-        // whatever page this script runs on, it picks up that page's own SKU.
 
         function getSkuFromPage() {
             try {
                 if (w.dataLayer && w.dataLayer.primaryProduct && w.dataLayer.primaryProduct.localProductSKU) {
-                    return w.dataLayer.primaryProduct.localProductSKU;
+                    var pageSku = w.dataLayer.primaryProduct.localProductSKU;
+                    console.log("[T546 Debug] Found SKU in dataLayer:", pageSku);
+                    return pageSku;
                 }
-            } catch (e) {
-                /* fall through */
-            }
+            } catch (e) { }
             return null;
         }
 
-        // ---- Add to basket -----------------------------------------------------------
+        function getSkuForButton(btn) {
+            var sku = null;
+            var form = btn.closest("form");
+            if (form) {
+                var input = form.querySelector('input[name="product"]');
+                if (input && input.value) {
+                    sku = input.value;
+                    console.log("[T546 Debug] Sku from form input:", sku);
+                    return sku;
+                }
+            }
+            var parentLi = btn.closest("li[data-local-product-code]");
+            if (parentLi) {
+                sku = parentLi.getAttribute("data-local-product-code");
+                console.log("[T546 Debug] Sku from parent LI attribute:", sku);
+                return sku;
+            }
+            var productWrapper = btn.closest("[data-product-id]");
+            if (productWrapper) {
+                sku = productWrapper.getAttribute("data-product-id");
+                console.log("[T546 Debug] Sku from productWrapper attribute:", sku);
+                return sku;
+            }
+            sku = getSkuFromPage();
+            console.log("[T546 Debug] Sku resolved for button:", sku);
+            return sku;
+        }
 
-        // In-memory cache of the cart id, in case the server's Set-Cookie doesn't
-        // reliably land for this cross-domain (api.dyson.com) XHR. Without this,
-        // every add-to-basket call that can't find a cartguid cookie would call
-        // createCart again, silently spinning up a NEW empty cart per click
-        // instead of adding to the same one — which is why items were "added"
-        // (200 OK) but never showed up together on /basket.
+        function getBundleIdFromContext(btn) {
+            var href = "";
+            if (btn) {
+                href = btn.getAttribute("data-dy-href") || btn.getAttribute("data-href") || btn.getAttribute("href") || "";
+            }
+            if (!href && btn) {
+                var closestA = btn.closest("[data-dy-href*='bundle-selector'], [data-href*='bundle-selector'], [href*='bundle-selector']");
+                if (closestA) {
+                    href = closestA.getAttribute("data-dy-href") || closestA.getAttribute("data-href") || closestA.getAttribute("href") || "";
+                }
+            }
+
+            if (href && href.indexOf("bundle-selector") > -1) {
+                var match = href.match(/bundle-selector\.(BT_?[A-Z0-9]+)/i);
+                if (match && match[1]) {
+                    console.log("[T546 Debug] Extracted bundle ID from href:", match[1]);
+                    return match[1];
+                }
+            }
+            console.log("[T546 Debug] No bundle ID found in context href:", href);
+            return null;
+        }
+
         var resolvedCartId = null;
 
         function rememberCartId(responseJson) {
             if (!responseJson) return;
-            var candidate =
-                responseJson.guid || responseJson.code || responseJson.cartId || responseJson.id || null;
+            var candidate = responseJson.guid || responseJson.code || responseJson.cartId || responseJson.id || null;
             if (!candidate) return;
-
             resolvedCartId = candidate;
-
-            // Also write the cookie ourselves so it persists across page loads too,
-            // not just this in-memory session.
-            try {
-                d.cookie = "cartguid=" + encodeURIComponent(candidate) + "; path=/";
-            } catch (e) {
-                /* ignore */
-            }
+            console.log("[T546 Debug] Saved resolved Cart GUID:", resolvedCartId);
+            try { d.cookie = "cartguid=" + encodeURIComponent(candidate) + "; path=/"; } catch (e) { }
         }
 
         function addProductToBasket(sku, callback) {
-            console.groupCollapsed("[T546][BASKET API] addProductToBasket", sku);
-            console.log("SKU:", sku);
-            console.log("loggedIn:", checkLoggedIn());
             var url;
-
             if (checkLoggedIn()) {
                 url = CART_BASE_URL + "users/" + w.dataLayer.customer.credentialID + "/carts/current";
             } else {
@@ -518,59 +719,429 @@
                     CART_BASE_URL + "users/anonymous/carts/createCart?lang=" + LANG;
             }
 
-            console.log("Basket request URL:", url);
+            var targetSku = sku;
+            if (sku && sku.indexOf(",") > -1) {
+                var datalayerSku = getSkuFromPage();
+                targetSku = datalayerSku ? datalayerSku : sku.split(",")[0].trim();
+            }
+
+            var payload = { product: { code: targetSku }, quantity: 1 };
+            console.log("[T546 API Outbound] addProductToBasket -> SKU:", targetSku, "| Endpoint:", url, "| Payload:", payload);
 
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = true;
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
-                    console.log("[T546][BASKET API] response", {
-                        sku: sku,
-                        status: this.status,
-                        ok: this.status === 200,
-                        responseText: this.responseText
-                    });
-                    var ok = this.status === 200;
+                    var ok = this.status >= 200 && this.status < 300;
                     var responseJson = null;
                     if (ok) {
                         try {
                             responseJson = JSON.parse(this.responseText);
-                            rememberCartId(responseJson); // capture the cart id for next call
-                        } catch (e) {
-                            /* not JSON, ignore */
-                        }
-                    } else {
-                        console.error("Add-to-basket failed for", sku, this.status, this.responseText);
+                            rememberCartId(responseJson);
+                        } catch (e) { }
                     }
+                    console.log("[T546 API Response] addProductToBasket -> Status:", this.status, "| OK:", ok, "| Response:", responseJson);
                     if (typeof callback === "function") callback(ok, responseJson);
-                    console.log("[T546][BASKET API] callback complete", { sku: sku, ok: ok, parsedResponse: responseJson });
-                    console.groupEnd();
                 }
             };
-            // Bug fix: the createCart branch's URL already ends in "?lang=...", so
-            // always appending "?code=..." produced a malformed double "?" query
-            // string on the very first add of a session — the sku silently never
-            // reached the server on that call, creating an empty cart. Use "&"
-            // when a query string is already present, "?" otherwise.
+
             var separator = url.indexOf("?") > -1 ? "&" : "?";
-            xhr.open("POST", url + separator + "code=" + sku + "&lang=" + LANG, true);
+            xhr.open("POST", url + separator + "code=" + targetSku + "&lang=" + LANG, true);
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.setRequestHeader("x-csrf-token", getCookieVal("CSRF_TOKEN") || "");
-            var basketPayload = {
-                product: { code: sku },
-                quantity: 1
-            };
-            console.log("Basket request payload:", basketPayload);
-            xhr.send(JSON.stringify(basketPayload));
+
+            xhr.send(JSON.stringify(payload));
         }
 
-        // ---- Basket count -------------------------------------------------------------
-        // No field name confirmed from API docs, so this only returns a number if
-        // it can find one from a real source: the add-to-basket response itself,
-        // or an existing basket-count badge already rendered on the page. If
-        // neither has a usable value, the button just won't show a "(N)" — never
-        // a guessed number.
+        function createBundleState(mainSku, bundleId, baseCount) {
+            var st = {
+                active: false,
+                bundleId: bundleId || null,
+                mainSku: mainSku,
+                masterTemplateId: null,
+                templateBySku: {},
+                maxByTemplate: {},
+                selected: [],
+                processed: [],
+                committed: [],
+                baseCount: (typeof baseCount === "number") ? baseCount : null,
+                mainTargets: null,
+                committing: false,
+                waiters: []
+            };
+            console.log("[T546 State] Initialized new Bundle State:", st);
+            return st;
+        }
+
+        var bundleState = createBundleState(null, null, null);
+
+        function normalizeMainSku(sku) {
+            if (sku && sku.indexOf(",") > -1) {
+                return getSkuFromPage() || sku.split(",")[0].trim();
+            }
+            return sku;
+        }
+
+        function resetBundleState(mainSku, bundleId, baseCount) {
+            console.log("[T546 State] Resetting bundle state for SKU:", mainSku, "| Bundle ID:", bundleId);
+            bundleState = createBundleState(normalizeMainSku(mainSku), bundleId, baseCount);
+        }
+
+        function bundleCountInTemplate(tplId) {
+            return bundleState.selected.filter(function (s) {
+                return bundleState.templateBySku[s] === tplId;
+            }).length;
+        }
+
+        function getAnonCartId() {
+            var id = resolvedCartId || getCookieVal("cartguid");
+            var cleanId = id ? String(id).replace(/"/g, "") : null;
+            console.log("[T546 Debug] Current Anon Cart ID:", cleanId);
+            return cleanId;
+        }
+
+        function cartRequest(method, url, body, cb) {
+            console.log("[T546 API Outbound] cartRequest -> Method:", method, "| URL:", url, "| Body:", body);
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.onreadystatechange = function () {
+                if (this.readyState !== 4) return;
+                var ok = this.status >= 200 && this.status < 300;
+                var json = null;
+                try { json = this.responseText ? JSON.parse(this.responseText) : {}; } catch (e) { json = null; }
+                console.log("[T546 API Response] cartRequest -> Method:", method, "| Status:", this.status, "| Response:", json);
+                cb(ok, json);
+            };
+            xhr.open(method, url, true);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("x-csrf-token", getCookieVal("CSRF_TOKEN") || "");
+            xhr.send(body ? JSON.stringify(body) : null);
+        }
+
+        function getAnonCart(guid, cb) {
+            console.log("[T546 API] Fetching FULL Anonymous Cart for GUID:", guid);
+            cartRequest(
+                "GET",
+                CART_BASE_URL + "users/anonymous/carts/" + guid + "?fields=FULL&lang=" + LANG + "&t=" + Date.now(),
+                null,
+                cb
+            );
+        }
+
+        function getCurrentCartForCount(cb) {
+            var url;
+            if (checkLoggedIn()) {
+                url = CART_BASE_URL + "users/" + w.dataLayer.customer.credentialID + "/carts/current";
+            } else {
+                var guid = getAnonCartId();
+                if (!guid) { cb(null); return; }
+                url = CART_BASE_URL + "users/anonymous/carts/" + guid;
+            }
+
+            console.log("[T546 API] Getting cart for count -> Endpoint:", url);
+            cartRequest(
+                "GET",
+                url + "?fields=FULL&lang=" + LANG + "&t=" + Date.now(),
+                null,
+                function (ok, cart) { cb(ok ? cart : null); }
+            );
+        }
+
+        function collectEntryTargets(cart, skus) {
+            var targets = [];
+            ((cart && cart.entries) || []).forEach(function (e) {
+                if (e && e.product && skus.indexOf(e.product.code) > -1 &&
+                    e.entryNumber !== undefined && e.entryNumber !== null) {
+                    targets.push({ sku: e.product.code, entryNumber: e.entryNumber });
+                }
+            });
+            targets.sort(function (a, b) { return b.entryNumber - a.entryNumber; });
+            console.log("[T546 Debug] Collected entry deletion targets for SKUs:", skus, "| Targets:", targets);
+            return targets;
+        }
+
+        function deleteEntryTargets(guid, targets, cb) {
+            console.log("[T546 Deletion Engine] Deleting target cart entries:", targets);
+            (function next(i) {
+                if (i >= targets.length) return cb(true);
+                var endpoint = CART_BASE_URL + "users/anonymous/carts/" + guid + "/entries/" +
+                    encodeURIComponent(targets[i].entryNumber) + "?lang=" + LANG + "&isBasket=true&t=" + Date.now();
+                console.log("[T546 API Outbound] DELETE Entry -> Target:", targets[i], "| Endpoint:", endpoint);
+                cartRequest(
+                    "DELETE",
+                    endpoint,
+                    { code: targets[i].sku },
+                    function (okDel) {
+                        if (!okDel) {
+                            console.error("[T546 Error] Failed to delete entry number:", targets[i].entryNumber);
+                            return cb(false);
+                        }
+                        next(i + 1);
+                    }
+                );
+            })(0);
+        }
+
+        function prefetchMainEntry(st) {
+            var guid = getAnonCartId();
+            if (!guid || !st.mainSku) return;
+            console.log("[T546 Prefetch] Warming up main product entry number for SKU:", st.mainSku);
+            getAnonCart(guid, function (ok, cart) {
+                if (ok && cart) {
+                    st.mainTargets = collectEntryTargets(cart, [st.mainSku]);
+                    console.log("[T546 Prefetch Success] Main entry targets saved:", st.mainTargets);
+                }
+            });
+        }
+
+        function postBundleToCart(guid, st, accessorySkus, cb) {
+            var entries = [{
+                masterProduct: true,
+                productCode: st.mainSku,
+                bundleId: st.masterTemplateId
+            }];
+
+            accessorySkus.forEach(function (sku) {
+                entries.push({
+                    masterProduct: false,
+                    productCode: sku,
+                    bundleId: st.templateBySku[sku]
+                });
+            });
+
+            var payload = { bundleNo: "-1", entries: entries, optOutAutoRegistration: false };
+            var endpoint = BUNDLE_CART_API + guid + "/entries";
+            console.log("[T546 API Outbound] POST Bundle to Cart -> Endpoint:", endpoint, "| Payload:", payload);
+
+            cartRequest(
+                "POST",
+                endpoint,
+                payload,
+                cb
+            );
+        }
+
+        function canBundle(st, sku) {
+            var res = !!(
+                st.active &&
+                st.mainSku &&
+                !checkLoggedIn() &&
+                st.templateBySku[sku] &&
+                getAnonCartId()
+            );
+            console.log("[T546 Decision] canBundle check for SKU:", sku, "-> Result:", res, "| Template:", st.templateBySku[sku], "| State Active:", st.active);
+            return res;
+        }
+
+        function shouldUseBundleCart(sku) {
+            return canBundle(bundleState, sku);
+        }
+
+        function pendingSkus(st) {
+            var pend = st.selected.filter(function (sku) {
+                return st.processed.indexOf(sku) === -1;
+            });
+            console.log("[T546 Queue] Pending unwritten SKUs:", pend);
+            return pend;
+        }
+
+        function markProcessed(st, skus) {
+            skus.forEach(function (sku) {
+                if (st.processed.indexOf(sku) === -1) st.processed.push(sku);
+            });
+            console.log("[T546 Queue] Updated processed SKUs:", st.processed);
+        }
+
+        function addSkusSequentially(st, skus, cb) {
+            console.log("[T546 Commit Engine] Sequential non-bundle adds starting for SKUs:", skus);
+            (function next(i) {
+                if (i >= skus.length) return cb();
+                addProductToBasket(skus[i], function (ok) {
+                    if (ok) markProcessed(st, [skus[i]]);
+                    next(i + 1);
+                });
+            })(0);
+        }
+
+        function commitBundleSkus(st, guid, bundleSkus, cb) {
+            var allBundle = st.committed.concat(bundleSkus);
+            console.log("[T546 Commit Engine] Committing bundle SKUs:", allBundle);
+
+            function postIt() {
+                postBundleToCart(guid, st, allBundle, function (ok, json) {
+                    if (ok) {
+                        st.committed = allBundle;
+                        st.mainTargets = null;
+                        console.log("[T546 Commit Success] Bundle POST committed successfully:", allBundle);
+                        cb(true);
+                        return;
+                    }
+                    console.warn("[T546 Commit Error] Bundle POST rejected:", allBundle, "| Response:", json);
+                    if (st.committed.length) {
+                        postBundleToCart(guid, st, st.committed, function () { cb(false); });
+                    } else {
+                        addProductToBasket(st.mainSku, function () { cb(false); });
+                    }
+                });
+            }
+
+            var usePrefetched = !st.committed.length && st.mainTargets && st.mainTargets.length;
+            console.log("[T546 Commit Engine] Use prefetched main entry targets?:", usePrefetched, "| Main Targets:", st.mainTargets);
+
+            if (usePrefetched) {
+                deleteEntryTargets(guid, st.mainTargets, function (okDel) {
+                    if (!okDel) return cb(false);
+                    postIt();
+                });
+                return;
+            }
+
+            getAnonCart(guid, function (ok, cart) {
+                if (!ok || !cart) return cb(false);
+                var targets = collectEntryTargets(cart, [st.mainSku].concat(st.committed));
+                deleteEntryTargets(guid, targets, function (okDel) {
+                    if (!okDel) return cb(false);
+                    postIt();
+                });
+            });
+        }
+
+        function commitPending(st, cb) {
+            console.log("[T546 Commit Engine] commitPending invoked.");
+            if (st.committing) {
+                console.log("[T546 Commit Engine] Already committing. Queuing waiter.");
+                if (cb) st.waiters.push(cb);
+                return;
+            }
+
+            var pend = pendingSkus(st);
+            if (!pend.length) {
+                console.log("[T546 Commit Engine] No pending SKUs to write.");
+                if (cb) cb(true);
+                return;
+            }
+
+            st.committing = true;
+
+            var guid = getAnonCartId();
+            var bundleSkus = [];
+            var plainSkus = [];
+            pend.forEach(function (sku) {
+                (canBundle(st, sku) ? bundleSkus : plainSkus).push(sku);
+            });
+
+            console.log("[T546 Commit Engine] Split pending items -> Bundle SKUs:", bundleSkus, "| Plain SKUs:", plainSkus);
+
+            function finish(ok) {
+                st.committing = false;
+                var waiting = st.waiters;
+                st.waiters = [];
+                console.log("[T546 Commit Engine] Finished processing pending batch. Status OK?:", ok);
+                if (cb) cb(ok);
+                waiting.forEach(function (fn) { fn(ok); });
+            }
+
+            function doPlain() {
+                if (!plainSkus.length) return finish(true);
+                addSkusSequentially(st, plainSkus, function () { finish(true); });
+            }
+
+            if (!bundleSkus.length) return doPlain();
+
+            commitBundleSkus(st, guid, bundleSkus, function (ok) {
+                if (ok) {
+                    markProcessed(st, bundleSkus);
+                    doPlain();
+                } else {
+                    console.warn("[T546 Commit Fallback] Bundle write failed. Fallback to individual regular adds.");
+                    addSkusSequentially(st, bundleSkus, doPlain);
+                }
+            });
+        }
+
+        function flushPendingInBackground() {
+            var st = bundleState;
+            if (st && pendingSkus(st).length) {
+                console.log("[T546 Event] Popup closed with uncommitted accessories. Flushing in background...");
+                commitPending(st);
+            }
+        }
+
+        function getPopupViewBasketBtn() {
+            return d.querySelector("#" + MODAL_ID + " .js-add-to-basket-popup-view-basket-btn") ||
+                d.querySelector(".centralizedpopup .js-add-to-basket-popup-view-basket-btn");
+        }
+
+        function parsePopupBasketCount() {
+            var btn = getPopupViewBasketBtn();
+            if (btn) {
+                var m = (btn.textContent || "").match(/\((\d+)\)/);
+                if (m) return parseInt(m[1], 10);
+            }
+            return getBasketCount(null);
+        }
+
+        function updatePopupBasketCount(st) {
+            var btn = getPopupViewBasketBtn();
+            if (!btn || typeof st.baseCount !== "number") return;
+            var newCountLabel = STRINGS.viewBasket + "(" + (st.baseCount + st.selected.length) + ")";
+            console.log("[T546 UI] Updating View Basket Button count label:", newCountLabel);
+            btn.textContent = newCountLabel;
+        }
+
+        function goToBasketAfterCommit(viewBtn) {
+            var st = bundleState;
+            console.log("[T546 Event] User clicked 'View Basket'. Committing items before navigation.");
+
+            if (viewBtn) {
+                viewBtn.disabled = true;
+                viewBtn.setAttribute("aria-busy", "true");
+                viewBtn.textContent = STRINGS.addingToBasket;
+            }
+
+            commitPending(st, function () {
+                console.log("[T546 Navigation] Redirecting to /basket");
+                w.location.href = "/basket";
+            });
+        }
+
+        d.addEventListener("click", function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+
+            var viewBtn = t.closest(".js-add-to-basket-popup-view-basket-btn");
+            if (viewBtn) {
+                var st = bundleState;
+                if (st && (st.committing || pendingSkus(st).length)) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    goToBasketAfterCommit(viewBtn);
+                }
+                return;
+            }
+
+            if (t.closest(".js-add-to-basket-popup-continue-shopping-btn, .js-centralized-popup-close")) {
+                flushPendingInBackground();
+            }
+        }, true);
+
+        function updateBundleLimitState() {
+            if (!BUNDLE_ENFORCE_TEMPLATE_LIMIT) return;
+            if (!bundleState.active) return;
+            var btns = d.querySelectorAll(".js-accessory-add-btn");
+            for (var i = 0; i < btns.length; i++) {
+                var b = btns[i];
+                if (b.getAttribute("data-accessory-added") === "true") continue;
+                var tpl = bundleState.templateBySku[b.getAttribute("sku")];
+                if (!tpl) continue;
+                var full = bundleCountInTemplate(tpl) >= (bundleState.maxByTemplate[tpl] || 1);
+                b.disabled = full;
+                b.classList.toggle("recs-limit_T546", full);
+                b.setAttribute("aria-disabled", full ? "true" : "false");
+            }
+        }
 
         function getBasketCount(addToBasketResponse) {
             if (addToBasketResponse) {
@@ -584,48 +1155,31 @@
                     if (typeof candidates[i] === "number" && !isNaN(candidates[i])) return candidates[i];
                 }
             }
-
-            // Fallback: an existing header/basket-icon badge, if the site renders
-            // one — best-effort selector guesses, adjust if these don't match.
-            var badge = d.querySelector(
-                ".js-basket-count, .basket-count, [data-basket-count], .header-basket__count"
-            );
+            var badge = d.querySelector(".js-basket-count, .basket-count, [data-basket-count], .header-basket__count");
             if (badge) {
                 var parsed = parseInt((badge.textContent || "").replace(/\D/g, ""), 10);
                 if (!isNaN(parsed)) return parsed;
             }
-
             return null;
         }
 
-        // ---- Fetch real product display data -----------------------------------------
-
         function fetchProductDetails(sku, callback) {
-            console.groupCollapsed("[T546][PRODUCT API] fetchProductDetails", sku);
-            console.log("GET:", PRODUCT_API_BASE + sku);
+            var endpoint = PRODUCT_API_BASE + sku;
+            console.log("[T546 API Outbound] GET Product Details -> SKU:", sku, "| Endpoint:", endpoint);
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log("[T546][PRODUCT API] response", {
-                        sku: sku,
-                        status: this.status,
-                        responseText: this.responseText
-                    });
                     try {
                         var res = JSON.parse(this.responseText);
-                        console.log("[T546][PRODUCT API] parsed response", res);
-
+                        console.log("[T546 API Response] Product Details for SKU:", sku, "| Payload:", res);
                         var name =
                             res.webName ||
                             (res.localWebNames && res.localWebNames[LANG]) ||
-                            (res.globalWebNames && res.globalWebNames[LANG]) ||
-                            sku;
+                            (res.globalWebNames && res.globalWebNames[LANG]) || sku;
 
                         var fullPrice = res.price && res.price.value != null ? res.price.value.toFixed(2) : null;
                         var salePrice =
-                            res.reducedPrice && res.reducedPrice.value != null ?
-                                res.reducedPrice.value.toFixed(2) :
-                                null;
+                            res.reducedPrice && res.reducedPrice.value != null ? res.reducedPrice.value.toFixed(2) : null;
                         var savings = res.savings && res.savings.value != null ? res.savings.value.toFixed(2) : null;
 
                         var attachmentsCount = null;
@@ -636,9 +1190,7 @@
                             if (attachmentsCount === 0) attachmentsCount = null;
                         }
 
-                        var warrantyText =
-                            res.warrantyDescription ||
-                            res.warrantyText ||
+                        var warrantyText = res.warrantyDescription || res.warrantyText ||
                             (res.warrantyPeriod ? "Dyson " + res.warrantyPeriod + " Year Limited Warranty" : null);
 
                         var productResult = {
@@ -659,97 +1211,63 @@
                             attachmentsCount: attachmentsCount,
                             warrantyText: warrantyText,
                             imageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/" +
-                                sku +
-                                ".png?$responsive$&fmt=png-alpha&cropPathE=mobile&fit=stretch,1&wid=440",
-                            recommendationImageUrl:
-                                "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/basket-recommendations/" +
+                                sku + ".png?$responsive$&fmt=png-alpha&cropPathE=mobile&fit=stretch,1&wid=440",
+                            recommendationImageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/basket-recommendations/" +
                                 sku + ".jpg"
                         };
-                        console.log("[T546][PRODUCT API] normalized product", productResult);
                         callback(productResult);
-                        console.groupEnd();
                     } catch (err) {
-                        console.error("[T546][PRODUCT API] parse error", { sku: sku, error: err, responseText: this.responseText });
+                        console.error("[T546 Error] Parsing Product Details failed for SKU:", sku, err);
                         callback(null);
-                        console.groupEnd();
                     }
                 } else if (this.readyState === 4) {
-                    console.error("[T546][PRODUCT API] failed", { sku: sku, status: this.status, responseText: this.responseText });
+                    console.warn("[T546 API Response] GET Product Details failed with status:", this.status, "| SKU:", sku);
                     callback(null);
-                    console.groupEnd();
                 }
             };
-            xhr.open("GET", PRODUCT_API_BASE + sku, true);
+            xhr.open("GET", endpoint, true);
             xhr.send();
         }
 
-        // ---- Accessories / recommendation cards ------------------------------------
-        // Merged from the larger reference implementation:
-        // - staticIds/static mapping takes priority
-        // - productReferences is the fallback
-        // - recommendation cards use the site's existing classes
-        // - up to 3 in-stock accessories are rendered
-        // - each accessory can be added to the same basket
-        // - carousel controls are initialized after cards are inserted
-
         var recommendationState = {
             mainSku: null,
+            bundleId: null,
             candidates: [],
             loaded: 0
         };
 
-        function getStaticAccessorySkus(mainSku) {
-            var entry = getMatchedStaticEntry(mainSku);
-            console.log("[T546][STATIC MATCH] accessory lookup", {
-                mainSku: mainSku,
-                staticIdsExists: Array.isArray(w.staticIds),
-                staticIdsLength: Array.isArray(w.staticIds) ? w.staticIds.length : 0,
-                matchedEntry: entry
-            });
-            if (entry) {
-                var accessorySkus = entry[mainSku] || [];
-                console.log("[T546][STATIC MATCH] FOUND", mainSku, accessorySkus);
-                return accessorySkus;
+        function getMatchedStaticEntry(sku) {
+            if (!sku) return null;
+            var source = Array.isArray(w.staticIds) ? w.staticIds : (typeof STATIC_ACCESSORY_IDS !== "undefined" ? STATIC_ACCESSORY_IDS : []);
+            for (var i = 0; i < source.length; i++) {
+                var item = source[i];
+                if (item && Object.prototype.hasOwnProperty.call(item, sku)) return item;
             }
-            console.warn("[T546][STATIC MATCH] NOT FOUND", mainSku);
             return null;
         }
 
-        function getIncludedNamesFromPage() {
-            var names = [];
-            var els = d.querySelectorAll(
-                ".basket-item-accordion__section-bundle.basket-item-accordion__section-bundle--included " +
-                ".basket-item-accordion__content-flex .basket-item-accordion__content--tools " +
-                ".basket-item-accordion__bundle-text .basket-item-accordion__bundle-tool-name"
-            );
+        function isSkuInStaticIds(sku) {
+            var matched = !!getMatchedStaticEntry(sku);
+            console.log("[T546 Decision] isSkuInStaticIds check for SKU:", sku, "-> Result:", matched);
+            return matched;
+        }
 
-            for (var i = 0; i < els.length; i++) {
-                names.push((els[i].textContent || "").trim());
+        function getStaticAccessorySkus(mainSku) {
+            var entry = getMatchedStaticEntry(mainSku);
+            if (entry) {
+                var list = entry[mainSku] || [];
+                console.log("[T546 Match] Found static accessories for SKU:", mainSku, "| List:", list);
+                return list;
             }
-
-            try {
-                if (w.dataLayer && Array.isArray(w.dataLayer.products)) {
-                    w.dataLayer.products.forEach(function (p) {
-                        if (p.localWebNames && p.localWebNames[LANG]) {
-                            names.push(p.localWebNames[LANG]);
-                        }
-                    });
-                }
-            } catch (e) {
-                /* ignore */
-            }
-
-            return names;
+            console.log("[T546 Match] No static accessories mapping found for SKU:", mainSku);
+            return null;
         }
 
         function getRecommendationContainer() {
-            console.log("[T546][RECS] getRecommendationContainer");
-            var popup = d.getElementById(MODAL_ID);
-            console.log("[T546][RECS] popup exists:", !!popup);
+            var popup = d.getElementById(MODAL_ID) || d.getElementById('js-centralized-popup') || d.querySelector('.centralizedpopup');
             if (!popup) return null;
 
             var wrapper = popup.querySelector(".add-to-basket-notification__wrapper");
-            console.log("[T546][RECS] wrapper exists:", !!wrapper);
             if (!wrapper) return null;
 
             var container = wrapper.querySelector(".basket-recommendations_T546");
@@ -757,31 +1275,28 @@
 
             container = d.createElement("section");
             container.className = "basket-recommendations_T546 dy-accessories-module_T546";
+            
+            /* Hide container by default to prevent empty gaps if no products return */
+            container.style.display = "none";
+            
             container.innerHTML =
                 '<div class="plp-cards js-plp-cards dy-recommendations-carousel_T546">' +
-                '  <div class="dy-recommendations-viewport_T546">' +
                 '<div class="dy-recommendations-header_T546">' +
                 '  <h2 class="text__heading h2">' + STRINGS.recommendedForYou + "</h2>" +
                 '</div>' +
+                '  <div class="dy-recommendations-viewport_T546">' +
                 '    <ul class="recs_wrapper plp-cards__items snapper_items"></ul>' +
                 '  </div>' +
-                '  <button type="button" class="at-carousel-prev_T546 at-carousel-disabled_T546" aria-label="Previous product" disabled>' +
-                '    <span aria-hidden="true">&#8249;</span>' +
-                '  </button>' +
-                '  <button type="button" class="at-carousel-next_T546" aria-label="Next product">' +
-                '    <span aria-hidden="true">&#8250;</span>' +
-                '  </button>' +
+                '  <button type="button" class="at-carousel-prev_T546 at-carousel-disabled_T546" aria-label="Previous product" disabled><span aria-hidden="true">&#8249;</span></button>' +
+                '  <button type="button" class="at-carousel-next_T546" aria-label="Next product"><span aria-hidden="true">&#8250;</span></button>' +
                 '  <div class="at-carousel-dots_T546" role="group" aria-label="Carousel pagination"></div>' +
                 '</div>';
 
-            var anchor = wrapper.querySelector(".add-to-basket-notification__outer");
-            console.log("[T546][RECS] inserting recommendation module", { anchorFound: !!anchor });
-            if (anchor) {
-                wrapper.insertBefore(container, anchor.nextSibling);
-            } else {
-                wrapper.appendChild(container);
-            }
-            console.log("[T546][RECS] recommendation module created", container);
+            var outers = wrapper.querySelectorAll(".add-to-basket-notification__outer");
+            var anchor = outers.length > 0 ? outers[outers.length - 1] : null;
+
+            if (anchor) wrapper.insertBefore(container, anchor.nextSibling);
+            else wrapper.appendChild(container);
             return container;
         }
 
@@ -803,71 +1318,99 @@
             });
         }
 
+        function closeAllTooltips() {
+            var tooltips = d.querySelectorAll('.dy-tooltip-content_T546.is-visible_T546');
+            for (var i = 0; i < tooltips.length; i++) tooltips[i].classList.remove('is-visible_T546');
+        }
+
+        d.addEventListener('click', function (e) {
+            if (!e.target.closest('.dy-info-btn_T546') && !e.target.closest('.dy-tooltip-content_T546')) {
+                closeAllTooltips();
+            }
+        });
+
+        function bindInfoButton(li) {
+            var btn = li.querySelector('.dy-info-btn_T546');
+            var tooltip = li.querySelector('.dy-tooltip-content_T546');
+            if (btn && tooltip) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var isCurrentlyVisible = tooltip.classList.contains('is-visible_T546');
+                    closeAllTooltips();
+                    if (!isCurrentlyVisible) tooltip.classList.add('is-visible_T546');
+                });
+            }
+        }
+
         function addAccessoryCard(product) {
-            console.log("[T546][RECS CARD] addAccessoryCard called", product);
+            console.log("[T546 UI] Attempting to render accessory card for SKU:", product ? product.sku : null, "| Stock Band:", product ? product.stockBand : null);
             var list = getRecommendationList();
-            console.log("[T546][RECS CARD] list exists:", !!list);
-            if (!product) { console.warn("[T546][RECS CARD] no product"); return; }
-            if (!product.sku) { console.warn("[T546][RECS CARD] product has no SKU", product); return; }
-            if (product.stockBand !== "A") { console.warn("[T546][RECS CARD] product not in stock", product.sku, product.stockBand); return; }
+            if (!product || !product.sku || product.stockBand !== "A") {
+                console.warn("[T546 UI Skipped] Accessory card not eligible or out of stock -> SKU:", product ? product.sku : null);
+                return;
+            }
             if (!list) return;
             if (list.querySelector('li[data-product-id="' + product.sku + '"]')) return;
-            if (list.children.length >= 3) return;
 
-            var hasDiscount = !!(product.savings && product.salePrice && product.fullPrice && product.salePrice !== product.fullPrice);
+            var hasDiscount = !!(product.salePrice && product.fullPrice && product.salePrice !== product.fullPrice);
             var currency = STRINGS.currency;
             var wasLabel = STRINGS.was;
             var addText = STRINGS.addToBasket;
             var addingText = STRINGS.addingToBasket;
 
             if (location.host.indexOf(".de") > -1) {
-                currency = " €";
-                wasLabel = "Bisher ";
-                addText = "In den Warenkorb";
-                addingText = "Hinzufügen...";
+                currency = " €"; wasLabel = "Bisher "; addText = "In den Warenkorb"; addingText = "Hinzufügen...";
             } else if (location.host.indexOf(".en") > -1) {
-                currency = " £";
-                wasLabel = "Was ";
-                addText = "Add to basket";
-                addingText = "Adding...";
+                currency = " £"; wasLabel = "Was "; addText = "Add to basket"; addingText = "Adding...";
             }
 
             var imageUrl = product.recommendationImageUrl || product.imageUrl;
+            var fallbackImageUrl = product.imageUrl;
+
             var badgeMarkup = product.badgeText ?
                 '<span class="dy-recommendation-badge_T546 ' + product.badgeClass + '">' + product.badgeText + '</span>' : "";
 
+            var currentPriceVal = hasDiscount ? product.salePrice : product.fullPrice;
+            var isCurrentFree = parseFloat(currentPriceVal || 0) === 0;
+            var isWasFree = parseFloat(product.fullPrice || 0) === 0;
+
             var saleMarkup =
-                '<p class="plp-cards__price plp-cards__price--format adb-full-price-placeholder' +
-                (hasDiscount ? " priceBlue" : "") + '">' +
-                '<span class="currency-placeholder">' + currency + '</span>' +
-                '<span class="price">' + (hasDiscount ? product.salePrice : (product.fullPrice || "")) + '</span>' +
+                '<p class="plp-cards__price plp-cards__price--format adb-full-price-placeholder' + (hasDiscount ? " priceBlue" : "") + '">' +
+                (isCurrentFree ? '<span class="price">Free</span>' : '<span class="currency-placeholder">' + currency + '</span><span class="price">' + currentPriceVal + '</span>') +
                 '</p>';
 
             var wasMarkup = hasDiscount ?
                 '<div class="was-price-placeholder plp-cards__price wasPrice">' +
-                wasLabel + currency + ' <span class="price">' + product.fullPrice + '</span>' +
-                '</div>' :
-                '<div class="was-price-placeholder plp-cards__price"></div>';
+                wasLabel + (isWasFree ? 'Free' : currency + ' <span class="price">' + product.fullPrice + '</span>') +
+                '</div>' : '<div class="was-price-placeholder plp-cards__price"></div>';
+
+            var infoButtonMarkup = "";
+            if (product.description && product.description.trim() !== "") {
+                infoButtonMarkup =
+                    '<button type="button" class="dy-info-btn_T546" aria-label="Learn more">i</button>' +
+                    '<div class="dy-tooltip-content_T546"><p>' + product.description + '</p></div>';
+            }
 
             var li = d.createElement("li");
             li.className = "plp-cards__item--list snapper_item";
             li.setAttribute("data-product-id", product.sku);
+
             li.innerHTML =
                 '<div role="group" aria-label="Product" class="at_recs_card_T546 plp-cards__item js-plp-cards-item" sku="' + product.sku + '" region="' + LANG + '">' +
-                '  <div class="plp-cards__image-container">' +
-                '    ' + badgeMarkup +
+                '  <div class="plp-cards__image-container">' + badgeMarkup +
                 '    <div class="responsive-image js-responsive-image-container">' +
-                '      <img alt="' + product.name + '" src="' + imageUrl + '" class="responsive-image__image js-responsive-image fluidimage" />' +
+                '      <img alt="' + product.name + '" src="' + imageUrl + '" onerror="this.onerror=null; this.src=\'' + fallbackImageUrl + '\';" class="responsive-image__image js-responsive-image fluidimage" />' +
                 '    </div>' +
                 '  </div>' +
                 '  <div class="plp-cards__text-container">' +
-                '    <h3 class="plp-cards__name">' + product.name + '</h3>' +
-                '    <p class="plp-cards__description">' + (product.description || "") + '</p>' +
+                '    <div class="dy-title-row_T546">' +
+                '      <h3 class="plp-cards__name">' + product.name + '</h3>' + infoButtonMarkup +
+                '    </div>' +
                 '  </div>' +
                 '  <div class="plp-cards__bottom-container">' +
                 '    <div class="plp-cards__price-container flex-direction-row">' +
-                '      <div class="plp-cards__prices plp-cards__prices--single js-plp-cards-prices">' + saleMarkup + '</div>' +
-                '      ' + wasMarkup +
+                '      <div class="plp-cards__prices plp-cards__prices--single js-plp-cards-prices">' + saleMarkup + '</div>' + wasMarkup +
                 '    </div>' +
                 '    <div class="plp-cards__button-container js-plp-cards-container">' +
                 '      <div class="plp-cards__add-to-basket">' +
@@ -880,39 +1423,83 @@
                 '</div>';
 
             list.appendChild(li);
-            console.log("[T546][RECS CARD] card inserted", { sku: product.sku, card: li, button: li.querySelector(".js-accessory-add-btn") });
+            
+            /* Un-hide the wrapper now that we successfully added an item */
+            var container = getRecommendationContainer();
+            if (container) container.style.display = "block";
+            
             bindAccessoryButton(li.querySelector(".js-accessory-add-btn"));
+            bindInfoButton(li);
             removeDuplicateAccessoryCards();
             initRecommendationsCarousel();
+            console.log("[T546 UI Success] Rendered accessory card for SKU:", product.sku);
         }
 
         function bindAccessoryButton(btn) {
-            console.log("[T546][ACCESSORY BUTTON] bind attempt", btn);
             if (!btn || btn.getAttribute("data-accessory-bound") === "true") return;
             btn.setAttribute("data-accessory-bound", "true");
 
             btn.addEventListener("click", function (e) {
-                console.groupCollapsed("[T546][ACCESSORY BUTTON] CLICK", btn.getAttribute("sku"));
-                console.log("button:", btn);
                 e.preventDefault();
                 e.stopPropagation();
                 e.stopImmediatePropagation();
-                console.log("calling addAccessoryToBasket for SKU", btn.getAttribute("sku"));
                 addAccessoryToBasket(btn);
-                console.groupEnd();
             });
         }
 
-        function addAccessoryToBasket(btn) {
-            console.log("[T546][ACCESSORY BASKET] addAccessoryToBasket", btn);
-            if (!btn) { console.error("[T546][ACCESSORY BASKET] missing button"); return; }
-            if (btn.disabled) { console.warn("[T546][ACCESSORY BASKET] button already disabled"); return; }
+        function markAccessoryAdded(btn, title) {
+            btn.setAttribute("data-accessory-added", "true");
+            btn.classList.add("completed_T791");
+            btn.setAttribute("aria-label", title + " added to basket");
+            btn.setAttribute("title", "Added to basket");
+            btn.textContent = "";
+            btn.disabled = true;
+            console.log("[T546 UI] Marked accessory button as 'Added':", title);
+        }
 
+        function addAccessoryToBasket(btn) {
+            if (!btn || btn.disabled) return;
+
+            var st = bundleState;
             var card = btn.closest(".at_recs_card_T546");
             var sku = btn.getAttribute("sku");
             var titleEl = card ? card.querySelector(".plp-cards__name") : null;
             var title = titleEl ? titleEl.textContent.trim() : sku;
-            console.log("[T546][ACCESSORY BASKET] resolved", { sku: sku, title: title, cardFound: !!card });
+
+            var useBundle = shouldUseBundleCart(sku);
+            var deferred = useBundle || DEFER_STATIC_ACCESSORIES;
+
+            console.log("[T546 Event] Accessory ATB clicked -> SKU:", sku, "| useBundle:", useBundle, "| Deferred:", deferred);
+
+            if (deferred) {
+                if (st.committing || st.selected.indexOf(sku) > -1) {
+                    console.log("[T546 Queue Skipped] SKU already in queue or currently committing -> SKU:", sku);
+                    return;
+                }
+
+                if (useBundle && BUNDLE_ENFORCE_TEMPLATE_LIMIT) {
+                    var tpl = st.templateBySku[sku];
+                    if (bundleCountInTemplate(tpl) >= (st.maxByTemplate[tpl] || 1)) {
+                        console.warn("[T546 Queue Skipped] Template limit reached for template:", tpl);
+                        return;
+                    }
+                }
+
+                if (typeof s !== "undefined") {
+                    s.linkTrackVars = "eVar56";
+                    s.eVar56 = "main|modal-product-recommendations|" + title + ",cta,add to basket|button";
+                    s.tl(true, "o", s.eVar56);
+                }
+
+                if (st.baseCount === null) st.baseCount = parsePopupBasketCount();
+
+                st.selected.push(sku);
+                console.log("[T546 Queue Success] Added SKU to pending queue:", sku, "| Current Queue:", st.selected);
+                markAccessoryAdded(btn, title);
+                updatePopupBasketCount(st);
+                updateBundleLimitState();
+                return;
+            }
 
             if (typeof s !== "undefined") {
                 s.linkTrackVars = "eVar56";
@@ -923,140 +1510,189 @@
             btn.disabled = true;
             btn.classList.add("active");
             btn.textContent = btn.getAttribute("data-basket-processing-button-text") || STRINGS.addingToBasket;
-
             if (card) card.classList.add("active");
 
-            console.log("[T546][ACCESSORY BASKET] sending accessory SKU to basket API", sku);
-            addProductToBasket(sku, function (ok, response) {
-                console.log("[T546][ACCESSORY BASKET] basket callback", { sku: sku, ok: ok, response: response });
-                if (ok) {
-                    btn.classList.add("completed_T791");
-                    btn.textContent = "";
-
-                    var count = getBasketCount(response);
-                    var viewBtn = d.querySelector("#" + MODAL_ID + " .js-add-to-basket-popup-view-basket-btn");
-                    if (viewBtn && typeof count === "number") {
-                        viewBtn.textContent = STRINGS.viewBasket + "(" + count + ")";
-                    }
-
-                    setTimeout(function () {
-                        btn.textContent = STRINGS.addToBasket;
-                    }, 600);
-                } else {
+            addProductToBasket(sku, function (ok) {
+                if (!ok) {
                     btn.disabled = false;
                     btn.classList.remove("active");
                     if (card) card.classList.remove("active");
                     btn.textContent = STRINGS.addToBasket;
+                    return;
                 }
+
+                getCurrentCartForCount(function (cart) {
+                    markAccessoryAdded(btn, title);
+
+                    var count = getBasketCount(cart);
+                    var viewBtn = getPopupViewBasketBtn();
+                    if (viewBtn && typeof count === "number") {
+                        viewBtn.textContent = STRINGS.viewBasket + "(" + count + ")";
+                    }
+                });
             });
         }
 
         function fetchAccessoryProduct(sku) {
-            console.log("[T546][ACCESSORY PRODUCT] fetching", sku);
+            console.log("[T546 Flow] Fetching individual accessory product details for SKU:", sku);
             fetchProductDetails(sku, function (product) {
-                console.log("[T546][ACCESSORY PRODUCT] result", { sku: sku, product: product });
-                if (product) {
-                    addAccessoryCard(product);
-                } else {
-                    console.error("[T546][ACCESSORY PRODUCT] no product returned", sku);
-                }
+                if (product) addAccessoryCard(product);
             });
         }
 
         function fetchStaticIds(sku) {
-            console.groupCollapsed("[T546][STATIC ACCESSORIES] fetchStaticIds", sku);
             var tools = getStaticAccessorySkus(sku) || [];
-            console.log("[T546][STATIC ACCESSORIES] tools", tools);
+            console.log("[T546 Flow] Fetching static ID accessories for SKU:", sku, "| Static IDs:", tools);
             recommendationState.candidates = tools.slice();
             recommendationState.loaded = 0;
-
-            if (!tools.length) {
-                console.warn("[T546][STATIC ACCESSORIES] no accessory SKUs configured", sku);
-            }
-            tools.forEach(function (accSku) {
-                console.log("[T546][STATIC ACCESSORIES] requesting accessory", accSku);
-                fetchAccessoryProduct(accSku);
-            });
-            console.groupEnd();
+            tools.forEach(function (accSku) { fetchAccessoryProduct(accSku); });
         }
 
-        function fetchAccessories(sku) {
-            console.groupCollapsed("[T546][REFERENCE ACCESSORIES] fetchAccessories", sku);
-            console.log("GET:", PRODUCT_API_BASE + sku);
+        function mapBundleProduct(bp) {
+            var fullPrice = null, salePrice = null, savings = null;
+            if (bp.reducedPrice && bp.reducedPrice.value != null) {
+                salePrice = bp.reducedPrice.value.toFixed(2);
+                if (bp.price && bp.price.value != null) {
+                    fullPrice = bp.price.value.toFixed(2);
+                    savings = (bp.price.value - bp.reducedPrice.value).toFixed(2);
+                }
+            } else if (bp.price && bp.price.value != null) {
+                fullPrice = bp.price.value.toFixed(2);
+            }
+
+            var stockBand = bp.bundleStockBand || bp.stockBand || (bp.stock && bp.stock.stockLevelStatus === 'inStock' ? 'A' : 'OOS');
+            var mappedName = bp.webName || bp.name || bp.code;
+            if (Array.isArray(bp.localWebNames)) {
+                for (var i = 0; i < bp.localWebNames.length; i++) {
+                    if (bp.localWebNames[i].key === LANG) {
+                        mappedName = bp.localWebNames[i].value; break;
+                    }
+                }
+            }
+
+            return {
+                sku: bp.code,
+                name: mappedName,
+                fullPrice: fullPrice,
+                salePrice: salePrice,
+                savings: savings,
+                stockBand: stockBand,
+                url: bp.url || "",
+                description: bp.description || "",
+                badgeText: bp.badgeText || "",
+                badgeClass: bp.badgeThemeCode || "",
+                ratings: bp.bazaarVoiceAverageRating,
+                reviews: bp.bazaarVoiceNumberOfReviews,
+                attachmentsCount: bp.productReferences ? bp.productReferences.length : null,
+                warrantyText: bp.warrantyText || "",
+                imageUrl: bp.primaryImageUrl || "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/" + bp.code + ".png?$responsive$&fmt=png-alpha&cropPathE=mobile&fit=stretch,1&wid=440",
+                recommendationImageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/basket-recommendations/" + bp.code + ".jpg"
+            };
+        }
+
+        function fallbackToStaticIds(mainSku) {
+            bundleState.active = false;
+            var staticSkus = getStaticAccessorySkus(mainSku);
+            if (staticSkus && staticSkus.length > 0) {
+                console.log("[T546 Flow] Loading Static Accessories Logic for SKU:", mainSku);
+                fetchStaticIds(mainSku);
+            } else {
+                console.log("[T546 Flow] No Bundle products and no Static IDs. Accessory fetch aborted.");
+            }
+        }
+
+        function fetchBundleAccessories(bundleId, mainSku) {
+            var st = bundleState;
+            var endpoint = BUNDLE_API_BASE + bundleId + "?fields=FULL";
+            console.log("[T546 API Outbound] GET Bundle API -> Bundle ID:", bundleId, "| Endpoint:", endpoint);
+
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
-                if (xhr.readyState !== 4) return;
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        try {
+                            var res = JSON.parse(this.responseText);
+                            console.log("[T546 API Response] Bundle API Payload for Bundle ID:", bundleId, "| Response:", res);
+                            var productsFound = false;
 
-                console.log("[T546][REFERENCE ACCESSORIES] response", { sku: sku, status: xhr.status, responseText: xhr.responseText });
-                if (xhr.status !== 200) {
-                    console.warn("[T546][REFERENCE ACCESSORIES] lookup failed", sku, xhr.status);
-                    console.groupEnd();
-                    return;
+                            if (res.bundleTemplates && res.bundleTemplates.length > 0) {
+                                res.bundleTemplates.forEach(function (template) {
+                                    if (template.isMasterTemplate) {
+                                        st.masterTemplateId = template.id;
+                                        console.log("[T546 Bundle] Master template ID resolved:", st.masterTemplateId);
+                                        return;
+                                    }
+                                    if (Array.isArray(template.products)) {
+                                        st.maxByTemplate[template.id] = template.maxItemsAllowed || 1;
+                                        template.products.forEach(function (bp) {
+                                            if (!bp || !bp.code) return;
+                                            if (bp.personalizationValidation && bp.personalizationValidation.regularExp) return;
+                                            if (!st.templateBySku[bp.code]) {
+                                                st.templateBySku[bp.code] = template.id;
+                                            }
+                                            var product = mapBundleProduct(bp);
+                                            addAccessoryCard(product);
+                                            productsFound = true;
+                                        });
+                                    }
+                                });
+                            }
+
+                            st.active = !!st.masterTemplateId && Object.keys(st.templateBySku).length > 0;
+                            console.log("[T546 Bundle] Finalized active state:", st.active, "| TemplateBySku Mapping:", st.templateBySku);
+
+                            if (st.active && !checkLoggedIn()) prefetchMainEntry(st);
+
+                            if (!productsFound) {
+                                console.warn("[T546 Bundle] No products found inside bundle templates. Invoking static IDs check...");
+                                fallbackToStaticIds(mainSku);
+                            }
+                        } catch (e) {
+                            console.error("[T546 Error] Failed parsing Bundle API response:", e);
+                            fallbackToStaticIds(mainSku);
+                        }
+                    } else {
+                        console.warn("[T546 API Error] Bundle API returned non-200 status:", this.status, "| Invoking static IDs check...");
+                        fallbackToStaticIds(mainSku);
+                    }
                 }
-
-                try {
-                    var res = JSON.parse(xhr.responseText) || {};
-                    var refs = res.productReferences || [];
-                    var included = getIncludedNamesFromPage();
-                    var seen = {};
-                    console.log("[T546][REFERENCE ACCESSORIES] parsed", { referenceCount: refs.length, includedNames: included });
-
-                    refs.forEach(function (ref) {
-                        var target = ref && ref.target;
-                        if (!target || !target.code) return;
-
-                        var isAccessoryLike =
-                            target.sapDivision === "SPARE_PARTS" ||
-                            target.sapDivision === "ACCESSORIES";
-
-                        if (!isAccessoryLike) return;
-                        if (included.indexOf(target.webName || "") > -1) return;
-                        if (seen[target.code]) return;
-
-                        seen[target.code] = true;
-                        console.log("[T546][REFERENCE ACCESSORIES] accepted accessory SKU", target.code, { webName: target.webName, sapDivision: target.sapDivision });
-                        fetchAccessoryProduct(target.code);
-                    });
-                } catch (err) {
-                    console.error("[T546][REFERENCE ACCESSORIES] parse error", err);
-                }
-                console.groupEnd();
             };
-
-            xhr.open("GET", PRODUCT_API_BASE + sku, true);
+            xhr.open("GET", endpoint, true);
             xhr.send();
         }
 
-        function loadAndRenderAccessories(mainSku) {
-            console.groupCollapsed("[T546][ACCESSORY FLOW] loadAndRenderAccessories", mainSku);
-            recommendationState.mainSku = mainSku;
-            var container = getRecommendationContainer();
-            console.log("[T546][ACCESSORY FLOW] recommendation container", container);
-
+        function loadAndRenderAccessories(mainSku, bundleId, baseCount) {
+            console.log("[T546 Flow] loadAndRenderAccessories -> Main SKU:", mainSku, "| Bundle ID:", bundleId, "| Base Count:", baseCount);
+            
             var staticSkus = getStaticAccessorySkus(mainSku);
-            console.log("[T546][ACCESSORY FLOW] static SKU result", staticSkus);
+            var hasStatic = staticSkus && staticSkus.length > 0;
 
-            if (staticSkus) {
-                console.log("[T546][ACCESSORY FLOW] PATH = STATIC IDS");
-                fetchStaticIds(mainSku);
-            } else {
-                console.log("[T546][ACCESSORY FLOW] PATH = PRODUCT REFERENCES FALLBACK");
-                fetchAccessories(mainSku);
+            if (!bundleId && !hasStatic) {
+                console.log("[T546 Decision] No bundle ID present and no static IDs found. Aborting accessories logic and preventing UI creation.");
+                return;
             }
-            console.groupEnd();
+
+            var list = getRecommendationList();
+            if (list) list.innerHTML = "";
+
+            resetBundleState(mainSku, bundleId, baseCount);
+
+            recommendationState.mainSku = mainSku;
+            recommendationState.bundleId = bundleId || null;
+
+            if (recommendationState.bundleId) {
+                fetchBundleAccessories(recommendationState.bundleId, mainSku);
+            } else {
+                console.log("[T546 Decision] No bundle ID present. Checking static IDs.");
+                fallbackToStaticIds(mainSku);
+            }
         }
 
-        // ---- Lightweight Embla-style carousel behaviour ----------------------------
-        // The larger reference loads Embla dynamically. Here the same UX is kept
-        // without requiring the external CDN: native horizontal scrolling plus
-        // previous/next buttons and pagination dots.
-
-        var recommendationScrollState = {
-            current: 0
-        };
+        var recommendationScrollState = { current: 0, programmaticTarget: null, programmaticTimer: null };
 
         function getCarouselParts() {
-            var root = d.querySelector("#" + MODAL_ID + " .basket-recommendations_T546");
+            var root = d.querySelector("#" + MODAL_ID + " .basket-recommendations_T546") ||
+                d.querySelector(".centralizedpopup .basket-recommendations_T546");
             if (!root) return null;
             return {
                 root: root,
@@ -1074,30 +1710,24 @@
 
             var items = parts.list.children;
             var maxIndex = Math.max(0, items.length - 1);
-            recommendationScrollState.current = Math.min(
-                recommendationScrollState.current,
-                maxIndex
-            );
+            recommendationScrollState.current = Math.min(recommendationScrollState.current, maxIndex);
+            
+            var showArrows = items.length > 1;
 
             if (parts.prev) {
+                parts.prev.style.display = showArrows ? "" : "none";
                 parts.prev.disabled = recommendationScrollState.current <= 0;
-                parts.prev.classList.toggle(
-                    "at-carousel-disabled_T546",
-                    parts.prev.disabled
-                );
+                parts.prev.classList.toggle("at-carousel-disabled_T546", parts.prev.disabled);
             }
-
             if (parts.next) {
+                parts.next.style.display = showArrows ? "" : "none";
                 parts.next.disabled = recommendationScrollState.current >= maxIndex;
-                parts.next.classList.toggle(
-                    "at-carousel-disabled_T546",
-                    parts.next.disabled
-                );
+                parts.next.classList.toggle("at-carousel-disabled_T546", parts.next.disabled);
             }
 
             if (parts.dots) {
                 parts.dots.innerHTML = "";
-                if (items.length > 1) {
+                if (showArrows) {
                     parts.dots.style.display = "flex";
                     for (var i = 0; i < items.length; i++) {
                         (function (index) {
@@ -1107,8 +1737,7 @@
                                 (index === recommendationScrollState.current ? " at-carousel-dot-active_T546" : "");
                             dot.setAttribute("aria-label", "Go to carousel item " + (index + 1));
                             dot.addEventListener("click", function (e) {
-                                e.preventDefault();
-                                e.stopPropagation();
+                                e.preventDefault(); e.stopPropagation();
                                 scrollRecommendationsTo(index);
                             });
                             parts.dots.appendChild(dot);
@@ -1125,13 +1754,18 @@
             if (!parts || !parts.list || !parts.list.children[index]) return;
 
             recommendationScrollState.current = index;
+            recommendationScrollState.programmaticTarget = index;
+            if (recommendationScrollState.programmaticTimer) clearTimeout(recommendationScrollState.programmaticTimer);
+
             var item = parts.list.children[index];
-            parts.viewport.scrollTo({
-                left: item.offsetLeft,
-                behavior: "smooth"
-            });
+            parts.viewport.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
 
             updateRecommendationsCarousel();
+            recommendationScrollState.programmaticTimer = setTimeout(function () {
+                recommendationScrollState.programmaticTarget = null;
+                recommendationScrollState.programmaticTimer = null;
+                updateRecommendationsCarousel();
+            }, 500);
         }
 
         function initRecommendationsCarousel() {
@@ -1141,97 +1775,96 @@
             if (parts.prev && parts.prev.getAttribute("data-carousel-bound") !== "true") {
                 parts.prev.setAttribute("data-carousel-bound", "true");
                 parts.prev.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (recommendationScrollState.current > 0) {
-                        scrollRecommendationsTo(recommendationScrollState.current - 1);
-                    }
+                    e.preventDefault(); e.stopPropagation();
+                    if (recommendationScrollState.current > 0) scrollRecommendationsTo(recommendationScrollState.current - 1);
                 });
             }
 
             if (parts.next && parts.next.getAttribute("data-carousel-bound") !== "true") {
                 parts.next.setAttribute("data-carousel-bound", "true");
                 parts.next.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                    e.preventDefault(); e.stopPropagation();
                     var partsNow = getCarouselParts();
                     var count = partsNow && partsNow.list ? partsNow.list.children.length : 0;
-                    if (recommendationScrollState.current < count - 1) {
-                        scrollRecommendationsTo(recommendationScrollState.current + 1);
-                    }
+                    if (recommendationScrollState.current < count - 1) scrollRecommendationsTo(recommendationScrollState.current + 1);
+                });
+            }
+
+            if (parts.viewport && parts.viewport.getAttribute("data-drag-bound") !== "true") {
+                parts.viewport.setAttribute("data-drag-bound", "true");
+                var isDown = false, startX, scrollLeft;
+
+                parts.viewport.addEventListener("mousedown", function (e) {
+                    if (e.target.closest("button") || e.target.closest(".dy-tooltip-content_T546")) return;
+                    isDown = true; parts.viewport.style.scrollSnapType = "none";
+                    startX = e.pageX - parts.viewport.offsetLeft;
+                    scrollLeft = parts.viewport.scrollLeft;
+                });
+                parts.viewport.addEventListener("mouseleave", function () { isDown = false; parts.viewport.style.scrollSnapType = ""; });
+                parts.viewport.addEventListener("mouseup", function () { isDown = false; parts.viewport.style.scrollSnapType = ""; });
+                parts.viewport.addEventListener("mousemove", function (e) {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    var x = e.pageX - parts.viewport.offsetLeft;
+                    var walk = (x - startX) * 1.5;
+                    parts.viewport.scrollLeft = scrollLeft - walk;
                 });
             }
 
             if (parts.viewport && parts.viewport.getAttribute("data-scroll-bound") !== "true") {
                 parts.viewport.setAttribute("data-scroll-bound", "true");
                 parts.viewport.addEventListener("scroll", function () {
-                    if (!parts.list || !parts.list.children.length) return;
-                    var left = parts.viewport.scrollLeft;
-                    var closest = 0;
-                    var distance = Infinity;
+                    if (!parts.list || !parts.list.children.length || recommendationScrollState.programmaticTarget !== null) return;
+                    var viewportCenter = parts.viewport.scrollLeft + (parts.viewport.clientWidth / 2);
+                    var closest = 0, distance = Infinity;
                     for (var i = 0; i < parts.list.children.length; i++) {
-                        var dlt = Math.abs(parts.list.children[i].offsetLeft - left);
-                        if (dlt < distance) {
-                            distance = dlt;
-                            closest = i;
-                        }
+                        var item = parts.list.children[i];
+                        var itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+                        var dlt = Math.abs(itemCenter - viewportCenter);
+                        if (dlt < distance) { distance = dlt; closest = i; }
                     }
                     recommendationScrollState.current = closest;
                     updateRecommendationsCarousel();
                 }, { passive: true });
             }
-
             updateRecommendationsCarousel();
         }
 
-        // ---- Popup markup (mirrors the site's own centralizedpopup / -------------
-        // ---- add-to-basket-notification structure exactly) -------------------------
-
-
         function closeModal() {
+            console.log("[T546 Event] Closing popup modal.");
+            flushPendingInBackground();
+
             var modal = d.getElementById(MODAL_ID);
             if (modal) modal.remove();
             d.body.classList.remove("dy-atb-popup-open_T546");
             d.removeEventListener("keydown", onKeydown);
+            w.dyLastClickedSku = null;
+            w.dyLastClickedBundleId = null;
         }
 
         function onKeydown(e) {
             if (e.key === "Escape") closeModal();
         }
 
-        // Recommendation/popup CSS is defined in the static <style> block above.
-        // No CSS strings are assembled in JavaScript.
+        function renderPopup(product, basketCount, bundleId) {
+            console.log("[T546 UI] Rendering Custom Popup Overlay for SKU:", product.sku, "| Basket Count:", basketCount, "| Bundle ID:", bundleId);
+            closeModal();
 
-        // ---- Popup-only positioning CSS ---------------------------------------
-        // Just the bits with no equivalent in the real site stylesheet above:
-        // the overlay/backdrop, the popup panel's own size/position, and the
-        // outside close button. Everything else (accessory card look, carousel
-        // scroll behavior, button sizing) now comes from the real CSS injected
-        // by injectReferenceSiteStyles() instead of a hand-rolled approximation.
-
-        function ensureVisibilityStyles() {
-            // Intentionally empty. All popup/recommendation styles are in the
-            // static <style id="dy-atb-recs-styles_T546"> block above.
-        }
-
-        function renderPopup(product, basketCount) {
-            console.groupCollapsed("[T546][POPUP] renderPopup", product && product.sku);
-            console.log("[T546][POPUP] product", product);
-            console.log("[T546][POPUP] basketCount", basketCount);
-            ensureVisibilityStyles();
-            closeModal(); // guard against double-open
+            var hasDiscount = !!(product.savings && product.salePrice && product.fullPrice);
+            var isMainCurrentFree = parseFloat(hasDiscount ? product.salePrice : (product.fullPrice || 0)) === 0;
+            var isMainWasFree = parseFloat(product.fullPrice || 0) === 0;
 
             var priceBlock;
-            if (product.savings && product.salePrice && product.fullPrice) {
+            if (hasDiscount) {
                 priceBlock =
                     '<div class="add-to-basket-notification__price-container">' +
                     '  <div class="add-to-basket-notification__price add-to-basket-notification__free_price_label">' +
                     '    <span class="sr-only">current price:</span>' +
-                    '    <div class="add-to-basket-notification__price-now">' + STRINGS.currency + product.salePrice + "</div>" +
+                    '    <div class="add-to-basket-notification__price-now">' + (isMainCurrentFree ? "Free" : STRINGS.currency + product.salePrice) + "</div>" +
                     '    <span class="sr-only">original price:</span>' +
                     '    <div class="add-to-basket-notification__price-summary">' +
                     '      <div class="add-to-basket-notification__price-was add-to-basket-notification__price-was--strikethrough">' +
-                    STRINGS.was + " " + STRINGS.currency + product.fullPrice +
+                    STRINGS.was + " " + (isMainWasFree ? "Free" : STRINGS.currency + product.fullPrice) +
                     "      </div>" +
                     '      <div class="add-to-basket-notification__price-saving">' + STRINGS.save + " " + STRINGS.currency + product.savings + "</div>" +
                     "    </div>" +
@@ -1241,9 +1874,7 @@
                 priceBlock =
                     '<div class="add-to-basket-notification__price-container">' +
                     '  <div class="add-to-basket-notification__price add-to-basket-notification__free_price_label">' +
-                    '    <div class="add-to-basket-notification__price-now">' +
-                    STRINGS.currency + (product.fullPrice || "") +
-                    "    </div>" +
+                    '    <div class="add-to-basket-notification__price-now">' + (isMainCurrentFree ? "Free" : STRINGS.currency + (product.fullPrice || "")) + "    </div>" +
                     "  </div>" +
                     "</div>";
             }
@@ -1252,31 +1883,21 @@
             if (product.attachmentsCount || product.warrantyText) {
                 additionalDetails = '<div class="add-to-basket-notification__additionalDetails">';
                 if (product.attachmentsCount) {
-                    additionalDetails +=
-                        '<div class="add-to-basket-notification__copy">' +
-                        '  <p class="add-to-basket-notification__text">' + product.attachmentsCount + " attachments</p>" +
-                        "</div>";
+                    additionalDetails += '<div class="add-to-basket-notification__copy"><p class="add-to-basket-notification__text">' + product.attachmentsCount + " attachments</p></div>";
                 }
                 if (product.warrantyText) {
-                    additionalDetails +=
-                        '<div class="add-to-basket-notification__copy">' +
-                        '  <p class="add-to-basket-notification__text">' + product.warrantyText + "</p>" +
-                        "</div>";
+                    additionalDetails += '<div class="add-to-basket-notification__copy"><p class="add-to-basket-notification__text">' + product.warrantyText + "</p></div>";
                 }
                 additionalDetails += "</div>";
             }
 
-            var viewBasketLabel =
-                STRINGS.viewBasket + (typeof basketCount === "number" ? "(" + basketCount + ")" : "");
+            var viewBasketLabel = STRINGS.viewBasket + (typeof basketCount === "number" ? "(" + basketCount + ")" : "");
 
             var markup =
                 '<div class="centralizedpopup js-centralized-overlay-component" id="js-centralized-popup" aria-hidden="false">' +
                 '  <div class="centralizedpopup__overlay" id="js-centralizedpopup-overlay">' +
                 '    <div class="dy-atb-modal-shell_T546">' +
-                '      <button class="centralizedpopup__close js-centralized-popup-close" ' +
-                '              id="js-centralizedpopup-close-overlay" ' +
-                '              type="button" ' +
-                '              aria-label="' + STRINGS.continueShopping + '">' +
+                '      <button class="centralizedpopup__close js-centralized-popup-close" id="js-centralizedpopup-close-overlay" type="button" aria-label="' + STRINGS.continueShopping + '">' +
                 '        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
                 '          <path d="M14.5 2.64969L13.3544 1.5L8 6.85031L2.64969 1.5L1.5 2.64969L6.85438 8L1.5 13.3503L2.64969 14.5L8 9.14969L13.3544 14.5L14.5 13.3503L9.14969 8.5Z" fill="#333333"></path>' +
                 '        </svg>' +
@@ -1300,22 +1921,15 @@
                 '                  </div>' +
                 '                </div>' +
                 '                <div class="add-to-basket-notification__container">' +
-                '                  <h2 class="add-to-basket-notification__name">' + product.name + '</h2>' +
-                additionalDetails +
-                '                  <div class="add-to-basket-notification__item-price js-basket-pricing-container">' +
-                priceBlock +
-                '                  </div>' +
+                '                  <h2 class="add-to-basket-notification__name">' + product.name + '</h2>' + additionalDetails +
+                '                  <div class="add-to-basket-notification__item-price js-basket-pricing-container">' + priceBlock + '</div>' +
                 '                </div>' +
                 '              </div>' +
                 '              <div class="dy-accessories-placeholder_T546"></div>' +
                 '            </div>' +
-                '            <div class="add-to-basket-notification__button-container col-xs-12 col-md-12 col-lg-12">' +
-                '              <button data-analytics-action-name="button~view-basket" data-analytics-component="pop up navigation-section" data-analytics-action-title="pop up navigation" data-basket-url="/basket" class="js-add-to-basket-popup-view-basket-btn add-to-basket-notification__view-button button button--interactive">' +
-                viewBasketLabel +
-                '              </button>' +
-                '              <button class="js-add-to-basket-popup-continue-shopping-btn add-to-basket-notification__close-button button">' +
-                STRINGS.continueShopping +
-                '              </button>' +
+                '            <div class="add-to-basket-notification__button-container popup-actions_T546 col-xs-12 col-md-12 col-lg-12">' +
+                '              <button data-analytics-action-name="button~view-basket" data-analytics-component="pop up navigation-section" data-analytics-action-title="pop up navigation" data-basket-url="/basket" class="js-add-to-basket-popup-view-basket-btn add-to-basket-notification__view-button button button--interactive">' + viewBasketLabel + '</button>' +
+                '              <button class="js-add-to-basket-popup-continue-shopping-btn add-to-basket-notification__close-button button">' + STRINGS.continueShopping + '</button>' +
                 '            </div>' +
                 '          </div>' +
                 '        </div>' +
@@ -1331,9 +1945,7 @@
             d.body.classList.add("dy-atb-popup-open_T546");
 
             wrapper.querySelector(".js-centralized-popup-close").addEventListener("click", closeModal);
-            wrapper
-                .querySelector(".js-add-to-basket-popup-continue-shopping-btn")
-                .addEventListener("click", closeModal);
+            wrapper.querySelector(".js-add-to-basket-popup-continue-shopping-btn").addEventListener("click", closeModal);
             wrapper.querySelector(".js-add-to-basket-popup-view-basket-btn").addEventListener("click", function () {
                 w.location.href = "/basket";
             });
@@ -1342,151 +1954,90 @@
             });
 
             d.addEventListener("keydown", onKeydown);
-            console.log("[T546][POPUP] popup inserted into DOM", d.getElementById(MODAL_ID));
 
-            // Reset and load the merged recommendation module.
             recommendationScrollState.current = 0;
-            console.log("[T546][POPUP] starting accessory flow for SKU", product.sku);
-            loadAndRenderAccessories(product.sku);
-            console.groupEnd();
+            loadAndRenderAccessories(product.sku, bundleId, basketCount);
         }
 
-        // ---- Static SKU match gate -----------------------------------------------------
-        // IMPORTANT: this check must happen BEFORE any basket/navigation behavior.
-        // The reference script already uses window.staticIds as its source of truth.
-        // We keep a local fallback only for this rollout.
-        function getMatchedStaticEntry(sku) {
-            console.groupCollapsed("[T546][STATIC GATE] getMatchedStaticEntry", sku);
-            if (!sku) {
-                console.warn("[T546][STATIC GATE] empty SKU");
-                console.groupEnd();
-                return null;
-            }
-
-            var source = Array.isArray(w.staticIds) ? w.staticIds : STATIC_ACCESSORY_IDS;
-            console.log("[T546][STATIC GATE] source", {
-                usingWindowStaticIds: Array.isArray(w.staticIds),
-                sourceLength: source.length,
-                sku: sku,
-                source: source
-            });
-            for (var i = 0; i < source.length; i++) {
-                var item = source[i];
-                console.log("[T546][STATIC GATE] checking entry", i, item);
-                if (item && Object.prototype.hasOwnProperty.call(item, sku)) {
-                    console.log("[T546][STATIC GATE] MATCH", sku, item);
-                    console.groupEnd();
-                    return item;
-                }
-            }
-            console.warn("[T546][STATIC GATE] NO MATCH", sku);
-            console.groupEnd();
-            return null;
-        }
-
-        function isSkuInStaticIds(sku) {
-            var matched = !!getMatchedStaticEntry(sku);
-            console.log("[T546][STATIC GATE] isSkuInStaticIds", { sku: sku, matched: matched });
-            return matched;
-        }
-
-        // ---- Wire up the hero button -------------------------------------------------
-        // This listener is capture-phase so it runs BEFORE the site's own click
-        // handlers. It always blocks the first native click, performs the SKU check,
-        // then either runs our popup flow (SKU matched) or replays the original click
-        // (SKU not matched).
+        var hasLoggedSelector = false;
         function initHeroButtonListener() {
-            var btn = d.querySelector(HERO_BUTTON_SELECTOR);
-            if (!btn || btn.getAttribute("data-atb-popup-bound") === "true") return;
+            var buttons = d.querySelectorAll(HERO_BUTTON_SELECTOR);
+            if (!hasLoggedSelector) hasLoggedSelector = true;
+            for (var i = 0; i < buttons.length; i++) bindHeroButton(buttons[i]);
+        }
 
+        function bindHeroButton(btn) {
+            if (!btn || btn.getAttribute("data-atb-popup-bound") === "true") return;
             btn.setAttribute("data-atb-popup-bound", "true");
 
-            btn.addEventListener("click", function (e) {
-                console.groupCollapsed("[T546][HERO CLICK] Add to Basket clicked");
-                console.log("button:", btn);
-                console.log("nativeEvent/defaultPrevented:", { isTrusted: e.isTrusted, defaultPrevented: e.defaultPrevented });
-                // Allow the synthetic click used for the non-match/native path to
-                // pass through without entering this gate again.
-                if (btn.getAttribute("data-sku-gate-bypass") === "true") {
-                    console.log("[T546][HERO CLICK] native replay/bypass click - allowing site handler to continue");
-                    btn.removeAttribute("data-sku-gate-bypass");
-                    console.groupEnd();
-                    return;
-                }
+            var originalHref = btn.getAttribute("href");
+            if (originalHref && originalHref.indexOf("javascript") === -1) {
+                btn.setAttribute("data-dy-href", originalHref);
+                btn.setAttribute("href", "javascript:void(0);");
+            }
 
-                // Block EVERYTHING on the original click until SKU matching is done.
+            btn.addEventListener("click", function (e) {
+                var sku = getSkuForButton(btn);
+                var bundleId = getBundleIdFromContext(btn);
+
+                console.log("[T546 Event] Hero ATB Button Clicked -> Element:", btn, "| Resolved SKU:", sku, "| Resolved Bundle ID:", bundleId);
+
+                w.dyLastClickedSku = sku;
+                w.dyLastClickedBundleId = bundleId;
+
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                console.log("[T546][HERO CLICK] native event blocked before SKU decision");
 
-                if (btn.getAttribute("data-adding") === "true") {
-                    console.warn("[T546][HERO CLICK] add already in progress");
-                    console.groupEnd();
+                if (btn.getAttribute("data-sku-gate-bypass") === "true") { btn.removeAttribute("data-sku-gate-bypass"); return; }
+                if (btn.getAttribute("data-adding") === "true") { return; }
+
+                var isExcluded = sku ? (EXCLUDED_SKUS.indexOf(sku) > -1) : false;
+                console.log("[T546 Decision] Is SKU excluded?:", isExcluded);
+
+                if (isExcluded || !sku) {
+                    var fallbackUrl = btn.getAttribute("data-dy-href") || btn.getAttribute("data-href") || btn.getAttribute("href");
+                    console.warn("[T546 Flow] Excluded SKU or missing SKU -> Navigating to fallback URL:", fallbackUrl);
+                    if (fallbackUrl && fallbackUrl !== "javascript:void(0);") w.location.href = fallbackUrl;
                     return;
                 }
 
-                var sku = getSkuFromPage();
-                console.log("[T546][HERO CLICK] SKU from dataLayer", sku);
-                if (!sku) {
-                    console.error(
-                        "Could not determine the product SKU from dataLayer.primaryProduct.localProductSKU; " +
-                        "replaying the native click because no SKU match can be evaluated."
-                    );
-                    btn.setAttribute("data-sku-gate-bypass", "true");
-                    console.log("[T546][HERO CLICK] no SKU - replaying native click", btn);
-                    btn.click();
-                    console.groupEnd();
-                    return;
-                }
-
-                var matched = isSkuInStaticIds(sku);
-                console.log("[T546][HERO CLICK] SKU gate result", { sku: sku, staticIdsMatch: matched });
-
-                if (!matched) {
-                    // No static recommendation entry: do NOT open our popup.
-                    // Replay the original click so the site's native basket/navigation
-                    // flow remains unchanged for SKUs outside the static map.
-                    btn.setAttribute("data-sku-gate-bypass", "true");
-                    console.log("[T546][HERO CLICK] SKU NOT FOUND in staticIds - replaying native click", sku);
-                    btn.click();
-                    console.groupEnd();
-                    return;
-                }
-
-                console.log("[T546][HERO CLICK] SKU FOUND in staticIds - custom popup path", sku);
-                // Static SKU matched: keep the click fully intercepted and run the
-                // custom add-to-basket + popup flow. Nothing native can navigate away.
                 btn.setAttribute("data-adding", "true");
-                console.log("[T546][HERO CLICK] starting main-product add to basket", sku);
 
                 addProductToBasket(sku, function (ok, addToBasketResponse) {
-                    console.log("[T546][HERO CLICK] main-product basket callback", { sku: sku, ok: ok, response: addToBasketResponse });
                     var basketCount = getBasketCount(addToBasketResponse);
-                    console.log("[T546][HERO CLICK] basketCount", basketCount);
+                    console.log("[T546 Flow] Primary Product added to cart. Success:", ok, "| New Basket Count:", basketCount);
                     fetchProductDetails(sku, function (product) {
-                        console.log("[T546][HERO CLICK] main-product details callback", { sku: sku, product: product });
                         btn.removeAttribute("data-adding");
                         if (ok && product) {
-                            renderPopup(product, basketCount);
-                        } else if (!ok) {
-                            console.error("[T546][HERO CLICK] matched SKU could not be added to basket", sku);
+                            renderPopup(product, basketCount, bundleId);
                         } else {
-                            console.error("[T546][HERO CLICK] product details unavailable", sku);
+                            console.error("[T546 Error] Could not fetch product details or add product failed. Navigating to /basket");
+                            w.location.href = "/basket";
                         }
-                        console.groupEnd();
                     });
                 });
-            }, true); // capture phase: before the site's bubble handlers
+            }, true);
         }
 
-        // Keep checking indefinitely rather than stopping after the first find —
-        // if the button element ever gets replaced by a re-render (hydration,
-        // personalization swap, etc.), the new node won't have our listener on
-        // it, and a click would fall through to the native href navigation
-        // instead of showing the popup. initHeroButtonListener() already guards
-        // against double-binding the same node via data-atb-popup-bound.
-        setInterval(function () {
-            initHeroButtonListener();
-        }, 500);
+        var popupObserver = new MutationObserver(function (mutations) {
+            var wrapper = d.querySelector('.add-to-basket-notification__wrapper');
+            if (wrapper && !wrapper.querySelector('.basket-recommendations_T546')) {
+                var activeNativePopup = wrapper.closest('.centralizedpopup');
+                if (activeNativePopup && activeNativePopup.getAttribute('aria-hidden') !== 'true') {
+                    var skuToUse = w.dyLastClickedSku || getSkuFromPage();
+                    var bundleIdToUse = w.dyLastClickedBundleId || null;
+
+                    var isExcluded = skuToUse ? EXCLUDED_SKUS.indexOf(skuToUse) > -1 : false;
+                    var isMatched = (!isExcluded) && (isSkuInStaticIds(skuToUse) || bundleIdToUse !== null);
+
+                    console.log("[T546 Observer] Native Popup Detected -> SKU:", skuToUse, "| Bundle ID:", bundleIdToUse, "| Is Matched?:", isMatched);
+
+                    if (skuToUse && isMatched) loadAndRenderAccessories(skuToUse, bundleIdToUse, null);
+                }
+            }
+        });
+        popupObserver.observe(d.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['aria-hidden', 'class'] });
+
+        setInterval(function () { initHeroButtonListener(); }, 500);
     })(window, document);
 </script>

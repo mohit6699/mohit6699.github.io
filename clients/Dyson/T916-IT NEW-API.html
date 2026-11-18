@@ -1,0 +1,2046 @@
+<style id="dy-atb-recs-styles_T546">
+    .dy-accessories-module_T546 {
+        margin-top: 8px;
+        position: relative;
+    }
+
+    .dy-recommendations-header_T546 h2,
+    .basket-recommendations_T546 h2 {
+        font-weight: 400;
+        font-size: 1.15rem;
+        line-height: 1.25;
+        padding: 0 0 0.5rem 0;
+    }
+
+    .basket-recommendations_T546 h3 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 1rem;
+    }
+
+    .basket-recommendations_T546 p {
+        font-weight: 400;
+        font-size: .875rem;
+    }
+
+    .basket-recommendations_T546 .responsive-image,
+    .basket-recommendations_T546 .plp-cards__text-container,
+    .basket-recommendations_T546 .plp-cards__bottom-container {
+        background: #fff;
+    }
+
+    .basket-recommendations_T546 .plp-cards__image-container {
+        position: relative;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+    }
+
+    .basket-recommendations_T546 .plp-cards__image-container img {
+        display: block;
+        /* aspect-ratio: 16/9; */
+        width: auto !important;
+        max-width: 100%;
+        max-height: 200px;
+        margin: 0 auto;
+    }
+
+    .basket-recommendations_T546 .plp-cards__text-container {
+        padding: 12px 16px 16px;
+        flex: 1 1 auto;
+        overflow: visible;
+    }
+
+    .basket-recommendations_T546 .dy-title-row_T546 {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        position: relative;
+    }
+
+    .basket-recommendations_T546 .plp-cards__name {
+        margin-top: 0 !important;
+        flex: 1 1 auto;
+    }
+
+    .basket-recommendations_T546 .dy-info-btn_T546 {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #767676;
+        background: #1c1c1c;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        margin-top: 1px;
+        line-height: 1;
+        transition: all 0.2s ease;
+    }
+
+    .basket-recommendations_T546 .dy-info-btn_T546:hover {
+        color: #fff;
+        border-color: #000;
+    }
+
+    .basket-recommendations_T546 .dy-tooltip-content_T546 {
+        display: none;
+        position: absolute;
+        top: 26px;
+        right: -8px;
+        width: max-content;
+        max-width: 230px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        z-index: 100;
+        font-size: 0.85rem;
+        color: #444;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: left;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+
+    .basket-recommendations_T546 .dy-tooltip-content_T546.is-visible_T546 {
+        display: block;
+    }
+
+    .basket-recommendations_T546 .plp-cards__price-container {
+        padding: 5px 16px 0 16px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .basket-recommendations_T546 .plp-cards__price {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .basket-recommendations_T546 .plp-cards__bottom-container {
+        padding-top: 0;
+    }
+
+    .basket-recommendations_T546 .plp-cards__button-container {
+        margin-top: 0;
+    }
+
+    .basket-recommendations_T546 .plp-cards__add-to-basket {
+        width: 100%;
+    }
+
+    .basket-recommendations_T546 .button--transactional {
+        width: 100%;
+        min-height: 40px;
+        height: 100%;
+        padding: 0 16px;
+        border: 0;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .basket-recommendations_T546 .button--transactional.active {
+        color: #0a0b09;
+    }
+
+    .basket-recommendations_T546 .button--transactional.completed_T791::after {
+        content: "✓";
+        position: absolute;
+        top: 25%;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .basket-recommendations_T546 .wasPrice {
+        text-decoration: line-through;
+        color: #555;
+    }
+
+    .basket-recommendations_T546 .priceBlue {
+        color: #06c !important;
+    }
+
+    .basket-recommendations_T546 .plp-cards__items {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 8px;
+        margin: 0;
+        padding: 0 16px 8px;
+        list-style: none;
+        overflow: visible;
+    }
+
+    .dy-recommendations-viewport_T546 {
+        overflow-x: auto;
+        overflow-y: visible;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+    }
+
+    .dy-recommendations-viewport_T546::-webkit-scrollbar {
+        display: none;
+    }
+
+    .basket-recommendations_T546 .plp-cards__items>li {
+        display: flex;
+        flex: 0 0 calc(100% - 24px);
+        max-width: 300px;
+        scroll-snap-align: start;
+    }
+
+    .basket-recommendations_T546 .at_recs_card_T546 {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        border-radius: 8px;
+        background: #fff;
+        margin-bottom: 0 !important;
+    }
+
+    .basket-recommendations_T546 .at_recs_card_T546.active .plp-cards__image-container {
+        border: 2px solid #0a0b09;
+        border-bottom: 0;
+    }
+
+    .basket-recommendations_T546 .at_recs_card_T546.active .plp-cards__text-container {
+        border-left: 2px solid #0a0b09;
+        border-right: 2px solid #0a0b09;
+    }
+
+    .basket-recommendations_T546 .at_recs_card_T546.active .plp-cards__bottom-container {
+        border: 2px solid #0a0b09;
+        border-top: 0;
+    }
+
+    .dy-recommendation-badge_T546 {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 2;
+        padding: 2px 8px;
+        font-size: .75rem;
+        background: #fff;
+        color: #333;
+        box-shadow: inset 0 0 0 1px #333;
+    }
+
+    .at-carousel-prev_T546,
+    .at-carousel-next_T546 {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 62%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, .55);
+        color: #fff;
+        font-size: 28px;
+        line-height: 1;
+        z-index: 4;
+        cursor: pointer;
+    }
+
+    .at-carousel-prev_T546:focus,
+    .at-carousel-next_T546:focus {
+        outline: 3px solid #222 !important;
+        box-shadow: none !important;
+    }
+
+    .at-carousel-prev_T546 {
+        left: 8px;
+    }
+
+    .at-carousel-next_T546 {
+        right: 8px;
+    }
+
+    .at-carousel-prev_T546:disabled,
+    .at-carousel-next_T546:disabled,
+    .at-carousel-disabled_T546 {
+        opacity: .3;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .at-carousel-dots_T546 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        min-height: 14px;
+        margin: 4px 0 8px;
+    }
+
+    .at-carousel-dot_T546 {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #b3b3b3;
+        cursor: pointer;
+    }
+
+    .at-carousel-dot_T546.at-carousel-dot-active_T546 {
+        transform: scale(1.25);
+        background: #000;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__container {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__title {
+        flex: 0 0 auto;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__description {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+        padding: 0 !important;
+    }
+
+    #dy-atb-popup_T546 .add-to-basket-notification__wrapper {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 !important;
+    }
+
+    #dy-atb-popup_T546 .add-to-basket-notification__button-container {
+        flex: 0 0 auto;
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding-top: 8px;
+    }
+
+    body.dy-atb-popup-open_T546 {
+        overflow: hidden;
+    }
+
+    #dy-atb-popup_T546 {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+    }
+
+    #dy-atb-popup_T546 .dy-atb-modal-shell_T546 {
+        position: relative;
+        width: min(520px, 92vw);
+        max-height: calc(100vh - 48px);
+        margin: 16px;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__overlay {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 24px;
+        overflow-y: auto;
+        background: rgba(0, 0, 0, .55);
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__container {
+        position: relative;
+        width: 100%;
+        max-height: calc(100vh - 48px);
+        overflow-y: hidden;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__close {
+        position: absolute;
+        top: -45px;
+        right: 0px;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+        cursor: pointer;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__close svg {
+        width: 16px;
+        height: 16px;
+        display: block;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__close:hover {
+        background: #f5f5f5;
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__close:focus-visible {
+        outline: 2px solid #222;
+        outline-offset: 2px;
+    }
+
+    #dy-atb-popup_T546 .dy-atb-image_T546 {
+        max-width: 100px;
+        display: block;
+    }
+
+    #dy-atb-popup_T546 .basket-recommendations_T546,
+    .centralizedpopup .basket-recommendations_T546 {
+        position: relative;
+        margin-top: 4px;
+    }
+
+    #dy-atb-popup_T546 .basket-recommendations_T546 .plp-cards,
+    .centralizedpopup .basket-recommendations_T546 .plp-cards {
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 767px) {
+        .basket-recommendations_T546 .plp-cards__price-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__prices p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .basket-recommendations_T546 .was-price-placeholder {
+            line-height: 1.2;
+        }
+
+        #dy-atb-popup_T546 .centralizedpopup__overlay {
+            align-items: flex-end;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        #dy-atb-popup_T546 .dy-atb-modal-shell_T546 {
+            width: calc(100vw - 32px);
+            max-height: calc(100vh - 32px);
+            margin: 0;
+        }
+
+        #dy-atb-popup_T546 .centralizedpopup__container {
+            width: 100%;
+            max-height: calc(100vh - 32px);
+            overflow-y: hidden;
+            overflow-x: hidden;
+            padding: 8px 8px 6px;
+        }
+
+        #dy-atb-popup_T546 .centralizedpopup__close {
+            top: -40px;
+            right: 0px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__items {
+            padding-bottom: 4px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__button-container {
+            margin-top: 1rem;
+            padding: 0 10px 10px;
+        }
+    }
+
+    @media (max-width: 767px) and (max-height: 700px) {
+        .dy-recommendations-viewport_T546 {
+            max-height: calc(100vh - 430px);
+            min-height: 120px;
+            overflow-y: auto;
+            overscroll-behavior-y: contain;
+        }
+    }
+
+    #dy-atb-popup_T546 .centralizedpopup__title {
+        padding-left: 0 !important;
+    }
+
+    .plp-cards js-plp-cards dy-recommendations-carousel_T546 {
+        margin-bottom: 0 !important;
+    }
+
+    .add-to-basket-notification__outer {
+        margin-bottom: 1rem !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 1365px) {
+        #dy-atb-popup_T546 .dy-atb-modal-shell_T546 {
+            width: 475px;
+            max-width: 90vw;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__outer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 0.75rem !important;
+            text-align: left;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__image-wrapper {
+            flex: 0 0 120px;
+            margin: 0;
+        }
+
+        #dy-atb-popup_T546 .add-to-basket-notification__container {
+            flex: 1 1 auto;
+            margin: 0;
+        }
+
+        .basket-recommendations_T546 .plp-cards__text-container {
+            padding: 8px 12px 10px;
+        }
+
+        .basket-recommendations_T546 .plp-cards__image-container img {
+            max-height: 140px;
+            margin: 0;
+        }
+
+        .basket-recommendations_T546 .plp-cards__items>li {
+            max-width: 250px;
+        }
+
+        #dy-atb-popup_T546 .centralizedpopup__container {
+            padding: 1rem 1.2rem;
+        }
+    }
+
+    .dy-recommendations-viewport_T546 {
+        cursor: grab;
+    }
+
+    .dy-recommendations-viewport_T546:active {
+        cursor: grabbing;
+    }
+
+    .basket-recommendations_T546 .plp-cards__image-container img {
+        pointer-events: none;
+    }
+</style>
+
+<script>
+    (function (w, d) {
+        "use strict";
+
+        var HERO_BUTTON_SELECTOR =
+            ".product-hero__button.js-add-to-basket-button, " +
+            ".button--nav.js-add-to-basket-button, " +
+            ".button--free-tools.button--nav, " +
+            ".button--free-tools.product-hero__button, " +
+            ".product-bundle__basket-button.js-product__basket-button.card-btn-radius, " +
+            ".promotional-hero__button.js-add-to-basket-button, " +
+            ".plp-card-addToBasket-button, " +
+            ".add-to-basket__form-button.js-add-to-basket-button, " +
+            ".button--free-tools.promotional-hero__button.card-btn-no-radius-bot, " +
+            ".plp-card-addToBasket-button.card-btn-no-radius-tm.bundleSelectionBtn, " +
+            ".button.button--transactional.js-add-to-basket-button.promotional-hero__button.card-btn-no-radius-bot.add-to-basket__form-button";
+            
+
+        var PRODUCT_API_BASE = "https://api.dyson.it/apiman-gateway/dyson/product/1.0/it/";
+        var CART_BASE_URL = "https://api.dyson.it/apiman-gateway/dyson/cart/1.0/it/";
+        var BUNDLE_API_BASE = "https://api.dyson.it/apiman-gateway/dyson/bundle/1.0/it/";
+        var BUNDLE_CART_API = "https://api.dyson.it/apiman-gateway/dyson/bundleCart/1.0/it/bundle/users/anonymous/carts/";
+        var BUNDLE_ENFORCE_TEMPLATE_LIMIT = false;
+
+        /* When true, staticIds / logged-in / fallback accessories are ALSO queued and added when the
+           user clicks "View basket" (or closes the popup). Set to false to keep those adding instantly on click.
+           Bundle-ID accessories are always deferred. */
+        var DEFER_STATIC_ACCESSORIES = true;
+
+        var LANG = "en";
+
+        var STRINGS = {
+            addedToBasket: "Aggiunto al carrello",
+            viewBasket: "Visualizza carrello",
+            continueShopping: "Continua lo shopping",
+            was: "Era",
+            save: "Salva",
+            currency: "€",
+            recommendedForYou: "Accessori raccomandati per te",
+            addToBasket: "Acquista ora",
+            addingToBasket: "Aggiunta...",
+            learnMore: "Scopri di più"
+        };
+
+        var MODAL_ID = "dy-atb-popup_T546";
+
+        w.dyLastClickedSku = w.dyLastClickedSku || null;
+        w.dyLastClickedBundleId = w.dyLastClickedBundleId || null; 
+
+        var EXCLUDED_SKUS = [
+            "318135-01", "492345-01", "492319-01",
+            "492418-01", "492427-01", "492442-01"
+        ];
+
+        function getCookieVal(cname) {
+            var cookie = (document.cookie || "").split(";");
+            for (var i = cookie.length - 1; i >= 0; i--) {
+                if (cookie[i].trim().indexOf(cname + "=") > -1) {
+                    return decodeURIComponent(cookie[i].trim().replace(cname + "=", ""));
+                }
+            }
+            return null;
+        }
+
+        function checkLoggedIn() {
+            return w.dataLayer && w.dataLayer.customer && w.dataLayer.customer.credentialID !== "anonymous";
+        }
+
+        function getSkuFromPage() {
+            try {
+                if (w.dataLayer && w.dataLayer.primaryProduct && w.dataLayer.primaryProduct.localProductSKU) {
+                    return w.dataLayer.primaryProduct.localProductSKU;
+                }
+            } catch (e) { }
+            return null;
+        }
+
+        function getSkuForButton(btn) {
+            var sku = null;
+            var form = btn.closest("form");
+            if (form) {
+                var input = form.querySelector('input[name="product"]');
+                if (input && input.value) {
+                    sku = input.value;
+                    return sku;
+                }
+            }
+            var parentLi = btn.closest("li[data-local-product-code]");
+            if (parentLi) {
+                sku = parentLi.getAttribute("data-local-product-code");
+                return sku;
+            }
+            var productWrapper = btn.closest("[data-product-id]");
+            if (productWrapper) {
+                sku = productWrapper.getAttribute("data-product-id");
+                return sku;
+            }
+            return getSkuFromPage();
+        }
+
+        function getBundleIdFromContext(btn) {
+            var href = "";
+            if (btn) {
+                href = btn.getAttribute("data-dy-href") || btn.getAttribute("data-href") || btn.getAttribute("href") || "";
+            }
+            if (!href && btn) {
+                var closestA = btn.closest("[data-dy-href*='bundle-selector'], [data-href*='bundle-selector'], [href*='bundle-selector']");
+                if (closestA) {
+                    href = closestA.getAttribute("data-dy-href") || closestA.getAttribute("data-href") || closestA.getAttribute("href") || "";
+                }
+            }
+
+            if (href && href.indexOf("bundle-selector") > -1) {
+                var match = href.match(/bundle-selector\.(BT_?[A-Z0-9]+)/i);
+                if (match && match[1]) {
+                    return match[1];
+                }
+            }
+            return null;
+        }
+
+        var resolvedCartId = null;
+
+        function rememberCartId(responseJson) {
+            if (!responseJson) return;
+            var candidate = responseJson.guid || responseJson.code || responseJson.cartId || responseJson.id || null;
+            if (!candidate) return;
+            resolvedCartId = candidate;
+            try { d.cookie = "cartguid=" + encodeURIComponent(candidate) + "; path=/"; } catch (e) { }
+        }
+
+        function addProductToBasket(sku, callback) {
+            var url;
+            if (checkLoggedIn()) {
+                url = CART_BASE_URL + "users/" + w.dataLayer.customer.credentialID + "/carts/current";
+            } else {
+                var cartId = resolvedCartId || getCookieVal("cartguid");
+                url = cartId ?
+                    CART_BASE_URL + "users/anonymous/carts/" + cartId.replace(/"/g, "") + "/entries" :
+                    CART_BASE_URL + "users/anonymous/carts/createCart?lang=" + LANG;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    var ok = this.status >= 200 && this.status < 300;
+                    var responseJson = null;
+                    if (ok) {
+                        try {
+                            responseJson = JSON.parse(this.responseText);
+                            rememberCartId(responseJson);
+                        } catch (e) { }
+                    }
+                    if (typeof callback === "function") callback(ok, responseJson);
+                }
+            };
+
+            var separator = url.indexOf("?") > -1 ? "&" : "?";
+            xhr.open("POST", url + separator + "code=" + sku + "&lang=" + LANG, true);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.setRequestHeader("x-csrf-token", getCookieVal("CSRF_TOKEN") || "");
+
+            var targetSku = sku;
+            if (sku && sku.indexOf(",") > -1) {
+                var datalayerSku = getSkuFromPage();
+                targetSku = datalayerSku ? datalayerSku : sku.split(",")[0].trim();
+            }
+
+            xhr.send(JSON.stringify({ product: { code: targetSku }, quantity: 1 }));
+        }
+
+        /* The per-popup "session" state tracks selected/processed/committed accessories and cart state to manage deferred cart writes. */
+        function createBundleState(mainSku, bundleId, baseCount) {
+            return {
+                active: false,
+                bundleId: bundleId || null,
+                mainSku: mainSku,
+                masterTemplateId: null,
+                templateBySku: {},
+                maxByTemplate: {},
+                selected: [],
+                processed: [],
+                committed: [],
+                baseCount: (typeof baseCount === "number") ? baseCount : null,
+                mainTargets: null,
+                committing: false,
+                waiters: []
+            };
+        }
+
+        var bundleState = createBundleState(null, null, null);
+
+        function normalizeMainSku(sku) {
+            if (sku && sku.indexOf(",") > -1) {
+                return getSkuFromPage() || sku.split(",")[0].trim();
+            }
+            return sku;
+        }
+
+        function resetBundleState(mainSku, bundleId, baseCount) {
+            bundleState = createBundleState(normalizeMainSku(mainSku), bundleId, baseCount);
+        }
+
+        function bundleCountInTemplate(tplId) {
+            return bundleState.selected.filter(function (s) {
+                return bundleState.templateBySku[s] === tplId;
+            }).length;
+        }
+
+        function getAnonCartId() {
+            var id = resolvedCartId || getCookieVal("cartguid");
+            return id ? String(id).replace(/"/g, "") : null;
+        }
+
+        function cartRequest(method, url, body, cb) {
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.onreadystatechange = function () {
+                if (this.readyState !== 4) return;
+                var ok = this.status >= 200 && this.status < 300;
+                var json = null;
+                try { json = this.responseText ? JSON.parse(this.responseText) : {}; } catch (e) { json = null; }
+                cb(ok, json);
+            };
+            xhr.open(method, url, true);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("x-csrf-token", getCookieVal("CSRF_TOKEN") || "");
+            xhr.send(body ? JSON.stringify(body) : null);
+        }
+
+        function getAnonCart(guid, cb) {
+            cartRequest(
+                "GET",
+                CART_BASE_URL + "users/anonymous/carts/" + guid + "?fields=FULL&lang=" + LANG + "&t=" + Date.now(),
+                null,
+                cb
+            );
+        }
+
+        function getCurrentCartForCount(cb) {
+            var url;
+            if (checkLoggedIn()) {
+                url = CART_BASE_URL + "users/" + w.dataLayer.customer.credentialID + "/carts/current";
+            } else {
+                var guid = getAnonCartId();
+                if (!guid) { cb(null); return; }
+                url = CART_BASE_URL + "users/anonymous/carts/" + guid;
+            }
+
+            cartRequest(
+                "GET",
+                url + "?fields=FULL&lang=" + LANG + "&t=" + Date.now(),
+                null,
+                function (ok, cart) { cb(ok ? cart : null); }
+            );
+        }
+
+        /* Deferred commit engine. Clicking an accessory ATB now only queues the SKU (instant). 
+           The real cart write happens ONCE, when the user clicks "View basket" (or in the background when the popup is closed). */
+        function collectEntryTargets(cart, skus) {
+            var targets = [];
+            ((cart && cart.entries) || []).forEach(function (e) {
+                if (e && e.product && skus.indexOf(e.product.code) > -1 &&
+                    e.entryNumber !== undefined && e.entryNumber !== null) {
+                    targets.push({ sku: e.product.code, entryNumber: e.entryNumber });
+                }
+            });
+            targets.sort(function (a, b) { return b.entryNumber - a.entryNumber; });
+            return targets;
+        }
+
+        function deleteEntryTargets(guid, targets, cb) {
+            (function next(i) {
+                if (i >= targets.length) return cb(true);
+                cartRequest(
+                    "DELETE",
+                    CART_BASE_URL + "users/anonymous/carts/" + guid + "/entries/" +
+                    encodeURIComponent(targets[i].entryNumber) + "?lang=" + LANG + "&isBasket=true&t=" + Date.now(),
+                    { code: targets[i].sku },
+                    function (okDel) {
+                        if (!okDel) return cb(false);
+                        next(i + 1);
+                    }
+                );
+            })(0);
+        }
+
+        // Runs in the background when the popup opens so the commit doesn't need an extra GET later
+        function prefetchMainEntry(st) {
+            var guid = getAnonCartId();
+            if (!guid || !st.mainSku) return;
+            getAnonCart(guid, function (ok, cart) {
+                if (ok && cart) st.mainTargets = collectEntryTargets(cart, [st.mainSku]);
+            });
+        }
+
+        function postBundleToCart(guid, st, accessorySkus, cb) {
+            var entries = [{
+                masterProduct: true,
+                productCode: st.mainSku,
+                bundleId: st.masterTemplateId
+            }];
+
+            accessorySkus.forEach(function (sku) {
+                entries.push({
+                    masterProduct: false,
+                    productCode: sku,
+                    bundleId: st.templateBySku[sku]
+                });
+            });
+
+            cartRequest(
+                "POST",
+                BUNDLE_CART_API + guid + "/entries",
+                { bundleNo: "-1", entries: entries, optOutAutoRegistration: false },
+                cb
+            );
+        }
+
+        function canBundle(st, sku) {
+            return !!(
+                st.active &&
+                st.mainSku &&
+                !checkLoggedIn() &&
+                st.templateBySku[sku] &&
+                getAnonCartId()
+            );
+        }
+
+        function shouldUseBundleCart(sku) {
+            return canBundle(bundleState, sku);
+        }
+
+        function pendingSkus(st) {
+            return st.selected.filter(function (sku) {
+                return st.processed.indexOf(sku) === -1;
+            });
+        }
+
+        function markProcessed(st, skus) {
+            skus.forEach(function (sku) {
+                if (st.processed.indexOf(sku) === -1) st.processed.push(sku);
+            });
+        }
+
+        // Regular (non-bundle) adds, one after another
+        function addSkusSequentially(st, skus, cb) {
+            (function next(i) {
+                if (i >= skus.length) return cb();
+                addProductToBasket(skus[i], function (ok) {
+                    if (ok) markProcessed(st, [skus[i]]);
+                    next(i + 1);
+                });
+            })(0);
+        }
+
+        // Swap the standalone main entry for ONE bundle containing main + all accessories
+        function commitBundleSkus(st, guid, bundleSkus, cb) {
+            var allBundle = st.committed.concat(bundleSkus);
+
+            function postIt() {
+                postBundleToCart(guid, st, allBundle, function (ok, json) {
+                    if (ok) {
+                        st.committed = allBundle;
+                        st.mainTargets = null;
+                        cb(true);
+                        return;
+                    }
+
+                    //console.warn("[T546] Bundle POST rejected:", allBundle, "| response:", json);
+
+                    // recovery: put the cart back the way it was so the main product isn't lost
+                    if (st.committed.length) {
+                        postBundleToCart(guid, st, st.committed, function () { cb(false); });
+                    } else {
+                        addProductToBasket(st.mainSku, function () { cb(false); });
+                    }
+                });
+            }
+
+            var usePrefetched = !st.committed.length && st.mainTargets && st.mainTargets.length;
+
+            if (usePrefetched) {
+                deleteEntryTargets(guid, st.mainTargets, function (okDel) {
+                    if (!okDel) return cb(false);
+                    postIt();
+                });
+                return;
+            }
+
+            // no prefetched entry numbers (or a second commit) -> read the cart once
+            getAnonCart(guid, function (ok, cart) {
+                if (!ok || !cart) return cb(false);
+                var targets = collectEntryTargets(cart, [st.mainSku].concat(st.committed));
+                deleteEntryTargets(guid, targets, function (okDel) {
+                    if (!okDel) return cb(false);
+                    postIt();
+                });
+            });
+        }
+
+        function commitPending(st, cb) {
+            if (st.committing) {
+                if (cb) st.waiters.push(cb);
+                return;
+            }
+
+            var pend = pendingSkus(st);
+            if (!pend.length) {
+                if (cb) cb(true);
+                return;
+            }
+
+            st.committing = true;
+
+            var guid = getAnonCartId();
+            var bundleSkus = [];
+            var plainSkus = [];
+            pend.forEach(function (sku) {
+                (canBundle(st, sku) ? bundleSkus : plainSkus).push(sku);
+            });
+
+            function finish(ok) {
+                st.committing = false;
+                var waiting = st.waiters;
+                st.waiters = [];
+                if (cb) cb(ok);
+                waiting.forEach(function (fn) { fn(ok); });
+            }
+
+            function doPlain() {
+                if (!plainSkus.length) return finish(true);
+                addSkusSequentially(st, plainSkus, function () { finish(true); });
+            }
+
+            if (!bundleSkus.length) return doPlain();
+
+            commitBundleSkus(st, guid, bundleSkus, function (ok) {
+                if (ok) {
+                    markProcessed(st, bundleSkus);
+                    doPlain();
+                } else {
+                    // last resort: still get the chosen accessories into the cart (at regular price)
+                    addSkusSequentially(st, bundleSkus, doPlain);
+                }
+            });
+        }
+
+        // Called when the popup is closed without clicking "View basket" - doesn't block the UI
+        function flushPendingInBackground() {
+            var st = bundleState;
+            if (st && pendingSkus(st).length) commitPending(st);
+        }
+
+        function getPopupViewBasketBtn() {
+            return d.querySelector("#" + MODAL_ID + " .js-add-to-basket-popup-view-basket-btn") ||
+                d.querySelector(".centralizedpopup .js-add-to-basket-popup-view-basket-btn");
+        }
+
+        function parsePopupBasketCount() {
+            var btn = getPopupViewBasketBtn();
+            if (btn) {
+                var m = (btn.textContent || "").match(/\((\d+)\)/);
+                if (m) return parseInt(m[1], 10);
+            }
+            return getBasketCount(null);
+        }
+
+        // Instant UI update: "View basket (baseCount + accessories chosen)"
+        function updatePopupBasketCount(st) {
+            var btn = getPopupViewBasketBtn();
+            if (!btn || typeof st.baseCount !== "number") return;
+            btn.textContent = STRINGS.viewBasket + "(" + (st.baseCount + st.selected.length) + ")";
+        }
+
+        function goToBasketAfterCommit(viewBtn) {
+            var st = bundleState;
+
+            if (viewBtn) {
+                viewBtn.disabled = true;
+                viewBtn.setAttribute("aria-busy", "true");
+                viewBtn.textContent = STRINGS.addingToBasket;
+            }
+
+            commitPending(st, function () {
+                w.location.href = "/basket";
+            });
+        }
+
+        // Capture-phase listener so it also works for the NATIVE modal's buttons
+        d.addEventListener("click", function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+
+            var viewBtn = t.closest(".js-add-to-basket-popup-view-basket-btn");
+            if (viewBtn) {
+                var st = bundleState;
+                if (st && (st.committing || pendingSkus(st).length)) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    goToBasketAfterCommit(viewBtn);
+                }
+                return;
+            }
+
+            if (t.closest(".js-add-to-basket-popup-continue-shopping-btn, .js-centralized-popup-close")) {
+                flushPendingInBackground();
+            }
+        }, true);
+
+        function updateBundleLimitState() {
+            if (!BUNDLE_ENFORCE_TEMPLATE_LIMIT) return;
+            if (!bundleState.active) return;
+            var btns = d.querySelectorAll(".js-accessory-add-btn");
+            for (var i = 0; i < btns.length; i++) {
+                var b = btns[i];
+                if (b.getAttribute("data-accessory-added") === "true") continue;
+                var tpl = bundleState.templateBySku[b.getAttribute("sku")];
+                if (!tpl) continue;
+                var full = bundleCountInTemplate(tpl) >= (bundleState.maxByTemplate[tpl] || 1);
+                b.disabled = full;
+                b.classList.toggle("recs-limit_T546", full);
+                b.setAttribute("aria-disabled", full ? "true" : "false");
+            }
+        }
+
+        function getBasketCount(addToBasketResponse) {
+            if (addToBasketResponse) {
+                var candidates = [
+                    addToBasketResponse.totalUnitCount,
+                    addToBasketResponse.deliveryItemsQuantity,
+                    addToBasketResponse.totalItems,
+                    Array.isArray(addToBasketResponse.entries) ? addToBasketResponse.entries.length : null
+                ];
+                for (var i = 0; i < candidates.length; i++) {
+                    if (typeof candidates[i] === "number" && !isNaN(candidates[i])) return candidates[i];
+                }
+            }
+            var badge = d.querySelector(".js-basket-count, .basket-count, [data-basket-count], .header-basket__count");
+            if (badge) {
+                var parsed = parseInt((badge.textContent || "").replace(/\D/g, ""), 10);
+                if (!isNaN(parsed)) return parsed;
+            }
+            return null;
+        }
+
+        function fetchProductDetails(sku, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    try {
+                        var res = JSON.parse(this.responseText);
+
+                        var name =
+                            res.webName ||
+                            (res.localWebNames && res.localWebNames[LANG]) ||
+                            (res.globalWebNames && res.globalWebNames[LANG]) || sku;
+
+                        var fullPrice = res.price && res.price.value != null ? res.price.value.toFixed(2) : null;
+                        var salePrice =
+                            res.reducedPrice && res.reducedPrice.value != null ? res.reducedPrice.value.toFixed(2) : null;
+                        var savings = res.savings && res.savings.value != null ? res.savings.value.toFixed(2) : null;
+
+                        var attachmentsCount = null;
+                        if (Array.isArray(res.productReferences)) {
+                            attachmentsCount = res.productReferences.filter(function (ref) {
+                                return ref.referenceType === "CONSISTS_OF";
+                            }).length;
+                            if (attachmentsCount === 0) attachmentsCount = null;
+                        }
+
+                        var warrantyText = res.warrantyDescription || res.warrantyText ||
+                            (res.warrantyPeriod ? "Dyson " + res.warrantyPeriod + " Year Limited Warranty" : null);
+
+                        var productResult = {
+                            sku: sku,
+                            name: name,
+                            fullPrice: fullPrice,
+                            salePrice: salePrice,
+                            savings: savings,
+                            stockBand: res.stockBand,
+                            url: res.url,
+                            description: res.description || "",
+                            badgeText: res.badgeText || "",
+                            badgeClass: res.badgeThemeCode || "",
+                            ratings: res.bazaarVoiceAverageRating,
+                            reviews: res.bazaarVoiceNumberOfReviews,
+                            hideWasNowPricing: res.hideWasNowPricing,
+                            sapDivision: res.sapDivision,
+                            attachmentsCount: attachmentsCount,
+                            warrantyText: warrantyText,
+                            imageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/" +
+                                sku + ".png?$responsive$&fmt=png-alpha&cropPathE=mobile&fit=stretch,1&wid=440",
+                            recommendationImageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/basket-recommendations/" +
+                                sku + ".jpg"
+                        };
+
+                        callback(productResult);
+                    } catch (err) { callback(null); }
+                } else if (this.readyState === 4) { callback(null); }
+            };
+            xhr.open("GET", PRODUCT_API_BASE + sku, true);
+            xhr.send();
+        }
+
+        var recommendationState = {
+            mainSku: null,
+            bundleId: null,
+            candidates: [],
+            loaded: 0
+        };
+
+        function getStaticAccessorySkus(mainSku) {
+            var entry = getMatchedStaticEntry(mainSku);
+            if (entry) return entry[mainSku] || [];
+            return null;
+        }
+
+        function getIncludedNamesFromPage() {
+            var names = [];
+            var els = d.querySelectorAll(
+                ".basket-item-accordion__section-bundle.basket-item-accordion__section-bundle--included " +
+                ".basket-item-accordion__content-flex .basket-item-accordion__content--tools " +
+                ".basket-item-accordion__bundle-text .basket-item-accordion__bundle-tool-name"
+            );
+            for (var i = 0; i < els.length; i++) names.push((els[i].textContent || "").trim());
+
+            try {
+                if (w.dataLayer && Array.isArray(w.dataLayer.products)) {
+                    w.dataLayer.products.forEach(function (p) {
+                        if (p.localWebNames && p.localWebNames[LANG]) names.push(p.localWebNames[LANG]);
+                    });
+                }
+            } catch (e) { }
+            return names;
+        }
+
+        function getRecommendationContainer() {
+            var popup = d.getElementById(MODAL_ID) || d.getElementById('js-centralized-popup') || d.querySelector('.centralizedpopup');
+            if (!popup) return null;
+
+            var wrapper = popup.querySelector(".add-to-basket-notification__wrapper");
+            if (!wrapper) return null;
+
+            var container = wrapper.querySelector(".basket-recommendations_T546");
+            if (container) return container;
+
+            container = d.createElement("section");
+            container.className = "basket-recommendations_T546 dy-accessories-module_T546";
+            container.innerHTML =
+                '<div class="plp-cards js-plp-cards dy-recommendations-carousel_T546">' +
+                '<div class="dy-recommendations-header_T546">' +
+                '  <h2 class="text__heading h2">' + STRINGS.recommendedForYou + "</h2>" +
+                '</div>' +
+                '  <div class="dy-recommendations-viewport_T546">' +
+                '    <ul class="recs_wrapper plp-cards__items snapper_items"></ul>' +
+                '  </div>' +
+                '  <button type="button" class="at-carousel-prev_T546 at-carousel-disabled_T546" aria-label="Previous product" disabled><span aria-hidden="true">&#8249;</span></button>' +
+                '  <button type="button" class="at-carousel-next_T546" aria-label="Next product"><span aria-hidden="true">&#8250;</span></button>' +
+                '  <div class="at-carousel-dots_T546" role="group" aria-label="Carousel pagination"></div>' +
+                '</div>';
+
+            var outers = wrapper.querySelectorAll(".add-to-basket-notification__outer");
+            var anchor = outers.length > 0 ? outers[outers.length - 1] : null;
+
+            if (anchor) wrapper.insertBefore(container, anchor.nextSibling);
+            else wrapper.appendChild(container);
+            return container;
+        }
+
+        function getRecommendationList() {
+            var container = getRecommendationContainer();
+            return container ? container.querySelector("ul.plp-cards__items") : null;
+        }
+
+        function removeDuplicateAccessoryCards() {
+            var list = getRecommendationList();
+            if (!list) return;
+
+            var seen = {};
+            Array.prototype.slice.call(list.children).forEach(function (li) {
+                var sku = li.getAttribute("data-product-id");
+                if (!sku) return;
+                if (seen[sku]) li.remove();
+                seen[sku] = true;
+            });
+        }
+
+        function closeAllTooltips() {
+            var tooltips = d.querySelectorAll('.dy-tooltip-content_T546.is-visible_T546');
+            for (var i = 0; i < tooltips.length; i++) tooltips[i].classList.remove('is-visible_T546');
+        }
+
+        d.addEventListener('click', function (e) {
+            if (!e.target.closest('.dy-info-btn_T546') && !e.target.closest('.dy-tooltip-content_T546')) {
+                closeAllTooltips();
+            }
+        });
+
+        function bindInfoButton(li) {
+            var btn = li.querySelector('.dy-info-btn_T546');
+            var tooltip = li.querySelector('.dy-tooltip-content_T546');
+            if (btn && tooltip) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var isCurrentlyVisible = tooltip.classList.contains('is-visible_T546');
+                    closeAllTooltips();
+                    if (!isCurrentlyVisible) tooltip.classList.add('is-visible_T546');
+                });
+            }
+        }
+
+        function addAccessoryCard(product) {
+            if (!product || !product.sku) return;
+            if (product.stockBand !== "A") return;
+
+            var list = getRecommendationList();
+            if (!list) return;
+
+            if (list.querySelector('li[data-product-id="' + product.sku + '"]')) return;
+
+            var hasDiscount = !!(product.salePrice && product.fullPrice && product.salePrice !== product.fullPrice);
+            var currency = STRINGS.currency;
+            var wasLabel = STRINGS.was;
+            var addText = STRINGS.addToBasket;
+            var addingText = STRINGS.addingToBasket;
+
+            if (location.host.indexOf(".de") > -1) {
+                currency = " €"; wasLabel = "Bisher "; addText = "In den Warenkorb"; addingText = "Hinzufügen...";
+            } else if (location.host.indexOf(".en") > -1) {
+                currency = " £"; wasLabel = "Was "; addText = "Add to basket"; addingText = "Adding...";
+            }
+
+            var imageUrl = product.recommendationImageUrl || product.imageUrl;
+            var fallbackImageUrl = product.imageUrl;
+
+            var badgeMarkup = product.badgeText ?
+                '<span class="dy-recommendation-badge_T546 ' + product.badgeClass + '">' + product.badgeText + '</span>' : "";
+
+            var currentPriceVal = hasDiscount ? product.salePrice : product.fullPrice;
+            var isCurrentFree = parseFloat(currentPriceVal || 0) === 0;
+            var isWasFree = parseFloat(product.fullPrice || 0) === 0;
+
+            var saleMarkup =
+                '<p class="plp-cards__price plp-cards__price--format adb-full-price-placeholder' + (hasDiscount ? " priceBlue" : "") + '">' +
+                (isCurrentFree ? '<span class="price">Free</span>' : '<span class="price">' + currentPriceVal + " " + '</span><span class="currency-placeholder">' + currency + '</span>') +
+                '</p>';
+
+            var wasMarkup = hasDiscount ?
+                '<div class="was-price-placeholder plp-cards__price wasPrice">' +
+                wasLabel + (isWasFree ? 'Free' : '<span class="price">' + product.fullPrice + '</span> ' + " " + currency) +
+                '</div>' : '<div class="was-price-placeholder plp-cards__price"></div>';
+
+            var infoButtonMarkup = "";
+            if (product.description && product.description.trim() !== "") {
+                infoButtonMarkup =
+                    '<button type="button" class="dy-info-btn_T546" aria-label="Learn more">i</button>' +
+                    '<div class="dy-tooltip-content_T546"><p>' + product.description + '</p></div>';
+            }
+
+            var li = d.createElement("li");
+            li.className = "plp-cards__item--list snapper_item";
+            li.setAttribute("data-product-id", product.sku);
+
+            li.innerHTML =
+                '<div role="group" aria-label="Product" class="at_recs_card_T546 plp-cards__item js-plp-cards-item" sku="' + product.sku + '" region="' + LANG + '">' +
+                '  <div class="plp-cards__image-container">' + badgeMarkup +
+                '    <div class="responsive-image js-responsive-image-container">' +
+                '      <img alt="' + product.name + '" src="' + imageUrl + '" onerror="this.onerror=null; this.src=\'' + fallbackImageUrl + '\';" class="responsive-image__image js-responsive-image fluidimage" />' +
+                '    </div>' +
+                '  </div>' +
+                '  <div class="plp-cards__text-container">' +
+                '    <div class="dy-title-row_T546">' +
+                '      <h3 class="plp-cards__name">' + product.name + '</h3>' + infoButtonMarkup +
+                '    </div>' +
+                '  </div>' +
+                '  <div class="plp-cards__bottom-container">' +
+                '    <div class="plp-cards__price-container flex-direction-row">' +
+                '      <div class="plp-cards__prices plp-cards__prices--single js-plp-cards-prices">' + saleMarkup + '</div>' + wasMarkup +
+                '    </div>' +
+                '    <div class="plp-cards__button-container js-plp-cards-container">' +
+                '      <div class="plp-cards__add-to-basket">' +
+                '        <div class="add-to-basket js-add-to-basket">' +
+                '          <button type="button" class="button button--transactional js-accessory-add-btn" sku="' + product.sku + '" data-basket-processing-button-text="' + addingText + '">' + addText + '</button>' +
+                '        </div>' +
+                '      </div>' +
+                '    </div>' +
+                '  </div>' +
+                '</div>';
+
+            list.appendChild(li);
+            bindAccessoryButton(li.querySelector(".js-accessory-add-btn"));
+            bindInfoButton(li);
+            removeDuplicateAccessoryCards();
+            initRecommendationsCarousel();
+        }
+
+        function bindAccessoryButton(btn) {
+            if (!btn || btn.getAttribute("data-accessory-bound") === "true") return;
+            btn.setAttribute("data-accessory-bound", "true");
+
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                addAccessoryToBasket(btn);
+            });
+        }
+
+        /* Shared "added" visual state */
+        function markAccessoryAdded(btn, title) {
+            btn.setAttribute("data-accessory-added", "true");
+            btn.classList.add("completed_T791");
+            btn.setAttribute("aria-label", title + " added to basket");
+            btn.setAttribute("title", "Added to basket");
+            btn.textContent = "";
+            btn.disabled = true;
+        }
+
+        function addAccessoryToBasket(btn) {
+            if (!btn || btn.disabled) return;
+
+            var st = bundleState;
+            var card = btn.closest(".at_recs_card_T546");
+            var sku = btn.getAttribute("sku");
+            var titleEl = card ? card.querySelector(".plp-cards__name") : null;
+            var title = titleEl ? titleEl.textContent.trim() : sku;
+
+            var useBundle = shouldUseBundleCart(sku);
+
+            /* Queue the accessory instead of calling the cart API on every click. */
+            var deferred = useBundle || DEFER_STATIC_ACCESSORIES;
+
+            if (deferred) {
+                if (st.committing || st.selected.indexOf(sku) > -1) return;
+
+                if (useBundle && BUNDLE_ENFORCE_TEMPLATE_LIMIT) {
+                    var tpl = st.templateBySku[sku];
+                    if (bundleCountInTemplate(tpl) >= (st.maxByTemplate[tpl] || 1)) return;
+                }
+
+                if (typeof s !== "undefined") {
+                    s.linkTrackVars = "eVar56";
+                    s.eVar56 = "main|modal-product-recommendations|" + title + ",cta,add to basket|button";
+                    s.tl(true, "o", s.eVar56);
+                }
+
+                if (st.baseCount === null) st.baseCount = parsePopupBasketCount();
+
+                st.selected.push(sku);
+                markAccessoryAdded(btn, title);
+                updatePopupBasketCount(st);
+                updateBundleLimitState();
+                return;
+            }
+
+            // ---- original immediate behaviour (only reached when DEFER_STATIC_ACCESSORIES = false) ----
+            if (typeof s !== "undefined") {
+                s.linkTrackVars = "eVar56";
+                s.eVar56 = "main|modal-product-recommendations|" + title + ",cta,add to basket|button";
+                s.tl(true, "o", s.eVar56);
+            }
+
+            btn.disabled = true;
+            btn.classList.add("active");
+            btn.textContent = btn.getAttribute("data-basket-processing-button-text") || STRINGS.addingToBasket;
+            if (card) card.classList.add("active");
+
+            addProductToBasket(sku, function (ok) {
+                if (!ok) {
+                    btn.disabled = false;
+                    btn.classList.remove("active");
+                    if (card) card.classList.remove("active");
+                    btn.textContent = STRINGS.addToBasket;
+                    return;
+                }
+
+                getCurrentCartForCount(function (cart) {
+                    markAccessoryAdded(btn, title);
+
+                    var count = getBasketCount(cart);
+                    var viewBtn = getPopupViewBasketBtn();
+                    if (viewBtn && typeof count === "number") {
+                        viewBtn.textContent = STRINGS.viewBasket + "(" + count + ")";
+                    }
+                });
+            });
+        }
+
+        function fetchAccessoryProduct(sku) {
+            fetchProductDetails(sku, function (product) {
+                if (product) addAccessoryCard(product);
+            });
+        }
+
+        function fetchStaticIds(sku) {
+            var tools = getStaticAccessorySkus(sku) || [];
+            recommendationState.candidates = tools.slice();
+            recommendationState.loaded = 0;
+            tools.forEach(function (accSku) { fetchAccessoryProduct(accSku); });
+        }
+
+        function fetchAccessories(sku) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4 || xhr.status !== 200) return;
+                try {
+                    var res = JSON.parse(xhr.responseText) || {};
+                    var refs = res.productReferences || [];
+                    var included = getIncludedNamesFromPage();
+                    var seen = {};
+
+                    refs.forEach(function (ref) {
+                        var target = ref && ref.target;
+                        if (!target || !target.code) return;
+                        var isAccessoryLike = target.sapDivision === "SPARE_PARTS" || target.sapDivision === "ACCESSORIES";
+                        if (!isAccessoryLike || included.indexOf(target.webName || "") > -1 || seen[target.code]) return;
+                        seen[target.code] = true;
+                        fetchAccessoryProduct(target.code);
+                    });
+                } catch (err) { }
+            };
+            xhr.open("GET", PRODUCT_API_BASE + sku, true);
+            xhr.send();
+        }
+
+        function mapBundleProduct(bp) {
+            var fullPrice = null, salePrice = null, savings = null;
+            if (bp.reducedPrice && bp.reducedPrice.value != null) {
+                salePrice = bp.reducedPrice.value.toFixed(2);
+                if (bp.price && bp.price.value != null) {
+                    fullPrice = bp.price.value.toFixed(2);
+                    savings = (bp.price.value - bp.reducedPrice.value).toFixed(2);
+                }
+            } else if (bp.price && bp.price.value != null) {
+                fullPrice = bp.price.value.toFixed(2);
+            }
+
+            var stockBand = bp.bundleStockBand || bp.stockBand || (bp.stock && bp.stock.stockLevelStatus === 'inStock' ? 'A' : 'OOS');
+            var mappedName = bp.webName || bp.name || bp.code;
+            if (Array.isArray(bp.localWebNames)) {
+                for (var i = 0; i < bp.localWebNames.length; i++) {
+                    if (bp.localWebNames[i].key === LANG) {
+                        mappedName = bp.localWebNames[i].value; break;
+                    }
+                }
+            }
+
+            return {
+                sku: bp.code,
+                name: mappedName,
+                fullPrice: fullPrice,
+                salePrice: salePrice,
+                savings: savings,
+                stockBand: stockBand,
+                url: bp.url || "",
+                description: bp.description || "",
+                badgeText: bp.badgeText || "",
+                badgeClass: bp.badgeThemeCode || "",
+                ratings: bp.bazaarVoiceAverageRating,
+                reviews: bp.bazaarVoiceNumberOfReviews,
+                attachmentsCount: bp.productReferences ? bp.productReferences.length : null,
+                warrantyText: bp.warrantyText || "",
+                imageUrl: bp.primaryImageUrl || "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/" + bp.code + ".png?$responsive$&fmt=png-alpha&cropPathE=mobile&fit=stretch,1&wid=440",
+                recommendationImageUrl: "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/adobetarget/basket-recommendations/" + bp.code + ".jpg"
+            };
+        }
+
+        function loadExistingFallbackLogic(mainSku) {
+            bundleState.active = false;
+            var staticSkus = getStaticAccessorySkus(mainSku);
+            if (staticSkus) fetchStaticIds(mainSku);
+            else fetchAccessories(mainSku);
+        }
+
+        function fetchBundleAccessories(bundleId, mainSku) {
+            /* Use the session object captured at call time and prefetch the main product's cart entry. */
+            var st = bundleState;
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        try {
+                            var res = JSON.parse(this.responseText);
+                            var productsFound = false;
+
+                            if (res.bundleTemplates && res.bundleTemplates.length > 0) {
+                                res.bundleTemplates.forEach(function (template) {
+                                    if (template.isMasterTemplate) {
+                                        st.masterTemplateId = template.id;
+                                        return;
+                                    }
+                                    if (Array.isArray(template.products)) {
+                                        st.maxByTemplate[template.id] = template.maxItemsAllowed || 1;
+                                        template.products.forEach(function (bp) {
+                                            if (!bp || !bp.code) return;
+                                            if (bp.personalizationValidation && bp.personalizationValidation.regularExp) return;
+                                            if (!st.templateBySku[bp.code]) {
+                                                st.templateBySku[bp.code] = template.id;
+                                            }
+                                            
+                                            var product = mapBundleProduct(bp);
+                                            addAccessoryCard(product);
+                                            productsFound = true;
+                                        });
+                                    }
+                                });
+                            }
+
+                            st.active = !!st.masterTemplateId && Object.keys(st.templateBySku).length > 0;
+
+                            /* Warm up the main product's entry number in the background */
+                            if (st.active && !checkLoggedIn()) prefetchMainEntry(st);
+
+                            if (!productsFound) loadExistingFallbackLogic(mainSku);
+                        } catch (e) { loadExistingFallbackLogic(mainSku); }
+                    } else { loadExistingFallbackLogic(mainSku); }
+                }
+            };
+            xhr.open("GET", BUNDLE_API_BASE + bundleId + "?fields=FULL", true);
+            xhr.send();
+        }
+
+        /* Pass the basket count shown when the popup opened, so the label can be updated locally. Flushes anything still queued. */
+        function loadAndRenderAccessories(mainSku, bundleId, baseCount) {
+            flushPendingInBackground();
+
+            var list = getRecommendationList();
+            if (list) list.innerHTML = "";
+
+            resetBundleState(mainSku, bundleId, baseCount);
+
+            recommendationState.mainSku = mainSku;
+            recommendationState.bundleId = bundleId || null;
+
+            if (recommendationState.bundleId) fetchBundleAccessories(recommendationState.bundleId, mainSku);
+            else loadExistingFallbackLogic(mainSku);
+        }
+
+        var recommendationScrollState = { current: 0, programmaticTarget: null, programmaticTimer: null };
+
+        function getCarouselParts() {
+            var root = d.querySelector("#" + MODAL_ID + " .basket-recommendations_T546") ||
+                d.querySelector(".centralizedpopup .basket-recommendations_T546");
+            if (!root) return null;
+            return {
+                root: root,
+                viewport: root.querySelector(".dy-recommendations-viewport_T546"),
+                list: root.querySelector("ul.plp-cards__items"),
+                prev: root.querySelector(".at-carousel-prev_T546"),
+                next: root.querySelector(".at-carousel-next_T546"),
+                dots: root.querySelector(".at-carousel-dots_T546")
+            };
+        }
+
+        function updateRecommendationsCarousel() {
+            var parts = getCarouselParts();
+            if (!parts || !parts.list) return;
+
+            var items = parts.list.children;
+            var maxIndex = Math.max(0, items.length - 1);
+            recommendationScrollState.current = Math.min(recommendationScrollState.current, maxIndex);
+
+            if (parts.prev) {
+                parts.prev.disabled = recommendationScrollState.current <= 0;
+                parts.prev.classList.toggle("at-carousel-disabled_T546", parts.prev.disabled);
+            }
+            if (parts.next) {
+                parts.next.disabled = recommendationScrollState.current >= maxIndex;
+                parts.next.classList.toggle("at-carousel-disabled_T546", parts.next.disabled);
+            }
+
+            if (parts.dots) {
+                parts.dots.innerHTML = "";
+                if (items.length > 1) {
+                    parts.dots.style.display = "flex";
+                    for (var i = 0; i < items.length; i++) {
+                        (function (index) {
+                            var dot = d.createElement("button");
+                            dot.type = "button";
+                            dot.className = "at-carousel-dot_T546" +
+                                (index === recommendationScrollState.current ? " at-carousel-dot-active_T546" : "");
+                            dot.setAttribute("aria-label", "Go to carousel item " + (index + 1));
+                            dot.addEventListener("click", function (e) {
+                                e.preventDefault(); e.stopPropagation();
+                                scrollRecommendationsTo(index);
+                            });
+                            parts.dots.appendChild(dot);
+                        })(i);
+                    }
+                } else {
+                    parts.dots.style.display = "none";
+                }
+            }
+        }
+
+        function scrollRecommendationsTo(index) {
+            var parts = getCarouselParts();
+            if (!parts || !parts.list || !parts.list.children[index]) return;
+
+            recommendationScrollState.current = index;
+            recommendationScrollState.programmaticTarget = index;
+            if (recommendationScrollState.programmaticTimer) clearTimeout(recommendationScrollState.programmaticTimer);
+
+            var item = parts.list.children[index];
+            parts.viewport.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
+
+            updateRecommendationsCarousel();
+            recommendationScrollState.programmaticTimer = setTimeout(function () {
+                recommendationScrollState.programmaticTarget = null;
+                recommendationScrollState.programmaticTimer = null;
+                updateRecommendationsCarousel();
+            }, 500);
+        }
+
+        function initRecommendationsCarousel() {
+            var parts = getCarouselParts();
+            if (!parts) return;
+
+            if (parts.prev && parts.prev.getAttribute("data-carousel-bound") !== "true") {
+                parts.prev.setAttribute("data-carousel-bound", "true");
+                parts.prev.addEventListener("click", function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    if (recommendationScrollState.current > 0) scrollRecommendationsTo(recommendationScrollState.current - 1);
+                });
+            }
+
+            if (parts.next && parts.next.getAttribute("data-carousel-bound") !== "true") {
+                parts.next.setAttribute("data-carousel-bound", "true");
+                parts.next.addEventListener("click", function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    var partsNow = getCarouselParts();
+                    var count = partsNow && partsNow.list ? partsNow.list.children.length : 0;
+                    if (recommendationScrollState.current < count - 1) scrollRecommendationsTo(recommendationScrollState.current + 1);
+                });
+            }
+
+            if (parts.viewport && parts.viewport.getAttribute("data-drag-bound") !== "true") {
+                parts.viewport.setAttribute("data-drag-bound", "true");
+                var isDown = false, startX, scrollLeft;
+
+                parts.viewport.addEventListener("mousedown", function (e) {
+                    if (e.target.closest("button") || e.target.closest(".dy-tooltip-content_T546")) return;
+                    isDown = true; parts.viewport.style.scrollSnapType = "none";
+                    startX = e.pageX - parts.viewport.offsetLeft;
+                    scrollLeft = parts.viewport.scrollLeft;
+                });
+                parts.viewport.addEventListener("mouseleave", function () { isDown = false; parts.viewport.style.scrollSnapType = ""; });
+                parts.viewport.addEventListener("mouseup", function () { isDown = false; parts.viewport.style.scrollSnapType = ""; });
+                parts.viewport.addEventListener("mousemove", function (e) {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    var x = e.pageX - parts.viewport.offsetLeft;
+                    var walk = (x - startX) * 1.5;
+                    parts.viewport.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+            if (parts.viewport && parts.viewport.getAttribute("data-scroll-bound") !== "true") {
+                parts.viewport.setAttribute("data-scroll-bound", "true");
+                parts.viewport.addEventListener("scroll", function () {
+                    if (!parts.list || !parts.list.children.length || recommendationScrollState.programmaticTarget !== null) return;
+                    var viewportCenter = parts.viewport.scrollLeft + (parts.viewport.clientWidth / 2);
+                    var closest = 0, distance = Infinity;
+                    for (var i = 0; i < parts.list.children.length; i++) {
+                        var item = parts.list.children[i];
+                        var itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+                        var dlt = Math.abs(itemCenter - viewportCenter);
+                        if (dlt < distance) { distance = dlt; closest = i; }
+                    }
+                    recommendationScrollState.current = closest;
+                    updateRecommendationsCarousel();
+                }, { passive: true });
+            }
+            updateRecommendationsCarousel();
+        }
+
+        function closeModal() {
+            /* If the popup is closed with accessories still queued, write them to the cart in the background so they are never lost. */
+            flushPendingInBackground();
+
+            var modal = d.getElementById(MODAL_ID);
+            if (modal) modal.remove();
+            d.body.classList.remove("dy-atb-popup-open_T546");
+            d.removeEventListener("keydown", onKeydown);
+            w.dyLastClickedSku = null;
+            w.dyLastClickedBundleId = null; 
+        }
+
+        function onKeydown(e) {
+            if (e.key === "Escape") closeModal();
+        }
+
+        function renderPopup(product, basketCount, bundleId) {
+            closeModal();
+
+            var hasDiscount = !!(product.savings && product.salePrice && product.fullPrice);
+            var isMainCurrentFree = parseFloat(hasDiscount ? product.salePrice : (product.fullPrice || 0)) === 0;
+            var isMainWasFree = parseFloat(product.fullPrice || 0) === 0;
+
+            var priceBlock;
+            if (hasDiscount) {
+                priceBlock =
+                    '<div class="add-to-basket-notification__price-container">' +
+                    '  <div class="add-to-basket-notification__price add-to-basket-notification__free_price_label">' +
+                    '    <span class="sr-only">current price:</span>' +
+                    '    <div class="add-to-basket-notification__price-now">' + (isMainCurrentFree ? "Free" : product.salePrice + " " + STRINGS.currency) + "</div>" +
+                    '    <span class="sr-only">original price:</span>' +
+                    '    <div class="add-to-basket-notification__price-summary">' +
+                    '      <div class="add-to-basket-notification__price-was add-to-basket-notification__price-was--strikethrough">' +
+                    STRINGS.was + " " + (isMainWasFree ? "Free" : product.fullPrice + " " + STRINGS.currency) +
+                    "      </div>" +
+                    '      <div class="add-to-basket-notification__price-saving">' + STRINGS.save + " " + product.savings + " " + STRINGS.currency + "</div>" +
+                    "    </div>" +
+                    "  </div>" +
+                    "</div>";
+            } else {
+                priceBlock =
+                    '<div class="add-to-basket-notification__price-container">' +
+                    '  <div class="add-to-basket-notification__price add-to-basket-notification__free_price_label">' +
+                    '    <div class="add-to-basket-notification__price-now">' + (isMainCurrentFree ? "Free" : (product.fullPrice || "") + " " + STRINGS.currency) + "    </div>" +
+                    "  </div>" +
+                    "</div>";
+            }
+
+            var additionalDetails = "";
+            if (product.attachmentsCount || product.warrantyText) {
+                additionalDetails = '<div class="add-to-basket-notification__additionalDetails">';
+                if (product.attachmentsCount) {
+                    additionalDetails += '<div class="add-to-basket-notification__copy"><p class="add-to-basket-notification__text">' + product.attachmentsCount + " attachments</p></div>";
+                }
+                if (product.warrantyText) {
+                    additionalDetails += '<div class="add-to-basket-notification__copy"><p class="add-to-basket-notification__text">' + product.warrantyText + "</p></div>";
+                }
+                additionalDetails += "</div>";
+            }
+
+            var viewBasketLabel = STRINGS.viewBasket + (typeof basketCount === "number" ? "(" + basketCount + ")" : "");
+
+            var markup =
+                '<div class="centralizedpopup js-centralized-overlay-component" id="js-centralized-popup" aria-hidden="false">' +
+                '  <div class="centralizedpopup__overlay" id="js-centralizedpopup-overlay">' +
+                '    <div class="dy-atb-modal-shell_T546">' +
+                '      <button class="centralizedpopup__close js-centralized-popup-close" id="js-centralizedpopup-close-overlay" type="button" aria-label="' + STRINGS.continueShopping + '">' +
+                '        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+                '          <path d="M14.5 2.64969L13.3544 1.5L8 6.85031L2.64969 1.5L1.5 2.64969L6.85438 8L1.5 13.3503L2.64969 14.5L8 9.14969L13.3544 14.5L14.5 13.3503L9.14969 8.5Z" fill="#333333"></path>' +
+                '        </svg>' +
+                '      </button>' +
+                '      <div class="centralizedpopup__container" id="js-centralizedpopup-container" role="dialog" aria-modal="true" tabindex="-1">' +
+                '        <div class="centralizedpopup__content" aria-live="polite">' +
+                '          <div class="centralizedpopup__title" id="js-centralizedpopup-title">' +
+                '            <div class="add-to-basket-notification__title">' +
+                '              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">' +
+                '                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7227 4.5L8.5201 15.7513L4.27733 11.4946L2.25 13.5289L8.51313 19.8269L21.75 6.5343L19.7227 4.5Z" fill="#65A01B"></path>' +
+                '              </svg>' +
+                '              <div class="add-to-basket-notification__title-text">' + STRINGS.addedToBasket + '</div>' +
+                '            </div>' +
+                '          </div>' +
+                '          <div class="centralizedpopup__description add-to-basket-notification" data-modal-type="add-to-basket-notification">' +
+                '            <div class="add-to-basket-notification__wrapper">' +
+                '              <div class="add-to-basket-notification__outer col-xs-12 col-md-12 col-lg-12">' +
+                '                <div class="add-to-basket-notification add-to-basket-notification__image-wrapper">' +
+                '                  <div class="responsive-image js-responsive-image-container">' +
+                '                    <img src="' + product.imageUrl + '" class="dy-atb-image_T546" alt="" />' +
+                '                  </div>' +
+                '                </div>' +
+                '                <div class="add-to-basket-notification__container">' +
+                '                  <h2 class="add-to-basket-notification__name">' + product.name + '</h2>' + additionalDetails +
+                '                  <div class="add-to-basket-notification__item-price js-basket-pricing-container">' + priceBlock + '</div>' +
+                '                </div>' +
+                '              </div>' +
+                '              <div class="dy-accessories-placeholder_T546"></div>' +
+                '            </div>' +
+                '            <div class="add-to-basket-notification__button-container popup-actions_T546 col-xs-12 col-md-12 col-lg-12">' +
+                '              <button data-analytics-action-name="button~view-basket" data-analytics-component="pop up navigation-section" data-analytics-action-title="pop up navigation" data-basket-url="/basket" class="js-add-to-basket-popup-view-basket-btn add-to-basket-notification__view-button button button--interactive">' + viewBasketLabel + '</button>' +
+                '              <button class="js-add-to-basket-popup-continue-shopping-btn add-to-basket-notification__close-button button">' + STRINGS.continueShopping + '</button>' +
+                '            </div>' +
+                '          </div>' +
+                '        </div>' +
+                '      </div>' +
+                '    </div>' +
+                '  </div>' +
+                '</div>';
+
+            var wrapper = d.createElement("div");
+            wrapper.id = MODAL_ID;
+            wrapper.innerHTML = markup;
+            d.body.appendChild(wrapper);
+            d.body.classList.add("dy-atb-popup-open_T546");
+
+            wrapper.querySelector(".js-centralized-popup-close").addEventListener("click", closeModal);
+            wrapper.querySelector(".js-add-to-basket-popup-continue-shopping-btn").addEventListener("click", closeModal);
+            // NOTE: when accessories are queued, the capture-phase listener intercepts this click,
+            // commits the cart once and then navigates. With nothing queued this plain handler runs as before.
+            wrapper.querySelector(".js-add-to-basket-popup-view-basket-btn").addEventListener("click", function () {
+                w.location.href = "/basket";
+            });
+            wrapper.querySelector(".centralizedpopup__overlay").addEventListener("click", function (e) {
+                if (e.target === e.currentTarget) closeModal();
+            });
+
+            d.addEventListener("keydown", onKeydown);
+
+            recommendationScrollState.current = 0;
+            loadAndRenderAccessories(product.sku, bundleId, basketCount);
+        }
+
+        function getMatchedStaticEntry(sku) {
+            if (!sku) return null;
+            var source = Array.isArray(w.staticIds) ? w.staticIds : (typeof STATIC_ACCESSORY_IDS !== "undefined" ? STATIC_ACCESSORY_IDS : []);
+            for (var i = 0; i < source.length; i++) {
+                var item = source[i];
+                if (item && Object.prototype.hasOwnProperty.call(item, sku)) return item;
+            }
+            return null;
+        }
+
+        function isSkuInStaticIds(sku) {
+            return !!getMatchedStaticEntry(sku);
+        }
+
+        var hasLoggedSelector = false;
+        function initHeroButtonListener() {
+            var buttons = d.querySelectorAll(HERO_BUTTON_SELECTOR);
+            if (!hasLoggedSelector) hasLoggedSelector = true;
+            for (var i = 0; i < buttons.length; i++) bindHeroButton(buttons[i]);
+        }
+
+        function fireNativeAtbAnalytics(sku, btn) {
+            try {
+                if (!w._satellite || typeof w._satellite.track !== "function") return;
+                w.dataLayer = w.dataLayer || {};
+                w.dataLayer.productEvent = [normalizeMainSku(sku)];
+                var ctaType = btn && btn.closest(".sticky-atb-product__button, .sticky-nav") ? "sticky" : "static";
+                w._satellite.track("AddToBasket", {
+                    ctaType: ctaType
+                });
+            } catch (err) {
+                //console.warn("[T546 Analytics] AddToBasket tracking failed:", err);
+            }
+        }
+
+        function bindHeroButton(btn) {
+            if (!btn || btn.getAttribute("data-atb-popup-bound") === "true") return;
+            btn.setAttribute("data-atb-popup-bound", "true");
+
+            /* Evaluate isAjaxButton BEFORE modifying href. */
+            var isAjaxButton = btn.classList.contains("js-add-to-basket-button") || btn.closest(".js-add-to-basket-button");
+            var currentHref = btn.getAttribute("data-href") || btn.getAttribute("href") || "";
+
+            if (btn.classList.contains("button--nav") || currentHref.indexOf("bundle-selector") > -1) {
+                isAjaxButton = false;
+            }
+
+            // Stored to prevent recalculating inside the click listener.
+            btn.setAttribute("data-is-ajax", isAjaxButton);
+
+            /* Only replace the href for STRICTLY navigational buttons. Never replace the href on an AJAX form button to prevent focus manager errors. */
+            if (!isAjaxButton) {
+                var originalHref = btn.getAttribute("href");
+                if (originalHref && originalHref.indexOf("javascript") === -1) {
+                    btn.setAttribute("data-dy-href", originalHref);
+                    btn.setAttribute("href", "javascript:void(0);");
+                }
+            }
+
+            btn.addEventListener("click", function (e) {
+                var isAjaxBtn = btn.getAttribute("data-is-ajax") === "true";
+                
+                var sku = getSkuForButton(btn);
+                var bundleId = getBundleIdFromContext(btn);
+
+                w.dyLastClickedSku = sku;
+                w.dyLastClickedBundleId = bundleId;
+
+                var isExcluded = sku ? (EXCLUDED_SKUS.indexOf(sku) > -1) : false;
+                var matched = (!isExcluded) && (isSkuInStaticIds(sku) || bundleId !== null);
+
+                if (isExcluded) {
+                    if (!isAjaxBtn) {
+                        var fallbackUrl = btn.getAttribute("data-dy-href") || btn.getAttribute("data-href") || btn.getAttribute("href");
+                        if (fallbackUrl && fallbackUrl !== "javascript:void(0);") w.location.href = fallbackUrl;
+                    }
+                    return;
+                }
+
+                if (!sku) {
+                    if (!isAjaxBtn) {
+                        var fUrl = btn.getAttribute("data-dy-href") || btn.getAttribute("data-href") || btn.getAttribute("href");
+                        if (fUrl && fUrl !== "javascript:void(0);") w.location.href = fUrl;
+                    }
+                    return;
+                }
+
+                if (isAjaxBtn) {
+                    /* If it's an AJAX button, let the native site handle the click completely. 
+                       Our observer will catch the native modal opening and inject HTML if it's matched. */
+                    return; 
+                }
+
+                // Otherwise, it's a non-AJAX Navigational link. We intercept and handle it manually.
+                e.preventDefault(); 
+                e.stopImmediatePropagation();
+
+                if (btn.getAttribute("data-sku-gate-bypass") === "true") { 
+                    btn.removeAttribute("data-sku-gate-bypass"); 
+                    return; 
+                }
+                if (btn.getAttribute("data-adding") === "true") { 
+                    return; 
+                }
+
+                btn.setAttribute("data-adding", "true");
+                
+                if (!matched) {
+                    addProductToBasket(sku, function (ok) {
+                        btn.removeAttribute("data-adding");
+                        if (ok) w.location.href = "/basket";
+                    });
+                    return;
+                }
+
+                addProductToBasket(sku, function (ok, addToBasketResponse) {
+                    if (ok) fireNativeAtbAnalytics(sku, btn);
+                    var basketCount = getBasketCount(addToBasketResponse);
+                    //console.log("[T546 Flow] Primary Product added to cart. Success:", ok, "| New Basket Count:", basketCount);
+                    fetchProductDetails(sku, function (product) {
+                        btn.removeAttribute("data-adding");
+                        if (ok && product) {
+                            renderPopup(product, basketCount, bundleId);
+                        } else {
+                            //console.error("[T546 Error] Could not fetch product details or add product failed. Navigating to /basket");
+                            w.location.href = "/basket";
+                        }
+                    });
+                });
+            }, true);
+        }
+
+        var popupObserver = new MutationObserver(function (mutations) {
+            /* The NATIVE modal can also be dismissed without our listeners firing. If accessories are still queued and no popup is visible anymore, write them to the cart in the background. */
+            if (bundleState && !bundleState.committing && pendingSkus(bundleState).length) {
+                var openPopup = d.querySelector('.centralizedpopup');
+                var popupVisible = !!(openPopup &&
+                    openPopup.getAttribute('aria-hidden') !== 'true' &&
+                    openPopup.querySelector('.add-to-basket-notification__wrapper'));
+                if (!popupVisible) flushPendingInBackground();
+            }
+
+            var wrapper = d.querySelector('.add-to-basket-notification__wrapper');
+            if (wrapper && !wrapper.querySelector('.basket-recommendations_T546')) {
+                var activeNativePopup = wrapper.closest('.centralizedpopup');
+                if (activeNativePopup && activeNativePopup.getAttribute('aria-hidden') !== 'true') {
+                    
+                    var skuToUse = w.dyLastClickedSku || getSkuFromPage();
+                    var bundleIdToUse = w.dyLastClickedBundleId || null;
+
+                    var isExcluded = skuToUse ? EXCLUDED_SKUS.indexOf(skuToUse) > -1 : false;
+                    var isMatched = (!isExcluded) && (isSkuInStaticIds(skuToUse) || bundleIdToUse !== null);
+
+                    // Native modal: base count is read from its "View basket (n)" label on the first accessory click
+                    if (skuToUse && isMatched) loadAndRenderAccessories(skuToUse, bundleIdToUse, null);
+                }
+            }
+        });
+        popupObserver.observe(d.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['aria-hidden', 'class'] });
+
+        setInterval(function () { initHeroButtonListener(); }, 500);
+    })(window, document);
+</script>

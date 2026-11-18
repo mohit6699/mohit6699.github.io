@@ -7,10 +7,10 @@ var data = (registry && registry != "false") ? JSON.parse(registry) : {};
 // mBox param from the interact event Edge request 'overlayId'
 var overlayId  = mbox.param('overlayId') || page.param('overlayId') || mbox.param('__adobe.target.overlayId');
 
-// CHANGE 1: Capture the interaction type from the payload
-var interactionType = mbox.param('action') || page.param('action') || mbox.param('__adobe.target.overlayId');
+// Capture the interaction type from the payload
+var interactionType = mbox.param('action') || page.param('action') || mbox.param('__adobe.target.action');
 
-// CHANGE 2: Add condition to ONLY store if it is NOT a conversion or "never show" click
+// Add condition to ONLY store if it is NOT a conversion or "never show" click
 if (overlayId && interactionType !== 'conversion' && interactionType !== 'never') {
     data["p" + overlayId ] = now;
 }

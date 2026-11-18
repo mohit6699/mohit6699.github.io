@@ -497,11 +497,13 @@
         gap: 15px;
         width: 100%;
         align-items: stretch;
+        padding: 3rem 0 2rem 0;
     }
 
     #sustainability-conference-video-container {
         width: 50%;
         display: flex;
+        flex-direction: column;
         align-items: center;
     }
 
@@ -544,771 +546,504 @@
         font-size: 18px;
         line-height: 150%;
     }
+
+    .at-richtext-header {
+        padding: 2rem 0;
+    }
+
+    .video-description>h2 {
+        margin-bottom: 2rem;
+    }
+
+    .basket-recommendations_T546 .plp-cards__description {
+        min-height: 0 !important;
+    }
 </style>
 
-<script nonce="2726c7f26c">
-    Flickerlessly = window.Flickerlessly || {}, !function (t) { "use strict"; var e = function (t, e, a, n) { var i = "atNodeInserted" + t, s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n"; s += e + "{animation - duration:0.001s;animation-name:" + i + ";visibility:hidden}"; var o = document.getElementsByTagName("head")[0]; if (o) { var r = document.createElement("style"); r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(document.createTextNode(s)), o.insertBefore(r, o.firstChild) } var c = function (t) { if (t.animationName === i && "object" == typeof t.target) { var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !0 : !1; console && console.info && console.info("Node " + e + " ready! Execute: " + s, t.target), "function" == typeof a && s && (a(t.target), t.target.setAttribute("data-flk-success", i)), t.target.style.visibility = "visible" } };["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t, e) { document.addEventListener(t, c, !1) }) }; t.onReady = function () { for (var t = 0; t < arguments.length; t++) { var a = arguments[t], n = a.selector, i = a.success || null, s = a.persist || !1, o = Math.floor(100 * Math.random() + 1); e(o, n, i, s) } } }(Flickerlessly);
-    Flickerlessly.onReady(
-        {
-            selector: '.flex.justify-center.full-width',
-            persist: false,
-            success: function (el) {
-
-
-                //video conatiner
-                let videoTitleHTML = `<div class="bg-white full-width"> 
-                                        <div class="px-5 ca-md:px-12 ca-md:pt-13.5 xl:px-27.5 xl:pt-18 max-w-360 mx-auto w-full">                
-                                            <h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0">
-                                              Sustainability Conference
-                                            </h2>
-                                        </div>
-                                      </div>`;
-                let videoDescHTML = `<div id="sustainability-conference-video-container">
-                    <div class="video-description">
-                        <p>
-                            Designed by CAs for CAs, this flagship conference will equip finance leaders,
-                            accountants, advisers and assurance practitioners with practical insights
-                            to navigate the changing sustainability landscape and expectations with confidence.
-                        </p>
-                        <a class="mt-7.5 btn-cta--primary w-fit flex items-center justify-center font-nexa-xbold safari-nexa-xbold text-base h-10 px-6 py-2.5 border-2 transition duration-200 rounded-full text-white bg-azure hover:text-indigo hover:bg-transparent hover:border-2 border-azure focus:text-white focus:bg-azure focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-tint active:bg-azure active:ring-0 active:border-2 active:border-azure active:text-white" href="https://store.charteredaccountantsanz.com/courses/au/Sustainability-Conference-2026-AU">
-                            Find out more
-                        </a>
-                    </div>
-                </div>
-                `;
-
-                let videoContainer =
-                    document.querySelectorAll("div.rich-text.container.mx-auto")[1];
-
-                if (videoContainer) {
-                    let videoWrapper = document.createElement("div");
-                    videoWrapper.className = "video-wrapper";
-                    videoWrapper.id = "at-sustainability-video-wrapper";
-                    videoContainer.parentNode.insertBefore(videoWrapper, videoContainer);
-                    videoWrapper.insertAdjacentHTML("beforeend", videoDescHTML);
-                    videoWrapper.appendChild(videoContainer);
-                    videoWrapper.insertAdjacentHTML("beforebegin", videoTitleHTML);
+<script id="at-pers" nonce="2726c7f26c">
+    ((Flickerlessly = window.Flickerlessly || {}), function (t) {
+        "use strict";
+        var e = function (t, e, a, n) {
+            var i = "atNodeInserted" + t,
+                s = "@keyframes " + i + " {from {opacity:0.99} to {opacity:1} }\n";
+            s += e + "{animation-duration:0.001s;animation-name:" + i + ";visibility:hidden}";
+            var o = document.getElementsByTagName("head")[0];
+            if (o) {
+                var r = document.createElement("style");
+                r.setAttribute("type", "text/css"), r.styleSheet ? r.styleSheet.cssText = s : r.appendChild(
+                    document.createTextNode(s)), o.insertBefore(r, o.firstChild)
+            }
+            var c = function (t) {
+                if (t.animationName === i && "object" == typeof t.target) {
+                    var s = n === !0 || n === !1 && null === t.target.getAttribute("data-flk-success") ? !
+                        0 : !1;
+                    console && console.info && console.info("Node " + e + " ready! Execute: " + s, t
+                        .target), "function" == typeof a && s && (a(t.target), t.target.setAttribute(
+                            "data-flk-success", i)), t.target.style.visibility = "visible"
                 }
-
-
-                let tabHTML = `<div id="action_insert_1787548658480" class="bg-off-white full-width max-ca-md:overflow-hidden">
-
-                                <section>
-                                    <div class="at-caanz-all-container at-caanz-all-adjust-y" id="at-caanz-custom-infocontainer--1">
-                                        <h2 style="padding-bottom: 24px" class="text-ca-3xl text-indigo leading-120 font-nexa-bold lg:text-4.5xl mb-2.5">
-                                            Choose the right path
-                                        </h2>
-                                    
-                                        <div id="at-caanz-choose-path"></div>
-                                    </div>
-                                </section>
-                            
-                                <section>
-                                    <div class="at-caanz-all-container at-flex at-flex-column at-caanz-all-adjust-y--2">
-                                        <h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0" style="margin-bottom: 24px">
-                                            Dive deeper into sustainability
-                                        </h2>
-                                        <div class="at-caanz-all-slick-2">
-                                            <div style="
-                                          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-                                          border-radius: 6px;
-                                          background-color: #fff;
-                                        ">
-                                                <picture>
-                                                    <img src="https://assets.charteredaccountantsanz.com/asset/e409c5c4-581a-401e-b117-98365b5d235e/Website-Content-tile/MCT1-Byron-Bay-Aerial-Australia.jpg"
-                                                        alt="Beach side highway" style="
-                                              width: 100%;
-                                              aspect-ratio: 376 / 218;
-                                              height: auto;
-                                              object-fit: cover;
-                                              object-position: center;
-                                              display: block;
-                                              border-top-left-radius: 6px;
-                                              border-top-right-radius: 6px;
-                                              padding: 4px 4px 0;
-                                              box-sizing: border-box;
-                                            ">
-                                                </picture>
-                                                <div class="at-flex at-flex-column" style="
-                                            padding: 24px 16px;
-                                            height: 258px;
-                                            justify-content: space-between;
-                                          ">
-                                                    <div class="at-flex at-flex-column" style="gap: 12px">
-                                                        <h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">
-                                                            Are you ready to delve into more resources?
-                                                        </h3>
-                                                        <p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">
-                                                            The Sustainability Resource Centre has pratical tools, training, insights and playbook.
-                                                        </p>
-                                                    </div>
-                                                    <a href="https://www.charteredaccountantsanz.com/member-services/sustainability-resource-centre"
-                                                        class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile"
-                                                        style="display: inline-block; width: fit-content"
-                                                        data-title="Are you ready to delve into more resources?" data-element="Download the report"
-                                                        data-module="Content tile" data-event-module="Content tile"
-                                                        data-content-tile-title="Are you ready to delve into more resources?"
-                                                        data-content-tile-container="Dive deeper into sustainability"
-                                                        data-content-tile-button-text="Download the report"
-                                                        data-internal-link="Content tile|Dive deeper into sustainability|Are you ready to delve into more resources?|Download the report"
-                                                        target="_blank" rel="noopener noreferrer">Explore now</a>
-                                                </div>
-                                            </div>
-                                            <div style="
-                                          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-                                          border-radius: 6px;
-                                          background-color: #fff;
-                                        ">
-                                                <picture>
-                                                    <img src="https://assets.charteredaccountantsanz.com/asset/5ac6930a-2c9a-45a3-978f-9ef4cf469d9f/Website-Content-tile/MCT1-Queensland-8.jpg"
-                                                        alt="Landscape beach front" style="
-                                              width: 100%;
-                                              aspect-ratio: 376 / 218;
-                                              height: auto;
-                                              object-fit: cover;
-                                              object-position: center;
-                                              display: block;
-                                              border-top-left-radius: 6px;
-                                              border-top-right-radius: 6px;
-                                              padding: 4px 4px 0;
-                                              box-sizing: border-box;
-                                            ">
-                                                </picture>
-                                                <div class="at-flex at-flex-column" style="
-                                            padding: 24px 16px;
-                                            height: 258px;
-                                            justify-content: space-between;
-                                          ">
-                                                    <div class="at-flex at-flex-column" style="gap: 12px">
-                                                        <h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">
-                                                            A practical guide to sustainability
-                                                        </h3>
-                                                        <p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">
-                                                            Download and read the Sustainability Playbook designed to help build sustainability
-                                                            capability in accounting and finance.
-                                                        </p>
-                                                    </div>
-                                                    <a href="https://www.charteredaccountantsanz.com/tools-and-resources/client-service-essentials/sustainability/sustainability-playbook"
-                                                        class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-tile"
-                                                        style="display: inline-block; width: fit-content"
-                                                        data-title="Complimentary Sharing Knowledge" data-element="Learn with our playbook"
-                                                        data-module="Content tile" data-event-module="Content tile"
-                                                        data-content-tile-title="A practical guide to sustainability"
-                                                        data-content-tile-container="Dive deeper into sustainability"
-                                                        data-content-tile-button-text="Learn with our playbook"
-                                                        data-internal-link="Content tile|Dive deeper into sustainability|A practical guide to sustainability|Learn with our playbook"
-                                                        target="_blank" rel="noopener noreferrer">Learn with our playbook</a>
-                                                </div>
-                                            </div>
-                                        
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>`;
-
-                let tabContainer = document.querySelector("#at-sustainability-video-wrapper");
-                if (tabContainer) {
-                    let targetElement = tabContainer;
-                    // Move 5 elements forward
-                    for (let i = 0; i < 5; i++) {
-                        if (targetElement.nextElementSibling) {
-                            targetElement = targetElement.nextElementSibling;
-
-                            // Hide next four elements
-                            if (i === 0 || i === 1 || i === 2 || i === 3) {
-                                targetElement.style.display = "none";
-                            }
+            };
+            ["animationstart", "MSAnimationStart", "webkitAnimationStart"].forEach(function (t) {
+                document.addEventListener(t, c, !1)
+            })
+        };
+        t.onReady = function () {
+            for (var t = 0; t < arguments.length; t++) {
+                var a = arguments[t],
+                    n = a.selector,
+                    i = a.success || null,
+                    s = a.persist || !1,
+                    o = Math.floor(100 * Math.random() + 1);
+                e(o, n, i, s)
+            }
+        }
+    }(Flickerlessly));
+    Flickerlessly.onReady({
+        selector: ".flex.justify-center.full-width",
+        persist: false,
+        success: function (el) {
+            let videoDescHTML =
+                `<div id="sustainability-conference-video-container"><div class="video-description"><h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0">Sustainability Conference</h2><p>Designed by CAs for CAs, this flagship conference will equip finance leaders, accountants, advisers and assurance practitioners with practical insights to navigate the changing sustainability landscape and expectations with confidence.</p><a class="at-tracked-contentTileClick mt-7.5 btn-cta--primary w-fit flex items-center justify-center font-nexa-xbold safari-nexa-xbold text-base h-10 px-6 py-2.5 border-2 transition duration-200 rounded-full text-white bg-azure" href="https://store.charteredaccountantsanz.com/courses/au/Sustainability-Conference-2026-AU" data-module="Video Banner Module" data-element="Find out more" data-title="Sustainability Conference" data-event-type="contentTileClick">Find out more</a></div></div>`;
+            let videoContainer = document.querySelectorAll("div.rich-text.container.mx-auto")[1];
+            if (videoContainer) {
+                videoContainer.classList.add("at-tracked-play-video");
+                let videoWrapper = document.createElement("div");
+                videoWrapper.className = "video-wrapper";
+                videoWrapper.id = "at-sustainability-video-wrapper";
+                videoContainer.parentNode.insertBefore(videoWrapper, videoContainer);
+                videoWrapper.insertAdjacentHTML("beforeend", videoDescHTML);
+                videoWrapper.appendChild(videoContainer)
+            }
+            let tabHTML =
+                `<div id="action_insert_1787548658480" class="bg-off-white full-width max-ca-md:overflow-hidden"><section><div class="at-caanz-all-container at-caanz-all-adjust-y" id="at-caanz-custom-infocontainer--1"><h2 style="padding-bottom:24px" class="text-ca-3xl text-indigo leading-120 font-nexa-bold lg:text-4.5xl mb-2.5">Choose the right path</h2><div id="at-caanz-choose-path"></div></div></section><section><div class="at-caanz-all-container at-flex at-flex-column at-caanz-all-adjust-y--2"><h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0" style="margin-bottom:24px">Dive deeper into sustainability</h2><div class="at-caanz-all-slick-2"><div style="box-shadow:0px 4px 4px 0px rgba(0,0,0,.05);border-radius:6px;background-color:#fff"><picture><img src="https://assets.charteredaccountantsanz.com/asset/e409c5c4-581a-401e-b117-98365b5d235e/Website-Content-tile/MCT1-Byron-Bay-Aerial-Australia.jpg" alt="Beach side highway" style="width:100%;aspect-ratio:376/218;height:auto;object-fit:cover;object-position:center;display:block;border-top-left-radius:6px;border-top-right-radius:6px;padding:4px 4px 0;box-sizing:border-box"></picture><div class="at-flex at-flex-column" style="padding:24px 16px;height:258px;justify-content:space-between"><div class="at-flex at-flex-column" style="gap:12px"><h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">Are you ready to delve into more resources?</h3><p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">The Sustainability Resource Centre has pratical tools, training, insights and playbook.</p></div><a href="https://www.charteredaccountantsanz.com/member-services/sustainability-resource-centre" class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-related-content" style="display:inline-block;width:fit-content" data-related-content-position="1" data-content-tile-title="Are you ready to delve into more resources?" data-element="Explore now" data-module="5050 Related Content Module" data-content-tile-container="Dive deeper into sustainability" target="_blank" rel="noopener noreferrer">Explore now</a></div></div><div style="box-shadow:0px 4px 4px 0px rgba(0,0,0,.05);border-radius:6px;background-color:#fff"><picture><img src="https://assets.charteredaccountantsanz.com/asset/5ac6930a-2c9a-45a3-978f-9ef4cf469d9f/Website-Content-tile/MCT1-Queensland-8.jpg" alt="Landscape beach front" style="width:100%;aspect-ratio:376/218;height:auto;object-fit:cover;object-position:center;display:block;border-top-left-radius:6px;border-top-right-radius:6px;padding:4px 4px 0;box-sizing:border-box"></picture><div class="at-flex at-flex-column" style="padding:24px 16px;height:258px;justify-content:space-between"><div class="at-flex at-flex-column" style="gap:12px"><h3 class="at-caanz-all-h3--m at-font-nexa at-text-cablack">A practical guide to sustainability</h3><p class="at-caanz-all-body--s at-text-cablack at-font-nexa at-mt-0 at-mb-0 at-pb-0">Download and read the Sustainability Playbook designed to help build sustainability capability in accounting and finance.</p></div><a href="https://www.charteredaccountantsanz.com/tools-and-resources/client-service-essentials/sustainability/sustainability-playbook" class="at-caanz-link--primary at-text-azure at-caanz-all-h4--l at-tracked-related-content" style="display:inline-block;width:fit-content" data-related-content-position="2" data-content-tile-title="A practical guide to sustainability" data-element="Learn with our playbook" data-module="5050 Related Content Module" data-content-tile-container="Dive deeper into sustainability" target="_blank" rel="noopener noreferrer">Learn with our playbook</a></div></div></div></div></section></div>`;
+            let tabContainer = document.querySelector("#at-sustainability-video-wrapper");
+            if (tabContainer) {
+                let targetElement = tabContainer;
+                for (let i = 0; i < 5; i++) {
+                    if (targetElement.nextElementSibling) {
+                        targetElement = targetElement.nextElementSibling;
+                        if (i === 0 || i === 1 || i === 2 || i === 3) {
+                            targetElement.setAttribute("data-at-caanz-hidden", "true");
+                            targetElement.style.display = "none"
                         }
                     }
-                    // Insert after the 5th element
-                    targetElement.insertAdjacentHTML("afterend", tabHTML);
                 }
-
-                // multiple element hide and heading insert
-                let cardsContainer = document.querySelector("#action_insert_1787545534995");
-                if (cardsContainer) {
-                    // hiding old hero banner container
-                    cardsContainer.previousElementSibling.style.display = "none";
-                    let targetElement = cardsContainer;
-
-                    // removing old sustainability conference container
-                    for (let i = 0; i < 3; i++) {
-
-                        if (targetElement.nextElementSibling) {
-                            targetElement = targetElement.nextElementSibling;
-
-                            // Hide 2nd and 3rd elements
-                            if (i === 1 || i === 2) {
-                                targetElement.style.display = "none";
-                            }
+                targetElement.insertAdjacentHTML("afterend", tabHTML)
+            }
+            let cardsContainer = document.querySelector("#action_insert_1787545534995");
+            if (cardsContainer) {
+                cardsContainer.previousElementSibling ?.setAttribute("data-at-caanz-hidden", "true");
+                if (cardsContainer.previousElementSibling) cardsContainer.previousElementSibling.style
+                    .display = "none";
+                let targetElement = cardsContainer;
+                for (let i = 0; i < 3; i++) {
+                    if (targetElement.nextElementSibling) {
+                        targetElement = targetElement.nextElementSibling;
+                        if (i === 1 || i === 2) {
+                            targetElement.setAttribute("data-at-caanz-hidden", "true");
+                            targetElement.style.display = "none"
                         }
                     }
-
-                    // inserting heading to sustainability rich text below cards section
-                    let headingHTML = `<div class="bg-white full-width"> 
-                                        <div class="px-5 py-6 ca-md:px-12 xl:px-27.5 max-w-360 mx-auto w-full">                
-                                            <h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0">
-                                              Today's sustainability skills. Tomorrow's professional advantage.
-                                            </h2>
-                                        </div>
-                                      </div>`;
-                    cardsContainer.insertAdjacentHTML("afterend", headingHTML);
-                    let lineBreakHTMLs = document.querySelectorAll("div.rich-text.container.mx-auto > div > br");
-                    lineBreakHTMLs.forEach((br, index) => {
-                        if (index < 2) {
-                            br.style.display = "none";
-                        }
-                    });
                 }
-
-                // removing old courses and learning container
-                let newChooseRightPathContainer = document.querySelector("#action_insert_1787548658480");
-                newChooseRightPathContainer.previousElementSibling.style.display = "none";
-                newChooseRightPathContainer.nextElementSibling.style.display = "none";
-
-                // new banner conatiner
-                let newBannerContainerHTML = `<section class="sustainability-banner" aria-label="Build sustainability skills">
-                        <div class="sustainability-banner__inner at-caanz-all-container at-caanz-all-adjust-y">
-                            <div class="sustainability-banner__content">
-                                <h1 class="sustainability-banner__title">
-                                    Build sustainability skills in your workplace
-                                </h1>
-                                <p class="sustainability-banner__copy">
-                                    Invest in learning that delivers impact and build organisation-wide sustainability capability.
-                                </p>
-                                <a class="sustainability-banner__cta"
-                                    href="https://www.charteredaccountantsanz.com/learning-and-events/learning/workplace-learning">
-                                    Find out more
-                                </a>
-                            </div>
-                        </div>
-                </section>`;
-                let chooseRightPathContainer = document.querySelector("#action_insert_1787548658480 > section:nth-child(2)");
-                chooseRightPathContainer.insertAdjacentHTML("beforebegin", newBannerContainerHTML);
-
-
-
-                (function (global) {
-                    "use strict";
-
-                    /* PivotRenderer kept exactly as you had it — reused below to
-                       stamp out each card's inner HTML from a template. */
-                    class PivotRenderer {
-                        constructor(options = {}) {
-                            this.containerClass = options.containerClass || "pivot-container";
-                            this.containerStyle = options.containerStyle || "";
-                            this.itemClass = options.itemClass || "pivot-item";
-                            this.itemStyle = options.itemStyle || "";
-                            this.modules = new Map();
-                        }
-
-                        define(name, config) {
-                            if (!name || typeof name !== "string") {
-                                throw new Error("Module name must be a non-empty string");
-                            }
-                            if (!Array.isArray(config.data)) {
-                                throw new Error("Data must be an array");
-                            }
-                            if (typeof config.template !== "string") {
-                                throw new Error("Template must be a string");
-                            }
-
-                            this.modules.set(name, {
-                                data: config.data,
-                                template: config.template,
-                                containerClass: config.containerClass || null,
-                                rendered: false,
-                                container: null,
-                            });
-
-                            return this;
-                        }
-
-                        parseTemplate(template, data) {
-                            return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-                                if (data.hasOwnProperty(key)) {
-                                    const value = data[key];
-                                    return this.escapeHtml(String(value));
-                                }
-                                console.warn('PivotRenderer: Missing key "${key}" in data');
-                                return "";
-                            });
-                        }
-
-                        escapeHtml(str) {
-                            const htmlEntities = {
-                                "&": "&amp;",
-                                "<": "&lt;",
-                                ">": "&gt;",
-                                '"': "&quot;",
-                                "'": "&#39;",
-                            };
-                            return str.replace(/[&<>"']/g, (char) => htmlEntities[char]);
-                        }
-
-                        render(name) {
-                            const module = this.modules.get(name);
-                            if (!module) {
-                                throw new Error('Module "${name}" not found');
-                            }
-
-                            const container = document.createElement("div");
-                            container.className = module.containerClass || this.containerClass;
-
-                            if (module.containerStyle || this.containerStyle) {
-                                container.style.cssText = module.containerStyle || this.containerStyle;
-                            }
-
-                            module.data.forEach((item, index) => {
-                                const renderedHtml = this.parseTemplate(module.template, item);
-                                const itemWrapper = document.createElement("div");
-                                itemWrapper.className = module.itemClass || this.itemClass;
-                                itemWrapper.setAttribute("data-pivot-index", index);
-
-                                if (module.itemStyle || this.itemStyle) {
-                                    itemWrapper.style.cssText = module.itemStyle || this.itemStyle;
-                                }
-
-                                itemWrapper.innerHTML = renderedHtml;
-                                container.appendChild(itemWrapper);
-                            });
-
-                            module.rendered = true;
-                            module.container = container;
-
-                            return container;
-                        }
-
-                        insert(moduleName, selector, position = "append") {
-                            const target = document.querySelector(selector);
-                            if (!target) {
-                                throw new Error('Target element not found: ${selector}');
-                            }
-
-                            const module = this.modules.get(moduleName);
-                            if (!module) {
-                                throw new Error('Module "${moduleName}" not found');
-                            }
-
-                            const container = module.container || this.render(moduleName);
-
-                            switch (position) {
-                                case "before":
-                                    target.parentNode.insertBefore(container, target);
-                                    break;
-                                case "after":
-                                    target.parentNode.insertBefore(container, target.nextSibling);
-                                    break;
-                                case "prepend":
-                                    target.insertBefore(container, target.firstChild);
-                                    break;
-                                case "append":
-                                default:
-                                    target.appendChild(container);
-                                    break;
-                            }
-
-                            return this;
-                        }
-
-                        update(name, newData) {
-                            const module = this.modules.get(name);
-                            if (!module) {
-                                throw new Error('Module "${name}" not found');
-                            }
-
-                            const oldContainer = module.container;
-                            module.data = newData;
-                            module.rendered = false;
-                            module.container = null;
-
-                            if (oldContainer && oldContainer.parentNode) {
-                                const newContainer = this.render(name);
-                                oldContainer.parentNode.replaceChild(newContainer, oldContainer);
-                            }
-
-                            return this;
-                        }
-
-                        remove(name) {
-                            const module = this.modules.get(name);
-                            if (module && module.container && module.container.parentNode) {
-                                module.container.parentNode.removeChild(module.container);
-                                module.container = null;
-                                module.rendered = false;
-                            }
-                            return this;
-                        }
-
-                        destroy(name) {
-                            this.remove(name);
-                            this.modules.delete(name);
-                            return this;
-                        }
-
-                        getModuleNames() {
-                            return Array.from(this.modules.keys());
-                        }
+                let headingHTML =
+                    `<div class="bg-off-white full-width at-richtext-header"><div class="px-5 py-6 ca-md:px-12 xl:px-27.5 max-w-360 mx-auto w-full"><h2 class="at-text-cablack at-caanz-all-h2 at-font-nexaxbold at-mt-0">Today's sustainability skills. Tomorrow's professional advantage.</h2></div></div>`;
+                let firstRichTextContainer = document.querySelectorAll("div.rich-text.container.mx-auto")[
+                0];
+                cardsContainer.insertAdjacentHTML("afterend", headingHTML);
+                let headingWrapper = cardsContainer.nextElementSibling ?.querySelector(
+                    ".px-5.py-6.ca-md\\:px-12.xl\\:px-27\\.5.max-w-360.mx-auto.w-full");
+                if (headingWrapper && firstRichTextContainer) headingWrapper.appendChild(
+                    firstRichTextContainer);
+                let lineBreakHTMLs = document.querySelectorAll(
+                "div.rich-text.container.mx-auto > div > br");
+                if (lineBreakHTMLs.length > 0) lineBreakHTMLs.forEach((br, index) => {
+                    if (index < 1) br.style.display = "none"
+                })
+            }
+            let newChooseRightPathContainer = document.querySelector("#action_insert_1787548658480");
+            if (newChooseRightPathContainer) {
+                newChooseRightPathContainer.previousElementSibling ?.setAttribute("data-at-caanz-hidden",
+                    "true");
+                if (newChooseRightPathContainer.previousElementSibling) newChooseRightPathContainer
+                    .previousElementSibling.style.display = "none";
+                newChooseRightPathContainer.nextElementSibling ?.setAttribute("data-at-caanz-hidden",
+                    "true");
+                if (newChooseRightPathContainer.nextElementSibling) newChooseRightPathContainer
+                    .nextElementSibling.style.display = "none"
+            }
+            let newBannerContainerHTML =
+                `<section class="sustainability-banner" aria-label="Build sustainability skills"><div class="sustainability-banner__inner at-caanz-all-container at-caanz-all-adjust-y"><div class="sustainability-banner__content"><h1 class="sustainability-banner__title">Build sustainability skills in your workplace</h1><p class="sustainability-banner__copy">Invest in learning that delivers impact and build organisation-wide sustainability capability.</p><a class="at-tracked-susty-banner-btn sustainability-banner__cta" data-module="Full Width Banner" data-element="Find out more" data-title="Build sustainability skills in your workplace" href="https://www.charteredaccountantsanz.com/learning-and-events/learning/workplace-learning">Find out more</a></div></div></section>`;
+            let chooseRightPathContainer = document.querySelector(
+                "#action_insert_1787548658480 > section:nth-child(2)");
+            if (chooseRightPathContainer) chooseRightPathContainer.insertAdjacentHTML("beforebegin",
+                newBannerContainerHTML);
+            (function (global) {
+                "use strict";
+                class PivotRenderer {
+                    constructor(options = {}) {
+                        this.containerClass = options.containerClass || "pivot-container";
+                        this.containerStyle = options.containerStyle || "";
+                        this.itemClass = options.itemClass || "pivot-item";
+                        this.itemStyle = options.itemStyle || "";
+                        this.modules = new Map()
                     }
-
-                    global.PivotRenderer = PivotRenderer;
-                })(typeof window !== "undefined" ? window : this);
-
-                (function (global) {
-                    "use strict";
-
-                    class TabbedPathRenderer {
-                        constructor(pivotRenderer, cardTemplate) {
-                            this.pivot = pivotRenderer;
-                            this.cardTemplate = cardTemplate;
-                            this.tabs = [];
-                            this.activeIndex = 0;
-                            this.root = null;
-                        }
-
-                        addTab(label, data) {
-                            this.tabs.push({ label, data });
-                            return this;
-                        }
-
-                        mount(selector) {
-                            this.root = document.querySelector(selector);
-                            if (!this.root) {
-                                throw new Error('TabbedPathRenderer: target not found: ${selector}');
-                            }
-
-                            const wrapper = document.createElement("div");
-                            wrapper.className = "at-choose-path";
-
-                            const tabList = document.createElement("div");
-                            tabList.className = "at-choose-path__tabs";
-                            tabList.setAttribute("role", "tablist");
-
-                            const gridHost = document.createElement("div");
-
-                            this.tabs.forEach((tab, i) => {
-                                const btn = document.createElement("button");
-                                btn.type = "button";
-                                btn.className = "at-choose-path__tab";
-                                btn.textContent = tab.label;
-                                btn.setAttribute("role", "tab");
-                                btn.setAttribute("aria-selected", i === this.activeIndex ? "true" : "false");
-                                btn.setAttribute("data-tab-index", i);
-                                btn.addEventListener("click", () => this.select(i));
-                                tabList.appendChild(btn);
-                            });
-
-                            wrapper.appendChild(tabList);
-                            wrapper.appendChild(gridHost);
-
-                            const pager = document.createElement("div");
-                            pager.className = "at-choose-path__pager";
-                            pager.setAttribute("aria-label", "Choose the right path carousel pagination");
-                            wrapper.appendChild(pager);
-
-                            this.root.appendChild(wrapper);
-
-                            this.tabListEl = tabList;
-                            this.gridHost = gridHost;
-                            this.pager = pager;
-
-                            this.renderActiveGrid();
-                            return this;
-                        }
-
-                        renderActiveGrid() {
-                            const tab = this.tabs[this.activeIndex];
-
-                            this.pivot.define("choosePathCards", {
-                                data: tab.data,
-                                template: this.cardTemplate,
-                                containerClass: "at-choose-path__grid",
-                            });
-
-                            const newGrid = this.pivot.render("choosePathCards");
-                            newGrid.className = "at-choose-path__grid";
-
-                            if (this.currentGrid && this.currentGrid.parentNode) {
-                                this.currentGrid.parentNode.replaceChild(newGrid, this.currentGrid);
-                            } else {
-                                this.gridHost.appendChild(newGrid);
-                            }
-                            this.currentGrid = newGrid;
-
-                            this.renderPager();
-                            this.bindGridScroll();
-                        }
-
-                        renderPager() {
-                            if (!this.pager) return;
-
-                            this.pager.innerHTML = "";
-                            this.tabs[this.activeIndex].data.forEach((_, index) => {
-                                const dot = document.createElement("button");
-                                dot.type = "button";
-                                dot.className = "at-choose-path__pager-dot";
-                                dot.setAttribute("aria-label", "Go to card " + (index + 1));
-                                dot.setAttribute("aria-current", index === 0 ? "true" : "false");
-                                dot.addEventListener("click", () => {
-                                    if (!this.currentGrid) return;
-                                    const items = this.currentGrid.querySelectorAll(".pivot-item");
-                                    if (!items[index]) return;
-                                    this.currentGrid.scrollTo({
-                                        left: items[index].offsetLeft,
-                                        behavior: "smooth"
-                                    });
-                                });
-                                this.pager.appendChild(dot);
-                            });
-                        }
-
-                        bindGridScroll() {
-                            if (!this.currentGrid || !this.pager) return;
-
-                            if (this._scrollGrid) {
-                                this._scrollGrid.removeEventListener("scroll", this._scrollHandler);
-                            }
-
-                            this._scrollGrid = this.currentGrid;
-                            this._scrollHandler = () => {
-                                const items = this._scrollGrid.querySelectorAll(".pivot-item");
-                                if (!items.length) return;
-
-                                let closest = 0;
-                                let distance = Math.abs(this._scrollGrid.scrollLeft - items[0].offsetLeft);
-
-                                items.forEach((item, index) => {
-                                    const itemDistance = Math.abs(this._scrollGrid.scrollLeft - item.offsetLeft);
-                                    if (itemDistance < distance) {
-                                        distance = itemDistance;
-                                        closest = index;
-                                    }
-                                });
-
-                                Array.from(this.pager.children).forEach((dot, index) => {
-                                    dot.setAttribute("aria-current", index === closest ? "true" : "false");
-                                });
-                            };
-
-                            this._scrollGrid.addEventListener("scroll", this._scrollHandler, { passive: true });
-                        }
-
-                        select(index) {
-                            if (index === this.activeIndex) return;
-                            this.activeIndex = index;
-
-                            Array.from(this.tabListEl.children).forEach((btn, i) => {
-                                btn.setAttribute("aria-selected", i === index ? "true" : "false");
-                            });
-
-                            this.renderActiveGrid();
-
-                            // Fire a data layer event on tab change so tab switches are trackable in GTM/Analytics
-                            if (global.dataLayer) {
-                                global.dataLayer.push({
-                                    event: "chooseRightPathTabSelect",
-                                    tabLabel: this.tabs[index].label,
-                                });
-                            }
-                        }
-                    }
-
-                    global.TabbedPathRenderer = TabbedPathRenderer;
-                })(typeof window !== "undefined" ? window : this);
-
-                (function () {
-                    const packages = [{
-                        name: "jQuery",
-                        url: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js",
-                        test: function () {
-                            return typeof jQuery !== "undefined";
-                        },
-                    },
-                    {
-                        name: "Slick",
-                        url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
-                        test: function () {
-                            return (
-                                typeof jQuery !== "undefined" &&
-                                typeof jQuery.fn.slick !== "undefined"
-                            );
-                        },
-                    },
-                    ];
-
-                    function loadScript(src) {
-                        return new Promise((resolve, reject) => {
-                            const script = document.createElement("script");
-                            script.src = src;
-                            script.nonce = "2726c7f26c";
-                            script.onload = resolve;
-                            script.onerror = reject;
-                            document.head.appendChild(script);
+                    define(name, config) {
+                        if (!name || typeof name !== "string") throw new Error(
+                            "Module name must be a non-empty string");
+                        if (!Array.isArray(config.data)) throw new Error("Data must be an array");
+                        if (typeof config.template !== "string") throw new Error(
+                            "Template must be a string");
+                        this.modules.set(name, {
+                            data: config.data,
+                            template: config.template,
+                            containerClass: config.containerClass || null,
+                            rendered: false,
+                            container: null
                         });
+                        return this
                     }
-
-                    async function loadPackages() {
-                        for (const pkg of packages) {
-                            if (!pkg.test()) {
-                                console.log('Loading ${pkg.name}...');
-                                try {
-                                    await loadScript(pkg.url);
-                                    console.log('${pkg.name} loaded successfully.');
-                                } catch (error) {
-                                    console.error('Failed to load ${pkg.name}:', error);
-                                }
-                            } else {
-                                console.log('${pkg.name} is already loaded.');
+                    parseTemplate(template, data) {
+                        return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+                            if (data.hasOwnProperty(key)) {
+                                const value = data[key];
+                                return this.escapeHtml(String(value))
                             }
-                        }
+                            console.warn('PivotRenderer: Missing key "${key}" in data');
+                            return ""
+                        })
                     }
+                    escapeHtml(str) {
+                        const htmlEntities = {
+                            "&": "&amp;",
+                            "<": "&lt;",
+                            ">": "&gt;",
+                            '"': "&quot;",
+                            "'": "&#39;"
+                        };
+                        return str.replace(/[&<>"']/g, char => htmlEntities[char])
+                    }
+                    render(name) {
+                        const module = this.modules.get(name);
+                        if (!module) throw new Error('Module "${name}" not found');
+                        const container = document.createElement("div");
+                        container.className = module.containerClass || this.containerClass;
+                        if (module.containerStyle || this.containerStyle) container.style.cssText =
+                            module.containerStyle || this.containerStyle;
+                        module.data.forEach((item, index) => {
+                            const renderedHtml = this.parseTemplate(module.template, item);
+                            const itemWrapper = document.createElement("div");
+                            itemWrapper.className = module.itemClass || this.itemClass;
+                            itemWrapper.setAttribute("data-pivot-index", index);
+                            if (module.itemStyle || this.itemStyle) itemWrapper.style
+                                .cssText = module.itemStyle || this.itemStyle;
+                            itemWrapper.innerHTML = renderedHtml;
+                            container.appendChild(itemWrapper)
+                        });
+                        module.rendered = true;
+                        module.container = container;
+                        return container
+                    }
+                    insert(moduleName, selector, position = "append") {
+                        const target = document.querySelector(selector);
+                        if (!target) throw new Error("Target element not found: ${selector}");
+                        const module = this.modules.get(moduleName);
+                        if (!module) throw new Error('Module "${moduleName}" not found');
+                        const container = module.container || this.render(moduleName);
+                        switch (position) {
+                            case "before":
+                                target.parentNode.insertBefore(container, target);
+                                break;
+                            case "after":
+                                target.parentNode.insertBefore(container, target.nextSibling);
+                                break;
+                            case "prepend":
+                                target.insertBefore(container, target.firstChild);
+                                break;
+                            case "append":
+                            default:
+                                target.appendChild(container);
+                                break
+                        }
+                        return this
+                    }
+                    update(name, newData) {
+                        const module = this.modules.get(name);
+                        if (!module) throw new Error('Module "${name}" not found');
+                        const oldContainer = module.container;
+                        module.data = newData;
+                        module.rendered = false;
+                        module.container = null;
+                        if (oldContainer && oldContainer.parentNode) {
+                            const newContainer = this.render(name);
+                            oldContainer.parentNode.replaceChild(newContainer, oldContainer)
+                        }
+                        return this
+                    }
+                    remove(name) {
+                        const module = this.modules.get(name);
+                        if (module && module.container && module.container.parentNode) {
+                            module.container.parentNode.removeChild(module.container);
+                            module.container = null;
+                            module.rendered = false
+                        }
+                        return this
+                    }
+                    destroy(name) {
+                        this.remove(name);
+                        this.modules.delete(name);
+                        return this
+                    }
+                    getModuleNames() {
+                        return Array.from(this.modules.keys())
+                    }
+                }
+                global.PivotRenderer = PivotRenderer
+            })(typeof window !== "undefined" ? window : this);
+            (function (global) {
+                "use strict";
+                class TabbedPathRenderer {
+                    constructor(pivotRenderer, cardTemplate) {
+                        this.pivot = pivotRenderer;
+                        this.cardTemplate = cardTemplate;
+                        this.tabs = [];
+                        this.activeIndex = 0;
+                        this.root = null
+                    }
+                    addTab(label, data) {
+                        this.tabs.push({
+                            label: label,
+                            data: data
+                        });
+                        return this
+                    }
+                    mount(selector) {
+                        this.root = document.querySelector(selector);
+                        if (!this.root) throw new Error(
+                            "TabbedPathRenderer: target not found: ${selector}");
+                        const wrapper = document.createElement("div");
+                        wrapper.className = "at-choose-path";
+                        const tabList = document.createElement("div");
+                        tabList.className = "at-choose-path__tabs";
+                        tabList.setAttribute("role", "tablist");
+                        const gridHost = document.createElement("div");
+                        this.tabs.forEach((tab, i) => {
+                            const btn = document.createElement("button");
+                            btn.type = "button";
+                            btn.className = "at-choose-path__tab";
+                            btn.textContent = tab.label;
+                            btn.setAttribute("role", "tab");
+                            btn.setAttribute("aria-selected", i === this.activeIndex ?
+                                "true" : "false");
+                            btn.setAttribute("data-tab-index", i);
+                            btn.setAttribute("data-navigation-type", "Tabbed navigation");
+                            btn.setAttribute("data-module", "M05 - Tabbed Category Module");
+                            btn.setAttribute("data-tab-label", tab.label);
+                            btn.addEventListener("click", () => this.select(i));
+                            tabList.appendChild(btn)
+                        });
+                        wrapper.appendChild(tabList);
+                        wrapper.appendChild(gridHost);
+                        const pager = document.createElement("div");
+                        pager.className = "at-choose-path__pager";
+                        pager.setAttribute("aria-label",
+                            "Choose the right path carousel pagination");
+                        wrapper.appendChild(pager);
+                        this.root.appendChild(wrapper);
+                        this.tabListEl = tabList;
+                        this.gridHost = gridHost;
+                        this.pager = pager;
+                        this.renderActiveGrid();
+                        return this
+                    }
+                    renderActiveGrid() {
+                        const tab = this.tabs[this.activeIndex];
+                        this.pivot.define("choosePathCards", {
+                            data: tab.data,
+                            template: this.cardTemplate,
+                            containerClass: "at-choose-path__grid"
+                        });
+                        const newGrid = this.pivot.render("choosePathCards");
+                        newGrid.className = "at-choose-path__grid";
+                        if (this.currentGrid && this.currentGrid.parentNode) this.currentGrid
+                            .parentNode.replaceChild(newGrid, this.currentGrid);
+                        else this.gridHost.appendChild(newGrid);
+                        this.currentGrid = newGrid;
+                        const tileButtons = newGrid.querySelectorAll(".at-tracked-tile");
+                        tileButtons.forEach((button, index) => {
+                            const item = tab.data[index] || {};
+                            button.dataset.contentTileContainer = item.containerTitle ||
+                                "Choose the right path";
+                            button.dataset.contentTileSubContainer = tab.label;
+                            button.dataset.tilePosition = String(index + 1);
+                            button.dataset.activityId = item.activityID || "";
+                            button.dataset.activityName = item.activityName || item.title ||
+                                "";
+                            button.dataset.parentId = item.parentID || "";
+                            button.dataset.parentName = item.parentName || item.title || "";
+                            button.dataset.promoMessage = item.promoMessage || "";
+                            console.log("[CAANZ Analytics] Product tile metadata applied", {
+                                tab: tab.label,
+                                tilePosition: index + 1,
+                                title: item.title,
+                                activityID: item.activityID || null,
+                                parentID: item.parentID || null,
+                                element: button
+                            })
+                        });
+                        this.renderPager();
+                        this.bindGridScroll()
+                    }
+                    renderPager() {
+                        if (!this.pager) return;
+                        this.pager.innerHTML = "";
+                        this.tabs[this.activeIndex].data.forEach((_, index) => {
+                            const dot = document.createElement("button");
+                            dot.type = "button";
+                            dot.className = "at-choose-path__pager-dot";
+                            dot.setAttribute("aria-label", "Go to card " + (index + 1));
+                            dot.setAttribute("aria-current", index === 0 ? "true" :
+                            "false");
+                            dot.addEventListener("click", () => {
+                                if (!this.currentGrid) return;
+                                const items = this.currentGrid.querySelectorAll(
+                                    ".pivot-item");
+                                if (!items[index]) return;
+                                this.currentGrid.scrollTo({
+                                    left: items[index].offsetLeft,
+                                    behavior: "smooth"
+                                })
+                            });
+                            this.pager.appendChild(dot)
+                        })
+                    }
+                    bindGridScroll() {
+                        if (!this.currentGrid || !this.pager) return;
+                        if (this._scrollGrid) this._scrollGrid.removeEventListener("scroll", this
+                            ._scrollHandler);
+                        this._scrollGrid = this.currentGrid;
+                        this._scrollHandler = () => {
+                            const items = this._scrollGrid.querySelectorAll(".pivot-item");
+                            if (!items.length) return;
+                            let closest = 0;
+                            let distance = Math.abs(this._scrollGrid.scrollLeft - items[0]
+                                .offsetLeft);
+                            items.forEach((item, index) => {
+                                const itemDistance = Math.abs(this._scrollGrid
+                                    .scrollLeft - item.offsetLeft);
+                                if (itemDistance < distance) {
+                                    distance = itemDistance;
+                                    closest = index
+                                }
+                            });
+                            Array.from(this.pager.children).forEach((dot, index) => {
+                                dot.setAttribute("aria-current", index === closest ?
+                                    "true" : "false")
+                            })
+                        };
+                        this._scrollGrid.addEventListener("scroll", this._scrollHandler, {
+                            passive: true
+                        })
+                    }
+                    select(index) {
+                        if (index === this.activeIndex) {
+                            console.log(
+                                "[CAANZ Analytics] Same Choose the right path tab selected - no new analytics event."
+                                );
+                            return
+                        }
+                        this.activeIndex = index;
+                        const buttons = Array.from(this.tabListEl.children);
+                        const selectedButton = buttons[index];
+                        const selectedTab = this.tabs[index];
+                        console.log("[CAANZ Analytics] CHOOSE RIGHT PATH TAB SELECTED", {
+                            tabIndex: index,
+                            tabLabel: selectedTab.label,
+                            tabElement: selectedButton,
+                            itemCount: selectedTab.data.length
+                        });
+                        if (global.CAANZAnalyticsPersonalization && typeof global
+                            .CAANZAnalyticsPersonalization.navigationClick === "function") global
+                            .CAANZAnalyticsPersonalization.navigationClick(selectedButton);
+                        else console.warn("[CAANZ Analytics] navigationClick handler unavailable.");
+                        buttons.forEach((btn, i) => {
+                            btn.setAttribute("aria-selected", i === index ? "true" :
+                                "false")
+                        });
+                        this.renderActiveGrid();
+                        if (global.CAANZAnalyticsPersonalization && typeof global
+                            .CAANZAnalyticsPersonalization.recoModuleView === "function") global
+                            .CAANZAnalyticsPersonalization.recoModuleView(selectedTab, index);
+                        else console.warn("[CAANZ Analytics] recoModuleView handler unavailable.");
+                        if (global.dataLayer) global.dataLayer.push({
+                            event: "chooseRightPathTabSelect",
+                            tabLabel: selectedTab.label
+                        })
+                    }
+                }
+                global.TabbedPathRenderer = TabbedPathRenderer
+            })(typeof window !== "undefined" ? window : this);
+            (function () {
+                const packages = [{
+                    name: "jQuery",
+                    url: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+                    test: function () {
+                        return typeof jQuery !== "undefined"
+                    }
+                }, {
+                    name: "Slick",
+                    url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+                    test: function () {
+                        return typeof jQuery !== "undefined" && typeof jQuery.fn.slick !==
+                            "undefined"
+                    }
+                }];
 
-                    function runYourCode() {
-                        async function getRegionWithRetry(maxAttempts = 30, delayMs = 100) {
+                function loadScript(src) {
+                    return new Promise((resolve, reject) => {
+                        const script = document.createElement("script");
+                        script.src = src;
+                        script.nonce = "2726c7f26c";
+                        script.onload = resolve;
+                        script.onerror = reject;
+                        document.head.appendChild(script)
+                    })
+                }
+                async function loadPackages() {
+                    for (const pkg of packages) {
+                        if (!pkg.test()) {
+                            console.log(`Loading ${pkg.name}...`);
+                            try {
+                                await loadScript(pkg.url);
+                                console.log(`${pkg.name} loaded successfully.`)
+                            } catch (error) {
+                                console.error(`Failed to load ${pkg.name}:`, error)
+                            }
+                        } else console.log(`${pkg.name} is already loaded.`)
+                    }
+                }
+
+                function runYourCode() {
+                    async function getRegionWithRetry(maxAttempts = 30, delayMs = 100) {
                             for (let attempt = 0; attempt < maxAttempts; attempt++) {
-                                const region = window.digitalData?.page?.userInfo?.catalog;
-                                if (region) {
-                                    return region;
-                                }
-                                await new Promise((resolve) => setTimeout(resolve, delayMs));
+                                const region = window.digitalData ?.page ?.userInfo ?.catalog;
+                                if (region) return region;
+                                await new Promise(resolve => setTimeout(resolve, delayMs))
                             }
-                            return null;
+                            return null
                         }
-
                         (async function () {
                             const region = (await getRegionWithRetry(20, 50)) || "AU";
                             const isNZ = region === "NZ";
-
-                            const cardTemplate = `
-                            <div class="at-choose-path__card">
-                                                <div class="at-choose-path__media">
-                                                    <img src="{{asset}}" alt="{{imgDes}}">
-
-                                                    <span class="at-choose-path__badge">
-                                                        Sustainability
-                                                    </span>
-                                                </div>
-                                                <div class="at-choose-path__body">
-                            <h4 class="at-choose-path__title m-0 mb-2.5 ca-md:mb-1 font-nexa-xbold safari-nexa-xbold ca-md:text-base-l ca-md:leading-150 leading-120 text-indigo line-clamp-2 break-words max-w-[286px]">
-                            {{title}}</h4>
-                                                
-                            <div class="font-nexa-book text-sm py-5">
-                            
-                                <!-- CPD + Course -->
-                                <div class="flex pb-[10px] items-center gap-x-2 at-choose-path__meta-row">
-                                
-                                    <!-- Clock / CPD icon -->
-                                    <svg width="18" height="18" viewBox="0 0 18 18"
-                                        class="w-5 h-5"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        aria-hidden="true">
-                                        <path d="M9.00006 0.208008C4.86406 0.208008 1.38405 3.08801 0.456055 6.93601C0.688055 6.84801 0.944055 6.80001 1.20805 6.80001C1.67205 6.80001 2.10405 6.94401 2.45605 7.19201C3.24805 4.32001 5.88005 2.20801 9.00006 2.20801C12.7521 2.20801 15.7921 5.25601 15.7921 9.00001C15.7921 12.128 13.6801 14.752 10.8081 15.544C11.0561 15.896 11.2001 16.328 11.2001 16.792C11.2001 17.056 11.1521 17.312 11.0641 17.544C14.9201 16.616 17.7921 13.136 17.7921 9.00001C17.7921 4.16001 13.8481 0.208008 9.00006 0.208008Z" fill="#261A42"></path>
-                                        <path d="M12.2883 11.72L9.77633 9.20801L9.73633 3.76001L7.73633 3.77601L7.77633 10.04L10.8723 13.136L12.2883 11.72Z" fill="#261A42"></path>
-                                        <path d="M9.00001 15.792C5.25601 15.792 2.20801 12.752 2.20801 9C2.20801 8.448 1.76801 8 1.20801 8C0.648008 8 0.208008 8.448 0.208008 9C0.208008 13.848 4.16001 17.792 9.00001 17.792C9.56001 17.792 10 17.352 10 16.792C10 16.232 9.56001 15.792 9.00001 15.792Z" fill="#261A42"></path>
-                                    </svg>
-                                
-                                    <p class="text-sm pb-0 shrink-0">
-                                        CPD {{cpdHours}} hour{{cpdPlural}}
-                                    </p>
-                                
-                                    <!-- Course icon -->
-                                    <svg width="24" height="24" viewBox="0 0 24 24"
-                                        class="w-6 h-6 ml-5 ca-md:ml-0"
-                                        fill="#261A42"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        aria-hidden="true">
-                                        <path d="M12.137 18.224L12.041 18.32H12.233L12.137 18.224Z" fill="#261A42"></path>
-                                        <path d="M20.8887 18.32H15.0567L18.4407 21.704L18.2967 21.848H15.7607L12.2327 18.32L12.1367 18.224L8.51272 21.848H5.96872L5.82472 21.704L9.21672 18.32H3.13672V8.65601H5.13672V16.32H18.8887V8.65601H20.8887V18.32Z" fill="#261A42"></path>
-                                        <path d="M13.776 2.59998H10.248V4.25598H13.776V2.59998Z" fill="#261A42"></path>
-                                        <path d="M22.3764 6.45593C22.3764 7.00793 21.9284 7.45593 21.3764 7.45593H2.64844C2.09644 7.45593 1.64844 7.00793 1.64844 6.45593C1.64844 5.90393 2.09644 5.45593 2.64844 5.45593H21.3764C21.9284 5.45593 22.3764 5.90393 22.3764 6.45593Z" fill="#261A42"></path>
-                                    </svg>
-                                
-                                    <p class="line-clamp-1 text-sm break-all pb-0">
-                                        Course
-                                    </p>
-                                </div>
-                            
-                            
-                                <!-- On Demand + Online -->
-                                <div class="flex items-center gap-x-2 at-choose-path__meta-row">
-                                
-                                    <!-- Calendar icon -->
-                                    <span class="flex gap-x-2 items-center">
-                                        <span class="flex gap-x-2 items-center mr-2">
-                                        
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                width="18"
-                                                height="20"
-                                                viewBox="0 0 18 20"
-                                                fill="none"
-                                                class="size-5"
-                                                aria-hidden="true">
-                                                <path d="M6.59202 10.4639C5.20002 10.4639 4.40002 11.2559 4.40002 12.6319V13.2879C4.40002 14.6479 5.22402 15.4559 6.60002 15.4559C7.10402 15.4559 8.75202 15.2959 8.75202 13.2799V12.6319C8.75202 11.2719 7.94402 10.4639 6.59202 10.4639ZM7.40002 12.6399V13.2879C7.40002 13.9439 7.09602 14.3119 6.57602 14.3119C6.05602 14.3119 5.76002 13.9359 5.76002 13.2879V12.6399C5.76002 12.0079 6.06402 11.6399 6.59202 11.6399C7.12002 11.6399 7.40002 12.0079 7.40002 12.6399Z" fill="#261A42"></path>
-                                                <path d="M12.432 14.2478V10.4238L10.072 11.2718L10.056 11.2798V12.3678L11.088 12.0318V14.2478H9.93604V15.3199H13.592V14.2478H12.432Z" fill="#261A42"></path>
-                                                <path d="M15.92 1.94385V3.94385H16V6.39185H2V3.94385H2.08V1.94385H0V19.9438H18V1.94385H15.92ZM16 17.9438H2V8.39185H16V17.9438Z" fill="#261A42"></path>
-                                                <path d="M11.52 1.94385H6.47998V3.94385H11.52V1.94385Z" fill="#261A42"></path>
-                                                <path d="M5.28003 1.05591V4.41591C5.28003 4.96791 4.83203 5.41591 4.28003 5.41591C3.72803 5.41591 3.28003 4.96791 3.28003 4.41591V1.05591C3.28003 0.503908 3.72803 0.0559082 4.28003 0.0559082C4.83203 0.0559082 5.28003 0.503908 5.28003 1.05591Z" fill="#261A42"></path>
-                                                <path d="M14.72 1.05591V4.41591C14.72 4.96791 14.272 5.41591 13.72 5.41591C13.168 5.41591 12.72 4.96791 12.72 4.41591C12.72 0.503908 13.168 0.0559082 13.72 0.0559082C14.272 0.0559082 14.72 0.503908 14.72 1.05591Z" fill="#261A42"></path>
-                                            </svg>
-                                        
-                                            <span class="text-sm pb-0">
-                                                {{cadenceText}}
-                                            </span>
-                                        </span>
-                                    </span>
-                                
-                                    <!-- Location / Online icon -->
-                                    <svg width="24" height="24"
-                                        viewBox="0 0 24 24"
-                                        class="w-6 h-6 ml-5 ca-md:ml-0"
-                                        fill="#261A42"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        aria-hidden="true">
-                                        <path d="M17.1757 10.888C16.2717 13.712 13.6557 17.296 11.9997 19.304C9.98372 16.848 6.51172 12.032 6.51172 9.12803C6.51172 6.72803 8.06372 4.67203 10.2237 3.93604C9.95972 3.57604 9.79972 3.12803 9.79972 2.64004C9.79972 2.39204 9.83972 2.16004 9.91172 1.93604C6.79972 2.84004 4.51172 5.72803 4.51172 9.12803C4.51172 13.864 10.9757 21.208 11.2557 21.512L11.9997 22.36L12.7517 21.512C12.9837 21.248 17.8157 15.776 19.1517 11.232C18.9437 11.296 18.7277 11.328 18.4957 11.328C17.9997 11.328 17.5437 11.16 17.1757 10.888Z" fill="#261A42"></path>
-                                        <path d="M11.9922 1.64001C11.4402 1.64001 10.9922 2.08801 10.9922 2.64001C10.9922 3.19201 11.4402 3.64001 11.9922 3.64001C15.0241 3.64001 17.4882 6.10401 17.4882 9.12801C17.4882 9.68001 17.9362 10.128 18.4882 10.128C19.0402 10.128 19.4882 9.68001 19.4882 9.12801C19.4882 5.00001 16.1281 1.64001 11.9922 1.64001Z" fill="#261A42"></path>
-                                        <path d="M11.9996 11.752C13.3036 11.752 14.3596 10.696 14.3596 9.39198C14.3596 8.08798 13.3036 7.03198 11.9996 7.03198C10.6956 7.03198 9.63965 8.08798 9.63965 9.39198C9.63965 10.696 10.6956 11.752 11.9996 11.752Z" fill="#261A42"></path>
-                                    </svg>
-                                
-                                    <p class="text-sm pb-0">
-                                        Online
-                                    </p>
-                                </div>
-                            
-                            </div>
-
-                            <div class="at-choose-path__price-block">
-                                <p class="pb-1 font-nexa-xbold safari-nexa-xbold leading-6 text-indigo text-xl max-md:-tracking-0.1">{{memberPrice}}</p>
-                                <p class="text-base md:text-sml font-nexa-book max-md:-tracking-0.1 text-monochromatic">non-member : {{nonMemberPrice}}</p>
-                            </div>
-                            <a href="{{href}}"
-                               class="at-choose-path__cta at-tracked-tile"
-                               data-element="{{buttonText}}"
-                               data-module="Product tile"
-                               data-title="{{title}}"
-                               data-event-module="Product tile"
-                               data-content-tile-title="{{title}}"
-                               data-content-tile-container="{{containerTitle}}"
-                               data-content-tile-button-text="{{buttonText}}"
-                               data-internal-link="Product tile|{{containerTitle}}|{{title}}|{{buttonText}}"
-                               target="_blank" rel="noopener noreferrer">
-                               {{buttonText}}</a>
-                        </div>
-                        </div>`;
+                            const cardTemplate =
+                                `<div class="at-choose-path__card"><div class="at-choose-path__media"><img src="{{asset}}" alt="{{imgDes}}"><span class="at-choose-path__badge">Sustainability</span></div><div class="at-choose-path__body"><h4 class="at-choose-path__title m-0 mb-2.5 ca-md:mb-1 font-nexa-xbold safari-nexa-xbold ca-md:text-base-l ca-md:leading-150 leading-120 text-indigo line-clamp-2 break-words max-w-[286px]">{{title}}</h4><div class="font-nexa-book text-sm py-5"><div class="flex pb-[10px] items-center gap-x-2 at-choose-path__meta-row"><svg width="18" height="18" viewBox="0 0 18 18" class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.00006 0.208008C4.86406 0.208008 1.38405 3.08801 0.456055 6.93601C0.688055 6.84801 0.944055 6.80001 1.20805 6.80001C1.67205 6.80001 2.10405 6.94401 2.45605 7.19201C3.24805 4.32001 5.88005 2.20801 9.00006 2.20801C12.7521 2.20801 15.7921 5.25601 15.7921 9.00001C15.7921 12.128 13.6801 14.752 10.8081 15.544C11.0561 15.896 11.2001 16.328 11.2001 16.792C11.2001 17.056 11.1521 17.312 11.0641 17.544C14.9201 16.616 17.7921 13.136 17.7921 9.00001C17.7921 4.16001 13.8481 0.208008 9.00006 0.208008Z" fill="#261A42"></path><path d="M12.2883 11.72L9.77633 9.20801L9.73633 3.76001L7.73633 3.77601L7.77633 10.04L10.8723 13.136L12.2883 11.72Z" fill="#261A42"></path><path d="M9.00001 15.792C5.25601 15.792 2.20801 12.752 2.20801 9C2.20801 8.448 1.76801 8 1.20801 8C0.648008 8 0.208008 8.448 0.208008 9C0.208008 13.848 4.16001 17.792 9.00001 17.792C9.56001 17.792 10 17.352 10 16.792C10 16.232 9.56001 15.792 9.00001 15.792Z" fill="#261A42"></path></svg><p class="text-sm pb-0 shrink-0">CPD {{cpdHours}} hour{{cpdPlural}}</p><svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 ml-5 ca-md:ml-0" fill="#261A42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.137 18.224L12.041 18.32H12.233L12.137 18.224Z" fill="#261A42"></path><path d="M20.8887 18.32H15.0567L18.4407 21.704L18.2967 21.848H15.7607L12.2327 18.32L12.1367 18.224L8.51272 21.848H5.96872L5.82472 21.704L9.21672 18.32H3.13672V8.65601H5.13672V16.32H18.8887V8.65601H20.8887V18.32Z" fill="#261A42"></path><path d="M13.776 2.59998H10.248V4.25598H13.776V2.59998Z" fill="#261A42"></path><path d="M22.3764 6.45593C22.3764 7.00793 21.9284 7.45593 21.3764 7.45593H2.64844C2.09644 7.45593 1.64844 7.00793 1.64844 6.45593C1.64844 5.90393 2.09644 5.45593 2.64844 5.45593H21.3764C21.9284 5.45593 22.3764 7.45593 21.3764 7.45593Z" fill="#261A42"></path></svg><p class="line-clamp-1 text-sm break-all pb-0">Course</p></div><div class="flex items-center gap-x-2 at-choose-path__meta-row"><span class="flex gap-x-2 items-center"><span class="flex gap-x-2 items-center mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none" class="size-5" aria-hidden="true"><path d="M6.59202 10.4639C5.20002 10.4639 4.40002 11.2559 4.40002 12.6319V13.2879C4.40002 14.6479 5.22402 15.4559 6.60002 15.4559C7.10402 15.4559 8.75202 15.2959 8.75202 13.2799V12.6319C8.75202 11.2719 7.94402 10.4639 6.59202 10.4639ZM7.40002 12.6399V13.2879C7.40002 13.9439 7.09602 14.3119 6.57602 14.3119C6.05602 14.3119 5.76002 13.9359 5.76002 13.2879V12.6399C5.76002 12.0079 6.06402 11.6399 6.59202 11.6399C7.12002 11.6399 7.40002 12.0079 7.40002 12.6399Z" fill="#261A42"></path><path d="M12.432 14.2478V10.4238L10.072 11.2718L10.056 11.2798V12.3678L11.088 12.0318V14.2478H9.93604V15.3199H13.592V14.2478H12.432Z" fill="#261A42"></path><path d="M15.92 1.94385V3.94385H16V6.39185H2V3.94385H2.08V1.94385H0V19.9438H18V1.94385H15.92ZM16 17.9438H2V8.39185H16V17.9438Z" fill="#261A42"></path><path d="M11.52 1.94385H6.47998V3.94385H11.52V1.94385Z" fill="#261A42"></path><path d="M5.28003 1.05591V4.41591C5.28003 4.96791 4.83203 5.41591 4.28003 5.41591C3.72803 5.41591 3.28003 4.96791 3.28003 4.41591V1.05591C3.28003 0.503908 3.72803 0.0559082 4.28003 0.0559082C4.83203 0.0559082 5.28003 1.05591 5.28003 1.05591Z" fill="#261A42"></path><path d="M14.72 1.05591V4.41591C14.72 4.96791 14.272 5.41591 13.72 5.41591C13.168 5.41591 12.72 4.96791 12.72 4.41591C12.72 0.503908 13.168 0.0559082 13.72 0.0559082C14.272 0.0559082 14.72 1.05591 14.72 1.05591Z" fill="#261A42"></path></svg><span class="text-sm pb-0">{{cadenceText}}</span></span></span><svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6 ml-5 ca-md:ml-0" fill="#261A42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.1757 10.888C16.2717 13.712 13.6557 17.296 11.9997 19.304C9.98372 16.848 6.51172 12.032 6.51172 9.12803C6.51172 6.72803 8.06372 4.67204 10.2237 3.93604C9.95972 3.57604 9.79972 3.12804 9.79972 2.64004C9.79972 2.39204 9.83972 2.16004 9.91172 1.93604C6.79972 2.84004 4.51172 5.72804 4.51172 9.12804C4.51172 13.864 10.9757 21.208 11.2557 21.512L11.9997 22.36L12.7517 21.512C12.9837 21.248 17.8157 15.776 19.1517 11.232C18.9437 11.296 18.7277 11.328 18.4957 11.328C17.9997 11.328 17.5437 11.16 17.1757 10.888Z" fill="#261A42"></path><path d="M11.9922 1.64001C11.4402 1.64001 10.9922 2.08801 10.9922 2.64001C10.9922 3.19201 11.4402 3.64001 11.9922 3.64001C15.0241 3.64001 17.4882 6.10401 17.4882 9.12801C17.4882 9.68001 17.9362 10.128 18.4882 10.128C19.0402 10.128 19.4882 9.68001 19.4882 9.12801C19.4882 5.00001 16.1281 1.64001 11.9922 1.64001Z" fill="#261A42"></path><path d="M11.9996 11.752C13.3036 11.752 14.3596 10.696 14.3596 9.39198C14.3596 8.08798 13.3036 7.03198 11.9996 7.03198C10.6956 7.03198 9.63965 8.08798 9.63965 9.39198C9.63965 10.696 10.6956 11.752 11.9996 11.752Z" fill="#261A42"></path></svg><p class="text-sm pb-0">Online</p></div></div><div class="at-choose-path__price-block"><p class="pb-1 font-nexa-xbold safari-nexa-xbold leading-6 text-indigo text-xl max-md:-tracking-0.1">{{memberPrice}}</p><p class="text-base md:text-sml font-nexa-book max-md:-tracking-0.1 text-monochromatic">non-member : {{nonMemberPrice}}</p></div><a href="{{href}}" class="at-choose-path__cta at-tracked-tile" data-element="{{buttonText}}" data-module="M05 - Tabbed Category Module" data-title="{{title}}" data-event-module="M05 - Tabbed Category Module" data-content-tile-title="{{title}}" data-content-tile-container="{{containerTitle}}" data-content-tile-button-text="View product" data-internal-link="Content Tile|{{title}}|View product" target="_blank" rel="noopener noreferrer">{{buttonText}}</a></div></div>`;
 
                             function courseUrl(auUrl, nzUrl) {
-                                return isNZ ? nzUrl : auUrl;
+                                return isNZ ? nzUrl : auUrl
                             }
-
                             const containerTitle = "Choose the right path";
-
                             const preferredBadgeClass = "is-preferred";
-
-                            const tabsData = [
-                                {
+                            const tabsData = [{
                                     label: "Understand the fundamentals",
-                                    items: [
-                                        {
+                                    items: [{
                                             asset: "https://assets.charteredaccountantsanz.com/asset/86577bcd-6ac4-4f12-97c2-89d24a5311a0/MCT1-UK-Eco-solar-panels.jpg",
                                             imgDes: "Climate change essentials for finance",
                                             title: "Climate change essentials for finance",
@@ -1320,10 +1055,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Climate-Change-Essentials-for-Finance---Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Climate-Change-Essentials-for-Finance--New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/ec7b0027-ece6-4d99-9313-698b664ff04d/Website-Hero-Banner/MCT1-Sustainability-Researcher-at-agriculture-green-house-08.jpg",
@@ -1337,10 +1072,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Sustainability-essentials-Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Sustainability-essentials-New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/418db1a2-8571-40b7-861d-878e87594c9a/MCT1-Aerial-riverbed.jpg",
@@ -1354,10 +1089,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Introduction-to-sustainability---AU",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Introduction-to-sustainability---NZ"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/fd4abc4b-22ee-4c49-bf2b-c9f507372fd4/Website-Hero-Banner/MCT1-International-sustainable-business-10.jpg",
@@ -1371,32 +1106,31 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Materiality-in-sustainability",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Materiality-in-sustainability--"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
-                                        },
-                                    ],
+                                            preferredBadgeClass: "is-hidden"
+                                        }
+                                    ]
                                 },
                                 {
                                     label: "Prepare reporting and disclosures",
-                                    items: [
-                                        {
+                                    items: [{
                                             asset: "https://assets.charteredaccountantsanz.com/asset/7e424f2e-8623-4d29-b97a-528fbdf0fdbc/Website-Hero-Banner/MCT1-Sustainability-Solar-panels-on-a-roof-07.jpg",
-                                            imgDes: "Sustainability reporting",
-                                            title: "Sustainability reporting",
-                                            cpdHours: 2,
+                                            imgDes: "Assessing climate related risks & opportunities",
+                                            title: "Assessing climate related risks & opportunities",
+                                            cpdHours: 4.5,
                                             cpdPlural: "s",
                                             cadenceText: "On Demand",
                                             memberPrice: "$230.00",
                                             nonMemberPrice: "$290.00",
                                             href: courseUrl(
-                                                "https://store.charteredaccountantsanz.com/courses/au/Sustainability-reporting-Australia",
-                                                "https://store.charteredaccountantsanz.com/courses/nz/Sustainability-reporting-nz"
-                                            ),
+                                                "https://store.charteredaccountantsanz.com/courses/au/Assessing-climate-related-risks-and-opportunities-Australia",
+                                                "https://store.charteredaccountantsanz.com/courses/nz/Assessing-climate-related-risks-and-opportunities--micro-course---NZ"
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/630af034-0cbb-40d5-a8cf-5fa971b02606/MCt1-Aerial-view-beach-land-New-Zealand.jpg",
@@ -1410,27 +1144,27 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Climate-Related-Disclosures--Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Climate-related-disclosures---New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/a13eb50b-93a1-4535-b1a6-8c138263cff2/MCT1-UK-Eco-Interior-Building-structure-looking-towards-the-sky.jpg",
                                             imgDes: "Ethical sustainability communication",
                                             title: "Ethical sustainability communication",
-                                            cpdHours: 2,
+                                            cpdHours: 4,
                                             cpdPlural: "s",
                                             cadenceText: "On Demand",
-                                            memberPrice: "$195.00",
-                                            nonMemberPrice: "$245.00",
+                                            memberPrice: "$230.00",
+                                            nonMemberPrice: "$290.00",
                                             href: courseUrl(
-                                                "https://store.charteredaccountantsanz.com/courses/au/Ethical-sustainability-communication-Australia",
-                                                "https://store.charteredaccountantsanz.com/courses/nz/Ethical-sustainability-communication-New-Zealand"
-                                            ),
+                                                "https://store.charteredaccountantsanz.com/courses/au/Ethical-sustainability-communications",
+                                                "https://store.charteredaccountantsanz.com/courses/nz/Ethical-sustainability-communications"
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/bece1975-60bd-46c1-ac5b-ff3b4374ff9f/Website-Hero-Banner/MCT1-Close-up-flower.jpg",
@@ -1444,17 +1178,16 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Emerging-sustainability-reporting-requirements-Beyond-climate",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Emerging-sustainability-reporting-requirements-Beyond-climate--"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
-                                        },
-                                    ],
+                                            preferredBadgeClass: "is-hidden"
+                                        }
+                                    ]
                                 },
                                 {
                                     label: "Apply sustainability in practice",
-                                    items: [
-                                        {
+                                    items: [{
                                             asset: "https://assets.charteredaccountantsanz.com/asset/ec7b0027-ece6-4d99-9313-698b664ff04d/Website-Hero-Banner/MCT1-Sustainability-Researcher-at-agriculture-green-house-08.jpg",
                                             imgDes: "GHG accounting fundamentals",
                                             title: "GHG accounting fundamentals",
@@ -1466,10 +1199,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/GHG-Accounting-Fundamentals--Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/GHG-Accounting-Fundamentals--New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/05b57f25-ec4a-4671-ad42-aea9d54648e7/Website-Content-tile/MCT1-Sustainability-Plastic-recycling-plant-03.jpg",
@@ -1483,10 +1216,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Climate-Risk-to-Resilience--Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Climate-Risk-to-Resilience--New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/3b578de4-374a-4f6d-a7ca-fc9a929b9a6c/Website-Hero-Banner/MCT1-Sustainability-Installing-solar-panel-on-home-09.jpg",
@@ -1500,10 +1233,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Sustainability-assurance-Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Sustainability-assurance--micro-course"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
+                                            preferredBadgeClass: "is-hidden"
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/60cfc50c-1994-4377-ab84-c4556bf5f32a/Website-Hero-Banner/MCT1-Architecture.jpg",
@@ -1517,17 +1250,16 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Sustainable-supply-chain-management-Australia",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Sustainable-supply-chain-management-New-Zealand"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "is-hidden",
-                                        },
-                                    ],
+                                            preferredBadgeClass: "is-hidden"
+                                        }
+                                    ]
                                 },
                                 {
                                     label: "Earn a microcredential",
-                                    items: [
-                                        {
+                                    items: [{
                                             asset: "https://assets.charteredaccountantsanz.com/asset/ef5e2ec4-d1ff-47d3-a359-9cf8aeeebc8e/MKT9986_CertificateInSustainabilityReporting_BackgroundImage.jpg",
                                             imgDes: "Certificate in sustainability reporting",
                                             title: "Certificate in sustainability reporting",
@@ -1539,10 +1271,10 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Certificate-in-sustainability-reporting",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Certificate-in-sustainability-reporting--"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "",
+                                            preferredBadgeClass: ""
                                         },
                                         {
                                             asset: "https://assets.charteredaccountantsanz.com/asset/05b25782-b701-4f10-9380-5d1d9493c7e0/Certificate-in-CRD-background.jpg",
@@ -1556,24 +1288,427 @@
                                             href: courseUrl(
                                                 "https://store.charteredaccountantsanz.com/courses/au/Certificate-in-climate-related-disclosures",
                                                 "https://store.charteredaccountantsanz.com/courses/nz/Certificate-in-climate-related-disclosures---Oct-2026-Group-1-NZ"
-                                            ),
+                                                ),
                                             buttonText: "Learn more",
                                             containerTitle,
-                                            preferredBadgeClass: "",
-                                        },
-                                    ],
-                                },
+                                            preferredBadgeClass: ""
+                                        }
+                                    ]
+                                }
                             ];
-
-
                             const pivot = new PivotRenderer();
                             const tabbedPath = new TabbedPathRenderer(pivot, cardTemplate);
-                            tabsData.forEach((tab) => tabbedPath.addTab(tab.label, tab.items));
+                            tabsData.forEach(tab => tabbedPath.addTab(tab.label, tab.items));
                             tabbedPath.mount("#at-caanz-choose-path");
+                            (function initPersonalizationAnalytics() {
+                                function initDigitalData() {
+                                    window.digitalData = window.digitalData || {};
+                                    window.digitalData.events = window.digitalData.events ||
+                                        [];
+                                    console.log("[CAANZ Analytics] digitalData ready:",
+                                        window.digitalData)
+                                }
 
+                                function getBasePageData() {
+                                    return {
+                                        pageURL: window.location.hostname + window.location
+                                            .pathname,
+                                        site: "eStore"
+                                    }
+                                }
+                                const Analytics = {
+                                    contentTileClick: function (element) {
+                                        initDigitalData();
+                                        const analyticsEvent = {
+                                            action: "click",
+                                            eventType: "contentTileClick",
+                                            eventModule: "Video Banner Module",
+                                            destinationLink: element.href,
+                                            contentTileTitle: element.dataset
+                                                .title,
+                                            contentTileButtonText: element
+                                                .dataset.element,
+                                            internalLink: "Content Tile|" +
+                                                element.dataset.title + "|" +
+                                                element.dataset.element
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] VIDEO BANNER - FIND OUT MORE", {
+                                                element: element,
+                                                event: analyticsEvent
+                                            });
+                                        window.digitalData.events.push(
+                                            analyticsEvent);
+                                        console.log(
+                                            "[CAANZ Analytics] contentTileClick pushed:",
+                                            analyticsEvent)
+                                    },
+                                    videoPlay: function (element) {
+                                        initDigitalData();
+                                        const analyticsEvent = {
+                                            action: "click",
+                                            event: "videoPlay",
+                                            eventModule: "Sustainability Conference",
+                                            elementName: "Play video",
+                                            contentTitle: "Sustainability Conference",
+                                            internalLink: "Sustainability Conference|Play video",
+                                            ...getBasePageData(),
+                                            type: "analytics"
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] VIDEO PLAY / VIDEO CONTAINER CLICK", {
+                                                element: element,
+                                                event: analyticsEvent
+                                            });
+                                        window.digitalData.events.push(
+                                            analyticsEvent)
+                                    },
+                                    navigationClick: function (element) {
+                                        initDigitalData();
+                                        const navigationLinkTitle = element?.dataset?.tabLabel || element?.textContent?.trim() || "";
+                                        const eventModule = element?.dataset?.module || "M05 - Tabbed Category Module";
+                                        const navigationType = element?.dataset?.navigationType || "Tabbed navigation";
+                                        const analyticsEvent = {
+                                            eventType: "navigationClick",
+                                            action: "click",
+                                            eventModule: eventModule,
+                                            navigationType: navigationType,
+                                            navigationLinkTitle: navigationLinkTitle,
+                                            internalLink: eventModule + "|" +
+                                                navigationType + "|" +
+                                                navigationLinkTitle
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] CHOOSE RIGHT PATH TAB CLICK",
+                                            analyticsEvent);
+                                        window.digitalData.events.push(
+                                            analyticsEvent)
+                                    },
+                                    recoModuleView: function (tab, tabIndex) {
+                                        initDigitalData();
+                                        if (!tab) return;
+                                        const moduleItems = tab.data.map((item,
+                                            index) => ({
+                                            moduleItemPosition: index +
+                                                1,
+                                            SKU: item.activityID ||
+                                                null,
+                                            activityName: item
+                                                .activityName || item
+                                                .title || "",
+                                            parentID: item.parentID ||
+                                                null,
+                                            parentName: item
+                                                .parentName || item
+                                                .title || "",
+                                            itemView: "1.0"
+                                        }));
+                                        const analyticsEvent = {
+                                            eventType: "recoModuleView",
+                                            action: "moduleLoad",
+                                            recoModuleDetails: {
+                                                moduleName: tab.data[0]?.containerTitle || "Choose the right path",
+                                                modulePlacement: "M05 - Tabbed Category Module",
+                                                moduleItems: moduleItems
+                                            }
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] CHOOSE RIGHT PATH - RECO MODULE VIEW", {
+                                                tabIndex: tabIndex,
+                                                tabLabel: tab.label,
+                                                event: analyticsEvent
+                                            });
+                                        window.digitalData.events.push(
+                                            analyticsEvent)
+                                    },
+                                    tileClick: function (element) {
+                                        initDigitalData();
+                                        const destinationLink = element.href || "";
+                                        const contentTileContainer = element.dataset
+                                            .contentTileContainer ||
+                                            "Choose the right path";
+                                        const contentTileSubContainer = element
+                                            .dataset.contentTileSubContainer || "";
+                                        const contentTileTitle = element.dataset
+                                            .contentTileTitle || element.dataset
+                                            .title || "";
+                                        const contentTileButtonText =
+                                        "View product";
+                                        const tilePosition = Number(element.dataset
+                                            .tilePosition) || 0;
+                                        const promoMessage = element.dataset
+                                            .promoMessage || "";
+                                        const activityID = element.dataset
+                                            .activityId || null;
+                                        const activityName = element.dataset
+                                            .activityName || contentTileTitle || "";
+                                        const parentID = element.dataset.parentId ||
+                                            null;
+                                        const parentName = element.dataset
+                                            .parentName || contentTileTitle || "";
+                                        const recoModuleName = contentTileContainer;
+                                        const recoModulePlacement =
+                                            "M05 - Tabbed Category Module";
+                                        const crossSellingLinks = recoModuleName +
+                                            "." + recoModulePlacement + "." +
+                                            tilePosition + "." + (activityID ||
+                                            "") + "." + activityName;
+                                        let externalCampaignMerch = "";
+                                        try {
+                                            const url = new URL(destinationLink,
+                                                window.location.origin);
+                                            externalCampaignMerch = url.searchParams
+                                                .get("campaign") || url.searchParams
+                                                .get("campaignCode") || url
+                                                .searchParams.get("utm_campaign") ||
+                                                ""
+                                        } catch (error) {}
+                                        const contentTileEvent = {
+                                            action: "click",
+                                            eventType: "contentTileClick",
+                                            eventModule: "M05 - Tabbed Category Module",
+                                            destinationLink: destinationLink,
+                                            contentTileContainer: contentTileContainer,
+                                            contentTileSubContainer: contentTileSubContainer,
+                                            contentTileTitle: contentTileTitle,
+                                            contentTileButtonText: contentTileButtonText,
+                                            internalLink: "Content Tile|" +
+                                                contentTileTitle + "|" +
+                                                contentTileButtonText,
+                                            promoMessage: promoMessage,
+                                            tilePosition: tilePosition,
+                                            productFindingDetail: {
+                                                productFindingMethod: "Cross Sell",
+                                                internalSearchKeywords: "non-search",
+                                                browseCategories: "non-browse",
+                                                crossSellingLinks: crossSellingLinks,
+                                                internalCampaign: "non-internal campaign",
+                                                externalCampaignMerch: externalCampaignMerch,
+                                                searchFilters: []
+                                            }
+                                        };
+                                        const recoModuleClickEvent = {
+                                            event: "recoModuleClick",
+                                            recoModuleDetails: {
+                                                moduleName: recoModuleName,
+                                                modulePlacement: recoModulePlacement,
+                                                moduleItems: [{
+                                                    moduleItemPosition: tilePosition,
+                                                    SKU: activityID,
+                                                    activityName: activityName,
+                                                    parentID: parentID,
+                                                    parentName: parentName
+                                                }]
+                                            }
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] PRODUCT TILE CLICK", {
+                                                element: element,
+                                                contentTileEvent: contentTileEvent,
+                                                recoModuleClickEvent: recoModuleClickEvent
+                                            });
+                                        window.digitalData.events.push(
+                                            contentTileEvent);
+                                        window.digitalData.events.push(
+                                            recoModuleClickEvent);
+                                        console.log(
+                                            "[CAANZ Analytics] Product events pushed successfully"
+                                            )
+                                    },
+                                    fullWidthBannerClick: function (element) {
+                                        initDigitalData();
+                                        const destinationLink = element.href || "";
+                                        const contentTileTitle = element.dataset
+                                            .title ||
+                                            "Build sustainability skills in your workplace";
+                                        const contentTileButtonText = element
+                                            .dataset.element || "Find out more";
+                                        const eventModule = "Full Width Banner";
+                                        let externalCampaignMerch = "";
+                                        try {
+                                            const url = new URL(destinationLink,
+                                                window.location.origin);
+                                            externalCampaignMerch = url.searchParams
+                                                .get("campaign") || url.searchParams
+                                                .get("campaignCode") || url
+                                                .searchParams.get("utm_campaign") ||
+                                                ""
+                                        } catch (error) {}
+                                        const analyticsEvent = {
+                                            eventType: "contentTileClick",
+                                            action: "click",
+                                            eventModule: eventModule,
+                                            destinationLink: destinationLink,
+                                            contentTileTitle: contentTileTitle,
+                                            contentTileButtonText: contentTileButtonText,
+                                            internalLink: "Content Tile|" +
+                                                contentTileTitle + "|" +
+                                                contentTileButtonText,
+                                            tilePosition: 1,
+                                            productFindingDetail: {
+                                                productFindingMethod: "Internal Campaign",
+                                                internalSearchKeywords: "non-search",
+                                                browseCategories: "non-browse",
+                                                crossSellingLinks: "non-cross sell",
+                                                internalCampaign: window
+                                                    .location.href.split("?")[
+                                                    0] + "|" + eventModule +
+                                                    "|" + contentTileTitle,
+                                                externalCampaignMerch: externalCampaignMerch,
+                                                searchFilters: []
+                                            }
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] FULL WIDTH BANNER CLICK",
+                                            analyticsEvent);
+                                        window.digitalData.events.push(
+                                            analyticsEvent)
+                                    },
+                                    relatedContentClick: function (element) {
+                                        initDigitalData();
+                                        const destinationLink = element.href || "";
+                                        const contentTileContainer = element.dataset
+                                            .contentTileContainer ||
+                                            "Dive deeper into sustainability";
+                                        const contentTileTitle = element.dataset
+                                            .contentTileTitle || "";
+                                        const contentTileButtonText = element
+                                            .dataset.element || element.textContent
+                                            .trim() || "";
+                                        const tilePosition = Number(element.dataset
+                                            .relatedContentPosition) || 0;
+                                        const eventModule =
+                                            "5050 Related Content Module";
+                                        let externalCampaignMerch = "";
+                                        try {
+                                            const url = new URL(destinationLink,
+                                                window.location.origin);
+                                            externalCampaignMerch = url.searchParams
+                                                .get("campaign") || url.searchParams
+                                                .get("campaignCode") || url
+                                                .searchParams.get("utm_campaign") ||
+                                                ""
+                                        } catch (error) {}
+                                        const analyticsEvent = {
+                                            eventType: "contentTileClick",
+                                            action: "click",
+                                            eventModule: eventModule,
+                                            destinationLink: destinationLink,
+                                            contentTileContainer: contentTileContainer,
+                                            contentTileTitle: contentTileTitle,
+                                            contentTileButtonText: contentTileButtonText,
+                                            internalLink: "Content Tile|" +
+                                                contentTileTitle + "|" +
+                                                contentTileButtonText,
+                                            tilePosition: tilePosition,
+                                            productFindingDetail: {
+                                                productFindingMethod: "Internal Campaign",
+                                                internalSearchKeywords: "non-search",
+                                                browseCategories: "non-browse",
+                                                crossSellingLinks: "non-cross sell",
+                                                internalCampaign: window
+                                                    .location.href.split("?")[
+                                                    0] + "|" + eventModule +
+                                                    "|" + contentTileTitle,
+                                                externalCampaignMerch: externalCampaignMerch,
+                                                searchFilters: []
+                                            }
+                                        };
+                                        console.log(
+                                            "[CAANZ Analytics] RELATED CONTENT CLICK",
+                                            analyticsEvent);
+                                        window.digitalData.events.push(
+                                            analyticsEvent)
+                                    },
+                                    sustainabilityBannerClick: function (element) {
+                                        return Analytics.fullWidthBannerClick(
+                                            element)
+                                    }
+                                };
+                                window.CAANZAnalyticsPersonalization = {
+                                    navigationClick: Analytics.navigationClick,
+                                    recoModuleView: Analytics.recoModuleView
+                                };
+                                const trackingConfig = [{
+                                        className: "at-tracked-contentTileClick",
+                                        handler: Analytics.contentTileClick
+                                    },
+                                    {
+                                        className: "at-tracked-play-video",
+                                        handler: Analytics.videoPlay
+                                    },
+                                    {
+                                        className: "at-tracked-tile",
+                                        handler: Analytics.tileClick
+                                    },
+                                    {
+                                        className: "at-tracked-susty-banner-btn",
+                                        handler: Analytics.fullWidthBannerClick
+                                    },
+                                    {
+                                        className: "at-tracked-related-content",
+                                        handler: Analytics.relatedContentClick
+                                    }
+                                ];
+
+                                function handleTrackedClick(event) {
+                                    console.log("[CAANZ Analytics] CLICK DETECTED", {
+                                        target: event.target
+                                    });
+                                    let matched = false;
+                                    for (const config of trackingConfig) {
+                                        let trackedElement = null;
+                                        if (event.target && typeof event.target.closest ===
+                                            "function") trackedElement = event.target
+                                            .closest("." + config.className);
+                                        else if (event.target ?.parentElement)
+                                            trackedElement = event.target.parentElement
+                                            .closest("." + config.className);
+                                        if (!trackedElement) continue;
+                                        matched = true;
+                                        console.log("[CAANZ Analytics] MATCH FOUND", {
+                                            selector: "." + config.className,
+                                            element: trackedElement,
+                                            datasets: {
+                                                ...trackedElement.dataset
+                                            }
+                                        });
+                                        try {
+                                            config.handler(trackedElement)
+                                        } catch (error) {
+                                            console.error(
+                                            "[CAANZ Analytics] HANDLER ERROR", {
+                                                selector: "." + config.className,
+                                                error: error,
+                                                element: trackedElement
+                                            })
+                                        }
+                                        break
+                                    }
+                                    if (!matched) console.log(
+                                        "[CAANZ Analytics] Click did not match a personalization tracking selector."
+                                        )
+                                }
+                                if (!window.__CAANZPersonalizationAnalyticsInitialized) {
+                                    document.addEventListener("click", handleTrackedClick,
+                                        true);
+                                    window.__CAANZPersonalizationAnalyticsInitialized =
+                                    true;
+                                    console.log(
+                                        "[CAANZ Analytics] Personalization tracking INITIALIZED"
+                                        );
+                                    trackingConfig.forEach(config => {
+                                        const matches = document.querySelectorAll(
+                                            "." + config.className);
+                                        console.log(
+                                            "[CAANZ Analytics] Selector check:",
+                                            "." + config.className, "Count:",
+                                            matches.length, matches)
+                                    })
+                                }
+                            })();
                             const $c2 = $(".at-caanz-all-slick-2");
                             if (!$c2.length || $c2.hasClass("slick-initialized")) return;
-
                             $c2.slick({
                                 arrows: false,
                                 slidesToShow: 2,
@@ -1587,34 +1722,60 @@
                                     }
                                 }]
                             });
-
                             requestAnimationFrame(() => $c2.slick("setPosition"));
                             $(window).on("load", () => {
                                 $c2.slick("setPosition")
                             });
                         })();
-
-                        if (window.next?.router) {
-                            const router = window.next.router;
-
-                            router.events.on("routeChangeStart", (url) => {
-                                if (window.CAANZAnalytics) {
-                                    window.CAANZAnalytics = {};
-                                }
+                    if (window.next ?.router) {
+                        const router = window.next.router;
+                        router.events.on("routeChangeStart", url => {
+                            if (window.CAANZAnalytics) window.CAANZAnalytics = {};
+                            window.__CAANZPersonalizationAnalyticsInitialized = false;
+                            const videoWrapper = document.querySelector(
+                                "#at-sustainability-video-wrapper");
+                            if (videoWrapper) {
+                                const videoContainer = videoWrapper.querySelector(
+                                    "div.rich-text.container.mx-auto");
+                                if (videoContainer) videoWrapper.parentNode.insertBefore(
+                                    videoContainer, videoWrapper);
+                                videoWrapper.remove()
+                            }
+                            const headingWrapper = document.querySelector(
+                            ".at-richtext-header");
+                            if (headingWrapper) {
+                                const movedRichText = headingWrapper.querySelector(
+                                    "div.rich-text.container.mx-auto");
+                                if (movedRichText) headingWrapper.parentNode.insertBefore(
+                                    movedRichText, headingWrapper);
+                                headingWrapper.remove()
+                            }
+                            const slider = $(".at-caanz-all-slick-2");
+                            if (slider.length && slider.hasClass("slick-initialized")) slider
+                                .slick("unslick");
+                            ["#at-sustainability-video-wrapper", "#action_insert_1787548658480",
+                                ".sustainability-banner"
+                            ].forEach(selector => {
+                                document.querySelectorAll(selector).forEach(element =>
+                                    element.remove())
                             });
-                        }
+                            document.querySelectorAll("#action_insert_1787545534995").forEach(
+                                element => {
+                                    element.querySelectorAll(".at-richtext-header").forEach(
+                                        header => header.remove())
+                                });
+                            document.querySelectorAll("[data-at-caanz-hidden]").forEach(
+                                element => {
+                                    element.style.display = "";
+                                    element.removeAttribute("data-at-caanz-hidden")
+                                })
+                        })
                     }
-
-                    loadPackages()
-                        .then(runYourCode)
-                        .catch((error) => {
-                            console.error("An error occurred while loading packages:", error);
-                        });
-                })();
-            }
-        });
-
-
-
-
+                }
+                loadPackages().then(runYourCode).catch(error => {
+                    console.error("An error occurred while loading packages:", error)
+                });
+            })();
+        },
+    });
 </script>
